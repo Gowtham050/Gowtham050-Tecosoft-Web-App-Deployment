@@ -134,7 +134,7 @@ export default function BenefitsSection() {
 
   return (
     <motion.div
-      className="relative h-auto min-h-[650px] min-[630px]:min-h-[750px]  min-[1023px]:min-h-[700px] min-[1280px]:min-h-[600px] lg:min-h-[750px] w-full overflow-hidden py-8 md:py-8 lg:py-8 xl:py-0"
+      className="relative h-auto min-h-[650px] min-[630px]:min-h-[750px]  min-[1023px]:min-h-[800px] min-[1280px]:min-h-[650px]  w-full overflow-hidden py-8 md:py-8 lg:py-8 xl:py-0"
       style={{ backgroundColor: "rgba(232, 249, 255, 1)" }}
       data-name="Benefits"
       initial={{ opacity: 0 }}

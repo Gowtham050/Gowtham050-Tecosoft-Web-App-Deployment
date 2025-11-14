@@ -98,7 +98,7 @@ function FeatureSection() {
 
   return (
     <div
-      className="relative shrink-0 w-full flex items-center justify-center py-[100px] max-lg:py-[60px]"
+      className="relative shrink-0 w-full flex items-center justify-center pt-[80px] max-lg:pt-[60px] pb-[40px]"
       style={{
         backgroundImage:
           "linear-gradient(90deg, rgba(0, 184, 219, 0.1) 0%, rgba(0, 184, 219, 0.1) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%))",

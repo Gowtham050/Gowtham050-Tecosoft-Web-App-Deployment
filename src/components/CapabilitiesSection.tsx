@@ -33,27 +33,54 @@ export default function CapabilitiesSection() {
   const card3Blur = useTransform(scrollYProgress, [0, 0.66], [2, 0]);
 
   return (
-    <div className="relative w-full bg-gradient-to-b from-[#005b80] via-[#006b99] to-[#007bb3] py-[100px_15px]  sm:py-[90px_40px] md:py-[100px] lg:py-[120px] xl:py-[150px]">
+    <div className="relative w-full bg-gradient-to-b from-[#005b80] via-[#006b99] to-[#007bb3] py-[100px_15px] sm:py-[90px_40px] md:py-[100px] lg:py-[120px] xl:py-[150px]">
       <div className="relative w-full" data-name="Capabilities">
-        {/* Cards Container - Stacked with depth effect */}
+        {/* Mobile Layout (300px - 767.5px) - Cards listed one by one without animations */}
+        <div className="block md:hidden px-4">
+          {/* Header */}
+          <div className="flex flex-col items-start justify-start mx-auto text-white mb-[30px] gap-3">
+            <p className="font-['Gilroy:Semibold',sans-serif] leading-[24px] text-[20px] whitespace-nowrap">
+              Capabilities
+            </p>
+            <p className="font-['Gilroy:Medium',sans-serif] leading-[18px] text-[14px] w-full">
+              Seamlessly connect, monitor, and manage CNC, VMC, HMC, Molding,
+              and laser systems in real time.
+            </p>
+          </div>
+
+          {/* Cards Container - Static list */}
+          <div className="flex flex-col gap-6 w-full max-w-[500px] mx-auto">
+            <div className="w-full">
+              <CapabilityCard1 />
+            </div>
+            <div className="w-full">
+              <CapabilityCard2 />
+            </div>
+            <div className="w-full">
+              <CapabilityCard3 />
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout (768px+) - Cards with scroll animations */}
         <div
           ref={containerRef}
-          className="relative mx-auto w-full flex items-start justify-center min-h-[800px] sm:min-h-[900px] md:min-h-[1000px] lg:min-h-[1100px] xl:min-h-[1200px] px-4 sm:px-6 md:px-8 lg:px-8 xl:px-0"
+          className="hidden md:flex relative mx-auto w-full items-start justify-center min-h-[1000px] lg:min-h-[1100px] xl:min-h-[1200px] px-8 lg:px-8 xl:px-0"
         >
-          <div className="sticky top-[80px] sm:top-[90px] md:top-[100px] lg:top-[120px] xl:top-[130px] w-full max-w-[300px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[1000px] xl:max-w-[1152px] h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px]">
+          <div className="sticky top-[100px] lg:top-[120px] xl:top-[130px] w-full max-w-[700px] lg:max-w-[1000px] xl:max-w-[1152px] h-[350px] lg:h-[380px] xl:h-[400px]">
             {/* Header - Moves with Card 1 */}
             <motion.div
-              className="content-stretch flex flex-col lg:flex-row h-auto lg:h-[46px] items-start lg:items-center justify-between mx-auto not-italic text-white mb-[30px] sm:mb-[35px] md:mb-[40px] lg:mb-[50px] xl:mb-[60px] w-full absolute top-[-60px] sm:top-[-70px] md:top-[-80px] lg:top-[-95px] xl:top-[-110px] left-0 gap-3 sm:gap-3.5 md:gap-4 lg:gap-0"
+              className="content-stretch flex flex-col lg:flex-row h-auto lg:h-[46px] items-start lg:items-center justify-between mx-auto not-italic text-white mb-[40px] lg:mb-[50px] xl:mb-[60px] w-full absolute top-[-80px] lg:top-[-95px] xl:top-[-110px] left-0 gap-4 lg:gap-0"
               style={{
                 y: card1Y,
                 opacity: card1Opacity,
                 zIndex: 50,
               }}
             >
-              <p className="font-['Gilroy:Semibold',sans-serif] leading-[24px] sm:leading-[28px] md:leading-[32px] lg:leading-[36px] xl:leading-[38px] relative shrink-0 text-[20px] sm:text-[24px] md:text-[28px] lg:text-[30px] xl:text-[33px] whitespace-nowrap">
+              <p className="font-['Gilroy:Semibold',sans-serif] leading-[32px] lg:leading-[36px] xl:leading-[38px] relative shrink-0 text-[28px] lg:text-[30px] xl:text-[33px] whitespace-nowrap">
                 Capabilities
               </p>
-              <p className="font-['Gilroy:Medium',sans-serif] leading-[18px] sm:leading-[19px] md:leading-[20px] lg:leading-[22px] xl:leading-[23px] relative shrink-0 text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] w-full lg:w-[420px] xl:w-[500px]">
+              <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] lg:leading-[22px] xl:leading-[23px] relative shrink-0 text-[16px] lg:text-[17px] xl:text-[18px] w-full lg:w-[420px] xl:w-[500px]">
                 Seamlessly connect, monitor, and manage CNC, VMC, HMC, Molding,
                 and laser systems in real time.
               </p>
@@ -61,7 +88,7 @@ export default function CapabilitiesSection() {
 
             {/* Card 3 - Bottom layer */}
             <motion.div
-              className="absolute top-[40px] sm:top-[35px] md:top-[30px] lg:top-0 left-0 w-full origin-center"
+              className="absolute top-[30px] lg:top-0 left-0 w-full origin-center"
               style={{
                 y: card3Y,
                 scale: card3Scale,
@@ -74,7 +101,7 @@ export default function CapabilitiesSection() {
 
             {/* Card 2 - Middle layer */}
             <motion.div
-              className="absolute top-[40px] sm:top-[35px] md:top-[30px] lg:top-0 left-0 w-full origin-center"
+              className="absolute top-[30px] lg:top-0 left-0 w-full origin-center"
               style={{
                 y: card2Y,
                 scale: card2Scale,
@@ -88,7 +115,7 @@ export default function CapabilitiesSection() {
 
             {/* Card 1 - Top layer */}
             <motion.div
-              className="absolute top-[40px] sm:top-[35px] md:top-[30px] lg:top-0 left-0 w-full origin-center"
+              className="absolute top-[30px] lg:top-0 left-0 w-full origin-center"
               style={{
                 y: card1Y,
                 opacity: card1Opacity,
