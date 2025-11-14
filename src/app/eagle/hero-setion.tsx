@@ -14,11 +14,11 @@ const img = "/assets/platform/eagle/banner-full.png";
 const imgStaticHeroMobile = "/assets/platform/eagle/5.svg";
 
 // Individual product images
-const imgCNC = "/assets/platform/eagle/banner/cnc-machine.png";
+const imgCNC = "/assets/platform/eagle/banner/cnc.png";
 const imgVMC = "/assets/platform/eagle/banner/vmc.png";
-const imgHMC = "/assets/platform/eagle/banner/HMC.png";
+const imgHMC = "/assets/platform/eagle/banner/hmc.png";
 const imgManual = "/assets/platform/eagle/banner/manual-machine.png";
-const imgPress = "/assets/platform/eagle/banner/press-cutter.png";
+const imgPress = "/assets/platform/eagle/banner/press-break.png";
 const imgLaser = "/assets/platform/eagle/banner/laser-cutting.png";
 const imgHMIPanel = "/assets/platform/eagle/banner/hmi-panel.svg";
 

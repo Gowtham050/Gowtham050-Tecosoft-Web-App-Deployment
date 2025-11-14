@@ -5,7 +5,7 @@ export default function CapabilityCard2() {
     { name: "CNC", logo: "/assets/platform/eagle/CNC.png" },
     { name: "VMC", logo: "/assets/platform/eagle/VMC.png" },
     { name: "HMC", logo: "/assets/platform/eagle/HMC.png" },
-    { name: "Molding Machine", logo: "/assets/platform/eagle/molding_machine.png" },
+    { name: "Molding Machine", logo: "/assets/platform/eagle/molding.png" },
   ];
 
   return (
