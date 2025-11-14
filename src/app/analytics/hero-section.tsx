@@ -88,7 +88,7 @@ export default function HeroSection() {
     const tabCardsY = useTransform(
       scrollYProgress,
       [0.15, 0.45],
-      [270, 0],
+      [120, 0],
     );
 
   const [windowWidth, setWindowWidth] = useState(
