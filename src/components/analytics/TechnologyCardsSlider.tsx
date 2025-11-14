@@ -103,13 +103,13 @@ function GroupSVG({ svgPaths }: { svgPaths: any }) {
 
 export default function TechnologyCardsSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isScrollLocked, setIsScrollLocked] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const [isMidRange, setIsMidRange] = useState(false);
+  const [flippedCard, setFlippedCard] = useState<number | null>(null);
+  const [isMouseInSwiper, setIsMouseInSwiper] = useState(false);
   const swiperRef = useRef<SwiperType | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isAnimatingRef = useRef(false);
-  const scrollUnlockTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const swiperContainerRef = useRef<HTMLDivElement>(null);
 
   // Detect screen size
   useEffect(() => {
@@ -131,90 +131,32 @@ export default function TechnologyCardsSlider() {
     }
   };
 
-  useEffect(() => {
-    // Only enable scroll locking on large screens (>= 1024px)
-    if (!isLargeScreen) return;
+  // Handle swiper mouse enter - enable flip functionality
+  const handleSwiperMouseEnter = () => {
+    if (isLargeScreen) {
+      setIsMouseInSwiper(true);
+    }
+  };
 
-    const handleWheel = (e: WheelEvent) => {
-      if (!containerRef.current || !swiperRef.current) return;
+  // Handle swiper mouse leave - disable flip and reset
+  const handleSwiperMouseLeave = () => {
+    setIsMouseInSwiper(false);
+    setFlippedCard(null);
+  };
 
-      const rect = containerRef.current.getBoundingClientRect();
-      const isAtTop = rect.top <= 1 && rect.top >= -1;
-      const isInViewport = rect.bottom > 0 && rect.top < window.innerHeight;
+  // Handle individual card mouse enter (only when mouse is in swiper)
+  const handleCardMouseEnter = (index: number) => {
+    if (isLargeScreen && isMouseInSwiper && index === activeIndex) {
+      setFlippedCard(index);
+    }
+  };
 
-      // Lock scroll when section reaches the top
-      if (isAtTop && !isScrollLocked && isInViewport) {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsScrollLocked(true);
-        return;
-      }
-
-      // Handle scrolling when locked
-      if (isScrollLocked) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        // Prevent rapid scrolling during animation
-        if (isAnimatingRef.current) return;
-
-        const scrollingDown = e.deltaY > 0;
-        const scrollingUp = e.deltaY < 0;
-
-        if (scrollingDown) {
-          if (activeIndex < cardData.length - 1) {
-            // Navigate to next card
-            isAnimatingRef.current = true;
-            swiperRef.current.slideNext();
-            setTimeout(() => {
-              isAnimatingRef.current = false;
-            }, 800);
-          } else {
-            // On 4th card - complete the flip animation then unlock
-            isAnimatingRef.current = true;
-
-            // Wait for any ongoing animation to complete
-            setTimeout(() => {
-              isAnimatingRef.current = false;
-              setIsScrollLocked(false);
-
-              // Allow a brief moment for scroll to resume naturally
-              scrollUnlockTimeoutRef.current = setTimeout(() => {
-                // Reset to first card when section leaves viewport
-                if (containerRef.current) {
-                  const newRect = containerRef.current.getBoundingClientRect();
-                  if (newRect.bottom < 0) {
-                    swiperRef.current?.slideTo(0, 0);
-                  }
-                }
-              }, 1000);
-            }, 100);
-          }
-        } else if (scrollingUp) {
-          if (activeIndex > 0) {
-            // Navigate to previous card
-            isAnimatingRef.current = true;
-            swiperRef.current.slidePrev();
-            setTimeout(() => {
-              isAnimatingRef.current = false;
-            }, 800);
-          } else {
-            // On 1st card - unlock to scroll up
-            setIsScrollLocked(false);
-          }
-        }
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false, capture: true });
-
-    return () => {
-      window.removeEventListener('wheel', handleWheel, { capture: true });
-      if (scrollUnlockTimeoutRef.current) {
-        clearTimeout(scrollUnlockTimeoutRef.current);
-      }
-    };
-  }, [activeIndex, isScrollLocked, isLargeScreen]);
+  // Handle individual card mouse leave
+  const handleCardMouseLeave = () => {
+    if (isMouseInSwiper) {
+      setFlippedCard(null);
+    }
+  };
 
   return (
     <div
@@ -233,7 +175,12 @@ export default function TechnologyCardsSlider() {
       {isLargeScreen ? (
         <>
           {/* Swiper Container - For large screens (>= 1024px) */}
-          <div className="absolute left-1/2 top-[220px] lg:top-[180px] xl:top-[220px] translate-x-[-50%] w-[90%] lg:w-[88%] xl:w-[1152px] h-[368px] lg:h-[320px] xl:h-[368px] opacity-0 animate-[cardFadeIn_1s_ease-out_0.6s_forwards]">
+          <div
+            ref={swiperContainerRef}
+            className="absolute left-1/2 top-[220px] lg:top-[180px] xl:top-[220px] translate-x-[-50%] w-[90%] lg:w-[88%] xl:w-[1152px] h-[368px] lg:h-[320px] xl:h-[368px] opacity-0 animate-[cardFadeIn_1s_ease-out_0.6s_forwards]"
+            onMouseEnter={handleSwiperMouseEnter}
+            onMouseLeave={handleSwiperMouseLeave}
+          >
             <Swiper
               effect="cube"
               grabCursor={true}
@@ -260,39 +207,54 @@ export default function TechnologyCardsSlider() {
             >
               {cardData.map((card, index) => (
                 <SwiperSlide key={card.id}>
-                  <div className="bg-white h-[368px] lg:h-[320px] xl:h-[368px] relative rounded-[24px] lg:rounded-[20px] xl:rounded-[24px] w-full transition-all duration-300 hover:shadow-2xl">
-                    <div className="absolute inset-0 pointer-events-none shadow-[4px_4px_12px_0px_inset_rgba(0,0,0,0.12)] rounded-[24px] lg:rounded-[20px] xl:rounded-[24px]" />
+                  <div
+                    className="flip-card h-[368px] lg:h-[320px] xl:h-[368px] w-full"
+                    onMouseEnter={() => handleCardMouseEnter(index)}
+                    onMouseLeave={handleCardMouseLeave}
+                    style={{ perspective: '1000px' }}
+                  >
+                    <div
+                      className={`flip-card-inner relative w-full h-full transition-transform duration-700 ${flippedCard === index ? 'flipped' : ''}`}
+                      style={{ transformStyle: 'preserve-3d' }}
+                    >
+                      {/* Front Side */}
+                      <div className="flip-card-front absolute w-full h-full" style={{ backfaceVisibility: 'hidden' }}>
+                        <div className="bg-white h-full relative rounded-[24px] lg:rounded-[20px] xl:rounded-[24px] w-full transition-all duration-300 hover:shadow-2xl">
+                          <div className="absolute inset-0 pointer-events-none shadow-[4px_4px_12px_0px_inset_rgba(0,0,0,0.12)] rounded-[24px] lg:rounded-[20px] xl:rounded-[24px]" />
 
-                    {/* Card Content */}
-                    <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[28px] lg:leading-[24px] xl:leading-[28px] left-[50px] lg:left-[40px] xl:left-[50px] not-italic text-[#0098d4] text-[28px] lg:text-[24px] xl:text-[28px] text-nowrap top-[50px] lg:top-[40px] xl:top-[50px] whitespace-pre">
-                      {card.title}
-                    </p>
-                    <p className="absolute font-['Gilroy:Regular',sans-serif] leading-[25px] lg:leading-[22px] xl:leading-[25px] left-[50px] lg:left-[40px] xl:left-[50px] not-italic text-[#636363] text-[18px] lg:text-[15px] xl:text-[18px] top-[114px] lg:top-[95px] xl:top-[114px] w-[650px] lg:w-[50%] xl:w-[650px]">
-                      {card.description}
-                    </p>
+                          {/* Card Content */}
+                          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[28px] lg:leading-[24px] xl:leading-[28px] left-[50px] lg:left-[40px] xl:left-[50px] not-italic text-[#0098d4] text-[28px] lg:text-[24px] xl:text-[28px] text-nowrap top-[50px] lg:top-[40px] xl:top-[50px] whitespace-pre">
+                            {card.title}
+                          </p>
+                          <p className="absolute font-['Gilroy:Regular',sans-serif] leading-[25px] lg:leading-[22px] xl:leading-[25px] left-[50px] lg:left-[40px] xl:left-[50px] not-italic text-[#636363] text-[18px] lg:text-[15px] xl:text-[18px] top-[114px] lg:top-[95px] xl:top-[114px] w-[650px] lg:w-[50%] xl:w-[650px]">
+                            {card.description}
+                          </p>
 
-                    {/* Metrics */}
-                    <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[50px] lg:left-[40px] xl:left-[50px] not-italic top-[250px] lg:top-[210px] xl:top-[250px]">
-                      <p className="font-['Gilroy:Semibold',sans-serif] leading-[44px] lg:leading-[38px] xl:leading-[44px] min-w-full relative shrink-0 text-[#282828] text-[42px] lg:text-[36px] xl:text-[42px] w-[min-content]">
-                        {card.metric1.value}
-                      </p>
-                      <p className="font-['Gilroy:Regular',sans-serif] leading-[20px] lg:leading-[18px] xl:leading-[20px] relative shrink-0 text-[#636363] text-[16px] lg:text-[14px] xl:text-[16px] text-nowrap whitespace-pre">
-                        {card.metric1.label}
-                      </p>
-                    </div>
+                          {/* Metrics */}
+                          <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[50px] lg:left-[40px] xl:left-[50px] not-italic top-[250px] lg:top-[210px] xl:top-[250px]">
+                            <p className="font-['Gilroy:Semibold',sans-serif] leading-[44px] lg:leading-[38px] xl:leading-[44px] min-w-full relative shrink-0 text-[#282828] text-[42px] lg:text-[36px] xl:text-[42px] w-[min-content]">
+                              {card.metric1.value}
+                            </p>
+                            <p className="font-['Gilroy:Regular',sans-serif] leading-[20px] lg:leading-[18px] xl:leading-[20px] relative shrink-0 text-[#636363] text-[16px] lg:text-[14px] xl:text-[16px] text-nowrap whitespace-pre">
+                              {card.metric1.label}
+                            </p>
+                          </div>
 
-                    <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[273px] lg:left-[230px] xl:left-[273px] not-italic top-[250px] lg:top-[210px] xl:top-[250px]">
-                      <p className="font-['Gilroy:Semibold',sans-serif] leading-[44px] lg:leading-[38px] xl:leading-[44px] min-w-full relative shrink-0 text-[#282828] text-[42px] lg:text-[36px] xl:text-[42px] w-[min-content]">
-                        {card.metric2.value}
-                      </p>
-                      <p className="font-['Gilroy:Regular',sans-serif] leading-[20px] lg:leading-[18px] xl:leading-[20px] relative shrink-0 text-[#636363] text-[16px] lg:text-[14px] xl:text-[16px] text-nowrap whitespace-pre">
-                        {card.metric2.label}
-                      </p>
-                    </div>
+                          <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[273px] lg:left-[230px] xl:left-[273px] not-italic top-[250px] lg:top-[210px] xl:top-[250px]">
+                            <p className="font-['Gilroy:Semibold',sans-serif] leading-[44px] lg:leading-[38px] xl:leading-[44px] min-w-full relative shrink-0 text-[#282828] text-[42px] lg:text-[36px] xl:text-[42px] w-[min-content]">
+                              {card.metric2.value}
+                            </p>
+                            <p className="font-['Gilroy:Regular',sans-serif] leading-[20px] lg:leading-[18px] xl:leading-[20px] relative shrink-0 text-[#636363] text-[16px] lg:text-[14px] xl:text-[16px] text-nowrap whitespace-pre">
+                              {card.metric2.label}
+                            </p>
+                          </div>
 
-                    {/* SVG Graphic - Right Side */}
-                    <div className="absolute right-[55px] lg:right-[40px] xl:right-[55px] top-[50px] lg:top-[40px] xl:top-[50px] pointer-events-none scale-100 lg:scale-90 xl:scale-100 transition-transform duration-300">
-                      <GroupSVG svgPaths={card.svgPaths} />
+                          {/* SVG Graphic - Right Side */}
+                          <div className="absolute right-[55px] lg:right-[40px] xl:right-[55px] top-[50px] lg:top-[40px] xl:top-[50px] pointer-events-none scale-100 lg:scale-90 xl:scale-100 transition-transform duration-300">
+                            <GroupSVG svgPaths={card.svgPaths} />
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>
