@@ -263,7 +263,7 @@ export default function TechnologyCardsSlider() {
           </div>
 
           {/* Custom Pagination Buttons - For large screens */}
-          <div className="absolute content-stretch flex gap-[16px] lg:gap-[12px] xl:gap-[16px] items-center left-[8%] lg:left-[6%] xl:left-[240px] top-[648px] lg:top-[560px] xl:top-[648px] w-[84%] lg:w-[88%] xl:w-[1032px] opacity-0 animate-[buttonsSlideUp_0.8s_ease-out_1s_forwards]">
+          <div className="absolute content-stretch flex gap-[16px] lg:gap-[12px] xl:gap-[16px] items-center left-[8%] lg:left-[6%] xl:left-[11%] 2xl:left-[240px] top-[648px] lg:top-[560px] xl:top-[648px] w-[84%] lg:w-[88%] xl:w-[1032px] opacity-0 animate-[buttonsSlideUp_0.8s_ease-out_1s_forwards]">
             {cardData.map((card, index) => (
               <button
                 key={card.id}

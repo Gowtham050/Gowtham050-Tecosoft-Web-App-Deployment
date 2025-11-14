@@ -119,9 +119,7 @@ const StatsSection = () => {
 
   const StatsRow: React.FC<StatsRowProps> = ({ items, alignment = "start" }) => (
     <div
-      className={`flex flex-col md:flex-row ${
-        alignment === "center" ? "items-center" : "items-start"
-      } gap-5 md:gap-6 lg:gap-[32px] relative w-full`}
+      className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-col md:flex-row items-start gap-5 md:gap-6 lg:gap-[32px] relative w-full`}
     >
       {items.map((stat, index) => (
         <StatCard key={index} {...stat} />
@@ -129,12 +127,12 @@ const StatsSection = () => {
     </div>
   );
 
-  const firstRowStats = stats.slice(0, 3);
-  const secondRowStats = stats.slice(3, 6);
+  const firstRowStats = stats.slice(0, 6);
+  // const secondRowStats = stats.slice(3, 6);
 
   return (
     <div className="flex flex-col items-center gap-8 md:gap-10 lg:gap-[48px] px-4 sm:px-6 md:px-8 lg:px-0 py-10 md:py-12 lg:py-14 relative w-full bg-white">
-      <div className="flex flex-col w-full max-w-[90%] md:max-w-[700px] lg:max-w-[1112px] items-center gap-4 md:gap-6 relative z-10">
+      <div className="flex flex-col w-full max-w-[90%] items-center gap-4 md:gap-6 relative z-10">
         <div className="inline-flex flex-col items-center gap-1.5 relative">
           <div className="relative w-full text-center px-2 font-medium text-[#333333] text-3xl sm:text-3xl md:text-4xl lg:text-[48px] tracking-[0] leading-tight lg:leading-[48px]">
             {titleFirstLine}
@@ -143,13 +141,12 @@ const StatsSection = () => {
             {titleSecondLine}
           </div>
         </div>
-        <p className="relative w-full   font-normal text-[#333333] text-sm sm:text-base md:text-lg text-center tracking-[0] leading-6 md:leading-7 px-2">
+        <p className="relative w-full font-normal text-[#333333] text-sm sm:text-base md:text-lg text-center tracking-[0] leading-6 md:leading-7 px-2">
           {subtitle}
         </p>
       </div>
-      <div className="flex flex-col w-full max-w-[90%] md:max-w-[95%] lg:max-w-[1312px] items-start gap-6 md:gap-8 lg:gap-[46px] relative z-10">
+      <div className="w-full sm:max-w-[95%] relative z-10">
         <StatsRow items={firstRowStats} alignment="start" />
-        <StatsRow items={secondRowStats} alignment="center" />
       </div>
     </div>
   );

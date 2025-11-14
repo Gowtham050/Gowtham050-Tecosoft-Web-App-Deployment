@@ -22,12 +22,12 @@ export default function HeroDashboardAnimation({
   // Status cards (Group1151) animation - slide down from above
   const statusCardsY = useTransform(
     scrollYProgress,
-    [0.15, 0.35],
-    [-700, 0],
+    [0.15, 0.4],
+    [-750, 0],
   );
   const tabCardsY = useTransform(
     scrollYProgress,
-    [0.15, 0.35],
+    [0.15, 0.4],
     [270, 0],
   );
 

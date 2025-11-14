@@ -55,7 +55,7 @@ const ClientSlider = () => {
 
 const BannerSection = () => {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden">
       {/* Video Background */}
       <video
         autoPlay

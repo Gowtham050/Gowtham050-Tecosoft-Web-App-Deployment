@@ -25,31 +25,31 @@ export default function Group({ scrollYProgress }: GroupProps) {
   // Cards 1 & 2 - animate from top-left
   const topLeftX = useTransform(
     scrollYProgress,
-    [0.15, 0.35],
+    [0.15, 0.4],
     [-400, 0],
   );
   const topLeftY = useTransform(
     scrollYProgress,
-    [0.15, 0.35],
+    [0.15, 0.4],
     [0, 0],
   );
 
   // Cards 3 & 4 - animate from top-right
   const topRightX = useTransform(
     scrollYProgress,
-    [0.15, 0.35],
+    [0.15, 0.4],
     [400, 0],
   );
   const topRightY = useTransform(
     scrollYProgress,
-    [0.15, 0.35],
+    [0.15, 0.4],
     [0, 0],
   );
 
   // Rotation animation for all cards
   const rotation = useTransform(
     scrollYProgress,
-    [0.15, 0.35],
+    [0.15, 0.4],
     [60, 0],
   );
 
