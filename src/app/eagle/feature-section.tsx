@@ -11,13 +11,13 @@ const imgFrame1171277136Features =
   "/assets/platform/eagle/feature/data-processing.gif";
 const imgFrame1171277140Features = "/assets/platform/eagle/feature/one-box.gif";
 const imgFrame1171277142Features = "/assets/platform/eagle/feature/kpis.gif";
-const imgFrame1171277145Features = "/assets/platform/eagle/feature/edge.gif";
+const imgFrame1171277145Features = "/assets/platform/eagle/feature/flex-edge.gif";
 
 // Static image versions (first frame of GIFs)
 const imgFrame1171277136Static =
   "/assets/platform/eagle/feature/data-proccess.png";
 const imgFrame1171277140Static = "/assets/platform/eagle/feature/one-data.png";
-const imgFrame1171277142Static = "/assets/platform/eagle/feature/kpis.png";
+const imgFrame1171277142Static = "/assets/platform/eagle/feature/kpi.png";
 const imgFrame1171277145Static = "/assets/platform/eagle/feature/edge.png";
 
 const cardAnimation: any = {

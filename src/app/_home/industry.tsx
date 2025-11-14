@@ -215,7 +215,7 @@ const Industry = () => {
               <div className="flex flex-col items-start gap-1 sm:gap-1.5 relative self-stretch w-full">
                 <h3
                   className={`relative self-stretch font-semibold text-[#222222] ${
-                    hover ===  card.id
+                    hover === card.id
                       ? "text-base sm:text-lg md:text-xl lg:text-[22px] leading-snug md:leading-7"
                       : "text-base sm:text-lg md:text-xl leading-snug md:leading-6"
                   } transition-colors duration-300 group-hover:text-[#00B7FF]`}
@@ -224,7 +224,7 @@ const Industry = () => {
                 </h3>
                 <p
                   className={`relative self-stretch font-medium text-[#888888] ${
-                    hover ===  card.id
+                    hover === card.id
                       ? "text-xs sm:text-sm md:text-base leading-relaxed md:leading-[22px]"
                       : "text-xs sm:text-xs md:text-sm leading-relaxed md:leading-[19px]"
                   } transition-colors duration-300 group-hover:text-[#666666]`}
