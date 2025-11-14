@@ -882,7 +882,7 @@ function FeatureSection() {
 
         {/* Card 8: Operator Dashboard */}
         <motion.div
-          className="group lg:absolute box-border content-stretch cursor-pointer flex flex-col gap-[10px] xl:gap-[12px] h-[220px] lg:h-[43.33%] items-start justify-end lg:left-[70.63%] overflow-clip p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[15.12%] lg:w-[17.46%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-105 transition-transform duration-500 ease-out"
+          className="group lg:absolute bg-[#243D70] box-border content-stretch cursor-pointer flex flex-col gap-[10px] xl:gap-[12px] h-[220px] lg:h-[43.33%] items-start justify-end lg:left-[70.63%] overflow-clip p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[15.12%] lg:w-[17.46%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-105 transition-transform duration-500 ease-out"
           custom={isMobile ? undefined : 7}
           initial={isMobile ? "visible" : "hidden"}
           whileInView={isMobile ? undefined : "visible"}
