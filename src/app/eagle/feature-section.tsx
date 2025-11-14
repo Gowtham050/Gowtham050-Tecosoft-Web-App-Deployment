@@ -10,17 +10,15 @@ const imgRectangle34Features = "/assets/platform/eagle/gray-blur.png";
 const imgFrame1171277136Features =
   "/assets/platform/eagle/feature/data-processing.gif";
 const imgFrame1171277140Features = "/assets/platform/eagle/feature/one-box.gif";
-const imgFrame1171277142Features =
-  "/assets/platform/eagle/feature/real-time-kpis.gif";
+const imgFrame1171277142Features = "/assets/platform/eagle/feature/kpis.gif";
 const imgFrame1171277145Features = "/assets/platform/eagle/feature/edge.gif";
 
 // Static image versions (first frame of GIFs)
 const imgFrame1171277136Static =
   "/assets/platform/eagle/feature/data-proccess.png";
 const imgFrame1171277140Static = "/assets/platform/eagle/feature/one-data.png";
-const imgFrame1171277142Static =
-  "/assets/platform/eagle/feature/kpis.png";
-const imgFrame1171277145Static = "/assets/platform/eagle/feature/operator.png";
+const imgFrame1171277142Static = "/assets/platform/eagle/feature/kpis.png";
+const imgFrame1171277145Static = "/assets/platform/eagle/feature/edge.png";
 
 const cardAnimation: any = {
   hidden: { opacity: 0, y: 30 },
@@ -157,7 +155,11 @@ function FeatureSection() {
             <img
               alt=""
               className="w-full h-full object-cover "
-              src={hoveredCard === 0 ? imgFrame1171277136Features : imgFrame1171277136Static}
+              src={
+                hoveredCard === 0
+                  ? imgFrame1171277136Features
+                  : imgFrame1171277136Static
+              }
             />
             <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[12px] to-75% to-[rgba(0,0,0,0.6)]" />
           </div>
@@ -471,11 +473,11 @@ function FeatureSection() {
           </div>
           <div className="basis-0 content-stretch flex flex-col gap-[4px] xl:gap-[6px] grow items-start min-h-px min-w-px not-italic relative shrink-0">
             <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
-              Flexible Edge Intelligence
+              Operator Dashboard
             </p>
             <p className="font-['Gilroy:Regular',sans-serif] leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
-              Smart edge logic enables faster decisions and lighter upstream
-              data processing.
+              Touch UI lets operators input data, view alerts, and control
+              workflows easily.
             </p>
           </div>
         </motion.div>
@@ -507,7 +509,11 @@ function FeatureSection() {
             <img
               alt=""
               className="w-full h-full object-cover"
-              src={hoveredCard === 3 ? imgFrame1171277140Features : imgFrame1171277140Static}
+              src={
+                hoveredCard === 3
+                  ? imgFrame1171277140Features
+                  : imgFrame1171277140Static
+              }
             />
             <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[12px] to-75% to-[rgba(0,0,0,0.6)]" />
           </div>
@@ -626,26 +632,72 @@ function FeatureSection() {
                   preserveAspectRatio="none"
                   viewBox="0 0 24 24"
                 >
-                  <g id="cloud">
-                    <path
-                      d={svgPathsFeatures.p4ad57a0}
-                      id="Vector"
-                      stroke="white"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeMiterlimit="10"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d={svgPathsFeatures.p118e600}
-                      id="Vector_2"
-                      stroke="white"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeMiterlimit="10"
-                      strokeWidth="1.5"
-                    />
-                    <g id="Vector_3" opacity="0"></g>
+                  <g id="grid-lock">
+                    <g id="Group">
+                      <path
+                        d={svgPathsFeatures.p2c3f66b4}
+                        id="Vector"
+                        className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                      />
+                      <g id="Group_2">
+                        <path
+                          d="M2.03 8.5H22"
+                          id="Vector_2"
+                          className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1.5"
+                        />
+                        <path
+                          d="M2.03 15.5H12"
+                          id="Vector_3"
+                          className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1.5"
+                        />
+                      </g>
+                      <g id="Group_3">
+                        <path
+                          d="M8.51001 21.99V2.01001"
+                          id="Vector_4"
+                          className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1.5"
+                        />
+                        <path
+                          d="M15.51 11.99V2.01001"
+                          id="Vector_5"
+                          className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1.5"
+                        />
+                      </g>
+                    </g>
+                    <g id="Group_4">
+                      <path
+                        d={svgPathsFeatures.p3fbc6340}
+                        id="Vector_6"
+                        className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d={svgPathsFeatures.p2f453700}
+                        id="Vector_7"
+                        className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                      />
+                    </g>
+                    <g id="Vector_8" opacity="0"></g>
                   </g>
                 </svg>
               </div>
@@ -653,11 +705,11 @@ function FeatureSection() {
           </div>
           <div className="basis-0 content-stretch flex flex-col gap-[4px] xl:gap-[6px] grow items-start min-h-px min-w-px not-italic relative shrink-0">
             <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
-              Real-time KPIs
+              Closed-loop System
             </p>
             <p className="font-['Gilroy:Regular',sans-serif] leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
-              Edge metrics reveal instant performance insights with minimal
-              latency.
+              Machine feedback enables safe, automated control and real-time
+              edge response.
             </p>
           </div>
         </motion.div>
@@ -774,7 +826,11 @@ function FeatureSection() {
             <img
               alt=""
               className="w-full h-full object-cover"
-              src={hoveredCard === 6 ? imgFrame1171277142Features : imgFrame1171277142Static}
+              src={
+                hoveredCard === 6
+                  ? imgFrame1171277142Features
+                  : imgFrame1171277142Static
+              }
             />
             <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[12px] to-75% to-[rgba(0,0,0,0.6)]" />
           </div>
@@ -793,86 +849,40 @@ function FeatureSection() {
                 preserveAspectRatio="none"
                 viewBox="0 0 24 24"
               >
-                <g id="grid-lock">
-                  <g id="Group">
-                    <path
-                      d={svgPathsFeatures.p2c3f66b4}
-                      id="Vector"
-                      className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                    />
-                    <g id="Group_2">
-                      <path
-                        d="M2.03 8.5H22"
-                        id="Vector_2"
-                        className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                      />
-                      <path
-                        d="M2.03 15.5H12"
-                        id="Vector_3"
-                        className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                      />
-                    </g>
-                    <g id="Group_3">
-                      <path
-                        d="M8.51001 21.99V2.01001"
-                        id="Vector_4"
-                        className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                      />
-                      <path
-                        d="M15.51 11.99V2.01001"
-                        id="Vector_5"
-                        className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                      />
-                    </g>
-                  </g>
-                  <g id="Group_4">
-                    <path
-                      d={svgPathsFeatures.p3fbc6340}
-                      id="Vector_6"
-                      className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d={svgPathsFeatures.p2f453700}
-                      id="Vector_7"
-                      className="stroke-white group-hover:stroke-[#00FF84] transition-[stroke] duration-500 ease-in-out"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                    />
-                  </g>
-                  <g id="Vector_8" opacity="0"></g>
+                <g id="cloud">
+                  <path
+                    d={svgPathsFeatures.p4ad57a0}
+                    id="Vector"
+                    stroke="white"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeMiterlimit="10"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d={svgPathsFeatures.p118e600}
+                    id="Vector_2"
+                    stroke="white"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeMiterlimit="10"
+                    strokeWidth="1.5"
+                  />
+                  <g id="Vector_3" opacity="0"></g>
                 </g>
               </svg>
             </div>
           </div>
           <div className="content-stretch flex flex-col gap-[4px] xl:gap-[6px] items-start relative shrink-0 w-full">
             <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[23px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">
-              Closed-loop System
+              Real-time KPIs
             </p>
           </div>
         </motion.div>
 
         {/* Card 8: Operator Dashboard */}
         <motion.div
-          className="group lg:absolute box-border content-stretch cursor-pointer flex flex-col gap-[10px] xl:gap-[12px] h-[220px] lg:h-[43.33%] items-start justify-end lg:left-[70.63%] overflow-clip p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[15.12%] lg:w-[17.46%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-105 transition-transform duration-500 ease-out"
+          className="group lg:absolute bg-[#243D70] box-border content-stretch cursor-pointer flex flex-col gap-[10px] xl:gap-[12px] h-[220px] lg:h-[43.33%] items-start justify-end lg:left-[70.63%] overflow-clip p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[15.12%] lg:w-[17.46%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-105 transition-transform duration-500 ease-out"
           custom={isMobile ? undefined : 7}
           initial={isMobile ? "visible" : "hidden"}
           whileInView={isMobile ? undefined : "visible"}
@@ -897,7 +907,11 @@ function FeatureSection() {
             <img
               alt=""
               className="w-full h-full object-cover rounded-[12px]"
-              src={hoveredCard === 7 ? imgFrame1171277145Features : imgFrame1171277145Static}
+              src={
+                hoveredCard === 7
+                  ? imgFrame1171277145Features
+                  : imgFrame1171277145Static
+              }
             />
             <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[12px] to-75% to-[rgba(0,0,0,0.6)]" />
           </div>
@@ -960,7 +974,7 @@ function FeatureSection() {
           </div>
           <div className="content-stretch flex flex-col gap-[4px] xl:gap-[6px] items-start relative shrink-0 w-full">
             <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[23px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">
-              Operator Dashboard
+              Flexible Edge Intelligence
             </p>
           </div>
         </motion.div>

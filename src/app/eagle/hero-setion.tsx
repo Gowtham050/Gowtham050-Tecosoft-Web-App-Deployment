@@ -243,7 +243,7 @@ function Frame3() {
           } as React.CSSProperties
         }
       >
-        <div className="flex-none rotate-[270deg]">
+        <div className=" flex-none rotate-[270deg]">
           <IconoirArrowDown5 />
         </div>
       </div>

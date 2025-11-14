@@ -22,7 +22,7 @@ interface StatsRowProps {
 const StatsSection = () => {
   const AnimatedStat: React.FC<AnimatedStatProps> = ({ to }) => {
     const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "0px" });
 
     const number = parseInt(String(to).replace(/,/g, "").replace("+", ""));
     const suffix = String(to).includes("+") ? "+" : "";
