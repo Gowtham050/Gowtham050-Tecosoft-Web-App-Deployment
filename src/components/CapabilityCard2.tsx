@@ -5,14 +5,10 @@ export default function CapabilityCard2() {
     { name: "CNC", logo: "/assets/platform/eagle/CNC.png" },
     { name: "VMC", logo: "/assets/platform/eagle/VMC.png" },
     { name: "HMC", logo: "/assets/platform/eagle/HMC.png" },
-<<<<<<< Updated upstream
-    { name: "Molding Machine", logo: "/assets/platform/eagle/molding.png" },
-=======
     {
       name: "Molding Machine",
-      logo: "/assets/platform/eagle/molding_machine.png",
+      logo: "/assets/platform/eagle/molding.png",
     },
->>>>>>> Stashed changes
   ];
 
   return (
