@@ -11,7 +11,8 @@ const imgFrame1171277136Features =
   "/assets/platform/eagle/feature/data-processing.gif";
 const imgFrame1171277140Features = "/assets/platform/eagle/feature/one-box.gif";
 const imgFrame1171277142Features = "/assets/platform/eagle/feature/kpis.gif";
-const imgFrame1171277145Features = "/assets/platform/eagle/feature/flex-edge.gif";
+const imgFrame1171277145Features =
+  "/assets/platform/eagle/feature/flex-edge.gif";
 
 // Static image versions (first frame of GIFs)
 const imgFrame1171277136Static =
@@ -128,6 +129,13 @@ function FeatureSection() {
           />
         </div>
 
+        {/* Section Title */}
+        <div className="absolute top-0 left-0 right-0 flex justify-center items-center  md:py-[15px_20px] lg:py-[20px_25px] xl:py-[25px_30px] 2xl:py-[25px_50px] max-lg:relative max-lg:mb-8 px-4">
+          <p className="font-['Gilroy:Semibold',sans-serif] leading-[30px] sm:leading-[34px] md:leading-[38px] lg:leading-[40px] xl:leading-[44px] 2xl:leading-[48px] not-italic relative text-center text-[#0098d4] text-[22px] sm:text-[25px] md:text-[28px] lg:text-[30px] xl:text-[33px] 2xl:text-[36px]">
+            Gateway to Connected Manufacturing
+          </p>
+        </div>
+
         {/* Card 1: Data Acquisition & Preprocessing */}
         <motion.div
           className="group lg:absolute box-border content-stretch cursor-pointer flex flex-col gap-[10px] xl:gap-[12px] items-start justify-end lg:left-[11.9%] overflow-clip p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:w-[14.55%] lg:h-[26.19%] lg:top-[15.12%] h-[200px] xl:h-[220px] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-105 transition-transform duration-500 ease-out"
@@ -156,7 +164,7 @@ function FeatureSection() {
               alt=""
               className="w-full h-full object-cover "
               src={
-                hoveredCard === 0
+                isMobile || hoveredCard === 0
                   ? imgFrame1171277136Features
                   : imgFrame1171277136Static
               }
@@ -510,7 +518,7 @@ function FeatureSection() {
               alt=""
               className="w-full h-full object-cover"
               src={
-                hoveredCard === 3
+                isMobile || hoveredCard === 3
                   ? imgFrame1171277140Features
                   : imgFrame1171277140Static
               }
@@ -827,7 +835,7 @@ function FeatureSection() {
               alt=""
               className="w-full h-full object-cover"
               src={
-                hoveredCard === 6
+                isMobile || hoveredCard === 6
                   ? imgFrame1171277142Features
                   : imgFrame1171277142Static
               }
@@ -908,7 +916,7 @@ function FeatureSection() {
               alt=""
               className="w-full h-full object-cover rounded-[12px]"
               src={
-                hoveredCard === 7
+                isMobile || hoveredCard === 7
                   ? imgFrame1171277145Features
                   : imgFrame1171277145Static
               }

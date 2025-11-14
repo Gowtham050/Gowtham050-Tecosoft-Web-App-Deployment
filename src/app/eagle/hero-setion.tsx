@@ -1059,7 +1059,7 @@ function HeroSection() {
                 fontSize: 20 * responsiveScale,
               }}
             >
-              Industrial Display/HMI Panel
+              Eagle Pro Gateway
             </p>
           </motion.div>
         </div>
