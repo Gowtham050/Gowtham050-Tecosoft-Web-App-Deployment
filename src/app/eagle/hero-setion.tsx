@@ -16,7 +16,7 @@ const imgStaticHeroMobile = "/assets/platform/eagle/5.svg";
 // Individual product images
 const imgCNC = "/assets/platform/eagle/banner/cnc.png";
 const imgVMC = "/assets/platform/eagle/banner/vmc.png";
-const imgHMC = "/assets/platform/eagle/banner/hmc.png";
+const imgHMC = "/assets/platform/eagle/banner/hmc_machine.png";
 const imgManual = "/assets/platform/eagle/banner/manual-machine.png";
 const imgPress = "/assets/platform/eagle/banner/press-break.png";
 const imgLaser = "/assets/platform/eagle/banner/laser-cutting.png";
