@@ -10,11 +10,11 @@ import BannerSection from "./banner-section";
 const HomePage = () => {
   return (
     <>
-      <BannerSection />
-      <StatsSection />
+      {/* <BannerSection />
+      <StatsSection /> */}
       <Industry />
-      <Products />
-      <IndustriesSection />
+      {/* <Products />
+      <IndustriesSection /> */}
     </>
   );
 };

@@ -42,8 +42,8 @@ const Industry = () => {
           "A unified system that delivers real-time production insights, connects every process, and drives smarter, data-powered factory performance for greater efficiency and growth.",
         normalIcon: "./assets/icons/solutions/factory.svg",
         hoverIcon: "./assets/icons/solutions/factory-hover.svg",
-        position: "md:top-[194px] md:left-2",
-        width: "md:w-[480px]",
+        position: "lg:top-[194px] lg:left-[1%]",
+        width: "lg:w-[350px] 2xl:w-[480px]",
         border: false,
         animationDelay: "0s",
       },
@@ -54,8 +54,8 @@ const Industry = () => {
           "We use AI to transform complex data into predictive insights, enabling smarter, faster, and more proactive operations that adapt, evolve, and drive lasting efficiency.",
         normalIcon: "./assets/icons/solutions/ai-enable.svg",
         hoverIcon: "./assets/icons/solutions/ai-enable-hover.svg",
-        position: "md:top-[76px] md:left-[711px]",
-        width: "md:w-[550px]",
+        position: "lg:top-[56px] lg:right-[1%]",
+        width: "lg:w-[350px] 2xl:w-[550px]",
         border: false,
         animationDelay: "1s",
       },
@@ -66,8 +66,8 @@ const Industry = () => {
           "A real-time virtual replica that simulates, monitors, and analyzes your operations—delivering insights to optimize performance, boost efficiency, and drive continuous improvement.",
         normalIcon: "./assets/icons/solutions/digital-twin.svg",
         hoverIcon: "./assets/icons/solutions/digital-twin-hover.svg",
-        position: "md:top-[540px] md:left-[648px]",
-        width: "md:w-[480px]",
+        position: "lg:top-[500px] lg:right-[10%]",
+        width: "lg:w-[350px] 2xl:w-[480px]",
         border: false,
         animationDelay: "2s",
       },
@@ -76,7 +76,7 @@ const Industry = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-[700px] md:min-h-[900px] lg:min-h-[1000px] items-center pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-4 sm:pb-6 md:pb-8 lg:pb-10 xl:pb-12 px-4 sm:px-6 md:px-8 lg:px-[116px] relative self-stretch w-full overflow-hidden bg-gradient-to-br from-[#00BCEF] via-[#0066B2] to-[#002363]">
+    <div className="flex flex-col lg:min-h-[1000px] items-center pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-4 sm:pb-6 md:pb-8 lg:pb-10 xl:pb-12 px-4 sm:px-6 md:px-8 xl:px-[116px] relative self-stretch w-full overflow-hidden bg-gradient-to-br from-[#00BCEF] via-[#0066B2] to-[#002363]">
       {/* Add keyframes for floating animation */}
       <style>
         {`
@@ -131,7 +131,7 @@ const Industry = () => {
         </h2>
       </div>
 
-      <div className="flex flex-col lg:flex-wrap w-full max-w-[1276px] items-center justify-center gap-5 sm:gap-6 md:gap-0 relative pt-6 lg:pt-0 ">
+      <div className="flex flex-col lg:flex-wrap w-full items-center justify-center gap-5 sm:gap-6 lg:gap-0 relative pt-6 lg:pt-0 ">
         {/* Center Image with Animated Circle Waves */}
         <div className="  hidden lg:flex relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[500px] lg:w-[780px] h-[280px] sm:h-[350px] md:h-[500px] lg:h-[737px]  items-center justify-center my-4 md:my-6 lg:my-0">
           {/* Animated Circle Waves - 5 Visible Lines */}
@@ -182,7 +182,7 @@ const Industry = () => {
               hover === card.id
                 ? "border-2 border-[#4fc5db] shadow-[0_4px_24px_rgba(255,255,255,0.4)] hover:shadow-[0_8px_30px_rgba(79,197,219,0.4)]"
                 : "shadow-[0_4px_20px_rgba(5,128,173,0.16)] hover:shadow-[0_8px_30px_rgba(5,128,173,0.25)]"
-            } transition-all duration-300 ease-in-out md:hover:scale-105 cursor-pointer relative float-animation`}
+            } transition-all duration-300 ease-in-out md:hover:scale-105 cursor-pointer relative lg:float-animation`}
             style={{
               animationDelay: card.animationDelay,
             }}

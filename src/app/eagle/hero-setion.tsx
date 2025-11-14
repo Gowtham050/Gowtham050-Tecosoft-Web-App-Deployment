@@ -14,11 +14,11 @@ const img = "/assets/platform/eagle/banner-full.png";
 const imgStaticHeroMobile = "/assets/platform/eagle/5.svg";
 
 // Individual product images
-const imgCNC = "/assets/platform/eagle/banner/cnc-machine.png";
+const imgCNC = "/assets/platform/eagle/banner/cnc.png";
 const imgVMC = "/assets/platform/eagle/banner/vmc.png";
-const imgHMC = "/assets/platform/eagle/banner/HMC.png";
+const imgHMC = "/assets/platform/eagle/banner/hmc_machine.png";
 const imgManual = "/assets/platform/eagle/banner/manual-machine.png";
-const imgPress = "/assets/platform/eagle/banner/press-cutter.png";
+const imgPress = "/assets/platform/eagle/banner/press-break.png";
 const imgLaser = "/assets/platform/eagle/banner/laser-cutting.png";
 const imgHMIPanel = "/assets/platform/eagle/banner/hmi-panel.svg";
 
@@ -451,10 +451,10 @@ function HeroSection() {
   });
 
   // All products animate simultaneously with same timing
-  const animationStart = 0.3;
-  const animationEnd = 0.7;
-  const opacityStart = 0.3;
-  const opacityEnd = 0.5;
+  const animationStart = -0.3;
+  const animationEnd = 0.5;
+  const opacityStart = 0;
+  const opacityEnd = 0.3;
 
   // Label opacity timing (starts at 50% of product animation)
   const labelOpacityStart = 0.5;
