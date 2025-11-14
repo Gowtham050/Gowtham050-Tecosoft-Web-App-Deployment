@@ -25,7 +25,7 @@ function IconoirArrowDown5() {
 function Frame3() {
   return (
     <div className="bg-[#07af40] box-border content-stretch flex gap-[8px] max-[767px]:gap-[6px] items-center justify-center px-[14px] max-[767px]:px-[12px] py-[10px] max-[767px]:py-[8px] relative shrink-0">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] max-[767px]:leading-[18px] not-italic relative shrink-0 text-[15px] max-[767px]:text-[13px] text-nowrap text-white whitespace-pre">Book a Demo</p>
+      <p className="font-semibold leading-[20px] max-[767px]:leading-[18px] not-italic relative shrink-0 text-[15px] max-[767px]:text-[13px] text-nowrap text-white whitespace-pre">Book a Demo</p>
       <div className="flex h-[calc(1px*((var(--transform-inner-width)*1)+(var(--transform-inner-height)*0)))] items-center justify-center relative shrink-0 w-[calc(1px*((var(--transform-inner-height)*1)+(var(--transform-inner-width)*0)))]" style={{ "--transform-inner-width": "14", "--transform-inner-height": "14" } as React.CSSProperties}>
         <div className="flex-none rotate-[270deg]">
           <IconoirArrowDown5 />
@@ -39,7 +39,7 @@ function Frame24() {
   return (
     <div className="box-border content-stretch flex gap-[8px] items-center justify-center px-[14px] max-[767px]:px-[12px] py-[10px] max-[767px]:py-[8px] relative shrink-0 w-[144px] max-[767px]:w-[130px]">
       <div aria-hidden="true" className="absolute border border-[#d2d2d2] border-solid inset-0 pointer-events-none" />
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] max-[767px]:leading-[18px] not-italic relative shrink-0 text-[#4f4f4f] text-[15px] max-[767px]:text-[13px] text-nowrap whitespace-pre">See Capabilities</p>
+      <p className="font-semibold leading-[20px] max-[767px]:leading-[18px] not-italic relative shrink-0 text-[#4f4f4f] text-[15px] max-[767px]:text-[13px] text-nowrap whitespace-pre">See Capabilities</p>
     </div>
   );
 }
@@ -57,7 +57,7 @@ function Frame27() {
   return (
     <div className="bg-white box-border content-stretch flex gap-[10px] max-[767px]:gap-[8px] items-center justify-center px-[12px] max-[767px]:px-[10px] py-[6px] max-[767px]:py-[5px] relative rounded-[60px] shrink-0">
       <div aria-hidden="true" className="absolute border border-[#07af40] border-solid inset-0 pointer-events-none rounded-[60px]" />
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[18px] max-[767px]:leading-[16px] not-italic relative shrink-0 text-[#636363] text-[13.5px] max-[767px]:text-[12px] text-nowrap whitespace-pre">Unified Platform Efficiency</p>
+      <p className="font-semibold leading-[18px] max-[767px]:leading-[16px] not-italic relative shrink-0 text-[#636363] text-[13.5px] max-[767px]:text-[12px] text-nowrap whitespace-pre">Unified Platform Efficiency</p>
     </div>
   );
 }
@@ -66,11 +66,11 @@ function Frame40() {
   return (
     <div className="absolute min-[1024px]:left-1/2 min-[1024px]:top-[140px] min-[1024px]:translate-x-[-50%] min-[1024px]:w-[950px] max-[1023px]:static max-[1023px]:pt-[80px] min-[768px]:max-[1023px]:pt-[100px] max-[1023px]:mx-auto max-[1023px]:w-[95%] max-[1023px]:px-4 content-stretch flex flex-col gap-[16px] max-[767px]:gap-[12px] items-center">
       <Frame27 />
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[76px] min-[768px]:max-[1023px]:leading-[52px] max-[767px]:leading-[40px] min-w-full not-italic relative shrink-0 text-[#07af40] text-[60px] min-[768px]:max-[1023px]:text-[40px] max-[767px]:text-[28px] text-center tracking-[-0.9px] min-[768px]:max-[1023px]:tracking-[-0.6px] max-[767px]:tracking-[-0.4px] w-[min-content]">
+      <p className="font-semibold leading-[76px] min-[768px]:max-[1023px]:leading-[52px] max-[767px]:leading-[40px] min-w-full not-italic relative shrink-0 text-[#07af40] text-[60px] min-[768px]:max-[1023px]:text-[40px] max-[767px]:text-[28px] text-center tracking-[-0.9px] min-[768px]:max-[1023px]:tracking-[-0.6px] max-[767px]:tracking-[-0.4px] w-[min-content]">
         <span>{`Tecosoft Analytics - `}</span>
         <span className="text-[#282828]">The Software Intelligence Hub</span>
       </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[23px] min-[768px]:max-[1023px]:leading-[21px] max-[767px]:leading-[19px] not-italic opacity-75 relative shrink-0 text-[#636363] text-[16px] min-[768px]:max-[1023px]:text-[15px] max-[767px]:text-[13px] text-center w-[900px] max-[1023px]:w-full">A centralized analytics platform that unifies visualizations, reporting, KPIs, AI-driven intelligence, and virtual operations views - all in one place. Empower teams across any industry to monitor, analyze, and act on data in real time.</p>
+      <p className="font-medium leading-[23px] min-[768px]:max-[1023px]:leading-[21px] max-[767px]:leading-[19px] not-italic opacity-75 relative shrink-0 text-[#636363] text-[16px] min-[768px]:max-[1023px]:text-[15px] max-[767px]:text-[13px] text-center w-[900px] max-[1023px]:w-full">A centralized analytics platform that unifies visualizations, reporting, KPIs, AI-driven intelligence, and virtual operations views - all in one place. Empower teams across any industry to monitor, analyze, and act on data in real time.</p>
       <Frame25 />
     </div>
   );

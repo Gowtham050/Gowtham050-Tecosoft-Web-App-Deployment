@@ -274,7 +274,7 @@ function HardwareSection() {
             </svg>
           </div>
         </div>
-        <p className="font-['Gilroy:Semibold',sans-serif] leading-[36px] xl:leading-[42px] not-italic relative shrink-0 text-[#0098d4] text-[28px] xl:text-[33px] w-[200px] xl:w-[240px]">
+        <p className="font-semibold leading-[36px] xl:leading-[42px] not-italic relative shrink-0 text-[#0098d4] text-[28px] xl:text-[33px] w-[200px] xl:w-[240px]">
           Edge Hardware Highlights
         </p>
       </motion.div>
@@ -295,7 +295,13 @@ function HardwareSection() {
             whileTap={{ scale: 0.9 }}
             aria-label="Previous slide"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-6 sm:h-6">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="sm:w-6 sm:h-6"
+            >
               <path
                 d="M15 18L9 12L15 6"
                 stroke="#0098d4"
@@ -315,7 +321,13 @@ function HardwareSection() {
             whileTap={{ scale: 0.9 }}
             aria-label="Next slide"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-6 sm:h-6">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="sm:w-6 sm:h-6"
+            >
               <path
                 d="M9 18L15 12L9 6"
                 stroke="#0098d4"
@@ -352,7 +364,7 @@ function HardwareSection() {
         <div className="flex items-center gap-2">
           <motion.h3
             key={`mobile-title-${currentSlide}`}
-            className="font-['Gilroy:Bold',sans-serif] font-bold text-[20px] sm:text-[22px] text-[#282828] text-center"
+            className="font-bold  text-[20px] sm:text-[22px] text-[#282828] text-center"
             initial={{ opacity: 0, y: 10 }}
             animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
@@ -362,7 +374,7 @@ function HardwareSection() {
         </div>
 
         {/* Progress Indicator */}
-        <div className="  hidden items-center gap-2 text-[14px] sm:text-[15px] text-[#8e8e8e] font-['Gilroy:Medium',sans-serif]">
+        <div className="  hidden items-center gap-2 text-[14px] sm:text-[15px] text-[#8e8e8e] font-medium">
           <span>{currentSlide + 1}</span>
           <span>/</span>
           <span>{hardwareData.length}</span>
@@ -396,7 +408,7 @@ function HardwareSection() {
                   />
                 </svg>
               </div>
-              <p className="font-['Gilroy:Medium',sans-serif] text-[14px] sm:text-[15px] leading-[20px] sm:leading-[22px] text-[#636363]">
+              <p className="font-medium text-[14px] sm:text-[16px] leading-[20px] sm:leading-[22px] text-[#636363]">
                 {feature}
               </p>
             </motion.div>
@@ -405,7 +417,7 @@ function HardwareSection() {
 
         {/* Swipe Hint - Animated */}
         <motion.div
-          className="flex items-center gap-2 text-[12px] sm:text-[13px] text-[#b0b0b0] font-['Gilroy:Regular',sans-serif] pb-2"
+          className="flex items-center gap-2 text-[12px] sm:text-[13px] text-[#b0b0b0] font-normal pb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 1, 0] }}
           transition={{ duration: 3, repeat: 2, repeatDelay: 2 }}
@@ -469,7 +481,7 @@ function HardwareSection() {
         {/* Title */}
         <motion.p
           key={`title-${currentSlide}`}
-          className="lg:absolute relative font-['Gilroy:Bold',sans-serif] font-bold leading-[22px] xl:leading-[24px] max-lg:leading-[22px] lg:left-[30.18%] not-italic text-[#282828] text-[18px] xl:text-[20px] max-lg:text-[18px] text-center lg:top-[69.15%] max-lg:whitespace-normal whitespace-pre z-20 w-[150px] xl:w-[180px] max-lg:w-full max-lg:mb-[20px]"
+          className="lg:absolute relative font-bold leading-[22px] xl:leading-[24px] max-lg:leading-[22px] lg:left-[15.18%] not-italic text-[#282828] text-[18px] xl:text-[20px] max-lg:text-[18px] text-center lg:top-[90.15%] max-lg:whitespace-normal whitespace-pre z-20 w-[150px] xl:w-[180px] max-lg:w-full max-lg:mb-[20px]"
           initial={{ opacity: 0, y: 10 }}
           animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
@@ -480,7 +492,7 @@ function HardwareSection() {
         {/* Feature Texts */}
         <motion.p
           key={`feature1-${currentSlide}`}
-          className="absolute font-['Gilroy:Medium',sans-serif] leading-[20px] xl:leading-[23px] left-[64.45%] not-italic text-[#636363] text-[16px] xl:text-[18px] top-[23.05%] w-[24.79%] z-20"
+          className="absolute font-medium leading-[20px] xl:leading-[23px] left-[64.45%] not-italic text-[#636363] text-[16px] xl:text-[18px] top-[23.05%] w-[24.79%] z-20"
           initial={{ opacity: 0, x: 20 }}
           animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
           transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
@@ -489,7 +501,7 @@ function HardwareSection() {
         </motion.p>
         <motion.p
           key={`feature2-${currentSlide}`}
-          className="absolute font-['Gilroy:Medium',sans-serif] leading-[20px] xl:leading-[23px] left-[58.36%] not-italic text-[#636363] text-[16px] xl:text-[18px] top-[50%] w-[32.44%] z-20"
+          className="absolute font-medium leading-[20px] xl:leading-[23px] left-[58.36%] not-italic text-[#636363] text-[16px] xl:text-[18px] top-[50%] w-[32.44%] z-20"
           initial={{ opacity: 0, x: 20 }}
           animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
           transition={{ duration: 0.6, delay: 0.75, ease: "easeOut" }}
@@ -498,7 +510,7 @@ function HardwareSection() {
         </motion.p>
         <motion.p
           key={`feature3-${currentSlide}`}
-          className="absolute font-['Gilroy:Medium',sans-serif] leading-[20px] xl:leading-[23px] left-[68.56%] not-italic text-[#636363] text-[16px] xl:text-[18px] top-[74.41%] w-[22.24%] z-20"
+          className="absolute font-medium leading-[20px] xl:leading-[23px] left-[68.56%] not-italic text-[#636363] text-[16px] xl:text-[18px] top-[74.41%] w-[22.24%] z-20"
           initial={{ opacity: 0, x: 20 }}
           animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
           transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}

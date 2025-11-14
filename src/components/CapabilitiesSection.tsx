@@ -39,10 +39,10 @@ export default function CapabilitiesSection() {
         <div className="block md:hidden px-4">
           {/* Header */}
           <div className="flex flex-col items-start justify-start mx-auto text-white mb-[30px] gap-3">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[24px] text-[20px] whitespace-nowrap">
+            <p className="font-semibold leading-[24px] text-[20px] whitespace-nowrap">
               Capabilities
             </p>
-            <p className="font-['Gilroy:Medium',sans-serif] leading-[18px] text-[14px] w-full">
+            <p className="font-medium leading-[18px] text-[14px] w-full">
               Seamlessly connect, monitor, and manage CNC, VMC, HMC, Molding,
               and laser systems in real time.
             </p>
@@ -77,10 +77,10 @@ export default function CapabilitiesSection() {
                 zIndex: 50,
               }}
             >
-              <p className="font-['Gilroy:Semibold',sans-serif] leading-[32px] lg:leading-[36px] xl:leading-[38px] relative shrink-0 text-[28px] lg:text-[30px] xl:text-[33px] whitespace-nowrap">
+              <p className="font-semibold leading-[32px] lg:leading-[36px] xl:leading-[38px] relative shrink-0 text-[28px] lg:text-[30px] xl:text-[33px] whitespace-nowrap">
                 Capabilities
               </p>
-              <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] lg:leading-[22px] xl:leading-[23px] relative shrink-0 text-[16px] lg:text-[17px] xl:text-[18px] w-full lg:w-[420px] xl:w-[500px]">
+              <p className="font-medium leading-[20px] lg:leading-[22px] xl:leading-[23px] relative shrink-0 text-[16px] lg:text-[17px] xl:text-[18px] w-full lg:w-[420px] xl:w-[500px]">
                 Seamlessly connect, monitor, and manage CNC, VMC, HMC, Molding,
                 and laser systems in real time.
               </p>

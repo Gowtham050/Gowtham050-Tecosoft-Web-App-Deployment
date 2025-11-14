@@ -145,7 +145,7 @@ const StatsSection = () => {
           {subtitle}
         </p>
       </div>
-      <div className="w-full sm:max-w-[95%] relative z-10">
+      <div className="w-full sm:max-w-[90%] relative z-10">
         <StatsRow items={firstRowStats} alignment="start" />
       </div>
     </div>

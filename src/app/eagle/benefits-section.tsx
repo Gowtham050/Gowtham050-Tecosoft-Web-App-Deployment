@@ -162,7 +162,7 @@ export default function BenefitsSection() {
       </div>
 
       <motion.p
-        className="absolute font-['Gilroy:Semibold',sans-serif] leading-[24px] sm:leading-[32px] md:leading-[40px] lg:leading-[48px] left-[50%] not-italic text-[#181818] text-[18px] sm:text-[24px] md:text-[32px] lg:text-[40px] text-center top-[15px] sm:top-[20px] md:top-[35px] lg:top-[50px] translate-x-[-50%] md:px-0 whitespace-normal lg:whitespace-nowrap max-w-[85%] sm:max-w-[80%] md:max-w-[85%] lg:max-w-none z-10"
+        className="absolute font-semibold leading-[24px] sm:leading-[32px] md:leading-[40px] lg:leading-[48px] left-[50%] not-italic text-[#181818] text-[18px] sm:text-[24px] md:text-[32px] lg:text-[40px] text-center top-[15px] sm:top-[20px] md:top-[35px] lg:top-[50px] translate-x-[-50%] md:px-0 whitespace-normal lg:whitespace-nowrap max-w-[85%] sm:max-w-[80%] md:max-w-[85%] lg:max-w-none z-10"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -170,7 +170,7 @@ export default function BenefitsSection() {
         Smarter operations with connected machine insights.
       </motion.p>
       <motion.p
-        className="absolute font-['Gilroy:Medium',sans-serif] leading-[18px] sm:leading-[20px] md:leading-[21px] lg:leading-[22px] left-[50%] not-italic text-[#8e8e8e] text-[12px] sm:text-[13px] md:text-[15px] lg:text-[16px] text-center top-[105px] sm:top-[100px] md:top-[108px] lg:top-[114px] translate-x-[-50%] w-[90%] sm:w-[85%] md:w-[500px] lg:w-[450px] md:px-0 z-10"
+        className="absolute font-medium leading-[18px] sm:leading-[20px] md:leading-[21px] lg:leading-[22px] left-[50%] not-italic text-[#8e8e8e] text-[12px] sm:text-[13px] md:text-[15px] lg:text-[16px] text-center top-[105px] sm:top-[100px] md:top-[108px] lg:top-[114px] translate-x-[-50%] w-[90%] sm:w-[85%] md:w-[500px] lg:w-[450px] md:px-0 z-10"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
@@ -256,7 +256,7 @@ export default function BenefitsSection() {
         <AnimatePresence mode="wait">
           <motion.p
             key={`title-${slide.id}`}
-            className="absolute font-['Gilroy:Semibold',sans-serif] leading-[32px] left-[200px] not-italic text-[#069235] text-[24px] text-center top-[145px] translate-x-[-50%] w-[179px]"
+            className="absolute font-semibold leading-[32px] left-[200px] not-italic text-[#069235] text-[24px] text-center top-[145px] translate-x-[-50%] w-[179px]"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -614,7 +614,7 @@ export default function BenefitsSection() {
           className="px-4 sm:px-6 md:px-0"
         >
           <motion.p
-            className="absolute font-['Gilroy:Semibold',sans-serif] leading-[20px] sm:leading-[22px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] left-[5%] sm:left-[50%] sm:translate-x-[-50%] md:left-[50%] md:translate-x-[-50%] lg:left-[50%] lg:translate-x-[-50%] xl:left-[50%] xl:translate-x-0 not-italic text-[#282828] text-center sm:text-center md:text-center lg:text-center xl:text-left text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] top-[385px] sm:top-[470px] md:top-[530px] lg:top-[560px] xl:top-[246px] w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[40%] z-10"
+            className="absolute font-semibold leading-[20px] sm:leading-[22px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] left-[5%] sm:left-[50%] sm:translate-x-[-50%] md:left-[50%] md:translate-x-[-50%] lg:left-[50%] lg:translate-x-[-50%] xl:left-[50%] xl:translate-x-0 not-italic text-[#282828] text-center sm:text-center md:text-center lg:text-center xl:text-left text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] top-[385px] sm:top-[470px] md:top-[530px] lg:top-[560px] xl:top-[246px] w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[40%] z-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -626,7 +626,7 @@ export default function BenefitsSection() {
             {slide.title1}
           </motion.p>
           <motion.p
-            className="absolute font-['Gilroy:Regular',sans-serif] leading-[18px] sm:leading-[19px] md:leading-[21px] lg:leading-[24px] xl:leading-[26px] left-[5%] sm:left-[50%] sm:translate-x-[-50%] md:left-[50%] md:translate-x-[-50%] lg:left-[50%] lg:translate-x-[-50%] xl:left-[50%] xl:translate-x-0 not-italic text-[#777777] text-center sm:text-center md:text-center lg:text-center xl:text-left text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] top-[407px] sm:top-[495px] md:top-[558px] lg:top-[590px] xl:top-[286px] w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[40%] z-10"
+            className="absolute font-normal leading-[18px] sm:leading-[19px] md:leading-[21px] lg:leading-[24px] xl:leading-[26px] left-[5%] sm:left-[50%] sm:translate-x-[-50%] md:left-[50%] md:translate-x-[-50%] lg:left-[50%] lg:translate-x-[-50%] xl:left-[50%] xl:translate-x-0 not-italic text-[#777777] text-center sm:text-center md:text-center lg:text-center xl:text-left text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] top-[407px] sm:top-[495px] md:top-[558px] lg:top-[590px] xl:top-[286px] w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[40%] z-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -638,7 +638,7 @@ export default function BenefitsSection() {
             {slide.description1}
           </motion.p>
           <motion.p
-            className="absolute font-['Gilroy:Semibold',sans-serif] leading-[20px] sm:leading-[22px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] left-[5%] sm:left-[50%] sm:translate-x-[-50%] md:left-[50%] md:translate-x-[-50%] lg:left-[50%] lg:translate-x-[-50%] xl:left-[50%] xl:translate-x-0 not-italic text-[#282828] text-center sm:text-center md:text-center lg:text-center xl:text-left text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] top-[495px] sm:top-[585px] md:top-[645px] lg:top-[680px] xl:top-[410px] w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[40%] z-10"
+            className="absolute font-semibold leading-[20px] sm:leading-[22px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] left-[5%] sm:left-[50%] sm:translate-x-[-50%] md:left-[50%] md:translate-x-[-50%] lg:left-[50%] lg:translate-x-[-50%] xl:left-[50%] xl:translate-x-0 not-italic text-[#282828] text-center sm:text-center md:text-center lg:text-center xl:text-left text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] top-[495px] sm:top-[585px] md:top-[645px] lg:top-[680px] xl:top-[410px] w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[40%] z-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -650,7 +650,7 @@ export default function BenefitsSection() {
             {slide.title2}
           </motion.p>
           <motion.p
-            className="absolute font-['Gilroy:Regular',sans-serif] leading-[18px] sm:leading-[19px] md:leading-[21px] lg:leading-[24px] xl:leading-[26px] left-[5%] sm:left-[50%] sm:translate-x-[-50%] md:left-[50%] md:translate-x-[-50%] lg:left-[50%] lg:translate-x-[-50%] xl:left-[50%] xl:translate-x-0 not-italic text-[#777777] text-center sm:text-center md:text-center lg:text-center xl:text-left text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] top-[517px] sm:top-[610px] md:top-[673px] lg:top-[710px] xl:top-[450px] w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[45%] z-10"
+            className="absolute font-normal leading-[18px] sm:leading-[19px] md:leading-[21px] lg:leading-[24px] xl:leading-[26px] left-[5%] sm:left-[50%] sm:translate-x-[-50%] md:left-[50%] md:translate-x-[-50%] lg:left-[50%] lg:translate-x-[-50%] xl:left-[50%] xl:translate-x-0 not-italic text-[#777777] text-center sm:text-center md:text-center lg:text-center xl:text-left text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] top-[517px] sm:top-[610px] md:top-[673px] lg:top-[710px] xl:top-[450px] w-[90%] sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[45%] z-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{

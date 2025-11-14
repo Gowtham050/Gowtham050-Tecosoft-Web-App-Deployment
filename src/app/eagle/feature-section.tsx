@@ -131,7 +131,7 @@ function FeatureSection() {
 
         {/* Section Title */}
         <div className="absolute top-0 left-0 right-0 flex justify-center items-center  md:py-[15px_20px] lg:py-[20px_25px] xl:py-[25px_30px] 2xl:py-[25px_50px] max-lg:relative max-lg:mb-8 px-4">
-          <p className="font-['Gilroy:Semibold',sans-serif] leading-[30px] sm:leading-[34px] md:leading-[38px] lg:leading-[40px] xl:leading-[44px] 2xl:leading-[48px] not-italic relative text-center text-[#0098d4] text-[22px] sm:text-[25px] md:text-[28px] lg:text-[30px] xl:text-[33px] 2xl:text-[36px]">
+          <p className="font-semibold leading-[30px] sm:leading-[34px] md:leading-[38px] lg:leading-[40px] xl:leading-[44px] 2xl:leading-[48px] not-italic relative text-center text-[#0098d4] text-[22px] sm:text-[25px] md:text-[28px] lg:text-[30px] xl:text-[33px] 2xl:text-[36px]">
             Gateway to Connected Manufacturing
           </p>
         </div>
@@ -212,7 +212,7 @@ function FeatureSection() {
             </div>
           </div>
           <div className="content-stretch flex flex-col gap-[4px] xl:gap-[6px] items-start relative shrink-0 w-full">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[19px] xl:leading-[21px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">{`Data Acquisition & Preprocessing`}</p>
+            <p className="font-semibold leading-[19px] xl:leading-[21px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">{`Data Acquisition & Preprocessing`}</p>
           </div>
         </motion.div>
 
@@ -299,10 +299,10 @@ function FeatureSection() {
             </div>
           </div>
           <div className="basis-0 content-stretch flex flex-col gap-[4px] xl:gap-[6px] grow items-start min-h-px min-w-px not-italic relative shrink-0">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
+            <p className="font-semibold leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
               Integrates to MES/ERP/Cloud
             </p>
-            <p className="font-['Gilroy:Regular',sans-serif] leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
+            <p className="font-normal leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
               Seamlessly forward data to MES, ERP, and cloud systems through
               built-in APIs.
             </p>
@@ -480,10 +480,10 @@ function FeatureSection() {
             </div>
           </div>
           <div className="basis-0 content-stretch flex flex-col gap-[4px] xl:gap-[6px] grow items-start min-h-px min-w-px not-italic relative shrink-0">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
+            <p className="font-semibold leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
               Operator Dashboard
             </p>
-            <p className="font-['Gilroy:Regular',sans-serif] leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
+            <p className="font-normal leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
               Touch UI lets operators input data, view alerts, and control
               workflows easily.
             </p>
@@ -583,7 +583,7 @@ function FeatureSection() {
             </div>
           </div>
           <div className="content-stretch flex flex-col gap-[4px] xl:gap-[6px] items-start relative shrink-0 w-full">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[23px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">
+            <p className="font-semibold leading-[20px] xl:leading-[23px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">
               One-box Solution
             </p>
           </div>
@@ -712,10 +712,10 @@ function FeatureSection() {
             </div>
           </div>
           <div className="basis-0 content-stretch flex flex-col gap-[4px] xl:gap-[6px] grow items-start min-h-px min-w-px not-italic relative shrink-0">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
+            <p className="font-semibold leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
               Closed-loop System
             </p>
-            <p className="font-['Gilroy:Regular',sans-serif] leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
+            <p className="font-normal leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
               Machine feedback enables safe, automated control and real-time
               edge response.
             </p>
@@ -797,10 +797,10 @@ function FeatureSection() {
             </div>
           </div>
           <div className="basis-0 content-stretch flex flex-col gap-[4px] xl:gap-[6px] grow items-start min-h-px min-w-px not-italic relative shrink-0">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
+            <p className="font-semibold leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
               Connect • Collect • Control
             </p>
-            <p className="font-['Gilroy:Regular',sans-serif] leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
+            <p className="font-normal leading-[18px] xl:leading-[20px] relative text-[#8e8e8e] text-[13px] xl:text-[15px] line-clamp-2">
               Connect devices, gather telemetry, and control machines from the
               edge platform.
             </p>
@@ -882,7 +882,7 @@ function FeatureSection() {
             </div>
           </div>
           <div className="content-stretch flex flex-col gap-[4px] xl:gap-[6px] items-start relative shrink-0 w-full">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[23px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">
+            <p className="font-semibold leading-[20px] xl:leading-[23px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">
               Real-time KPIs
             </p>
           </div>
@@ -981,7 +981,7 @@ function FeatureSection() {
             </div>
           </div>
           <div className="content-stretch flex flex-col gap-[4px] xl:gap-[6px] items-start relative shrink-0 w-full">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[23px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">
+            <p className="font-semibold leading-[20px] xl:leading-[23px] not-italic relative shrink-0 text-[16px] xl:text-[18px] text-white w-full">
               Flexible Edge Intelligence
             </p>
           </div>
@@ -1110,8 +1110,8 @@ function FeatureSection() {
             </div>
           </div>
           <div className="content-stretch flex flex-col gap-[4px] xl:gap-[6px] items-start not-italic relative shrink-0 w-full">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] xl:leading-[22px] relative shrink-0 text-[#282828] text-[16px] xl:text-[18px] text-nowrap whitespace-pre">{`Store & Forward`}</p>
-            <p className="font-['Gilroy:Regular',sans-serif] leading-[18px] xl:leading-[20px] min-w-full relative shrink-0 text-[#8e8e8e] text-[13px] xl:text-[15px] w-[min-content] text-ellipsis">
+            <p className="font-semibold leading-[20px] xl:leading-[22px] relative shrink-0 text-[#282828] text-[16px] xl:text-[18px] text-nowrap whitespace-pre">{`Store & Forward`}</p>
+            <p className="font-normal leading-[18px] xl:leading-[20px] min-w-full relative shrink-0 text-[#8e8e8e] text-[13px] xl:text-[15px] w-[min-content] text-ellipsis">
               Local buffering prevents data loss and ensures delivery after
               reconnection.
             </p>

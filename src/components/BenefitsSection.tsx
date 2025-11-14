@@ -169,7 +169,7 @@ export default function BenefitsSection() {
       </div>
 
       <p
-        className="absolute font-['Gilroy:Semibold',sans-serif] not-italic text-[#181818] text-center text-nowrap translate-x-[-50%] whitespace-pre"
+        className="absolute font-semibold not-italic text-[#181818] text-center text-nowrap translate-x-[-50%] whitespace-pre"
         style={{
           fontSize: "clamp(26px, 2.54vw, 40px)",
           lineHeight: "clamp(31px, 3.05vw, 48px)",
@@ -180,7 +180,7 @@ export default function BenefitsSection() {
         Smarter operations with connected machine insights.
       </p>
       <p
-        className="absolute font-['Gilroy:Medium',sans-serif] not-italic text-[#8e8e8e] text-center translate-x-[-50%]"
+        className="absolute font-medium not-italic text-[#8e8e8e] text-center translate-x-[-50%]"
         style={{
           fontSize: "clamp(14px, 1.02vw, 16px)",
           lineHeight: "clamp(18px, 1.4vw, 22px)",
@@ -277,7 +277,7 @@ export default function BenefitsSection() {
         <AnimatePresence mode="wait">
           <motion.p
             key={`title-${slide.id}`}
-            className="absolute font-['Gilroy:Semibold',sans-serif] not-italic text-[#069235] text-center translate-x-[-50%]"
+            className="absolute font-semibold not-italic text-[#069235] text-center translate-x-[-50%]"
             style={{
               fontSize: "clamp(16px, 1.52vw, 24px)",
               lineHeight: "clamp(21px, 2.03vw, 32px)",
@@ -685,7 +685,7 @@ export default function BenefitsSection() {
           transition={{ duration: 0.3 }}
         >
           <p
-            className="absolute font-['Gilroy:Semibold',sans-serif] not-italic text-[#282828]"
+            className="absolute font-semibold not-italic text-[#282828]"
             style={{
               fontSize: "clamp(16px, 1.52vw, 24px)",
               lineHeight: "clamp(20px, 1.9vw, 30px)",
@@ -697,7 +697,7 @@ export default function BenefitsSection() {
             {slide.title1}
           </p>
           <p
-            className="absolute font-['Gilroy:Regular',sans-serif] not-italic text-[#777777]"
+            className="absolute font-normal not-italic text-[#777777]"
             style={{
               fontSize: "clamp(14px, 1.14vw, 18px)",
               lineHeight: "clamp(18px, 1.65vw, 26px)",
@@ -709,7 +709,7 @@ export default function BenefitsSection() {
             {slide.description1}
           </p>
           <p
-            className="absolute font-['Gilroy:Semibold',sans-serif] not-italic text-[#282828]"
+            className="absolute font-semibold not-italic text-[#282828]"
             style={{
               fontSize: "clamp(16px, 1.52vw, 24px)",
               lineHeight: "clamp(20px, 1.9vw, 30px)",
@@ -721,7 +721,7 @@ export default function BenefitsSection() {
             {slide.title2}
           </p>
           <p
-            className="absolute font-['Gilroy:Regular',sans-serif] not-italic text-[#777777]"
+            className="absolute font-normal not-italic text-[#777777]"
             style={{
               fontSize: "clamp(14px, 1.14vw, 18px)",
               lineHeight: "clamp(18px, 1.65vw, 26px)",

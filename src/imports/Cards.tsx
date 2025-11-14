@@ -3,8 +3,8 @@ import svgPaths from "./svg-n40401f847";
 function Frame() {
   return (
     <div className="absolute content-stretch flex gap-[250px] h-[90px] items-center left-[180px] not-italic text-white top-[70px] w-[1152px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[45px] relative shrink-0 text-[36px] w-[260px]">{`Technology & Integrations`}</p>
-      <p className="basis-0 font-['Gilroy:Medium',sans-serif] grow leading-[24px] min-h-px min-w-px relative shrink-0 text-[16px]">Built on a robust, scalable, and secure architecture - Tecosoft Analytics seamlessly integrates with your enterprise ecosystem, combining IoT connectivity, AI analytics, and open APIs to deliver intelligent insights instantly.</p>
+      <p className="font-semibold leading-[45px] relative shrink-0 text-[36px] w-[260px]">{`Technology & Integrations`}</p>
+      <p className="basis-0 font-medium grow leading-[24px] min-h-px min-w-px relative shrink-0 text-[16px]">Built on a robust, scalable, and secure architecture - Tecosoft Analytics seamlessly integrates with your enterprise ecosystem, combining IoT connectivity, AI analytics, and open APIs to deliver intelligent insights instantly.</p>
     </div>
   );
 }
@@ -14,7 +14,7 @@ function Frame1() {
     <div className="basis-0 bg-[rgba(255,255,255,0.18)] grow min-h-px min-w-px relative rounded-[60px] shrink-0">
       <div className="flex flex-row items-center justify-center size-full">
         <div className="box-border content-stretch flex gap-[10px] items-center justify-center px-[24px] py-[10px] relative w-full">
-          <p className="font-['Gilroy:Medium',sans-serif] leading-[28px] not-italic relative shrink-0 text-[18px] text-nowrap text-white whitespace-pre">{`IoT & Edge`}</p>
+          <p className="font-medium leading-[28px] not-italic relative shrink-0 text-[18px] text-nowrap text-white whitespace-pre">{`IoT & Edge`}</p>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@ function Frame2() {
     <div className="basis-0 bg-[rgba(255,255,255,0.18)] grow min-h-px min-w-px relative rounded-[60px] shrink-0">
       <div className="flex flex-row items-center justify-center size-full">
         <div className="box-border content-stretch flex gap-[10px] items-center justify-center px-[24px] py-[10px] relative w-full">
-          <p className="font-['Gilroy:Medium',sans-serif] leading-[28px] not-italic relative shrink-0 text-[18px] text-nowrap text-white whitespace-pre">{`AI & ML Engine`}</p>
+          <p className="font-medium leading-[28px] not-italic relative shrink-0 text-[18px] text-nowrap text-white whitespace-pre">{`AI & ML Engine`}</p>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@ function Frame3() {
     <div className="basis-0 bg-white grow min-h-px min-w-px relative rounded-[60px] shrink-0">
       <div className="flex flex-row items-center justify-center size-full">
         <div className="box-border content-stretch flex gap-[10px] items-center justify-center px-[24px] py-[10px] relative w-full">
-          <p className="font-['Gilroy:Semibold',sans-serif] leading-[28px] not-italic relative shrink-0 text-[#0098d4] text-[18px] text-nowrap whitespace-pre">Enterprise Integration</p>
+          <p className="font-semibold leading-[28px] not-italic relative shrink-0 text-[#0098d4] text-[18px] text-nowrap whitespace-pre">Enterprise Integration</p>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@ function Frame4() {
     <div className="basis-0 bg-[rgba(255,255,255,0.16)] grow min-h-px min-w-px relative rounded-[60px] shrink-0">
       <div className="flex flex-row items-center justify-center size-full">
         <div className="box-border content-stretch flex gap-[10px] items-center justify-center px-[24px] py-[10px] relative w-full">
-          <p className="font-['Gilroy:Medium',sans-serif] leading-[28px] not-italic relative shrink-0 text-[18px] text-nowrap text-white whitespace-pre">Deployment Flexibility</p>
+          <p className="font-medium leading-[28px] not-italic relative shrink-0 text-[18px] text-nowrap text-white whitespace-pre">Deployment Flexibility</p>
         </div>
       </div>
     </div>
@@ -71,8 +71,8 @@ function Frame7() {
 function Frame5() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[230px] not-italic top-[470px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[44px] min-w-full relative shrink-0 text-[#282828] text-[42px] w-[min-content]">25%</p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[20px] relative shrink-0 text-[#636363] text-[16px] text-nowrap whitespace-pre">Improvement in Data Accuracy</p>
+      <p className="font-semibold leading-[44px] min-w-full relative shrink-0 text-[#282828] text-[42px] w-[min-content]">25%</p>
+      <p className="font-normal leading-[20px] relative shrink-0 text-[#636363] text-[16px] text-nowrap whitespace-pre">Improvement in Data Accuracy</p>
     </div>
   );
 }
@@ -80,8 +80,8 @@ function Frame5() {
 function Frame6() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[512px] not-italic top-[470px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[44px] min-w-full relative shrink-0 text-[#282828] text-[42px] w-[min-content]">15%</p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[20px] relative shrink-0 text-[#636363] text-[16px] text-nowrap whitespace-pre">Reduction in Manual Data Entry</p>
+      <p className="font-semibold leading-[44px] min-w-full relative shrink-0 text-[#282828] text-[42px] w-[min-content]">15%</p>
+      <p className="font-normal leading-[20px] relative shrink-0 text-[#636363] text-[16px] text-nowrap whitespace-pre">Reduction in Manual Data Entry</p>
     </div>
   );
 }
@@ -125,8 +125,8 @@ export default function Cards() {
       <div className="absolute bg-white h-[368px] left-1/2 rounded-[24px] top-[220px] translate-x-[-50%] w-[1152px]">
         <div className="absolute inset-0 pointer-events-none shadow-[4px_4px_12px_0px_inset_rgba(0,0,0,0.12)]" />
       </div>
-      <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[28px] left-[230px] not-italic text-[#0098d4] text-[28px] text-nowrap top-[270px] whitespace-pre">Enterprise Integration</p>
-      <p className="absolute font-['Gilroy:Regular',sans-serif] leading-[25px] left-[230px] not-italic text-[#636363] text-[18px] top-[334px] w-[650px]">Seamlessly connects your diverse business systems – from ERP and MES to CRM and PLM – creating a unified data ecosystem. This integration enhances data consistency, streamlines workflows, and provides a single source of truth for critical operational and business insights across your entire organization.</p>
+      <p className="absolute font-semibold leading-[28px] left-[230px] not-italic text-[#0098d4] text-[28px] text-nowrap top-[270px] whitespace-pre">Enterprise Integration</p>
+      <p className="absolute font-normal leading-[25px] left-[230px] not-italic text-[#636363] text-[18px] top-[334px] w-[650px]">Seamlessly connects your diverse business systems – from ERP and MES to CRM and PLM – creating a unified data ecosystem. This integration enhances data consistency, streamlines workflows, and provides a single source of truth for critical operational and business insights across your entire organization.</p>
       <Frame5 />
       <Frame6 />
       <Background />
