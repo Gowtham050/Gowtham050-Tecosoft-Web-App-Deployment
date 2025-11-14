@@ -142,7 +142,7 @@ export function FeatureCard({ card, index }: { card: typeof featureCards[0], ind
         )}
         
         <div className="content-stretch flex flex-col gap-[6px] items-start relative shrink-0 w-full z-10">
-          <p className="font-['Gilroy:Semibold',sans-serif] leading-[23px] not-italic relative shrink-0 text-[18px] text-white w-full">{card.title}</p>
+          <p className="font-semibold leading-[23px] not-italic relative shrink-0 text-[18px] text-white w-full">{card.title}</p>
         </div>
       </motion.div>
     );
@@ -226,9 +226,9 @@ export function FeatureCard({ card, index }: { card: typeof featureCards[0], ind
       </div>
       
       <div className="basis-0 content-stretch flex flex-col gap-[6px] grow items-start min-h-px min-w-px not-italic relative shrink-0">
-        <p className="font-['Gilroy:Semibold',sans-serif] leading-[22px] relative shrink-0 text-[#282828] text-[18px] text-nowrap whitespace-pre">{card.title}</p>
+        <p className="font-semibold leading-[22px] relative shrink-0 text-[#282828] text-[18px] text-nowrap whitespace-pre">{card.title}</p>
         {card.description && (
-          <p className="font-['Gilroy:Regular',sans-serif] leading-[20px] min-w-full relative shrink-0 text-[#8e8e8e] text-[15px] w-[min-content]">{card.description}</p>
+          <p className="font-normal leading-[20px] min-w-full relative shrink-0 text-[#8e8e8e] text-[15px] w-[min-content]">{card.description}</p>
         )}
       </div>
     </motion.div>

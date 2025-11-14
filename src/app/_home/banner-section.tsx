@@ -5,9 +5,9 @@ import Image from "next/image";
 
 // Z-index constants - Banner should be below navbar (navbar uses 999-1001)
 const Z_INDEX = {
-  VIDEO_LAYER: 1,       // Video background (bottom layer)
-  OVERLAY_LAYER: 2,     // Dark overlay above video
-  CONTENT_LAYER: 10,    // Banner content (below navbar)
+  VIDEO_LAYER: 1, // Video background (bottom layer)
+  OVERLAY_LAYER: 2, // Dark overlay above video
+  CONTENT_LAYER: 10, // Banner content (below navbar)
 };
 
 const ClientSlider = () => {
@@ -81,7 +81,7 @@ const BannerSection = () => {
 
       {/* Content */}
       <div className="relative" style={{ zIndex: Z_INDEX.CONTENT_LAYER }}>
-        <div className="max-w-[90%] lg:max-w-7xl mx-auto px-4 lg:px-0">
+        <div className="w-[90%]  mx-auto px-4 lg:px-4">
           <div className="pt-24 pb-12 lg:pt-48 lg:pb-24">
             {/* Hero Heading */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[90px] font-bold text-white leading-tight lg:leading-[1.1] mb-6">
@@ -102,13 +102,13 @@ const BannerSection = () => {
               <img
                 src="/assets/icons/h-line.svg"
                 alt=""
-                className="hidden lg:block absolute left-[50%] right-0 bottom-3 -translate-y-1/2 h-auto w-[460px] max-w-full"
+                className="hidden xl:block absolute left-[50%] right-0 bottom-3 -translate-y-1/2 h-auto w-[400px]  2xl:w-[480px] max-w-full"
               />
 
               {/* Book a Demo Link - Desktop */}
               <a
                 href="#demo"
-                className="hidden lg:flex items-center gap-2 text-white font-medium text-lg whitespace-nowrap hover:text-[#0eb05c] transition-colors cursor-pointer ml-auto pt-13 "
+                className="hidden xl:flex items-center gap-2 text-white font-medium text-lg whitespace-nowrap hover:text-[#0eb05c] transition-colors cursor-pointer ml-auto pt-13 "
               >
                 Book a Demo
                 <span className="text-xl">

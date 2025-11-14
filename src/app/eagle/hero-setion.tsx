@@ -144,7 +144,7 @@ function Frame26() {
         className="absolute border border-[#07af40] border-solid inset-0 pointer-events-none rounded-[60px]"
       />
       <p
-        className="font-['Gilroy:Semibold',sans-serif] not-italic relative shrink-0 text-[#636363] text-nowrap whitespace-pre transition-all duration-300 ease-out
+        className="font-semibold not-italic relative shrink-0 text-[#636363] text-nowrap whitespace-pre transition-all duration-300 ease-out
           max-lg:text-[12px] max-lg:leading-[16px]
           max-md:text-[11px] max-md:leading-[15px]
           max-sm:text-[10.5px] max-sm:leading-[14px]
@@ -218,7 +218,7 @@ function Frame3() {
       whileTap={{ scale: 0.95, transition: { duration: 0.15 } }}
     >
       <p
-        className="font-['Gilroy:Semibold',sans-serif] not-italic relative shrink-0 text-nowrap text-white whitespace-pre transition-all duration-300 ease-out
+        className=" not-italic relative shrink-0 text-nowrap text-white whitespace-pre transition-all duration-300 ease-out
           max-lg:text-[14px] max-lg:leading-[18px]
           max-md:text-[13px] max-md:leading-[17px]
           max-sm:text-[12px] max-sm:leading-[16px]
@@ -291,7 +291,7 @@ function Frame24() {
         className="absolute border border-[#d2d2d2] border-solid inset-0 pointer-events-none rounded-sm"
       />
       <p
-        className="font-['Gilroy:Semibold',sans-serif] not-italic relative shrink-0 text-[#4f4f4f] text-nowrap whitespace-pre transition-all duration-300 ease-out
+        className="font-semibold not-italic relative shrink-0 text-[#4f4f4f] text-nowrap whitespace-pre transition-all duration-300 ease-out
           max-lg:text-[14px] max-lg:leading-[18px]
           max-md:text-[13px] max-md:leading-[17px]
           max-sm:text-[12px] max-sm:leading-[16px]
@@ -391,7 +391,7 @@ function Frame40() {
     >
       <Frame26 />
       <motion.p
-        className="font-['Gilroy:Semibold',sans-serif] not-italic relative shrink-0 text-[#282828] text-center transition-all duration-300 ease-out
+        className=" font-semibold not-italic relative shrink-0 text-[#282828] text-center transition-all duration-300 ease-out
           lg:w-[min-content] lg:min-w-full
           max-lg:w-full max-lg:text-[clamp(32px,4.5vw,42px)] max-lg:leading-[clamp(40px,5.5vw,52px)] max-lg:tracking-[-0.2px]
           max-md:text-[clamp(26px,4.8vw,34px)] max-md:leading-[clamp(34px,6vw,42px)]
@@ -413,7 +413,7 @@ function Frame40() {
         <span>{` The Edge Platform Powering Every Connected Factory`}</span>
       </motion.p>
       <motion.p
-        className="font-['Gilroy:Medium',sans-serif] not-italic opacity-75 relative shrink-0 text-[#636363] text-center transition-all duration-300 ease-out
+        className="font-medium not-italic opacity-75 relative shrink-0 text-[#636363] text-center transition-all duration-300 ease-out
           max-lg:w-full max-lg:text-[14px] max-lg:leading-[20px]
           max-md:text-[13px] max-md:leading-[19px]
           max-sm:text-[12px] max-sm:leading-[17px]
@@ -870,7 +870,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-90px)] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-90px)] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: rightLabelX,
                 top: labelY1,
@@ -900,7 +900,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: rightLabelX,
                 top: labelY2,
@@ -930,7 +930,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: rightLabelX,
                 top: labelY3,
@@ -961,7 +961,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[90px] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[90px] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: leftLabelX,
                 top: labelY1,
@@ -991,7 +991,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: leftLabelX,
                 top: labelY2,
@@ -1021,7 +1021,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: leftLabelX,
                 top: labelY3,
@@ -1052,7 +1052,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <p
-              className="absolute font-['Gilroy:Semibold',sans-serif] leading-[24px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-20 max-lg:left-[50%] max-lg:bottom-[-30px] max-lg:top-auto max-lg:text-[14px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[24px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-20 max-lg:left-[50%] max-lg:bottom-[-30px] max-lg:top-auto max-lg:text-[14px] transition-all duration-300 ease-out"
               style={{
                 left: centerLabelX,
                 top: centerLabelY,
