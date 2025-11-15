@@ -870,7 +870,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-90px)] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-90px)] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: rightLabelX,
                 top: labelY1,
@@ -900,7 +900,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: rightLabelX,
                 top: labelY2,
@@ -930,7 +930,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: rightLabelX,
                 top: labelY3,
@@ -961,7 +961,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[90px] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[90px] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: leftLabelX,
                 top: labelY1,
@@ -991,7 +991,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: leftLabelX,
                 top: labelY2,
@@ -1021,7 +1021,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: leftLabelX,
                 top: labelY3,
