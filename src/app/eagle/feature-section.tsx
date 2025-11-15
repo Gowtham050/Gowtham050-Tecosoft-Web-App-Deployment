@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, useIsomorphicLayoutEffect } from "framer-motion";
+import Image from "next/image";
 import svgPathsFeatures from "../../imports/svg-ssflelrdzm";
 
 // Image paths from public folder
@@ -113,19 +114,23 @@ function FeatureSection() {
         <div className="absolute bottom-0 flex h-[120px] xl:h-[140px] 2xl:h-[150px] items-center justify-center left-0 w-full max-lg:hidden">
           <div className="flex-none scale-y-[-100%]">
             <div className="h-[120px] xl:h-[140px] 2xl:h-[150px] relative w-full">
-              <img
+              <Image
                 alt=""
-                className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full"
+                fill
+                className="max-w-none object-cover pointer-events-none"
                 src={imgRectangle34Features}
+                sizes="100vw"
               />
             </div>
           </div>
         </div>
         <div className="absolute h-[120px] xl:h-[140px] 2xl:h-[150px] left-0 top-0 w-full max-lg:hidden">
-          <img
+          <Image
             alt=""
-            className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full"
+            fill
+            className="max-w-none object-cover pointer-events-none"
             src={imgRectangle34Features}
+            sizes="100vw"
           />
         </div>
 
@@ -160,14 +165,17 @@ function FeatureSection() {
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none rounded-[12px] grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-in-out flex items-center justify-center"
           >
-            <img
+            <Image
               alt=""
-              className="w-full h-full object-cover "
+              fill
+              className="object-cover"
               src={
                 isMobile || hoveredCard === 0
                   ? imgFrame1171277136Features
                   : imgFrame1171277136Static
               }
+              sizes="(max-width: 1024px) 100vw, 15vw"
+              unoptimized
             />
             <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[12px] to-75% to-[rgba(0,0,0,0.6)]" />
           </div>
@@ -514,14 +522,17 @@ function FeatureSection() {
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none rounded-[12px] grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-in-out flex items-center justify-center "
           >
-            <img
+            <Image
               alt=""
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
               src={
                 isMobile || hoveredCard === 3
                   ? imgFrame1171277140Features
                   : imgFrame1171277140Static
               }
+              sizes="(max-width: 1024px) 100vw, 30vw"
+              unoptimized
             />
             <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[12px] to-75% to-[rgba(0,0,0,0.6)]" />
           </div>
@@ -831,14 +842,17 @@ function FeatureSection() {
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none rounded-[12px] grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-in-out flex items-center justify-center "
           >
-            <img
+            <Image
               alt=""
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
               src={
                 isMobile || hoveredCard === 6
                   ? imgFrame1171277142Features
                   : imgFrame1171277142Static
               }
+              sizes="(max-width: 1024px) 100vw, 27vw"
+              unoptimized
             />
             <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[12px] to-75% to-[rgba(0,0,0,0.6)]" />
           </div>
@@ -890,7 +904,9 @@ function FeatureSection() {
 
         {/* Card 8: Operator Dashboard */}
         <motion.div
-          className="group lg:absolute bg-[#243D70] box-border content-stretch cursor-pointer flex flex-col gap-[10px] xl:gap-[12px] h-[220px] lg:h-[43.33%] items-start justify-end lg:left-[70.63%] overflow-clip p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[15.12%] lg:w-[17.46%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-105 transition-transform duration-500 ease-out"
+          className={`group lg:absolute ${
+            isMobile ? "" : "bg-[#243D70]"
+          } box-border content-stretch cursor-pointer flex flex-col gap-[10px] xl:gap-[12px] h-[220px] lg:h-[43.33%] items-start justify-end lg:left-[70.63%] overflow-clip p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[15.12%] lg:w-[17.46%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-105 transition-transform duration-500 ease-out`}
           custom={isMobile ? undefined : 7}
           initial={isMobile ? "visible" : "hidden"}
           whileInView={isMobile ? undefined : "visible"}
@@ -912,14 +928,17 @@ function FeatureSection() {
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none rounded-[12px] grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-in-out flex items-center justify-center "
           >
-            <img
+            <Image
               alt=""
-              className="w-full h-full object-cover rounded-[12px]"
+              fill
+              className="object-cover rounded-[12px]"
               src={
                 isMobile || hoveredCard === 7
                   ? imgFrame1171277145Features
                   : imgFrame1171277145Static
               }
+              sizes="(max-width: 1024px) 100vw, 18vw"
+              unoptimized
             />
             <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[12px] to-75% to-[rgba(0,0,0,0.6)]" />
           </div>
@@ -1007,7 +1026,7 @@ function FeatureSection() {
         >
           <div
             aria-hidden="true"
-            className="absolute border-[#dddddd] border-[0.5px] border-solid inset-0 pointer-events-none rounded-[12px]"
+            className=" absolute border-[#dddddd] border-[0.5px] border-solid inset-0 pointer-events-none rounded-[12px]"
           />
           <div
             className="box-border content-stretch flex flex-col gap-[10px] items-center justify-center overflow-clip px-[28px] py-[29px] relative rounded-[12px] shrink-0 size-[60px] lg:size-[55px] xl:size-[70px]"

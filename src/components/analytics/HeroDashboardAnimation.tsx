@@ -20,16 +20,8 @@ export default function HeroDashboardAnimation({
   });
 
   // Status cards (Group1151) animation - slide down from above
-  const statusCardsY = useTransform(
-    scrollYProgress,
-    [0.15, 0.4],
-    [-750, 0],
-  );
-  const tabCardsY = useTransform(
-    scrollYProgress,
-    [0.15, 0.4],
-    [270, 0],
-  );
+  const statusCardsY = useTransform(scrollYProgress, [0.15, 0.4], [-750, 0]);
+  const tabCardsY = useTransform(scrollYProgress, [0.15, 0.4], [270, 0]);
 
   return (
     <div
@@ -38,27 +30,27 @@ export default function HeroDashboardAnimation({
       data-name="Group 1171277043 1"
     >
       {/* Base image - always visible */}
-       <motion.div
+      <motion.div
         className="absolute inset-0"
         style={{
           y: tabCardsY,
         }}
       >
-      <img
-        alt=""
-        className=" max-w-none object-50%-50% object-contain pointer-events-none rounded-[16px] size-full"
-        src={baseImgSrc}
+        <img
+          alt=""
+          className=" max-w-none object-50%-50% object-contain pointer-events-none rounded-[16px] size-full"
+          src={baseImgSrc}
         />
-        </motion.div>
+      </motion.div>
 
       {/* Title: Real-Time Machine Activity Snapshot */}
-       <motion.div
+      <motion.div
         className="absolute left-[65px] top-[45px] w-[922.144px] overflow-visible z-0"
         style={{
           y: tabCardsY,
         }}
       >
-        <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[29.587px] left-[269.07px] not-italic text-[21.369px] text-black text-nowrap top-0 tracking-[-0.1068px] whitespace-pre">
+        <p className="absolute  font-semibold leading-[29.587px] left-[269.07px] not-italic text-[21.369px] text-black text-nowrap top-0 tracking-[-0.1068px] whitespace-pre">
           Real-Time Machine Activity Snapshot
         </p>
       </motion.div>
@@ -75,12 +67,12 @@ export default function HeroDashboardAnimation({
 
       {/* Title: Live Machine Dashboard */}
       <motion.div
-      className="absolute left-[65px] top-[220px] w-[922.144px] overflow-visible z-0"
-      style={{
-        y: tabCardsY,
-      }}
+        className="absolute left-[65px] top-[220px] w-[922.144px] overflow-visible z-0"
+        style={{
+          y: tabCardsY,
+        }}
       >
-        <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[29.587px] left-[335.07px] not-italic text-[21.369px] text-black text-nowrap top-0 tracking-[-0.1068px] whitespace-pre">
+        <p className="absolute  font-normal leading-[29.587px] left-[335.07px] not-italic text-[21.369px] text-black text-nowrap top-0 tracking-[-0.1068px] whitespace-pre">
           Live Machine Dashboard
         </p>
       </motion.div>

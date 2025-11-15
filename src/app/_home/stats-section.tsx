@@ -92,7 +92,13 @@ const StatsSection = () => {
     },
   ];
 
-  const StatCard: React.FC<StatCardProps> = ({ icon, alt, number, unit, description }) => (
+  const StatCard: React.FC<StatCardProps> = ({
+    icon,
+    alt,
+    number,
+    unit,
+    description,
+  }) => (
     <div className="flex flex-col items-start gap-3 lg:gap-6 p-3 md:p-5 relative w-full md:flex-1 bg-white rounded-2xl overflow-hidden border-[1.5px] border-solid border-[#cccccc] hover:border-[#00b7ff]">
       <img
         className="relative w-8 h-8 md:w-[48px] md:h-[48px]"
@@ -105,19 +111,22 @@ const StatsSection = () => {
             <AnimatedStat to={number} />
           </div>
           {unit && (
-            <div className="relative w-fit [font-family:'Gilroy-Medium',Helvetica] font-medium text-[#888888] text-md md:text-lg tracking-[0] leading-4">
+            <div className="relative w-fit  font-medium text-[#888888] text-md md:text-lg tracking-[0] leading-4">
               {unit}
             </div>
           )}
         </div>
-        <div className="relative w-fit [font-family:'Gilroy-Medium',Helvetica] font-medium text-[#333333] text-md md:text-lg tracking-[0] leading-5 md:leading-[22px]">
+        <div className="relative w-fit font-medium text-[#333333] text-md md:text-lg tracking-[0] leading-5 md:leading-[22px]">
           {description}
         </div>
       </div>
     </div>
   );
 
-  const StatsRow: React.FC<StatsRowProps> = ({ items, alignment = "start" }) => (
+  const StatsRow: React.FC<StatsRowProps> = ({
+    items,
+    alignment = "start",
+  }) => (
     <div
       className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-col md:flex-row items-start gap-5 md:gap-6 lg:gap-[32px] relative w-full`}
     >
