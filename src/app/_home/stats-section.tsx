@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { useInView, animate } from "framer-motion";
+import Image from "next/image";
 
 interface AnimatedStatProps {
   to: string;
@@ -100,10 +101,12 @@ const StatsSection = () => {
     description,
   }) => (
     <div className="flex flex-col items-start gap-3 lg:gap-6 p-3 md:p-5 relative w-full md:flex-1 bg-white rounded-2xl overflow-hidden border-[1.5px] border-solid border-[#cccccc] hover:border-[#00b7ff]">
-      <img
+      <Image
         className="relative w-8 h-8 md:w-[48px] md:h-[48px]"
         alt={alt}
         src={icon}
+        width={48}
+        height={48}
       />
       <div className="flex flex-col items-start gap-1 relative w-full">
         <div className="inline-flex items-baseline gap-2 md:gap-2.5 relative flex-wrap">

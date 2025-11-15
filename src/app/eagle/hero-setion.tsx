@@ -7,6 +7,7 @@ import {
   useSpring,
   useIsomorphicLayoutEffect,
 } from "framer-motion";
+import Image from "next/image";
 import svgPaths from "../../imports/svg-uk9fn56ilf";
 
 const imgRectangle = "/assets/platform/eagle/bg-green.png";
@@ -661,10 +662,13 @@ function HeroSection() {
           aria-hidden="true"
           className="absolute inset-0 pointer-events-none"
         >
-          <img
+          <Image
             alt=""
-            className="absolute max-w-none object-50%-50% object-cover opacity-40 size-full"
+            fill
+            className="max-w-none object-cover opacity-40"
             src={imgRectangle}
+            sizes="100vw"
+            priority
           />
           <div className="absolute bg-gradient-to-b from-[rgba(255,255,255,0.25)] inset-0 to-[#ffffff]" />
         </div>
@@ -758,15 +762,13 @@ function HeroSection() {
             max-sm:px-3
             max-[375px]:px-2"
           >
-            <motion.img
-              src={imgStaticHeroMobile}
-              alt="Eagle Platform Connected Factory"
+            <motion.div
               className="w-full h-auto
                 max-lg:max-w-[600px]
                 max-md:max-w-[520px]
                 max-sm:max-w-[420px]
                 max-[375px]:max-w-[360px]
-                max-[320px]:max-w-[300px]"
+                max-[320px]:max-w-[300px] relative"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
@@ -774,7 +776,16 @@ function HeroSection() {
                 duration: 0.8,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
-            />
+            >
+              <Image
+                src={imgStaticHeroMobile}
+                alt="Eagle Platform Connected Factory"
+                width={600}
+                height={450}
+                className="w-full h-auto"
+                priority
+              />
+            </motion.div>
           </div>
 
           {/* Animated Product Section for Desktop */}
@@ -862,10 +873,12 @@ function HeroSection() {
               }}
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[12px] flex items-center justify-center p-2">
-                <img
+                <Image
                   alt="Manual Machine"
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
                   src={imgManual}
+                  sizes="(max-width: 1024px) 100px, 150px"
                 />
               </div>
             </motion.div>
@@ -892,10 +905,12 @@ function HeroSection() {
               }}
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[12px] flex items-center justify-center p-2">
-                <img
+                <Image
                   alt="Press Break"
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
                   src={imgPress}
+                  sizes="(max-width: 1024px) 100px, 150px"
                 />
               </div>
             </motion.div>
@@ -922,10 +937,12 @@ function HeroSection() {
               }}
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[12px] flex items-center justify-center p-2">
-                <img
+                <Image
                   alt="Laser Cutting"
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
                   src={imgLaser}
+                  sizes="(max-width: 1024px) 100px, 150px"
                 />
               </div>
             </motion.div>
@@ -953,10 +970,12 @@ function HeroSection() {
               }}
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[12px] flex items-center justify-center p-2">
-                <img
+                <Image
                   alt="CNC Machine"
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
                   src={imgCNC}
+                  sizes="(max-width: 1024px) 100px, 150px"
                 />
               </div>
             </motion.div>
@@ -983,10 +1002,12 @@ function HeroSection() {
               }}
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[12px] flex items-center justify-center p-2">
-                <img
+                <Image
                   alt="VMC Machine"
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
                   src={imgVMC}
+                  sizes="(max-width: 1024px) 100px, 150px"
                 />
               </div>
             </motion.div>
@@ -1013,10 +1034,12 @@ function HeroSection() {
               }}
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[12px] flex items-center justify-center p-2">
-                <img
+                <Image
                   alt="HMC Machine"
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
                   src={imgHMC}
+                  sizes="(max-width: 1024px) 100px, 150px"
                 />
               </div>
             </motion.div>
@@ -1044,10 +1067,13 @@ function HeroSection() {
               }}
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[16px] flex items-center justify-center p-4 ">
-                <img
+                <Image
                   alt="Industrial Display HMI Panel"
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
                   src={imgHMIPanel}
+                  sizes="(max-width: 1024px) 380px, 526px"
+                  priority
                 />
               </div>
             </motion.div>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 interface ProductCardProps {
   image: string;
@@ -73,9 +74,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <img
+        <Image
           src={image}
           alt={title}
+          width={400}
+          height={192}
           className="max-w-full max-h-full object-contain transition-transform duration-500 rounded-[10px]"
           style={{
             transform: isHovered ? "scale(1.1)" : "scale(1)",
@@ -215,10 +218,12 @@ const Products = () => {
 
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <img
-          src="./assets/images/platform-bg.png"
+        <Image
+          src={"./assets/images/platform-bg.png"}
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
+          fill
+          className="object-cover opacity-80"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-[#3b83f129] backdrop-blur-2xl" />
       </div>
@@ -295,10 +300,13 @@ const Products = () => {
                       }}
                     >
                       <div className="w-full h-full bg-[#0a0e27] rounded-2xl overflow-hidden flex items-center justify-center">
-                        <img
+                        <Image
                           src={currentProduct.gifPath}
                           alt={`${currentProduct.title} animation`}
-                          className="w-full h-full object-cover transition-opacity duration-700"
+                          fill
+                          className="object-cover transition-opacity duration-700"
+                          sizes="100vw"
+                          unoptimized
                           style={{
                             animation: "imageReveal 0.7s ease-out forwards",
                           }}

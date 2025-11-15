@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Industry {
   name: string;
@@ -147,16 +148,22 @@ const IndustriesSection = () => {
         </div>
 
         <div className="relative w-full lg:w-[600px] max-w-full">
-          <motion.img
+          <motion.div
             key={currentDisplayImage}
-            src={currentDisplayImage}
-            alt="Industry visualization"
-            className="relative w-full"
+            className="relative w-full h-auto"
             initial={{ opacity: 0.5, filter: "grayscale(100%)" }}
             animate={{ opacity: 1, filter: "grayscale(0%)" }}
             exit={{ opacity: 0, filter: "grayscale(100%)" }}
             transition={{ duration: 2, delay: 0.5 }}
-          />
+          >
+            <Image
+              src={currentDisplayImage}
+              alt="Industry visualization"
+              width={600}
+              height={450}
+              className="relative w-full h-auto"
+            />
+          </motion.div>
 
           {/* Image with grayscale filter that transitions */}
           {/* <img

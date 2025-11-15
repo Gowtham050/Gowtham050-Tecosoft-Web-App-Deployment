@@ -2,6 +2,7 @@
 import HeroDashboardAnimation from "../../components/analytics/HeroDashboardAnimation";
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 import svgPaths from "../../imports/svg-xkva4n8i2f";
 
@@ -107,7 +108,7 @@ export default function HeroSection() {
     <div className="bg-white h-[1320px] max-[1023px]:h-auto min-[768px]:max-[1023px]:min-h-[900px] max-[767px]:min-h-[750px] overflow-clip relative shrink-0 w-full" data-name="Hero section" ref={containerRef}>
       <div className="absolute h-[680px] left-0 top-0 w-full" data-name="Rectangle">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-          <img alt="" className="absolute max-w-none object-50%-50% object-cover opacity-40 size-full" src={imgRectangle} />
+          <Image alt="" fill className="max-w-none object-cover opacity-40" src={imgRectangle} sizes="100vw" priority />
           <div className="absolute bg-gradient-to-b from-[rgba(255,255,255,0.25)] inset-0 to-[#ffffff]" />
         </div>
       </div>
@@ -134,10 +135,13 @@ export default function HeroSection() {
       {/* Conditional rendering based on screen size */}
       {isSmallScreen ? (
         <div className="relative mt-[24px] min-[768px]:max-[1023px]:mt-[32px] max-[767px]:mt-[20px] mx-auto w-[95%] max-w-[1052px] pb-[40px] min-[768px]:max-[1023px]:pb-[50px] max-[767px]:pb-[30px] z-1">
-          <img
+          <Image
             alt="Dashboard"
+            width={1052}
+            height={700}
             className="w-full h-auto rounded-[16px] max-[767px]:rounded-[12px]"
             src={imgDashboardStatic}
+            priority
           />
         </div>
       ) : (

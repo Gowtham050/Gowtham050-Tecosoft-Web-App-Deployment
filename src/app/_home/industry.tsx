@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 interface IndustryCard {
   id: number;
@@ -160,10 +161,12 @@ const Industry = () => {
 
           {/* Center Icon */}
           <div className="relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] md:w-[160px] md:h-[160px] lg:w-[180px] lg:h-[180px] rounded-full bg-white flex items-center justify-center shadow-lg z-10">
-            <img
+            <Image
               className="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] md:w-[160px] md:h-[160px] lg:w-[180px] lg:h-[180px]"
               alt="Center icon"
               src={industryContent.centerImage}
+              width={180}
+              height={180}
             />
           </div>
         </div>
@@ -189,25 +192,31 @@ const Industry = () => {
           >
             {/* Arrow Icon - Hidden by default, visible on hover (desktop only) */}
             <div className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-5 md:right-5 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-              <img
+              <Image
                 src={industryContent.arrowIcon}
                 alt="Arrow"
+                width={28}
+                height={28}
                 className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
               />
             </div>
 
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-[68px] lg:h-[68px] flex-shrink-0">
               {/* Normal Icon - Visible by default, hidden on hover */}
-              <img
-                className="absolute inset-0 w-full h-full opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+              <Image
+                fill
+                className="object-contain opacity-100 group-hover:opacity-0 transition-opacity duration-300"
                 alt={`${card.title} icon`}
                 src={card.normalIcon}
+                sizes="(max-width: 640px) 40px, (max-width: 768px) 48px, (max-width: 1024px) 56px, 68px"
               />
               {/* Hover Icon - Hidden by default, visible on hover */}
-              <img
-                className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              <Image
+                fill
+                className="object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 alt={`${card.title} icon hover`}
                 src={card.hoverIcon}
+                sizes="(max-width: 640px) 40px, (max-width: 768px) 48px, (max-width: 1024px) 56px, 68px"
               />
             </div>
 

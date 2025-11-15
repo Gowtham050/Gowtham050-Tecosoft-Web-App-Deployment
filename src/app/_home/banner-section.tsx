@@ -28,9 +28,11 @@ const ClientSlider = () => {
             key={index}
             className="flex-shrink-0 flex items-center justify-center min-w-[140px] lg:min-w-[180px]"
           >
-            <img
+            <Image
               src={client.logo}
               alt={`${client.name} logo`}
+              width={180}
+              height={36}
               className="h-7 lg:h-9 w-auto opacity-80 hover:opacity-100 transition-opacity filter brightness-0 invert"
             />
           </div>
@@ -99,9 +101,11 @@ const BannerSection = () => {
               </p>
 
               {/* Horizontal Line - Desktop Only (Absolute) */}
-              <img
+              <Image
                 src="/assets/icons/h-line.svg"
                 alt=""
+                width={480}
+                height={20}
                 className="hidden xl:block absolute left-[50%] right-0 bottom-3 -translate-y-1/2 h-auto w-[400px]  2xl:w-[480px] max-w-full"
               />
 

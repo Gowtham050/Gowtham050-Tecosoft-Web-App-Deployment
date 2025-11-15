@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 import svgPathsHardware from "../../imports/svg-pycttavgg8";
 
@@ -351,10 +352,12 @@ function HardwareSection() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-[#E8F4F8] to-[#F0F9FB] rounded-[16px]" />
           <div className="relative w-[80%] h-[80%] sm:w-[85%] sm:h-[85%] flex items-center justify-center">
-            <img
+            <Image
               alt={currentHardware.title}
-              className="w-full h-full object-contain"
+              fill
+              className="object-contain"
               src={currentHardware.image}
+              sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, 324px"
               style={{ mixBlendMode: "multiply" }}
             />
           </div>
@@ -469,10 +472,12 @@ function HardwareSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="relative w-[85%] h-[85%] flex items-center justify-center pointer-events-none">
-            <img
+            <Image
               alt={currentHardware.title}
-              className="w-full h-full object-contain"
+              fill
+              className="object-contain"
               src={currentHardware.image}
+              sizes="27vw"
               style={{ mixBlendMode: "multiply" }}
             />
           </div>
