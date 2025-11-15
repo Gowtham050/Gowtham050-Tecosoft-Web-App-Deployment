@@ -11,7 +11,7 @@ import svgPaths from "../../imports/svg-uk9fn56ilf";
 
 const imgRectangle = "/assets/platform/eagle/bg-green.png";
 const img = "/assets/platform/eagle/banner-full.png";
-const imgStaticHeroMobile = "/assets/platform/eagle/5.svg";
+const imgStaticHeroMobile = "/assets/platform/eagle/banner/5.png";
 
 // Individual product images
 const imgCNC = "/assets/platform/eagle/banner/cnc.png";
