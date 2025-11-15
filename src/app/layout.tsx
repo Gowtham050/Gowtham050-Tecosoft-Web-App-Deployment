@@ -4,6 +4,7 @@ import "./globals.css";
 
 import HeaderSection from "@/container/header/page";
 import FooterSection from "@/container/footer/page";
+import ScrollWrapperSection from "@/components/scrollwrapper";
 
 const gilroy = localFont({
   src: [
@@ -48,9 +49,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={gilroy.variable}>
+        <ScrollWrapperSection>
         <HeaderSection />
         {children}
         <FooterSection />
+        </ScrollWrapperSection>
       </body>
     </html>
   );
