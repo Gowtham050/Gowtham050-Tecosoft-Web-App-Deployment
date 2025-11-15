@@ -98,7 +98,7 @@ function FeatureSection() {
 
   return (
     <div
-      className="relative shrink-0 w-full flex items-center justify-center pt-[80px] max-lg:pt-[60px] pb-[40px]"
+      className="relative shrink-0 w-full flex items-center justify-center pt-[80px] max-lg:pt-[60px] pb-[40px] lg:pb-[5px]"
       style={{
         backgroundImage:
           "linear-gradient(90deg, rgba(0, 184, 219, 0.1) 0%, rgba(0, 184, 219, 0.1) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%))",
@@ -163,7 +163,9 @@ function FeatureSection() {
         >
           <div
             aria-hidden="true"
-            className="absolute inset-0 pointer-events-none rounded-[12px] grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-in-out flex items-center justify-center"
+            className={`absolute inset-0 pointer-events-none rounded-[12px] ${
+              isMobile ? "" : "grayscale group-hover:grayscale-0"
+            } transition-[filter] duration-500 ease-in-out flex items-center justify-center`}
           >
             <Image
               alt=""
@@ -520,7 +522,9 @@ function FeatureSection() {
         >
           <div
             aria-hidden="true"
-            className="absolute inset-0 pointer-events-none rounded-[12px] grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-in-out flex items-center justify-center "
+            className={`absolute inset-0 pointer-events-none rounded-[12px] ${
+              isMobile ? "" : "grayscale group-hover:grayscale-0"
+            } transition-[filter] duration-500 ease-in-out flex items-center justify-center`}
           >
             <Image
               alt=""
@@ -840,7 +844,9 @@ function FeatureSection() {
         >
           <div
             aria-hidden="true"
-            className="absolute inset-0 pointer-events-none rounded-[12px] grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-in-out flex items-center justify-center "
+            className={`absolute inset-0 pointer-events-none rounded-[12px] ${
+              isMobile ? "" : "grayscale group-hover:grayscale-0"
+            } transition-[filter] duration-500 ease-in-out flex items-center justify-center`}
           >
             <Image
               alt=""
@@ -926,7 +932,9 @@ function FeatureSection() {
         >
           <div
             aria-hidden="true"
-            className="absolute inset-0 pointer-events-none rounded-[12px] grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-in-out flex items-center justify-center "
+            className={`absolute inset-0 pointer-events-none rounded-[12px] ${
+              isMobile ? "" : "grayscale group-hover:grayscale-0"
+            } transition-[filter] duration-500 ease-in-out flex items-center justify-center`}
           >
             <Image
               alt=""
@@ -1130,7 +1138,7 @@ function FeatureSection() {
           </div>
           <div className="content-stretch flex flex-col gap-[4px] xl:gap-[6px] items-start not-italic relative shrink-0 w-full">
             <p className="font-semibold leading-[20px] xl:leading-[22px] relative shrink-0 text-[#282828] text-[16px] xl:text-[18px] text-nowrap whitespace-pre">{`Store & Forward`}</p>
-            <p className="font-normal leading-[18px] xl:leading-[20px] min-w-full relative shrink-0 text-[#8e8e8e] text-[13px] xl:text-[15px] w-[min-content] text-ellipsis">
+            <p className="font-normal leading-[18px] xl:leading-[20px] min-w-full relative shrink-0 text-[#8e8e8e] text-[13px] xl:text-[15px] w-[min-content] line-clamp-3">
               Local buffering prevents data loss and ensures delivery after
               reconnection.
             </p>

@@ -20,7 +20,7 @@ const imgHMC = "/assets/platform/eagle/banner/hmc_machine.png";
 const imgManual = "/assets/platform/eagle/banner/manual-machine.png";
 const imgPress = "/assets/platform/eagle/banner/press-break.png";
 const imgLaser = "/assets/platform/eagle/banner/laser-cutting.png";
-const imgHMIPanel = "/assets/platform/eagle/banner/hmi-panel.svg";
+const imgHMIPanel = "/assets/platform/eagle/banner/pro.png";
 
 // Animation variants
 const fadeInUp: any = {
