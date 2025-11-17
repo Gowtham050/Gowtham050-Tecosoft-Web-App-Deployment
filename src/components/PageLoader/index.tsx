@@ -4,20 +4,65 @@ import Image from "next/image";
 
 interface PageLoaderProps {
   onLoadComplete?: () => void;
+  assetsToLoad?: string[];
 }
 
-export default function PageLoader({ onLoadComplete }: PageLoaderProps) {
+export default function PageLoader({
+  onLoadComplete,
+  assetsToLoad = [],
+}: PageLoaderProps) {
   const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate minimum loading time for better UX
-    const timer = setTimeout(() => {
+    const loadAssets = async () => {
+      // Default minimum loading time
+      const minimumLoadTime = 1500;
+      const startTime = Date.now();
+
+      if (assetsToLoad.length === 0) {
+        // If no assets specified, just use minimum load time
+        await new Promise((resolve) => setTimeout(resolve, minimumLoadTime));
+        setProgress(100);
+        setIsLoading(false);
+        onLoadComplete?.();
+        return;
+      }
+
+      // Preload all assets
+      const loadPromises = assetsToLoad.map((src, index) => {
+        return new Promise<void>((resolve) => {
+          const img = new window.Image();
+          img.onload = () => {
+            setProgress(((index + 1) / assetsToLoad.length) * 100);
+            resolve();
+          };
+          img.onerror = () => {
+            console.warn(`Failed to load asset: ${src}`);
+            resolve(); // Continue even if asset fails
+          };
+          img.src = src;
+        });
+      });
+
+      // Wait for all assets to load
+      await Promise.all(loadPromises);
+
+      // Ensure minimum load time
+      const elapsed = Date.now() - startTime;
+      if (elapsed < minimumLoadTime) {
+        await new Promise((resolve) =>
+          setTimeout(resolve, minimumLoadTime - elapsed)
+        );
+      }
+
+      setProgress(100);
       setIsLoading(false);
       onLoadComplete?.();
-    }, 2000); // 2 seconds minimum load time
+    };
 
-    return () => clearTimeout(timer);
-  }, [onLoadComplete]);
+    loadAssets();
+  }, [onLoadComplete, assetsToLoad]);
 
   if (!isLoading) return null;
 
@@ -40,40 +85,14 @@ export default function PageLoader({ onLoadComplete }: PageLoaderProps) {
           />
         </div>
 
-        {/* Loading text with animation */}
-        <div className="flex flex-col items-center gap-3">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#0098d4] animate-pulse">
-            Loading EAGLE
-          </h2>
-
-          {/* Loading dots animation */}
-          <div className="flex gap-2">
-            <span className="w-3 h-3 bg-[#00B8DB] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-            <span className="w-3 h-3 bg-[#0098d4] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-            <span className="w-3 h-3 bg-[#00B8DB] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-          </div>
-        </div>
-
         {/* Progress bar */}
-        <div className="w-[200px] sm:w-[250px] md:w-[300px] h-1 bg-gray-200 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-[#00B8DB] to-[#0098d4] animate-[loading_2s_ease-in-out]"
-               style={{
-                 animation: 'loadingBar 2s ease-in-out forwards'
-               }}
+        {/* <div className="w-[200px] sm:w-[250px] md:w-[300px] h-1 bg-gray-200 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-[#00B8DB] to-[#0098d4] transition-all duration-300 ease-out"
+            style={{ width: `${progress}%` }}
           />
-        </div>
+        </div> */}
       </div>
-
-      <style jsx>{`
-        @keyframes loadingBar {
-          from {
-            width: 0%;
-          }
-          to {
-            width: 100%;
-          }
-        }
-      `}</style>
     </div>
   );
 }

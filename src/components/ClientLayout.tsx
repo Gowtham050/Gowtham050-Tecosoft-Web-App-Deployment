@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import PageLoader from "@/app/eagle/page-loader";
+import PageLoader from "@/components/PageLoader";
 import { getAllAssets, getCriticalAssets } from "@/config/preloadAssets";
 
 interface ClientLayoutProps {
