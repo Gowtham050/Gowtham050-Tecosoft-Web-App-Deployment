@@ -47,18 +47,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+
   return (
     <html lang="en">
       <body className={gilroy.variable}>
-        
         <ClientLayout>
-        <ScrollWrapperSection>
-        <HeaderSection />
-        {children}
-        <FooterSection />
-        </ScrollWrapperSection>
+          <ScrollWrapperSection>
+            <HeaderSection />
+            {children}
+            <FooterSection />
+          </ScrollWrapperSection>
         </ClientLayout>
       </body>
     </html>
   );
-} 
+}

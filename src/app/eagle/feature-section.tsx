@@ -256,7 +256,7 @@ function FeatureSection() {
             }}
           >
             <div
-              className="absolute inset-0 rounded-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 rounded-[12px] opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style={{
                 background:
                   "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
@@ -349,7 +349,7 @@ function FeatureSection() {
             }}
           >
             <div
-              className="absolute inset-0 rounded-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 rounded-[12px] opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style={{
                 background:
                   "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
@@ -634,7 +634,7 @@ function FeatureSection() {
             }}
           >
             <div
-              className="absolute inset-0 rounded-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 rounded-[12px] opacity-100 lg:opacity-0  group-hover:opacity-100 transition-opacity duration-500"
               style={{
                 background:
                   "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
@@ -767,7 +767,7 @@ function FeatureSection() {
             }}
           >
             <div
-              className="absolute inset-0 rounded-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 rounded-[12px] opacity-100 lg:opacity-0  group-hover:opacity-100 transition-opacity duration-500"
               style={{
                 background:
                   "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
@@ -1044,7 +1044,7 @@ function FeatureSection() {
             }}
           >
             <div
-              className="absolute inset-0 rounded-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 rounded-[12px] opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style={{
                 background:
                   "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
