@@ -132,7 +132,7 @@ const Industry = () => {
         </h2>
       </div>
 
-      <div className="flex flex-col lg:flex-wrap w-full items-center justify-center gap-5 sm:gap-6 lg:gap-0 relative lg:h-[500px] xl:h-[550px]">
+      <div className="flex flex-col lg:flex-wrap w-full items-center justify-center gap-5 sm:gap-6 lg:gap-0 relative lg:h-[430px] xl:h-[480px]">
         {/* Center Image with Animated Circle Waves */}
         <div className="hidden lg:flex relative w-full lg:w-[600px] xl:w-[700px] h-[280px] sm:h-[350px] lg:h-[430px] xl:h-[480px] items-center justify-center">
           {/* Animated Circle Waves - 5 Visible Lines */}
