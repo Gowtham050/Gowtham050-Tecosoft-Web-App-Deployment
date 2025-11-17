@@ -136,33 +136,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   );
 };
 
-const Products = () => {
-  const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
+const Products = ({ products,hoveredProduct, setHoveredProduct }: any) => {
 
-  const products = [
-    {
-      image: "./assets/images/eagle.png",
-      title: "Eagle",
-      subtitle: "IOT Gateway Platform",
-      description:
-        "EAGLE is an advanced edge computing IoT gateway that connects machines, sensors, meters, and other industrial assets, acting as the backbone for digital transformation. It enables real-time data acquisition, monitoring, and control, providing seamless, reliable, and intelligent connectivity across operations.",
-      delay: 0,
-      route: "/eagle",
-      gifPath: "./assets/video/eagle.gif",
-    },
-    {
-      image: "./assets/images/analytics.png",
-      title: "Tecosoft Analytics",
-      subtitle: "IOT Cloud Platform",
-      description:
-        "Tecosoft Analytics is an intelligent enterprise analytics platform that transforms operational data into actionable insights. With embedded AI and Digital Twin capabilities, it delivers dashboards, reports, and predictive intelligence to enable smarter decisions and connected operations.",
-      delay: 200,
-      route: "/analytics",
-      gifPath: "./assets/video/tecosoft-analytics.gif",
-    },
-  ];
-
-  const currentProduct = products.find((p) => p.title === hoveredProduct);
 
   return (
     <section className="relative w-full overflow-hidden bg-[#0a0e27] py-12 md:py-16 lg:py-20">
@@ -170,44 +145,36 @@ const Products = () => {
       <style jsx>{`
         @keyframes overlayFadeIn {
           from {
-            opacity: 0;
             backdrop-filter: blur(0px);
           }
           to {
-            opacity: 1;
             backdrop-filter: blur(12px);
           }
         }
 
         @keyframes scaleIn {
           from {
-            opacity: 0;
             transform: scale(0.85) translateY(20px);
           }
           to {
-            opacity: 1;
             transform: scale(1) translateY(0);
           }
         }
 
         @keyframes borderGlow {
           from {
-            opacity: 0;
             filter: brightness(0.5);
           }
           to {
-            opacity: 1;
             filter: brightness(1.2);
           }
         }
 
         @keyframes imageReveal {
           from {
-            opacity: 0;
             filter: brightness(0.7) contrast(0.8);
           }
           to {
-            opacity: 1;
             filter: brightness(1) contrast(1);
           }
         }
@@ -245,7 +212,7 @@ const Products = () => {
         <div className="relative">
           {/* Product Cards Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 xl:gap-16 max-w-7xl mx-auto">
-            {products.map((product) => (
+            {products.map((product: any) => (
               <ProductCard
                 key={product.title}
                 image={product.image}
@@ -255,7 +222,7 @@ const Products = () => {
                 delay={product.delay}
                 route={product.route}
                 gifPath={product.gifPath}
-                onHoverChange={(isHovered) => {
+                onHoverChange={(isHovered: any) => {
                   setHoveredProduct(isHovered ? product.title : null);
                 }}
               />
@@ -263,65 +230,12 @@ const Products = () => {
           </div>
 
           {/* GIF Overlay - Shows over entire products section */}
-          {hoveredProduct && currentProduct && (
-            <div
-              className=" hidden lg:flex absolute inset-0 z-50  items-center justify-center bg-[#0a0e27]/95 backdrop-blur-md rounded-2xl pointer-events-none transition-all duration-500 ease-out"
-              style={{
-                animation: "overlayFadeIn 0.9s ease-out forwards",
-              }}
-            >
-              <div className="w-full h-full   flex flex-col items-center justify-center">
-                {/* GIF Container */}
-                <div className="relative w-full max-w-full flex-1 flex items-center justify-center ">
-                  <div
-                    className="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 ease-out"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      // maxWidth: "1000px",
-                      // maxHeight: "85vh",
-                      // boxShadow: "0 25px 50px -12px rgba(54, 212, 255, 0.7)",
-                      animation: "scaleIn 0.5s ease-out forwards",
-                    }}
-                  >
-                    {/* Gradient border */}
-                    <div
-                      className="absolute inset-0 rounded-2xl transition-all duration-500"
-                      style={{
-                        // padding: "1px",
-                        // background:
-                        //   "linear-gradient(135deg, #3198DF 0%, #36D4FF 50%, #00FF84 100%)",
-                        animation: "borderGlow 0.9s ease-out forwards",
-                      }}
-                    >
-                      <div className="w-full h-full bg-[#0a0e27] rounded-2xl overflow-hidden flex items-center justify-center">
-                        <img
-                          src={currentProduct.gifPath}
-                          alt={`${currentProduct.title} animation`}
-                          className="w-full h-full object-cover transition-opacity duration-700"
-                          style={{
-                            animation: "imageReveal 0.7s ease-out forwards",
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          {/* {hoveredProduct && currentProduct && ( */}
 
-                {/* Title */}
-                {/* <div className="mt-6 md:mt-8 lg:mt-10">
-                  <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center bg-gradient-to-r from-[#36d4ff] via-[#36d4ff] to-[#00ff84] bg-clip-text text-transparent mb-2">
-                    {currentProduct.title}
-                  </h3>
-                  <p className="text-[#00b7ff] text-lg md:text-xl lg:text-2xl font-semibold text-center">
-                    {currentProduct.subtitle}
-                  </p>
-                </div> */}
-              </div>
-            </div>
-          )}
+          {/* )} */}
         </div>
       </div>
+      
     </section>
   );
 };
