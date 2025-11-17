@@ -30,8 +30,7 @@ const FooterSection = () => {
               />
             </div>
             <p className="text-white text-base md:text-lg lg:text-xl font-medium leading-relaxed">
-              Your Webflow Partner for building high-performance, scalable
-              Websites.
+              Your Trusted Partner in Industry-Ready Digital Transformation.
             </p>
           </div>
 
@@ -68,10 +67,10 @@ const FooterSection = () => {
                   Email
                 </h4>
                 <a
-                  href="mailto:info@tecosoft.ai.com"
+                  href="mailto:sales@tecosoft.ai"
                   className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
                 >
-                  info@tecosoft.ai.com
+                  sales@tecosoft.ai
                 </a>
               </div>
               <div>
@@ -79,10 +78,10 @@ const FooterSection = () => {
                   Phone
                 </h4>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919591054135"
                   className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
                 >
-                  +91 9876543210
+                  +91 9591054135
                 </a>
               </div>
               <div>
@@ -90,9 +89,16 @@ const FooterSection = () => {
                   Address
                 </h4>
                 <p className="text-[#4ACEFF] text-sm md:text-base leading-relaxed">
-                  1158 rue De La Souveraine Québec,
+                  
+<span className="text-white font-bold">USA</span> <br />
+Tecosoft Digital Solutions INC<br />
+800 N King Street Suite 304 3432 Wilmington,<br /> DE 19801 United States<br />
+<span className="text-white font-bold">INDIA</span><br />
+Tecosoft Digital Solutions Pvt Ltd<br />
+#119, 2nd Floor, 1st cross, <br />Gangodnahalli Main Road, Chandra Layout,<br /> Bengaluru, Karnataka 560040
+                  {/* 1158 rue De La Souveraine Québec,
                   <br />
-                  QC, G2L 2L9 Canada
+                  QC, G2L 2L9 Canada */}
                 </p>
               </div>
             </div>

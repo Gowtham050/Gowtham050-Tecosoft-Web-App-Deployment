@@ -132,7 +132,7 @@ export default function TechnologyCardsSlider() {
     const checkScreenSize = () => {
       const width = window.innerWidth;
       setIsLargeScreen(width >= 1024);
-      setIsMidRange(width >= 1280 && width <= 1500);
+      setIsMidRange(width >= 1280 && width <= 1420);
     };
 
     checkScreenSize();
@@ -198,11 +198,19 @@ export default function TechnologyCardsSlider() {
         } ${
           isLargeScreen ? "h-[90px] lg:h-[80px] xl:h-[90px]" : "h-auto"
         } items-${isLargeScreen ? "center" : "start"} ${
-          isLargeScreen ? "left-[8%] lg:left-[6%] xl:left-[180px]" : "px-[5%]"
+          isLargeScreen
+            ? isMidRange
+              ? "left-1/2 -translate-x-1/2"
+              : "left-[8%] lg:left-[6%] xl:left-[180px]"
+            : "px-[5%]"
         } not-italic text-white ${
           isLargeScreen ? "top-[70px] lg:top-[50px] xl:top-[70px]" : "pt-[50px]"
         } ${
-          isLargeScreen ? "w-[84%] lg:w-[88%] xl:w-[1152px]" : "w-full"
+          isLargeScreen
+            ? isMidRange
+              ? "w-[1150px] min-[140px]:max-w-[1512px]"
+              : "w-[84%] lg:w-[88%] xl:w-[1152px]"
+            : "w-full"
         } opacity-0 animate-[headerSlideIn_0.8s_ease-out_0.2s_forwards]`}
       >
         <p
@@ -246,7 +254,9 @@ export default function TechnologyCardsSlider() {
           {/* Swiper Container - For large screens (>= 1024px) */}
           <div
             ref={swiperContainerRef}
-            className="absolute left-1/2 top-[220px] lg:top-[180px] xl:top-[220px] translate-x-[-50%] w-[90%] lg:w-[88%] xl:w-[1152px] h-[368px] lg:h-[320px] xl:h-[368px] opacity-0 animate-[cardFadeIn_1s_ease-out_0.6s_forwards]"
+            className={`absolute left-1/2 top-[220px] lg:top-[180px] xl:top-[220px] translate-x-[-50%] ${
+              isMidRange ? "w-[1150px] min-[1400px]:max-w-[1512px]" : "w-[90%] lg:w-[88%] xl:w-[1152px]"
+            } h-[368px] lg:h-[320px] xl:h-[368px] opacity-0 animate-[cardFadeIn_1s_ease-out_0.6s_forwards]`}
             onMouseEnter={handleSwiperMouseEnter}
             onMouseLeave={handleSwiperMouseLeave}
           >
@@ -314,7 +324,7 @@ export default function TechnologyCardsSlider() {
                             </p>
                           </div>
 
-                          <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[273px] lg:left-[230px] xl:left-[273px] not-italic top-[250px] lg:top-[210px] xl:top-[250px]">
+                          <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[273px] lg:left-[260px] xl:left-[300px] not-italic top-[250px] lg:top-[210px] xl:top-[250px]">
                             <p className="font-semibold leading-[44px] lg:leading-[38px] xl:leading-[44px] min-w-full relative shrink-0 text-[#282828] text-[42px] lg:text-[36px] xl:text-[42px] w-[min-content]">
                               {card.metric2.value}
                             </p>
@@ -337,7 +347,11 @@ export default function TechnologyCardsSlider() {
           </div>
 
           {/* Custom Pagination Buttons - For large screens */}
-          <div className="absolute content-stretch flex gap-[16px] lg:gap-[12px] xl:gap-[16px] items-center left-[8%] lg:left-[6%] xl:left-[11%] 2xl:left-[240px] top-[648px] lg:top-[560px] xl:top-[648px] w-[84%] lg:w-[88%] xl:w-[1032px] opacity-0 animate-[buttonsSlideUp_0.8s_ease-out_1s_forwards]">
+          <div
+            className={`absolute content-stretch flex gap-[16px] lg:gap-[12px] xl:gap-[16px] items-center left-1/2 -translate-x-1/2 top-[648px] lg:top-[560px] xl:top-[648px] ${
+              isMidRange ? "w-[1150px] min-[1400px]:max-w-[1512px]" : "w-[84%] lg:w-[88%] xl:w-[1032px]"
+            } opacity-0 animate-[buttonsSlideUp_0.8s_ease-out_1s_forwards]`}
+          >
             {cardData.map((card, index) => (
               <button
                 key={card.id}

@@ -9,21 +9,6 @@ export default function ModelGif({ currentProduct, hoveredProduct }: any) {
             }}
         >
             <div className="w-full max-h-[80%] flex flex-col items-center justify-center overflow-hidden">
-                {/* <div className="flex flex-col items-center gap-4 md:gap-6">
-                    <div className="flex flex-col items-center gap-1 md:gap-1.5">
-                        <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-medium text-center leading-tight">
-                            Our Platforms
-                        </h2>
-                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold text-center leading-tight bg-gradient-to-r from-[#00b7ff] to-[#0eb05c] bg-clip-text text-transparent">
-                            From Edge to Insights
-                        </h3>
-                    </div>
-
-                    <p className="text-white/75 text-base md:text-lg font-normal text-center max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl leading-relaxed px-4">
-                        Whether it's a factory, utility, or city — our platforms turn data
-                        into intelligence and intelligence into impact.
-                    </p>
-                </div> */}
                 <div className="relative w-full max-w-full flex-1 flex items-center justify-center ">
                     {hoveredProduct && currentProduct && (
                         <div className="max-w-[90%] md:max-w-[80%] max-h-[300px] md:max-h-[500px] m-auto bg-[#0a0e27] rounded-2xl overflow-hidden flex items-center justify-center relative">
