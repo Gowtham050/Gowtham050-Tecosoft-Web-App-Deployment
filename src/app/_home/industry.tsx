@@ -34,15 +34,15 @@ const Industry = () => {
       title: "Smart Solutions,",
       subtitle: "Built for Your Industry",
     },
-    centerImage: "./assets/images/products-center-image.svg",
+    centerImage: "/assets/images/products-center-image.svg",
     cards: [
       {
         id: 1,
         title: "Connected Factory Solutions",
         description:
           "A unified system that delivers real-time production insights, connects every process, and drives smarter, data-powered factory performance for greater efficiency and growth.",
-        normalIcon: "./assets/icons/solutions/factory.svg",
-        hoverIcon: "./assets/icons/solutions/factory-hover.svg",
+        normalIcon: "/assets/icons/solutions/factory.svg",
+        hoverIcon: "/assets/icons/solutions/factory-hover.svg",
         position: "lg:top-[194px] lg:left-[1%]",
         width: "lg:w-[350px] 2xl:w-[480px]",
         border: false,
@@ -53,8 +53,8 @@ const Industry = () => {
         title: "AI-Enabled Solutions",
         description:
           "We use AI to transform complex data into predictive insights, enabling smarter, faster, and more proactive operations that adapt, evolve, and drive lasting efficiency.",
-        normalIcon: "./assets/icons/solutions/ai-enable.svg",
-        hoverIcon: "./assets/icons/solutions/ai-enable-hover.svg",
+        normalIcon: "/assets/icons/solutions/ai-enable.svg",
+        hoverIcon: "/assets/icons/solutions/ai-enable-hover.svg",
         position: "lg:top-[56px] lg:right-[1%]",
         width: "lg:w-[350px] 2xl:w-[550px]",
         border: false,
@@ -65,15 +65,15 @@ const Industry = () => {
         title: "Digital Twin Solution",
         description:
           "A real-time virtual replica that simulates, monitors, and analyzes your operations—delivering insights to optimize performance, boost efficiency, and drive continuous improvement.",
-        normalIcon: "./assets/icons/solutions/digital-twin.svg",
-        hoverIcon: "./assets/icons/solutions/digital-twin-hover.svg",
+        normalIcon: "/assets/icons/solutions/digital-twin.svg",
+        hoverIcon: "/assets/icons/solutions/digital-twin-hover.svg",
         position: "lg:top-[500px] lg:right-[10%]",
         width: "lg:w-[350px] 2xl:w-[480px]",
         border: false,
         animationDelay: "2s",
       },
     ],
-    arrowIcon: "./assets/icons/solutions/right-arrow.svg",
+    arrowIcon: "/assets/icons/solutions/right-arrow.svg",
   };
 
   return (

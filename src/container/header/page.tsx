@@ -226,9 +226,11 @@ const Navbar = () => {
             {navItems.map((item) => (
               <li key={item.name} className="relative">
                 {item.hasDropdown ? (
-                  <div ref={item.name === "Platform" ? dropdownRef : null}>
+                  <div ref={item.name === "Platform" ? dropdownRef : null}
+                  onMouseEnter={() => handleDropdownClick(item.name)}
+                  onMouseLeave={() => handleDropdownClick("")}
+                  >
                     <button
-                      onClick={() => handleDropdownClick(item.name)}
                       className={`text-[16px] font-semibold transition-colors flex items-center gap-1 ${navTextColor}`}
                     >
                       {item.name}
@@ -241,7 +243,7 @@ const Navbar = () => {
                     </button>
                     {openDropdown === item.name && item.dropdownItems && (
                       <div
-                        className="absolute top-full mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[220px] border border-gray-100"
+                        className="absolute top-full mt-0 bg-white rounded-lg shadow-lg py-2 min-w-[220px] border border-gray-100"
                         style={{ zIndex: Z_INDEX.DROPDOWN }}
                       >
                         {item.dropdownItems.map((dropdownItem) => (
