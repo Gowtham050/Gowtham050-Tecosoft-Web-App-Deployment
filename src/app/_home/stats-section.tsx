@@ -23,16 +23,21 @@ interface StatsRowProps {
 const StatsSection = () => {
   const AnimatedStat: React.FC<AnimatedStatProps> = ({ to }) => {
     const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "0px" });
+    const currentValueRef = useRef(0);
+    const isInView = useInView(ref, { once: false, margin: "-50px" });
 
     const number = parseInt(String(to).replace(/,/g, "").replace("+", ""));
     const suffix = String(to).includes("+") ? "+" : "";
 
     useEffect(() => {
-      if (isInView && ref.current) {
-        animate(0, number, {
-          duration: 2,
+      if (ref.current) {
+        const targetValue = isInView ? number : 0;
+
+        animate(currentValueRef.current, targetValue, {
+          duration: 1.5,
+          ease: "easeOut",
           onUpdate(value) {
+            currentValueRef.current = value;
             if (ref.current) {
               ref.current.textContent =
                 Math.round(value).toLocaleString("en-IN") + suffix;
