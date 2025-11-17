@@ -40,6 +40,10 @@ export const preloadAssets = {
   analytics: [
     // Add analytics page assets here
   ],
+  home: [
+    // Add home page assets here
+   "/assets/video/analytics.mp4"
+  ],
 
   // Add more categories as needed
 };
@@ -64,5 +68,5 @@ export function getAssetsByCategory(
  * Get critical assets only (loader, branding, above-the-fold content)
  */
 export function getCriticalAssets(): string[] {
-  return [...preloadAssets?.loader, ...preloadAssets.branding];
+  return [...preloadAssets?.loader, ...preloadAssets.branding, ...preloadAssets.home, ...preloadAssets.eagleFeatures];
 }

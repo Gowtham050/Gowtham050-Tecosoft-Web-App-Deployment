@@ -115,7 +115,7 @@ const Industry = () => {
       </style>
 
       {/* Header */}
-      <div className="flex flex-col items-center gap-1.5 sm:gap-2 mb-6 lg:mb-8 z-10 px-4">
+      <div className="flex flex-col items-center gap-1.5 sm:gap-2 mb-6 lg:mb-0 z-10 px-4">
         <h2 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-center leading-tight">
           {industryContent.header.title}
         </h2>
