@@ -12,11 +12,20 @@ const Z_INDEX = {
 
 const ClientSlider = () => {
   const clients = [
-    { name: "MORFO", logo: "./assets/images/banner-morfo.svg" },
-    { name: "flomodai", logo: "./assets/images/banner-flomodai.svg" },
-    { name: "Qileo", logo: "./assets/images/banner-qileo.svg" },
-    { name: "ramify", logo: "./assets/images/banner-ramify.svg" },
-    { name: "WEGLOT", logo: "./assets/images/banner-weglot.svg" },
+    { name: "Matalsa", logo: "/assets/pages/home/client/matalsa.png" },
+    { name: "Greaves", logo: "/assets/pages/home/client/greaves.png" },
+    { name: "Neolite", logo: "/assets/pages/home/client/neolite.png" },
+    { name: "Gaha", logo: "/assets/pages/home/client/client.png" },
+    { name: "Skipper", logo: "/assets/pages/home/client/skipper.png" },
+    { name: "Wheels India", logo: "/assets/pages/client/new/wheels-india.png" },
+
+    // { name: "MacPro", logo: "/assets/pages/home/new/macpro.png" },
+    // { name: "Fujitec", logo: "/assets/pages/home/new/fujitec.jpg" },
+    // { name: "Netalkar", logo: "/assets/pages/home/new/netalkar.png" },
+    // { name: "Paras Wires", logo: "/assets/pages/home/new/paras-wires.png" },
+    // { name: "Ennar", logo: "/assets/pages/home/new/ennar.png" },
+    // { name: "Fasteners India", logo: "/assets/pages/home/new/fasteners-india.png" },
+    // { name: "Raj Auto", logo: "/assets/pages/home/new/raj-auto.png" },
   ];
 
   return (
@@ -31,9 +40,9 @@ const ClientSlider = () => {
             <Image
               src={client.logo}
               alt={`${client.name} logo`}
-              width={180}
-              height={36}
-              className="h-7 lg:h-9 w-auto opacity-80 hover:opacity-100 transition-opacity filter brightness-0 invert"
+              width={200}
+              height={100}
+              className=" w-[140px] lg:w-[120px] h-[90px] object-contain"
             />
           </div>
         ))}

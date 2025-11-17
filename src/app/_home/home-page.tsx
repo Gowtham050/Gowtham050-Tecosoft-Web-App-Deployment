@@ -20,17 +20,19 @@ const HomePage = () => {
         "EAGLE is an advanced edge computing IoT gateway that connects machines, sensors, meters, and other industrial assets, acting as the backbone for digital transformation. It enables real-time data acquisition, monitoring, and control, providing seamless, reliable, and intelligent connectivity across operations.",
       delay: 0,
       route: "/eagle",
+      type: "gif",
       gifPath: "/assets/video/eagle.gif",
     },
     {
-      image: "/assets/images/analytics.png",
+      image: "/assets/pages/home/products/analytics.png",
       title: "Tecosoft Analytics",
       subtitle: "IOT Cloud Platform",
       description:
         "Tecosoft Analytics is an intelligent enterprise analytics platform that transforms operational data into actionable insights. With embedded AI and Digital Twin capabilities, it delivers dashboards, reports, and predictive intelligence to enable smarter decisions and connected operations.",
       delay: 200,
       route: "/analytics",
-      gifPath: "/assets/video/tecosoft-analytics.gif",
+      type: "video",
+      gifPath: "/assets/video/analytics.mp4",
     },
   ];
 
