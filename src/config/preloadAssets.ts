@@ -5,9 +5,7 @@
 
 export const preloadAssets = {
   // Loader assets
-  // loader: [
-  //   "/assets/loader/loader.gif",
-  // ],
+  loader: ["/assets/loader/loader.svg"],
 
   // Logo and branding
   branding: [
@@ -56,16 +54,15 @@ export function getAllAssets(): string[] {
 /**
  * Get specific category of assets
  */
-export function getAssetsByCategory(...categories: (keyof typeof preloadAssets)[]): string[] {
-  return categories.flatMap(category => preloadAssets[category]);
+export function getAssetsByCategory(
+  ...categories: (keyof typeof preloadAssets)[]
+): string[] {
+  return categories.flatMap((category) => preloadAssets[category]);
 }
 
 /**
  * Get critical assets only (loader, branding, above-the-fold content)
  */
 export function getCriticalAssets(): string[] {
-  return [
-    ...preloadAssets.loader,
-    ...preloadAssets.branding,
-  ];
+  return [...preloadAssets?.loader, ...preloadAssets.branding];
 }
