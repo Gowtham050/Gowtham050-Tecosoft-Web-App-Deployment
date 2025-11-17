@@ -12,14 +12,14 @@ const Z_INDEX = {
 
 const ClientSlider = () => {
   const clients = [
-    { name: "Matalsa", logo: "/assets/pages/home/client/matalsa.png" },
+    { name: "Gaha", logo: "/assets/pages/home/client/gaha.png" },
     { name: "Greaves", logo: "/assets/pages/home/client/greaves.png" },
+    { name: "Matalsa", logo: "/assets/pages/home/client/matalsa.png" },
     { name: "Neolite", logo: "/assets/pages/home/client/neolite.png" },
-    { name: "Gaha", logo: "/assets/pages/home/client/client.png" },
     { name: "Skipper", logo: "/assets/pages/home/client/skipper.png" },
-    { name: "Wheels India", logo: "/assets/pages/client/new/wheels-india.png" },
+    { name: "Wheels India", logo: "/assets/pages/home/client/wheels.png" },
 
-    // { name: "MacPro", logo: "/assets/pages/home/new/macpro.png" },
+    // { name: "MacPro", logo: "/assets/pages/home/new/macpro.png" },`
     // { name: "Fujitec", logo: "/assets/pages/home/new/fujitec.jpg" },
     // { name: "Netalkar", logo: "/assets/pages/home/new/netalkar.png" },
     // { name: "Paras Wires", logo: "/assets/pages/home/new/paras-wires.png" },
@@ -42,7 +42,10 @@ const ClientSlider = () => {
               alt={`${client.name} logo`}
               width={200}
               height={100}
-              className=" w-[140px] lg:w-[120px] h-[90px] object-contain"
+              className=" w-[140px]  h-[90px] object-contain"
+              style={{
+                filter:"brightness(0) invert(1)"
+              }}
             />
           </div>
         ))}
@@ -93,7 +96,7 @@ const BannerSection = () => {
       {/* Content */}
       <div className="relative" style={{ zIndex: Z_INDEX.CONTENT_LAYER }}>
         <div className="w-[90%]  mx-auto px-4 lg:px-4">
-          <div className="pt-24 pb-12 lg:pt-48 lg:pb-24">
+          <div className="pt-24 pb-12 lg:pt-48 ">
             {/* Hero Heading */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[90px] font-bold text-white leading-tight lg:leading-[1.1] mb-6">
               Building Intelligent Ecosystems for the{" "}
