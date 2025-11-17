@@ -104,7 +104,7 @@ function HardwareSection() {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % hardwareData.length);
       setHasAnimated(false);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [isInView, hardwareData.length]);
