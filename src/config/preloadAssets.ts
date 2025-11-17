@@ -5,9 +5,9 @@
 
 export const preloadAssets = {
   // Loader assets
-  loader: [
-    "/assets/loader/loader.gif",
-  ],
+  // loader: [
+  //   "/assets/loader/loader.gif",
+  // ],
 
   // Logo and branding
   branding: [
@@ -32,10 +32,10 @@ export const preloadAssets = {
     "/assets/platform/eagle/feature/kpis.gif",
     "/assets/platform/eagle/feature/flex-edge.gif",
     // Static images
-    "/assets/platform/eagle/feature/data-proccess.png",
-    "/assets/platform/eagle/feature/one-data.png",
-    "/assets/platform/eagle/feature/kpi.png",
-    "/assets/platform/eagle/feature/edge.png",
+    // "/assets/platform/eagle/feature/data-proccess.png",
+    // "/assets/platform/eagle/feature/one-data.png",
+    // "/assets/platform/eagle/feature/kpi.png",
+    // "/assets/platform/eagle/feature/edge.png",
   ],
 
   // Analytics page assets

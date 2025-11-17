@@ -15,30 +15,13 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   // - getAllAssets(): Preload ALL assets (slower initial load, smoother navigation)
   // - getCriticalAssets(): Preload only critical assets (faster initial load)
   const assetsToLoad = getAllAssets(); // Change to getCriticalAssets() for faster load
-  const pathname = usePathname();
 
-  // Disable browser scroll restoration on mount
+  const pathname: any = usePathname();
   useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-  }, []);
-
-  // Scroll to top on pathname change (route changes) and initial load (page reload)
-  useEffect(() => {
-    const scrollToTop = () => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    };
-
-    // Immediate scroll
-    scrollToTop();
-
-    // Delayed scroll to ensure it works after DOM updates
-    const timeoutId = setTimeout(scrollToTop, 10);
-
-    return () => clearTimeout(timeoutId);
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
   }, [pathname]);
 
   return (
