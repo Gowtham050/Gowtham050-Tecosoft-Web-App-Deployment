@@ -12,7 +12,7 @@ import svgPaths from "../../imports/svg-uk9fn56ilf";
 
 const imgRectangle = "/assets/platform/eagle/bg-green.png";
 const img = "/assets/platform/eagle/banner-full.png";
-const imgStaticHeroMobile = "/assets/platform/eagle/5.svg";
+const imgStaticHeroMobile = "/assets/platform/eagle/banner/5.png";
 
 // Individual product images
 const imgCNC = "/assets/platform/eagle/banner/cnc.png";
@@ -21,7 +21,7 @@ const imgHMC = "/assets/platform/eagle/banner/hmc_machine.png";
 const imgManual = "/assets/platform/eagle/banner/manual-machine.png";
 const imgPress = "/assets/platform/eagle/banner/press-break.png";
 const imgLaser = "/assets/platform/eagle/banner/laser-cutting.png";
-const imgHMIPanel = "/assets/platform/eagle/banner/hmi-panel.svg";
+const imgHMIPanel = "/assets/platform/eagle/banner/pro.png";
 
 // Animation variants
 const fadeInUp: any = {
@@ -883,7 +883,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-90px)] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-90px)] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: rightLabelX,
                 top: labelY1,
@@ -915,7 +915,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: rightLabelX,
                 top: labelY2,
@@ -947,7 +947,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[calc(100%-50px)] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: rightLabelX,
                 top: labelY3,
@@ -980,7 +980,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[90px] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[90px] max-lg:!top-[125px] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: leftLabelX,
                 top: labelY1,
@@ -1012,7 +1012,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!top-[50%] max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: leftLabelX,
                 top: labelY2,
@@ -1044,7 +1044,7 @@ function HeroSection() {
               </div>
             </motion.div>
             <motion.p
-              className="absolute font-medium leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
+              className="absolute font-semibold leading-[20px] not-italic text-[#007aaa] text-center text-nowrap translate-x-[-50%] whitespace-pre z-10 max-lg:!left-[50px] max-lg:!bottom-[-5px] max-lg:!top-auto max-lg:!opacity-100 max-lg:text-[12px] transition-all duration-300 ease-out"
               style={{
                 left: leftLabelX,
                 top: labelY3,
