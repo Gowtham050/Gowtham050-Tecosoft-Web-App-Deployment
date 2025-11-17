@@ -129,7 +129,7 @@ export default function TechnologyCardsSlider() {
     const checkScreenSize = () => {
       const width = window.innerWidth;
       setIsLargeScreen(width >= 1024);
-      setIsMidRange(width >= 1300 && width <= 1420);
+      setIsMidRange(width >= 1280 && width <= 1420);
     };
 
     checkScreenSize();
@@ -205,7 +205,7 @@ export default function TechnologyCardsSlider() {
         } ${
           isLargeScreen
             ? isMidRange
-              ? "w-[1150px]"
+              ? "w-[1150px] min-[140px]:max-w-[1512px]"
               : "w-[84%] lg:w-[88%] xl:w-[1152px]"
             : "w-full"
         } opacity-0 animate-[headerSlideIn_0.8s_ease-out_0.2s_forwards]`}
@@ -252,7 +252,7 @@ export default function TechnologyCardsSlider() {
           <div
             ref={swiperContainerRef}
             className={`absolute left-1/2 top-[220px] lg:top-[180px] xl:top-[220px] translate-x-[-50%] ${
-              isMidRange ? "w-[1150px]" : "w-[90%] lg:w-[88%] xl:w-[1152px]"
+              isMidRange ? "w-[1150px] min-[1400px]:max-w-[1512px]" : "w-[90%] lg:w-[88%] xl:w-[1152px]"
             } h-[368px] lg:h-[320px] xl:h-[368px] opacity-0 animate-[cardFadeIn_1s_ease-out_0.6s_forwards]`}
             onMouseEnter={handleSwiperMouseEnter}
             onMouseLeave={handleSwiperMouseLeave}
@@ -345,12 +345,8 @@ export default function TechnologyCardsSlider() {
 
           {/* Custom Pagination Buttons - For large screens */}
           <div
-            className={`absolute content-stretch flex gap-[16px] lg:gap-[12px] xl:gap-[16px] items-center ${
-              isMidRange
-                ? "left-1/2 -translate-x-1/2"
-                : "left-[8%] lg:left-[6%] xl:left-[11%] 2xl:left-[240px]"
-            } top-[648px] lg:top-[560px] xl:top-[648px] ${
-              isMidRange ? "w-[1150px]" : "w-[84%] lg:w-[88%] xl:w-[1032px]"
+            className={`absolute content-stretch flex gap-[16px] lg:gap-[12px] xl:gap-[16px] items-center left-1/2 -translate-x-1/2 top-[648px] lg:top-[560px] xl:top-[648px] ${
+              isMidRange ? "w-[1150px] min-[1400px]:max-w-[1512px]" : "w-[84%] lg:w-[88%] xl:w-[1032px]"
             } opacity-0 animate-[buttonsSlideUp_0.8s_ease-out_1s_forwards]`}
           >
             {cardData.map((card, index) => (
