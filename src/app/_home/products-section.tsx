@@ -144,7 +144,7 @@ const Products = () => {
 
   const products = [
     {
-      image: "./assets/images/eagle.png",
+      image: "/assets/images/eagle.png",
       title: "Eagle",
       subtitle: "IOT Gateway Platform",
       description:
@@ -154,14 +154,14 @@ const Products = () => {
       gifPath: "./assets/video/eagle.gif",
     },
     {
-      image: "./assets/images/analytics.png",
+      image: "/assets/images/analytics.png",
       title: "Tecosoft Analytics",
       subtitle: "IOT Cloud Platform",
       description:
         "Tecosoft Analytics is an intelligent enterprise analytics platform that transforms operational data into actionable insights. With embedded AI and Digital Twin capabilities, it delivers dashboards, reports, and predictive intelligence to enable smarter decisions and connected operations.",
       delay: 200,
       route: "/analytics",
-      gifPath: "./assets/video/tecosoft-analytics.gif",
+      gifPath: "/assets/video/tecosoft-analytics.gif",
     },
   ];
 
@@ -219,7 +219,7 @@ const Products = () => {
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <Image
-          src={"./assets/images/platform-bg.png"}
+          src={"/assets/images/platform-bg.png"}
           alt="Background"
           fill
           className="object-cover opacity-80"
