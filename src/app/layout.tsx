@@ -4,7 +4,7 @@ import "./globals.css";
 
 import HeaderSection from "@/container/header/page";
 import FooterSection from "@/container/footer/page";
-import ClientLayout from "@/components/ClientLayout";
+import ClientLayout from "@/app/ClientLayout";
 import ScrollWrapperSection from "@/components/scrollwrapper";
 
 const gilroy = localFont({

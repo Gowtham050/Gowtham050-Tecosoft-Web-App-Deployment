@@ -6,7 +6,7 @@
 export const preloadAssets = {
   // Loader assets
   loader: [
-    "/assets/loader/eagle-loader.gif",
+    "/assets/loader/loader.gif",
   ],
 
   // Logo and branding

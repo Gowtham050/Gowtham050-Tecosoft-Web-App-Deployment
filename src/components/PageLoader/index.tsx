@@ -69,17 +69,17 @@ export default function PageLoader({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#00B8DB]/10 via-white to-[#0098d4]/10 animate-pulse" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#00B8DB]/10 via-white to-[#0098d4]/10 " />
 
       {/* Loader content */}
       <div className="relative flex flex-col items-center justify-center gap-6 z-10">
         {/* GIF Loader */}
-        <div className="relative w-[200px] h-[200px]">
+        <div className="relative animate-pulse w-[70px] h-[70px] ">
           <Image
             src="/assets/loader/loader.svg"
             alt="Loading..."
             fill
-            className="object-contain loader-rotate w-[80px] h-[80px] "
+            className="object-contain loader-rotate w-[70px] h-[70px] "
             priority
             unoptimized
           />

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import PageLoader from "@/components/PageLoader";
 import { getAllAssets, getCriticalAssets } from "@/config/preloadAssets";
+import { usePathname } from "next/navigation";
 
 interface ClientLayoutProps {
   children: React.ReactNode;
@@ -14,11 +15,31 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   // - getAllAssets(): Preload ALL assets (slower initial load, smoother navigation)
   // - getCriticalAssets(): Preload only critical assets (faster initial load)
   const assetsToLoad = getAllAssets(); // Change to getCriticalAssets() for faster load
+  const pathname = usePathname();
 
+  // Disable browser scroll restoration on mount
   useEffect(() => {
-    // You can add any additional logic here if needed
-    window.scrollTo(0, 0);
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
   }, []);
+
+  // Scroll to top on pathname change (route changes) and initial load (page reload)
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    // Immediate scroll
+    scrollToTop();
+
+    // Delayed scroll to ensure it works after DOM updates
+    const timeoutId = setTimeout(scrollToTop, 10);
+
+    return () => clearTimeout(timeoutId);
+  }, [pathname]);
 
   return (
     <>
