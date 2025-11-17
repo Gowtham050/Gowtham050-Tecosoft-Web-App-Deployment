@@ -250,7 +250,7 @@ const Navbar = () => {
                     </button>
                     {openDropdown === item.name && item.dropdownItems && (
                       <div
-                        className="absolute top-full mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[220px] border border-gray-100 hover:cursor-pointer"
+                        className="absolute top-full mt-0 bg-white rounded-lg shadow-lg py-2 min-w-[220px] border border-gray-100 hover:cursor-pointer"
                         style={{ zIndex: Z_INDEX.DROPDOWN }}
                       >
                         {item.dropdownItems.map((dropdownItem) => (
