@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Pagination, Navigation, Mousewheel } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -105,10 +106,12 @@ function GroupSVG({ svgPaths }: { svgPaths: any }) {
           </linearGradient>
         </defs>
       </svg> */}
-      <img
+      <Image
         alt=""
-        className="absolute inset-0 max-w-none object-50%-50% object-contain pointer-events-none size-full"
+        fill
+        className="max-w-none object-contain pointer-events-none"
         src={svgPaths}
+        style={{ objectPosition: "50% 50%" }}
       />
     </div>
   );
@@ -381,10 +384,11 @@ export default function TechnologyCardsSlider() {
 
                   {/* SVG Graphic - Centered below title */}
                   <div className="flex justify-center my-[20px]">
-                    <div className="w-[250px] h-[212px]">
-                      <img
+                    <div className="relative w-[250px] h-[212px]">
+                      <Image
                         alt=""
-                        className="w-full h-full object-contain"
+                        fill
+                        className="object-contain"
                         src={card.svgPaths}
                       />
                     </div>

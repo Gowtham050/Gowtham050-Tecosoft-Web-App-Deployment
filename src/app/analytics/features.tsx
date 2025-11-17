@@ -1,3 +1,4 @@
+import Image from "next/image";
 import svgPathsRoleBasedViews from "../../imports/svg-bqhd1c0n89";
 import svgPaths from "../../imports/svg-xkva4n8i2f";
 
@@ -457,12 +458,12 @@ export default function Features() {
       <div className="absolute bottom-0 flex h-[60px] items-center justify-center left-0 w-full">
         <div className="flex-none scale-y-[-100%]">
           <div className="h-[60px] relative w-full">
-            <img alt="" className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src={imgRectangle34} />
+            <Image alt="" className="max-w-none object-cover pointer-events-none" src={imgRectangle34} fill sizes="100vw" style={{ objectPosition: '50% 50%' }} />
           </div>
         </div>
       </div>
       <div className="absolute h-[150px] left-0 top-0 w-full">
-        <img alt="" className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src={imgRectangle33} />
+        <Image alt="" className="max-w-none object-cover pointer-events-none" src={imgRectangle33} fill sizes="100vw" style={{ objectPosition: '50% 50%' }} />
       </div>
       <p className="absolute font-semibold leading-[45px] min-[300px]:leading-[32px] min-[768px]:leading-[38px] lg:leading-[38px] min-[1280px]:leading-[38px] min-[1400px]:leading-[45px] left-[8%] min-[300px]:left-[5%] min-[768px]:left-[6%] lg:left-[6%] min-[1280px]:left-[3%] min-[1400px]:left-[5%] not-italic text-[#181818] text-[36px] min-[300px]:text-[24px] min-[768px]:text-[28px] lg:text-[28px] min-[1280px]:text-[28px] min-[1400px]:text-[36px] top-[60px] min-[300px]:top-[40px] min-[768px]:top-[50px] w-[384px] min-[300px]:w-[90%] min-[768px]:w-[300px] lg:w-[300px] min-[1280px]:w-[300px] min-[1400px]:w-[384px] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards] transition-all duration-500">Your All-in-One Intelligence Platform</p>
       <p className="absolute font-medium leading-[23px] min-[300px]:leading-[20px] min-[768px]:leading-[20px] lg:leading-[20px] min-[1280px]:leading-[20px] min-[1400px]:leading-[23px] left-[52%] min-[300px]:left-[5%] min-[300px]:top-[120px] min-[768px]:left-[50%] min-[768px]:top-[70.5px] lg:left-[50%] min-[1280px]:left-[46%] min-[1400px]:left-[48%] not-italic text-[#8e8e8e] text-[16px] min-[300px]:text-[14px] min-[768px]:text-[14px] lg:text-[14px] min-[1280px]:text-[14px] min-[1400px]:text-[16px] top-[70.5px] w-[550px] min-[300px]:w-[90%] min-[768px]:w-[42%] lg:w-[42%] min-[1280px]:w-[42%] min-[1400px]:w-[550px] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards] transition-all duration-500">Tecosoft Analytics unifies data across manufacturing, energy, logistics, and healthcare, turning complex information into real-time insights that power smarter decisions and greater operational efficiency.</p>

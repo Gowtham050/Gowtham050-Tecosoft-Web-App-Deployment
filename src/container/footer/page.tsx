@@ -2,6 +2,7 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import FooterCard from "@/components/FooterCard";
 import { getFooterCardConfig } from "@/components/FooterCard/footerCardConfig";
 
@@ -20,9 +21,11 @@ const FooterSection = () => {
           {/* Company Info */}
           <div className="lg:col-span-4">
             <div className="mb-6">
-              <img
-                src="./assets/tecosoft-logo.svg"
+              <Image
+                src="/assets/tecosoft-logo.svg"
                 alt="Tecosoft Logo"
+                width={150}
+                height={40}
                 className="h-8 md:h-10 w-auto"
               />
             </div>

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function CapabilityCard4() {
   const protocols = [
     { name: "OPC UA", logo: "/assets/platform/eagle/opcua.png" },
@@ -19,12 +21,13 @@ export default function CapabilityCard4() {
         {protocols.map((protocol, index) => (
           <div
             key={index}
-            className="flex items-center justify-center h-[80px]"
+            className="relative flex items-center justify-center h-[80px]"
           >
-            <img
+            <Image
               src={protocol.logo}
               alt={protocol.name}
-              className="max-w-full max-h-full object-contain"
+              fill
+              className="object-contain"
             />
           </div>
         ))}

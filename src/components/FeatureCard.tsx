@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import svgPathsFeatures from "../imports/svg-ssflelrdzm";
 
 
@@ -97,7 +98,7 @@ export function FeatureCard({ card, index }: { card: typeof featureCards[0], ind
         whileHover={{ scale: 1.02, y: -5 }}
       >
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[12px]">
-          <img alt="" className="absolute max-w-none object-50%-50% object-cover rounded-[12px] size-full" src={card.image} />
+          <Image alt="" className="max-w-none object-cover rounded-[12px]" src={card.image} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectPosition: '50% 50%' }} />
           <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[12px] to-75% to-[rgba(0,0,0,0.6)]" />
         </div>
         

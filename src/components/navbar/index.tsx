@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowDown } from "lucide-react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -44,10 +45,14 @@ const Navbar = () => {
       <nav className="max-w-[90%] lg:max-w-7xl mx-auto flex items-center justify-between py-4 px-4 lg:px-0">
         {/* Logo - Changes based on menu state */}
         <div className="relative z-50">
-          <img
+          <Image
             src={open ? "./assets/tecosoft-logo.svg" : logoSrc}
             alt="Tecosoft Logo"
+            width={120}
+            height={36}
             className="h-8 lg:h-9 w-auto"
+            priority
+            unoptimized
           />
         </div>
 

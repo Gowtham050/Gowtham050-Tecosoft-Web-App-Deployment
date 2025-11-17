@@ -4,6 +4,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, ArrowDown } from "lucide-react";
+import Image from "next/image";
 
 // Z-index layer constants for consistent stacking
 const Z_INDEX = {
@@ -207,17 +208,22 @@ const Navbar = () => {
         className={`fixed top-0 w-full ${navBg}`}
         style={{ zIndex: Z_INDEX.HEADER }}
       >
-        <nav className="max-w-full  2xl:max-w-7xl mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
+        <nav className="max-w-full  2xl:max-w-7xl mx-auto flex items-center justify-between py-4 px-4 lg:px-8 ">
           {/* Logo - Changes based on menu state */}
           <div
-            className="relative"
+            className="relative hover:cursor-pointer"
             style={{ zIndex: Z_INDEX.INTERACTIVE }}
             onClick={() => router.push("/")}
           >
-            <img
-              src={open ? "./assets/tecosoft-logo.svg" : logoSrc}
+            <Image
+              src={
+                open ? "/assets/tecosoft-logo.svg" : logoSrc.replace("./", "/")
+              }
               alt="Tecosoft Logo"
-              className="h-8 lg:h-9 w-auto"
+              width={150}
+              height={36}
+              className="h-8 lg:h-9 w-auto hover:cursor-pointer"
+              priority
             />
           </div>
 
@@ -229,7 +235,7 @@ const Navbar = () => {
                   <div ref={item.name === "Platform" ? dropdownRef : null}>
                     <button
                       onClick={() => handleDropdownClick(item.name)}
-                      className={`text-[16px] font-semibold transition-colors flex items-center gap-1 ${navTextColor}`}
+                      className={`text-[16px] font-semibold transition-colors flex items-center gap-1 ${navTextColor} hover:cursor-pointer`}
                     >
                       {item.name}
                       <ArrowDown
@@ -241,7 +247,7 @@ const Navbar = () => {
                     </button>
                     {openDropdown === item.name && item.dropdownItems && (
                       <div
-                        className="absolute top-full mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[220px] border border-gray-100"
+                        className="absolute top-full mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[220px] border border-gray-100 hover:cursor-pointer"
                         style={{ zIndex: Z_INDEX.DROPDOWN }}
                       >
                         {item.dropdownItems.map((dropdownItem) => (
@@ -250,7 +256,7 @@ const Navbar = () => {
                             onClick={() =>
                               handleDropdownItemClick(dropdownItem.href)
                             }
-                            className="w-full text-left px-4 py-3 text-[15px] font-medium text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c] transition-colors"
+                            className="w-full text-left px-4 py-3 text-[15px] font-medium text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c] transition-colors hover:cursor-pointer"
                           >
                             {dropdownItem.name}
                           </button>

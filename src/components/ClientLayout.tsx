@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PageLoader from "@/components/PageLoader";
 import { getAllAssets, getCriticalAssets } from "@/config/preloadAssets";
 
@@ -14,6 +14,11 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   // - getAllAssets(): Preload ALL assets (slower initial load, smoother navigation)
   // - getCriticalAssets(): Preload only critical assets (faster initial load)
   const assetsToLoad = getAllAssets(); // Change to getCriticalAssets() for faster load
+
+  useEffect(() => {
+    // You can add any additional logic here if needed
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

@@ -74,12 +74,12 @@ export default function PageLoader({
       {/* Loader content */}
       <div className="relative flex flex-col items-center justify-center gap-6 z-10">
         {/* GIF Loader */}
-        <div className="relative w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]">
+        <div className="relative w-[200px] h-[200px]">
           <Image
-            src="/assets/loader/eagle-loader.gif"
+            src="/assets/loader/loader.svg"
             alt="Loading..."
             fill
-            className="object-contain"
+            className="object-contain loader-rotate w-[80px] h-[80px] "
             priority
             unoptimized
           />

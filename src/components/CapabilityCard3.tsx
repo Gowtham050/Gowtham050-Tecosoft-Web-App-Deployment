@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function CapabilityCard3() {
   const protocols = [
     {
@@ -18,12 +20,13 @@ export default function CapabilityCard3() {
         {protocols.map((protocol, index) => (
           <div
             key={index}
-            className="flex items-center justify-center h-[70px] sm:h-[85px] md:h-[100px] lg:h-[138px] xl:h-[156px]"
+            className="relative flex items-center justify-center h-[70px] sm:h-[85px] md:h-[100px] lg:h-[138px] xl:h-[156px]"
           >
-            <img
+            <Image
               src={protocol.logo}
               alt={protocol.name}
-              className="max-w-full max-h-full object-contain"
+              fill
+              className="object-contain"
             />
           </div>
         ))}

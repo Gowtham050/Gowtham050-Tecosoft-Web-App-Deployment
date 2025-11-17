@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import Group1151 from "./Group1151";
 import Group1153 from "./Group1153";
 
@@ -36,10 +37,14 @@ export default function HeroDashboardAnimation({
           y: tabCardsY,
         }}
       >
-        <img
-          alt=""
-          className=" max-w-none object-50%-50% object-contain pointer-events-none rounded-[16px] size-full"
+        <Image
+          alt="Dashboard preview"
+          className="max-w-none object-contain pointer-events-none rounded-[16px]"
           src={baseImgSrc}
+          fill
+          sizes="1052px"
+          style={{ objectPosition: '50% 50%' }}
+          unoptimized
         />
       </motion.div>
 
