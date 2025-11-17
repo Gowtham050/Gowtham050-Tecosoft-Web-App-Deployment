@@ -5,6 +5,7 @@ import "./globals.css";
 import HeaderSection from "@/container/header/page";
 import FooterSection from "@/container/footer/page";
 import ClientLayout from "@/components/ClientLayout";
+import ScrollWrapperSection from "@/components/scrollwrapper";
 
 const gilroy = localFont({
   src: [
@@ -49,10 +50,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={gilroy.variable}>
+        
         <ClientLayout>
-          <HeaderSection />
-          {children}
-          <FooterSection />
+        <ScrollWrapperSection>
+        <HeaderSection />
+        {children}
+        <FooterSection />
+        </ScrollWrapperSection>
         </ClientLayout>
       </body>
     </html>

@@ -88,7 +88,7 @@ export default function HeroSection() {
   
     const tabCardsY = useTransform(
       scrollYProgress,
-      [0.15, 0.45],
+      [0.15, 0.4],
       [120, 0],
     );
 

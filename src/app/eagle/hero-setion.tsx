@@ -452,14 +452,14 @@ function HeroSection() {
   });
 
   // All products animate simultaneously with same timing
-  const animationStart = -0.3;
-  const animationEnd = 0.5;
-  const opacityStart = 0;
+  const animationStart = -0.2;
+  const animationEnd = 0.45;
+  const opacityStart = -0.1;
   const opacityEnd = 0.3;
 
   // Label opacity timing (starts at 50% of product animation)
-  const labelOpacityStart = 0.5;
-  const labelOpacityEnd = 0.65;
+  const labelOpacityStart = 0.25;
+  const labelOpacityEnd = 0.45;
 
   // Responsive positions based on screen size
   // Base values at 1536px reference width (where the design works perfectly)
