@@ -13,10 +13,10 @@ export default function ConnectedFactories1() {
       className="content-stretch flex flex-col items-start relative w-full pt-[81px]"
       data-name="Connected Factories"
     >
-      {/* <HorizontalScrollSection scrollDistance={1650}>
+      <HorizontalScrollSection scrollDistance={1650}>
         <ConnectedFactories />
-      </HorizontalScrollSection> */}
-      {/* <Features /> */}
+      </HorizontalScrollSection>
+      <Features />
       <Stats />
     </div>
   );

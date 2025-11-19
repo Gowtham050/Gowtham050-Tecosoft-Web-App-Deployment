@@ -5,8 +5,7 @@ export const footerCardConfig = {
     highlightText: "Are You Ready to Lead?",
     buttonText: "Talk to an Expert",
     buttonHref: "#demo",
-    description: "", 
-    
+    description: "",
   },
   "/eagle": {
     title: "Explore Solutions from ",
@@ -23,6 +22,14 @@ export const footerCardConfig = {
     buttonHref: "#analytics-demo",
     description:
       "Book a personalized demo and see how our platform can transform your data into decisions.",
+  },
+  "/solutions/": {
+    title: "Ready to modernize your ",
+    highlightText: "factory?",
+    buttonText: "Request a Pilot",
+    buttonHref: "#request-pilot",
+    description:
+      "Experience how our platform connects every process, boosts efficiency, and turns data into smarter decisions.",
   },
   // Default fallback configuration
   default: {

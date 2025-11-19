@@ -2,13 +2,45 @@
 
 import svgPaths from "../../imports/svg-0dlgmqgi5c";
 
-function Frame31() {
+// Types
+interface StatCardProps {
+  value: string;
+  description: string;
+}
+
+// Constants
+const GRADIENT_STYLE = {
+  WebkitTextFillColor: "transparent",
+  backgroundImage: "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
+} as const;
+
+const STATS_DATA: StatCardProps[] = [
+  {
+    value: "+25%",
+    description: "Improved Production Efficiency",
+  },
+  {
+    value: "-30%",
+    description: "Reduction in Tool Downtime",
+  },
+  {
+    value: "+20%",
+    description: "Higher Quality Accuracy",
+  },
+  {
+    value: "-40%",
+    description: "Reduction in Unplanned Maintenance",
+  },
+];
+
+// Components
+function StatsHeader() {
   return (
-    <div className="content-stretch flex flex-col gap-[12px] items-center not-italic relative shrink-0 w-full max-w-[680px]">
-      <p className="font-['Gilroy:Bold',sans-serif] leading-[50px] relative shrink-0 text-[#1a1a1a] text-[42px] text-nowrap whitespace-pre">
+    <div className="flex flex-col gap-3 items-center w-full max-w-[680px] px-4">
+      <h2 className="font-Bold text-[#1a1a1a] text-center text-3xl sm:text-4xl lg:text-[42px] leading-tight sm:leading-[50px]">
         Impact That Drives Results
-      </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[26px] relative shrink-0 text-[#666666] text-[17px] text-center">
+      </h2>
+      <p className="font-medium text-[#666666] text-center text-base sm:text-[17px] leading-relaxed">
         Turning Data into Decisions - Real, Measurable Impact Across Every Layer
         of Your Factory.
       </p>
@@ -16,93 +48,32 @@ function Frame31() {
   );
 }
 
-function Frame46() {
+function StatCard({ value, description }: StatCardProps) {
   return (
-    <div className="content-stretch flex flex-col gap-[20px] items-center not-italic relative shrink-0 w-[260px] rounded-[20px] p-[32px]">
+    <div className="flex flex-col gap-5 items-center rounded-[20px] p-6 sm:p-8 w-full">
       <p
-        className="font-['Gilroy:Bold',sans-serif] leading-[1] relative shrink-0 text-[72px] text-nowrap tracking-[-2px] whitespace-pre bg-clip-text"
-        style={{
-          WebkitTextFillColor: "transparent",
-          backgroundImage:
-            "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
-        }}
+        className="font-bold leading-none text-5xl sm:text-6xl lg:text-[72px] tracking-[-2px] bg-clip-text"
+        style={GRADIENT_STYLE}
       >
-        +25%
+        {value}
       </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[24px] relative shrink-0 text-[#333333] text-[17px] text-center">
-        Improved Production Efficiency
+      <p className="font-medium text-[#333333] text-center text-base sm:text-[17px] leading-normal">
+        {description}
       </p>
     </div>
   );
 }
 
-function Frame47() {
+function StatsGrid() {
   return (
-    <div className="content-stretch flex flex-col gap-[20px] items-center not-italic relative shrink-0 w-[260px]  rounded-[20px] p-[32px] ">
-      <p
-        className="font-['Gilroy:Bold',sans-serif] leading-[1] relative shrink-0 text-[72px] text-nowrap tracking-[-2px] whitespace-pre bg-clip-text"
-        style={{
-          WebkitTextFillColor: "transparent",
-          backgroundImage:
-            "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
-        }}
-      >
-        -30%
-      </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[24px] relative shrink-0 text-[#333333] text-[17px] text-center">
-        Reduction in Tool Downtime
-      </p>
-    </div>
-  );
-}
-
-function Frame48() {
-  return (
-    <div className="content-stretch flex flex-col gap-[20px] items-center not-italic relative shrink-0 w-[260px]  rounded-[20px] p-[32px] ">
-      <p
-        className="font-['Gilroy:Bold',sans-serif] leading-[1] relative shrink-0 text-[72px] text-nowrap tracking-[-2px] whitespace-pre bg-clip-text"
-        style={{
-          WebkitTextFillColor: "transparent",
-          backgroundImage:
-            "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
-        }}
-      >
-        +20%
-      </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[24px] relative shrink-0 text-[#333333] text-[17px] text-center">
-        Higher Quality Accuracy
-      </p>
-    </div>
-  );
-}
-
-function Frame49() {
-  return (
-    <div className="content-stretch flex flex-col gap-[20px] items-center not-italic relative shrink-0 w-[260px]  rounded-[20px] p-[32px] ">
-      <p
-        className="font-['Gilroy:Bold',sans-serif] leading-[1] relative shrink-0 text-[72px] text-nowrap tracking-[-2px] whitespace-pre bg-clip-text"
-        style={{
-          WebkitTextFillColor: "transparent",
-          backgroundImage:
-            "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
-        }}
-      >
-        -40%
-      </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[24px] relative shrink-0 text-[#333333] text-[17px] text-center">
-        Reduction in Unplanned Maintenance
-      </p>
-    </div>
-  );
-}
-
-function Frame50() {
-  return (
-    <div className="content-stretch flex items-center justify-center gap-[32px] relative shrink-0 w-full">
-      <Frame46 />
-      <Frame47 />
-      <Frame48 />
-      <Frame49 />
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full">
+      {STATS_DATA.map((stat, index) => (
+        <StatCard
+          key={index}
+          value={stat.value}
+          description={stat.description}
+        />
+      ))}
     </div>
   );
 }
@@ -110,11 +81,11 @@ function Frame50() {
 function Stats() {
   return (
     <div
-      className="bg-[#fafbfc] box-border content-stretch flex flex-col gap-[64px] items-center overflow-clip px-[180px] py-[80px] relative shrink-0 w-[1512px]"
+      className="bg-[#fafbfc] flex flex-col gap-12 lg:gap-16 items-center overflow-hidden px-4 sm:px-8 md:px-16 lg:px-32 xl:px-44 py-12 sm:py-16 lg:py-20 relative w-full"
       data-name="Stats"
     >
       <div
-        className="absolute h-[527px] left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] w-[1512px] opacity-40"
+        className="absolute h-full max-h-[527px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1512px] opacity-40 pointer-events-none"
         data-name="Union"
       >
         <svg
@@ -565,8 +536,8 @@ function Stats() {
           </g>
         </svg>
       </div>
-      <Frame31 />
-      <Frame50 />
+      <StatsHeader />
+      <StatsGrid />
     </div>
   );
 }
