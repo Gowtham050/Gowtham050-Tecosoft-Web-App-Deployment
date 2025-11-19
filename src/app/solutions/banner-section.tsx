@@ -104,7 +104,7 @@ function Frame24() {
 
 function Frame28() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[40px] items-start left-[100px] top-[200px] w-[700px]">
+    <div className="absolute content-stretch flex flex-col gap-[40px] items-start left-[140px] top-[140px] w-[700px]">
       <Frame25 />
       <p className="font-['Gilroy:Semibold',sans-serif] leading-[72px] min-w-full not-italic relative shrink-0 text-[#282828] text-[60px] tracking-[-0.9px] w-[min-content]">
         Experience the Power of Connected Factories
@@ -164,7 +164,7 @@ function Frame52() {
 function Background() {
   return (
     <div
-      className="absolute aspect-[96.4917/104] bottom-[39.47%] left-[1980.75px] top-[47.2%]"
+      className="absolute aspect-[96.4917/104] bottom-[33.97%] left-[1980.75px] top-[49.2%]"
       data-name="Background"
     >
       <svg
@@ -257,23 +257,23 @@ function Group4() {
 function ConnectedFactories() {
   return (
     <div
-      className="h-screen overflow-clip relative shrink-0"
+      className=" h-[115vh] overflow-clip relative shrink-0 "
       data-name="Connected Factories"
       style={{
         width: "3000px",
-        backgroundImage:
-          "linear-gradient(208.569deg, rgb(0, 183, 255) 21.481%, rgb(14, 176, 92) 76.423%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)",
+        background:
+          "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
       }}
     >
       {/* Left gradient overlay - Static */}
-      <div className="absolute bg-gradient-to-l from-10% from-[rgba(255,255,255,0.85)] h-full left-0 to-[rgba(255,255,255,0.4)] top-0 w-[900px] pointer-events-none z-10" />
+      <div className="absolute bg-gradient-to-l from-10%  h-full left-0  top-0 w-[900px] pointer-events-none z-10" />
 
       <Frame28 />
 
       {/* Factory Diagram Container */}
       <div
-        className="absolute h-full left-0 top-0 pointer-events-none"
-        style={{ width: "3000px" }}
+        className="absolute h-screen left-0 top-0 pointer-events-none"
+        style={{ width: "1950px" }}
       >
         <div className="relative h-full w-full">
           <div
@@ -352,7 +352,7 @@ function ConnectedFactories() {
               </svg>
             </div>
           </div>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2217px] not-italic opacity-0 text-[#282828] text-[14px] text-nowrap top-[605px] whitespace-pre">
+          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2217px] not-italic opacity-100 text-[#282828] text-[14px] text-nowrap top-[605px] whitespace-pre">
             Hard Wiring to Machine
           </p>
           <div className="absolute h-0 left-[2107px] top-[673px] w-[90px]">
@@ -371,7 +371,7 @@ function ConnectedFactories() {
               </svg>
             </div>
           </div>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2217px] not-italic opacity-0 text-[#282828] text-[14px] text-nowrap top-[665px] whitespace-pre">
+          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2217px] not-italic opacity-100 text-[#282828] text-[14px] text-nowrap top-[665px] whitespace-pre">
             Wifi/Ethernet Connection
           </p>
           <div className="absolute h-0 left-[1438px] top-[414px] w-[185px]">
@@ -498,7 +498,7 @@ function ConnectedFactories() {
               >
                 <path
                   d={svgPaths.p18cf2e50}
-                  fill="var(--stroke-0, #009EE3)"
+                  fill="var(--stroke-0, #FFFFFF)"
                   id="Line 16"
                 />
               </svg>
@@ -514,7 +514,7 @@ function ConnectedFactories() {
               >
                 <path
                   d={svgPaths.p18cf2e50}
-                  fill="var(--stroke-0, #009EE3)"
+                  fill="var(--stroke-0, #FFFFFF)"
                   id="Line 16"
                 />
               </svg>
@@ -530,7 +530,7 @@ function ConnectedFactories() {
               >
                 <path
                   d={svgPaths.p18cf2e50}
-                  fill="var(--stroke-0, #009EE3)"
+                  fill="var(--stroke-0, #FFFFFF)"
                   id="Line 16"
                 />
               </svg>
@@ -546,7 +546,7 @@ function ConnectedFactories() {
               >
                 <path
                   d={svgPaths.p18cf2e50}
-                  fill="var(--stroke-0, #009EE3)"
+                  fill="var(--stroke-0, #FFFFFF)"
                   id="Line 16"
                 />
               </svg>
@@ -568,10 +568,10 @@ function ConnectedFactories() {
               </svg>
             </div>
           </div>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[1015px] not-italic opacity-0 text-[#282828] text-[14px] text-center top-[712px] translate-x-[-50%] w-[80px]">
+          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[1015px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[712px] translate-x-[-50%] w-[80px]">
             Grinding Machines
           </p>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[1284px] not-italic opacity-0 text-[#282828] text-[14px] text-center top-[712px] translate-x-[-50%] w-[108px]">
+          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[1284px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[712px] translate-x-[-50%] w-[108px]">
             EAGLE Pro IOT Gateway
           </p>
           <div className="absolute h-0 left-[1833px] top-[414px] w-[91px]">
@@ -618,14 +618,14 @@ function ConnectedFactories() {
               />
             </div>
           </div>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[1728.5px] not-italic opacity-0 text-[#282828] text-[14px] text-center text-nowrap top-[475px] translate-x-[-50%] whitespace-pre">
+          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[1728.5px] not-italic opacity-100 text-[#282828] text-[14px] text-center text-nowrap top-[475px] translate-x-[-50%] whitespace-pre">
             Router
           </p>
           <Background />
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2029px] not-italic opacity-0 text-[#282828] text-[14px] text-center top-[475px] translate-x-[-50%] w-[126px]">
+          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2029px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[475px] translate-x-[-50%] w-[126px]">
             Local/Cloud Server
           </p>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2330px] not-italic opacity-0 text-[#282828] text-[14px] text-center top-[473px] translate-x-[-50%] w-[130px]">
+          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2330px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[473px] translate-x-[-50%] w-[130px]">
             Loginware Analytics Dashboard
           </p>
           <Group4 />

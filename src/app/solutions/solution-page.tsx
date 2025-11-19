@@ -10,12 +10,14 @@ import Stats from "./stats-section";
 export default function ConnectedFactories1() {
   return (
     <div
-      className="content-stretch flex flex-col items-start relative w-full pt-[81px]"
+      className="content-stretch flex flex-col items-start relative w-full pt-[30px]"
       data-name="Connected Factories"
     >
-      <HorizontalScrollSection scrollDistance={1650}>
-        <ConnectedFactories />
-      </HorizontalScrollSection>
+      <div className="w-full">
+        <HorizontalScrollSection scrollDistance={910}>
+          <ConnectedFactories />
+        </HorizontalScrollSection>
+      </div>
       <Features />
       <Stats />
     </div>

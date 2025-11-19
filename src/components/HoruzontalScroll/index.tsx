@@ -58,7 +58,7 @@ export function HorizontalScrollSection({
         height: '300vh', // Extra height to allow scrolling through horizontal content
       }}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-[114vh] w-full overflow-hidden">
         <div
           className="h-full"
           style={{
