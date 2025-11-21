@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { BenefitsSection } from "./BenefitsSection";
-import { FeaturesSection } from "./FeaturesSection";
+import { BenefitsSection } from "./benefits-section";
+import { FeaturesSection } from "../../components/Solutions/FeatureSection/FeaturesSection";
 import { HeroSection } from "../../components/Solutions/BannerSection/HeroSection";
-import { StatsSection } from "./StatsSection";
-import { WorkflowSection } from "./WorkflowSection";
+import { StatsSection } from "../../components/Solutions/StatsSection/StatsSection";
+import { WorkflowSection } from "./workflow-section";
 import { heroContent } from "@/constants/solutions/production-digitization";
 
 const ProductionDigitizationHomePage = () => {
@@ -14,7 +14,7 @@ const ProductionDigitizationHomePage = () => {
       <StatsSection />
       <FeaturesSection />
       {/* <WorkflowSection /> */}
-      {/* <BenefitsSection /> */}
+      <BenefitsSection />
     </div>
   );
 };

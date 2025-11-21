@@ -107,7 +107,7 @@ function HeroContent({
   imageAlt,
 }: HeroContentComponentProps) {
   return (
-    <div className="absolute inset-0 z-10 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-8 lg:gap-12 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 2xl:px-[100px] py-16 sm:py-20 md:py-24 lg:py-32 xl:py-[180px]">
+    <div className="absolute inset-0 z-10 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-8 lg:gap-12 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 2xl:px-[100px] py-20 md:py-24 lg:py-32 xl:py-[180px]">
       <TextContent title={title} highlight={highlight} description={description} />
       <DeviceImage imagePath={image} imageAlt={imageAlt} />
     </div>

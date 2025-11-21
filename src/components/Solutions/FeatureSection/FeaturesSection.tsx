@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { iconMap, type IconType } from "../../components/icons/AnimatedIcons";
-import { featuresContent } from "../../constants/solutions/production-digitization";
+import { iconMap, type IconType } from "../../icons/AnimatedIcons";
+import { featuresContent } from "../../../constants/solutions/production-digitization";
 
 interface FeatureCardProps {
   icon: IconType;

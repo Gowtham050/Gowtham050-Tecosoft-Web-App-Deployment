@@ -1,4 +1,5 @@
 import svgPaths from "../../imports/svg-6sw94kd16o";
+import { workflowContent } from "../../constants/solutions/production-digitization";
 
 interface WorkflowStepProps {
   number: string;
