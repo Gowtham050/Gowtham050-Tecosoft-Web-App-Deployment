@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import svgPaths from "../../imports/svg-0dlgmqgi5c";
 
 const imgLogo2 =
@@ -104,7 +104,14 @@ function Frame24() {
 
 function Frame28() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[40px] items-start left-[140px] top-[140px] w-[700px]">
+    <div className="absolute content-stretch flex flex-col gap-[40px] items-start left-[140px] top-[140px] w-[700px] z-20">
+      {/* Solid background to prevent factory diagram bleed-through */}
+      <div
+        className="absolute inset-0 -left-[50px] -right-[50px] -top-[50px] -bottom-[50px] -z-10"
+        style={{
+          background: 'linear-gradient(to right, #0EB05C 0%, #0EB05C 70%, rgba(14, 176, 92, 0.95) 85%, rgba(14, 176, 92, 0.7) 92%, transparent 100%)',
+        }}
+      />
       <Frame25 />
       <p className="font-['Gilroy:Semibold',sans-serif] leading-[72px] min-w-full not-italic relative shrink-0 text-[#282828] text-[60px] tracking-[-0.9px] w-[min-content]">
         Experience the Power of Connected Factories
@@ -255,9 +262,40 @@ function Group4() {
 }
 
 function ConnectedFactories() {
+  const [diagramScale, setDiagramScale] = useState(1);
+  const [overlayWidth, setOverlayWidth] = useState(900);
+
+  useEffect(() => {
+    const calculateScale = () => {
+      const viewportWidth = window.innerWidth;
+      // Base design width - using 1600px as optimal
+      const optimalWidth = 1600;
+      const diagramBaseWidth = 1950;
+
+      if (viewportWidth >= optimalWidth) {
+        // At 1600px and above, use full scale - animation works perfectly here
+        setDiagramScale(1);
+        setOverlayWidth(1000);
+      } else if (viewportWidth >= 1024) {
+        // Between 1024px and 1600px, scale proportionally
+        const scale = Math.max(0.68, Math.min(1, viewportWidth / diagramBaseWidth));
+        setDiagramScale(scale);
+        // Balanced overlay: covers text but shows factory diagram on right
+        setOverlayWidth(Math.min(950, viewportWidth * 0.55));
+      } else {
+        setDiagramScale(0.64);
+        setOverlayWidth(Math.max(850, viewportWidth * 0.55));
+      }
+    };
+
+    calculateScale();
+    window.addEventListener('resize', calculateScale);
+    return () => window.removeEventListener('resize', calculateScale);
+  }, []);
+
   return (
     <div
-      className=" h-[115vh] overflow-clip relative shrink-0 "
+      className="h-[100vh] overflow-clip relative shrink-0"
       data-name="Connected Factories"
       style={{
         width: "3000px",
@@ -265,15 +303,25 @@ function ConnectedFactories() {
           "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)",
       }}
     >
-      {/* Left gradient overlay - Static */}
-      <div className="absolute bg-gradient-to-l from-10%  h-full left-0  top-0 w-[900px] pointer-events-none z-10" />
+      {/* Strong gradient overlay to hide factory diagram behind text */}
+      <div
+        className="absolute h-full left-0 top-0 pointer-events-none z-10"
+        style={{
+          width: `${overlayWidth}px`,
+          background: 'linear-gradient(90deg, #0EB05C 0%, #0EB05C 45%, #0EB05C 55%, rgba(14, 176, 92, 0.98) 65%, rgba(14, 176, 92, 0.92) 75%, rgba(14, 176, 92, 0.75) 85%, rgba(14, 176, 92, 0.4) 92%, rgba(14, 176, 92, 0.1) 97%, transparent 100%)',
+        }}
+      />
 
       <Frame28 />
 
-      {/* Factory Diagram Container */}
+      {/* Factory Diagram Container - Responsive with scaling, animations preserved */}
       <div
-        className="absolute h-screen left-0 top-0 pointer-events-none"
-        style={{ width: "1950px" }}
+        className="absolute h-screen left-[10%] top-0 pointer-events-none z-10"
+        style={{
+          width: '1950px',
+          transform: `scale(${diagramScale})`,
+          transformOrigin: 'left top',
+        }}
       >
         <div className="relative h-full w-full">
           <div
