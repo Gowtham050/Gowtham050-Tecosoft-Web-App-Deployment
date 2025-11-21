@@ -17,14 +17,14 @@ export function SettingsIcon({ isHovered }: IconProps) {
           stroke-dashoffset: 0;
         }
         .settings-path-1.animate {
-          animation: drawStroke 1.5s ease-in-out infinite;
+          animation: drawStroke 1.2s ease-in-out infinite;
         }
         .settings-path-2 {
           stroke-dasharray: 100;
           stroke-dashoffset: 0;
         }
         .settings-path-2.animate {
-          animation: drawStroke 1.5s ease-in-out 0.2s infinite;
+          animation: drawStroke 1.2s ease-in-out 0.2s infinite;
         }
       `}</style>
       <div className="absolute contents inset-0">
@@ -78,14 +78,14 @@ export function RefreshIcon({ isHovered }: IconProps) {
           stroke-dashoffset: 0;
         }
         .refresh-path-1.animate {
-          animation: drawStrokeRefresh1 1.5s ease-in-out infinite;
+          animation: drawStrokeRefresh1 1.2s ease-in-out infinite;
         }
         .refresh-path-2 {
           stroke-dasharray: 80;
           stroke-dashoffset: 0;
         }
         .refresh-path-2.animate {
-          animation: drawStrokeRefresh2 1.5s ease-in-out 0.2s infinite;
+          animation: drawStrokeRefresh2 1.2s ease-in-out 0.2s infinite;
         }
       `}</style>
       <div className="absolute contents inset-0">
@@ -139,14 +139,14 @@ export function TargetIcon({ isHovered }: IconProps) {
           stroke-dashoffset: 0;
         }
         .target-path-1.animate {
-          animation: drawStrokeTarget1 1.5s ease-in-out infinite;
+          animation: drawStrokeTarget1 1.2s ease-in-out infinite;
         }
         .target-path-2 {
           stroke-dasharray: 60;
           stroke-dashoffset: 0;
         }
         .target-path-2.animate {
-          animation: drawStrokeTarget2 1.5s ease-in-out 0.2s infinite;
+          animation: drawStrokeTarget2 1.2s ease-in-out 0.2s infinite;
         }
       `}</style>
       <div className="absolute inset-[8.33%]">
@@ -198,20 +198,20 @@ export function ChartIcon({ isHovered }: IconProps) {
           stroke-dashoffset: 0;
         }
         .chart-path-1.animate {
-          animation: drawStrokeChart1 1.5s ease-in-out infinite;
+          animation: drawStrokeChart1 1.2s ease-in-out infinite;
         }
         .chart-path-2 {
           stroke-dasharray: 50;
           stroke-dashoffset: 0;
         }
         .chart-path-2.animate {
-          animation: drawStrokeChart2 1.5s ease-in-out 0.15s infinite;
+          animation: drawStrokeChart2 1.2s ease-in-out 0.15s infinite;
         }
         .chart-path-3.animate {
-          animation: drawStrokeChart2 1.5s ease-in-out 0.25s infinite;
+          animation: drawStrokeChart2 1.2s ease-in-out 0.25s infinite;
         }
         .chart-path-4.animate {
-          animation: drawStrokeChart2 1.5s ease-in-out 0.35s infinite;
+          animation: drawStrokeChart2 1.2s ease-in-out 0.35s infinite;
         }
       `}</style>
       <div className="absolute contents inset-0">
@@ -272,38 +272,38 @@ export function MessageIcon({ isHovered }: IconProps) {
   return (
     <div className="overflow-clip relative shrink-0 size-[32px]">
       <style>{`
-        @keyframes drawStrokeMessage1 {
+        @keyframes drawStrokeTrendUp1 {
           0% { stroke-dashoffset: 100; }
           100% { stroke-dashoffset: 0; }
         }
-        @keyframes drawStrokeMessage2 {
+        @keyframes drawStrokeTrendUp2 {
           0% { stroke-dashoffset: 60; }
           100% { stroke-dashoffset: 0; }
         }
-        @keyframes drawStrokeMessage3 {
-          0% { stroke-dashoffset: 30; }
+        @keyframes drawStrokeTrendUp3 {
+          0% { stroke-dashoffset: 120; }
           100% { stroke-dashoffset: 0; }
         }
-        .message-path-1 {
+        .trend-up-path-1 {
           stroke-dasharray: 100;
           stroke-dashoffset: 0;
         }
-        .message-path-1.animate {
-          animation: drawStrokeMessage1 1.5s ease-in-out infinite;
+        .trend-up-path-1.animate {
+          animation: drawStrokeTrendUp1 1.2s ease-in-out infinite;
         }
-        .message-path-2 {
+        .trend-up-path-2 {
           stroke-dasharray: 60;
           stroke-dashoffset: 0;
         }
-        .message-path-2.animate {
-          animation: drawStrokeMessage2 1.5s ease-in-out 0.2s infinite;
+        .trend-up-path-2.animate {
+          animation: drawStrokeTrendUp2 1.2s ease-in-out 0.2s infinite;
         }
-        .message-path-3 {
-          stroke-dasharray: 30;
+        .trend-up-path-3 {
+          stroke-dasharray: 120;
           stroke-dashoffset: 0;
         }
-        .message-path-3.animate {
-          animation: drawStrokeMessage3 1.5s ease-in-out 0.35s infinite;
+        .trend-up-path-3.animate {
+          animation: drawStrokeTrendUp3 1.2s ease-in-out 0.35s infinite;
         }
       `}</style>
       <div className="absolute contents inset-0">
@@ -315,30 +315,28 @@ export function MessageIcon({ isHovered }: IconProps) {
         >
           <g>
             <path
-              d={svgPaths.p1aac8b00}
+              d="M22 12.6666L16.4 18.2666L14.2667 15.0666L10 19.3333"
               stroke="#07AF40"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              className={`message-path-1 ${isHovered ? "animate" : ""}`}
+              className={`trend-up-path-1 ${isHovered ? "animate" : ""}`}
             />
-            <g>
-              <path
-                d={svgPaths.p140c4870}
-                stroke="#07AF40"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className={`message-path-2 ${isHovered ? "animate" : ""}`}
-              />
-            </g>
             <path
-              d={svgPaths.p204bc700}
+              d="M19.332 12.6666H21.9987V15.3333"
               stroke="#07AF40"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              className={`message-path-3 ${isHovered ? "animate" : ""}`}
+              className={`trend-up-path-2 ${isHovered ? "animate" : ""}`}
+            />
+            <path
+              d="M12.0013 29.3333H20.0013C26.668 29.3333 29.3346 26.6666 29.3346 20V12C29.3346 5.33329 26.668 2.66663 20.0013 2.66663H12.0013C5.33464 2.66663 2.66797 5.33329 2.66797 12V20C2.66797 26.6666 5.33464 29.3333 12.0013 29.3333Z"
+              stroke="#07AF40"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className={`trend-up-path-3 ${isHovered ? "animate" : ""}`}
             />
             <g opacity="0"></g>
           </g>
@@ -352,38 +350,27 @@ export function ArchiveIcon({ isHovered }: IconProps) {
   return (
     <div className="overflow-clip relative shrink-0 size-[32px]">
       <style>{`
-        @keyframes drawStrokeArchive1 {
+        @keyframes drawStrokeLink1 {
           0% { stroke-dashoffset: 100; }
           100% { stroke-dashoffset: 0; }
         }
-        @keyframes drawStrokeArchive2 {
-          0% { stroke-dashoffset: 80; }
+        @keyframes drawStrokeLink2 {
+          0% { stroke-dashoffset: 100; }
           100% { stroke-dashoffset: 0; }
         }
-        @keyframes drawStrokeArchive3 {
-          0% { stroke-dashoffset: 20; }
-          100% { stroke-dashoffset: 0; }
-        }
-        .archive-path-1 {
+        .link-path-1 {
           stroke-dasharray: 100;
           stroke-dashoffset: 0;
         }
-        .archive-path-1.animate {
-          animation: drawStrokeArchive1 1.5s ease-in-out infinite;
+        .link-path-1.animate {
+          animation: drawStrokeLink1 1s ease-in-out infinite;
         }
-        .archive-path-2 {
-          stroke-dasharray: 80;
+        .link-path-2 {
+          stroke-dasharray: 100;
           stroke-dashoffset: 0;
         }
-        .archive-path-2.animate {
-          animation: drawStrokeArchive2 1.5s ease-in-out 0.2s infinite;
-        }
-        .archive-path-3 {
-          stroke-dasharray: 20;
-          stroke-dashoffset: 0;
-        }
-        .archive-path-3.animate {
-          animation: drawStrokeArchive3 1.5s ease-in-out 0.35s infinite;
+        .link-path-2.animate {
+          animation: drawStrokeLink2 1s ease-in-out 0.2s infinite;
         }
       `}</style>
       <div className="absolute contents inset-0">
@@ -395,28 +382,18 @@ export function ArchiveIcon({ isHovered }: IconProps) {
         >
           <g>
             <path
-              d={svgPaths.p37330f80}
+              d="M13.332 17.6387C13.5209 17.9479 13.7449 18.2406 14.0042 18.5105C15.6143 20.1861 18.0683 20.448 19.9421 19.2963C20.2893 19.0829 20.6166 18.8209 20.9149 18.5105L25.2341 14.0153C27.1424 12.0292 27.1424 8.80905 25.2341 6.82295C23.3258 4.83685 20.2318 4.83685 18.3234 6.82295L17.3721 7.81308"
               stroke="#07AF40"
               strokeLinecap="round"
-              strokeLinejoin="round"
               strokeWidth="2"
-              className={`archive-path-1 ${isHovered ? "animate" : ""}`}
+              className={`link-path-1 ${isHovered ? "animate" : ""}`}
             />
             <path
-              d={svgPaths.p28009480}
+              d="M14.6258 24.1866L13.6741 25.1771C11.7657 27.1632 8.67165 27.1632 6.7633 25.1771C4.85494 23.191 4.85494 19.9709 6.7633 17.9848L11.0825 13.4896C12.9909 11.5035 16.0849 11.5035 17.9933 13.4896C18.2525 13.7594 18.4766 14.052 18.6654 14.3611"
               stroke="#07AF40"
               strokeLinecap="round"
-              strokeLinejoin="round"
               strokeWidth="2"
-              className={`archive-path-2 ${isHovered ? "animate" : ""}`}
-            />
-            <path
-              d={svgPaths.p349e9000}
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className={`archive-path-3 ${isHovered ? "animate" : ""}`}
+              className={`link-path-2 ${isHovered ? "animate" : ""}`}
             />
             <g opacity="0"></g>
           </g>

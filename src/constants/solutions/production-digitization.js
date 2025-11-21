@@ -51,7 +51,7 @@ export const featuresContent = {
     },
     {
       id: "predict-prevent",
-      icon: "refresh",
+      icon: "message",
       title: "Predict. Prevent. Perform.",
       description:
         "Predict performance trends and plan maintenance in advance with smart insight dashboards that keep your operations running smoothly.",
@@ -59,7 +59,7 @@ export const featuresContent = {
     },
     {
       id: "machine-integration",
-      icon: "message",
+      icon: "archive",
       title: "Seamless Machine Integration.",
       description:
         "Effortlessly integrate with PLCs, sensors, and devices to enable scalable, plug-and-play production monitoring.",
