@@ -1,11 +1,9 @@
-import svgPaths from "../../imports/svg-6sw94kd16o";
 import { useState } from "react";
-
-const imgRectangle34 =
-  "./assets/pages/production-digitization/solutions/3a380a8126032af34701f98b609fdbd9e932781c.png";
+import { iconMap, type IconType } from "../../components/icons/AnimatedIcons";
+import { featuresContent } from "../../constants/solutions/production-digitization";
 
 interface FeatureCardProps {
-  icon: (isHovered: boolean) => React.ReactNode;
+  icon: IconType;
   title: string;
   description: string;
   bgColor?: string;
@@ -18,10 +16,11 @@ function FeatureCard({
   bgColor = "rgba(204,241,255,0.5)",
 }: FeatureCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const IconComponent = iconMap[icon];
 
   return (
     <div
-      className="bg-white box-border content-stretch flex flex-col gap-[24px] items-start p-[24px] relative rounded-[20px] shrink-0 w-[421.333px] cursor-pointer"
+      className="bg-white box-border content-stretch flex flex-col gap-4 md:gap-6 items-start p-5 md:p-6 relative rounded-[20px] w-full cursor-pointer hover:shadow-lg transition-shadow"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -30,16 +29,16 @@ function FeatureCard({
         className="absolute border border-[#e4e4e4] border-solid inset-0 pointer-events-none rounded-[20px]"
       />
       <div
-        className="box-border content-stretch flex gap-[10px] items-center justify-center overflow-clip p-[24px] relative rounded-[12px] shrink-0"
+        className="box-border content-stretch flex gap-[10px] items-center justify-center overflow-clip p-5 md:p-6 relative rounded-[12px] shrink-0"
         style={{ backgroundColor: bgColor }}
       >
-        {icon(isHovered)}
+        <IconComponent isHovered={isHovered} />
       </div>
-      <div className="content-stretch flex flex-col gap-[12px] items-start leading-[22px] not-italic relative shrink-0 w-full">
-        <p className="font-['Gilroy:Semibold',sans-serif] relative shrink-0 text-[#181818] text-[18px] text-nowrap whitespace-pre">
+      <div className="content-stretch flex flex-col gap-3 items-start leading-[22px] not-italic relative shrink-0 w-full">
+        <p className="font-['Gilroy:Semibold',sans-serif] relative shrink-0 text-[#181818] text-base md:text-lg">
           {title}
         </p>
-        <p className="font-['Gilroy:Regular',sans-serif] min-w-full relative shrink-0 text-[#777777] text-[15px] w-[min-content]">
+        <p className="font-['Gilroy:Regular',sans-serif] relative shrink-0 text-[#777777] text-sm md:text-[15px] leading-relaxed">
           {description}
         </p>
       </div>
@@ -47,438 +46,14 @@ function FeatureCard({
   );
 }
 
-function SettingsIcon(isHovered: boolean) {
-  return (
-    <div className="relative shrink-0 size-[32px]">
-      <style>{`
-        @keyframes drawStroke {
-          0% { stroke-dashoffset: 100; }
-          100% { stroke-dashoffset: 0; }
-        }
-        .settings-path-1 {
-          stroke-dasharray: 100;
-          stroke-dashoffset: 0;
-        }
-        .settings-path-1.animate {
-          animation: drawStroke 1.5s ease-in-out infinite;
-        }
-        .settings-path-2 {
-          stroke-dasharray: 100;
-          stroke-dashoffset: 0;
-        }
-        .settings-path-2.animate {
-          animation: drawStroke 1.5s ease-in-out 0.2s infinite;
-        }
-      `}</style>
-      <div className="absolute contents inset-0">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 32 32"
-        >
-          <g id="setting-2">
-            <path
-              d={svgPaths.p34392700}
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeMiterlimit="10"
-              strokeWidth="2"
-              className={`settings-path-1 ${isHovered ? "animate" : ""}`}
-            />
-            <path
-              d={svgPaths.pad9dd00}
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeMiterlimit="10"
-              strokeWidth="2"
-              className={`settings-path-2 ${isHovered ? "animate" : ""}`}
-            />
-            <g opacity="0"></g>
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-function RefreshIcon(isHovered: boolean) {
-  return (
-    <div className="relative shrink-0 size-[32px]">
-      <style>{`
-        @keyframes drawStrokeRefresh1 {
-          0% { stroke-dashoffset: 120; }
-          100% { stroke-dashoffset: 0; }
-        }
-        @keyframes drawStrokeRefresh2 {
-          0% { stroke-dashoffset: 80; }
-          100% { stroke-dashoffset: 0; }
-        }
-        .refresh-path-1 {
-          stroke-dasharray: 120;
-          stroke-dashoffset: 0;
-        }
-        .refresh-path-1.animate {
-          animation: drawStrokeRefresh1 1.5s ease-in-out infinite;
-        }
-        .refresh-path-2 {
-          stroke-dasharray: 80;
-          stroke-dashoffset: 0;
-        }
-        .refresh-path-2.animate {
-          animation: drawStrokeRefresh2 1.5s ease-in-out 0.2s infinite;
-        }
-      `}</style>
-      <div className="absolute contents inset-0">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 32 32"
-        >
-          <g id="refresh-square-2">
-            <path
-              d={svgPaths.p20901f80}
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className={`refresh-path-1 ${isHovered ? "animate" : ""}`}
-            />
-            <g>
-              <path
-                d={svgPaths.p3cd4a700}
-                stroke="#07AF40"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className={`refresh-path-2 ${isHovered ? "animate" : ""}`}
-              />
-            </g>
-            <g opacity="0"></g>
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-function TargetIcon(isHovered: boolean) {
-  return (
-    <div className="overflow-clip relative shrink-0 size-[32px]">
-      <style>{`
-        @keyframes drawStrokeTarget1 {
-          0% { stroke-dashoffset: 90; }
-          100% { stroke-dashoffset: 0; }
-        }
-        @keyframes drawStrokeTarget2 {
-          0% { stroke-dashoffset: 60; }
-          100% { stroke-dashoffset: 0; }
-        }
-        .target-path-1 {
-          stroke-dasharray: 90;
-          stroke-dashoffset: 0;
-        }
-        .target-path-1.animate {
-          animation: drawStrokeTarget1 1.5s ease-in-out infinite;
-        }
-        .target-path-2 {
-          stroke-dasharray: 60;
-          stroke-dashoffset: 0;
-        }
-        .target-path-2.animate {
-          animation: drawStrokeTarget2 1.5s ease-in-out 0.2s infinite;
-        }
-      `}</style>
-      <div className="absolute inset-[8.33%]">
-        <div className="absolute inset-[-3.75%_-3.74%_-3.75%_-3.75%]">
-          <svg
-            className="block size-full"
-            fill="none"
-            preserveAspectRatio="none"
-            viewBox="0 0 29 29"
-          >
-            <g>
-              <path
-                d={svgPaths.p3da63c00}
-                stroke="#07AF40"
-                strokeLinecap="round"
-                strokeWidth="2"
-                className={`target-path-1 ${isHovered ? "animate" : ""}`}
-              />
-              <path
-                d={svgPaths.p334d6880}
-                stroke="#07AF40"
-                strokeLinecap="round"
-                strokeWidth="2"
-                className={`target-path-2 ${isHovered ? "animate" : ""}`}
-              />
-              <path d={svgPaths.pebe53b0} fill="#07AF40" />
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ChartIcon(isHovered: boolean) {
-  return (
-    <div className="relative shrink-0 size-[32px]">
-      <style>{`
-        @keyframes drawStrokeChart1 {
-          0% { stroke-dashoffset: 24; }
-          100% { stroke-dashoffset: 0; }
-        }
-        @keyframes drawStrokeChart2 {
-          0% { stroke-dashoffset: 50; }
-          100% { stroke-dashoffset: 0; }
-        }
-        .chart-path-1 {
-          stroke-dasharray: 24;
-          stroke-dashoffset: 0;
-        }
-        .chart-path-1.animate {
-          animation: drawStrokeChart1 1.5s ease-in-out infinite;
-        }
-        .chart-path-2 {
-          stroke-dasharray: 50;
-          stroke-dashoffset: 0;
-        }
-        .chart-path-2.animate {
-          animation: drawStrokeChart2 1.5s ease-in-out 0.15s infinite;
-        }
-        .chart-path-3.animate {
-          animation: drawStrokeChart2 1.5s ease-in-out 0.25s infinite;
-        }
-        .chart-path-4.animate {
-          animation: drawStrokeChart2 1.5s ease-in-out 0.35s infinite;
-        }
-      `}</style>
-      <div className="absolute contents inset-0">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 32 32"
-        >
-          <g>
-            <path
-              d="M4 29.3333H28"
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className={`chart-path-1 ${isHovered ? "animate" : ""}`}
-            />
-            <g>
-              <path
-                d={svgPaths.p1445600}
-                stroke="#07AF40"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className={`chart-path-2 ${isHovered ? "animate" : ""}`}
-              />
-              <path
-                d={svgPaths.pf9ac4f0}
-                stroke="#07AF40"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className={`chart-path-2 chart-path-3 ${
-                  isHovered ? "animate" : ""
-                }`}
-              />
-              <path
-                d={svgPaths.p15994780}
-                stroke="#07AF40"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className={`chart-path-2 chart-path-4 ${
-                  isHovered ? "animate" : ""
-                }`}
-              />
-            </g>
-            <g opacity="0"></g>
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-function MessageIcon(isHovered: boolean) {
-  return (
-    <div className="overflow-clip relative shrink-0 size-[32px]">
-      <style>{`
-        @keyframes drawStrokeMessage1 {
-          0% { stroke-dashoffset: 100; }
-          100% { stroke-dashoffset: 0; }
-        }
-        @keyframes drawStrokeMessage2 {
-          0% { stroke-dashoffset: 60; }
-          100% { stroke-dashoffset: 0; }
-        }
-        @keyframes drawStrokeMessage3 {
-          0% { stroke-dashoffset: 30; }
-          100% { stroke-dashoffset: 0; }
-        }
-        .message-path-1 {
-          stroke-dasharray: 100;
-          stroke-dashoffset: 0;
-        }
-        .message-path-1.animate {
-          animation: drawStrokeMessage1 1.5s ease-in-out infinite;
-        }
-        .message-path-2 {
-          stroke-dasharray: 60;
-          stroke-dashoffset: 0;
-        }
-        .message-path-2.animate {
-          animation: drawStrokeMessage2 1.5s ease-in-out 0.2s infinite;
-        }
-        .message-path-3 {
-          stroke-dasharray: 30;
-          stroke-dashoffset: 0;
-        }
-        .message-path-3.animate {
-          animation: drawStrokeMessage3 1.5s ease-in-out 0.35s infinite;
-        }
-      `}</style>
-      <div className="absolute contents inset-0">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 32 32"
-        >
-          <g>
-            <path
-              d={svgPaths.p1aac8b00}
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className={`message-path-1 ${isHovered ? "animate" : ""}`}
-            />
-            <g>
-              <path
-                d={svgPaths.p140c4870}
-                stroke="#07AF40"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className={`message-path-2 ${isHovered ? "animate" : ""}`}
-              />
-            </g>
-            <path
-              d={svgPaths.p204bc700}
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className={`message-path-3 ${isHovered ? "animate" : ""}`}
-            />
-            <g opacity="0"></g>
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-function ArchiveIcon(isHovered: boolean) {
-  return (
-    <div className="overflow-clip relative shrink-0 size-[32px]">
-      <style>{`
-        @keyframes drawStrokeArchive1 {
-          0% { stroke-dashoffset: 100; }
-          100% { stroke-dashoffset: 0; }
-        }
-        @keyframes drawStrokeArchive2 {
-          0% { stroke-dashoffset: 80; }
-          100% { stroke-dashoffset: 0; }
-        }
-        @keyframes drawStrokeArchive3 {
-          0% { stroke-dashoffset: 20; }
-          100% { stroke-dashoffset: 0; }
-        }
-        .archive-path-1 {
-          stroke-dasharray: 100;
-          stroke-dashoffset: 0;
-        }
-        .archive-path-1.animate {
-          animation: drawStrokeArchive1 1.5s ease-in-out infinite;
-        }
-        .archive-path-2 {
-          stroke-dasharray: 80;
-          stroke-dashoffset: 0;
-        }
-        .archive-path-2.animate {
-          animation: drawStrokeArchive2 1.5s ease-in-out 0.2s infinite;
-        }
-        .archive-path-3 {
-          stroke-dasharray: 20;
-          stroke-dashoffset: 0;
-        }
-        .archive-path-3.animate {
-          animation: drawStrokeArchive3 1.5s ease-in-out 0.35s infinite;
-        }
-      `}</style>
-      <div className="absolute contents inset-0">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 32 32"
-        >
-          <g>
-            <path
-              d={svgPaths.p37330f80}
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className={`archive-path-1 ${isHovered ? "animate" : ""}`}
-            />
-            <path
-              d={svgPaths.p28009480}
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className={`archive-path-2 ${isHovered ? "animate" : ""}`}
-            />
-            <path
-              d={svgPaths.p349e9000}
-              stroke="#07AF40"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className={`archive-path-3 ${isHovered ? "animate" : ""}`}
-            />
-            <g opacity="0"></g>
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
-
 function SectionHeader() {
   return (
-    <div className="content-stretch flex gap-[283px] items-center not-italic relative shrink-0 w-[1312px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[45px] relative shrink-0 text-[#181818] text-[36px] w-[384px]">
-        Your All-in-One Intelligence Platform
+    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-20 items-start lg:items-center not-italic w-full max-w-7xl px-6 md:px-8 lg:px-12">
+      <p className="font-['Gilroy:Semibold',sans-serif] leading-tight text-[#181818] text-2xl md:text-3xl lg:text-4xl lg:w-[384px] shrink-0">
+        {featuresContent.sectionTitle}
       </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[23px] relative shrink-0 text-[#8e8e8e] text-[16px] w-[625px]">
-        Tecosoft Analytics unifies data across manufacturing, energy, logistics,
-        and healthcare, turning complex information into real-time insights that
-        power smarter decisions and greater operational efficiency.
+      <p className="font-['Gilroy:Medium',sans-serif] leading-relaxed text-[#8e8e8e] text-sm md:text-base flex-1">
+        {featuresContent.sectionDescription}
       </p>
     </div>
   );
@@ -486,12 +61,12 @@ function SectionHeader() {
 
 function TopGradient() {
   return (
-    <div className="absolute h-[180px] left-0 top-0 w-[1512px]">
+    <div className="absolute h-32 md:h-40 lg:h-[180px] left-0 top-0 w-full">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <img
           alt=""
-          className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full"
-          src={imgRectangle34}
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          src={featuresContent.backgroundImage}
         />
       </div>
     </div>
@@ -501,7 +76,7 @@ function TopGradient() {
 export function FeaturesSection() {
   return (
     <div
-      className="box-border content-stretch flex flex-col gap-[60px] items-center overflow-clip px-0 py-[60px] relative shrink-0 w-[1512px]"
+      className="box-border flex flex-col gap-12 md:gap-16 lg:gap-[60px] items-center overflow-clip px-4 md:px-6 lg:px-12 py-12 md:py-16 lg:py-[60px] relative w-full"
       style={{
         backgroundImage:
           "linear-gradient(90deg, rgba(0, 184, 219, 0.12) 0%, rgba(0, 184, 219, 0.12) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)",
@@ -509,39 +84,16 @@ export function FeaturesSection() {
     >
       <TopGradient />
       <SectionHeader />
-      <div className="content-stretch flex gap-[24px] items-center justify-center relative shrink-0 w-full">
-        <FeatureCard
-          icon={SettingsIcon}
-          title="Collect. Connect. Optimize."
-          description="Seamlessly capture live production data and connect machines to the cloud for real-time analytics and optimization."
-        />
-        <FeatureCard
-          icon={RefreshIcon}
-          title="Closed Loop Production System."
-          description="EAGLE ensures accountability by halting operations until downtime or alarm reasons are recorded — ensuring accurate data tracking."
-        />
-        <FeatureCard
-          icon={TargetIcon}
-          title="Pinpoint the Cause, Fix Faster."
-          description="Identify downtime sources instantly with guided operator input, real-time validation, and continuous live system feedback."
-        />
-      </div>
-      <div className="content-stretch flex gap-[24px] items-center justify-center relative shrink-0 w-full">
-        <FeatureCard
-          icon={ChartIcon}
-          title="Track. Analyze. Improve."
-          description="Monitor KPIs in real-time and empower your team with data-driven insights to optimize production and reduce waste."
-        />
-        <FeatureCard
-          icon={MessageIcon}
-          title="Flexible, Agentic, Platform."
-          description="Adaptable production workflows with intelligent automation that learns and adjusts to optimize your unique operational needs."
-        />
-        <FeatureCard
-          icon={ArchiveIcon}
-          title="One Device. Total Integration."
-          description="A single edge gateway connects PLCs, sensors, and systems, unifying your production infrastructure effortlessly."
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full max-w-7xl">
+        {featuresContent.features.map((feature) => (
+          <FeatureCard
+            key={feature.id}
+            icon={feature.icon as IconType}
+            title={feature.title}
+            description={feature.description}
+            bgColor={feature.bgColor}
+          />
+        ))}
       </div>
     </div>
   );

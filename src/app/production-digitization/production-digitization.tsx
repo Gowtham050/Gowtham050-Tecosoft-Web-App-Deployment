@@ -11,7 +11,7 @@ const ProductionDigitizationHomePage = () => {
   return (
     <div className="content-stretch flex flex-col items-start relative size-full bg-white">
       <HeroSection content={heroContent} />
-      {/* <StatsSection /> */}
+      <StatsSection />
       <FeaturesSection />
       {/* <WorkflowSection /> */}
       {/* <BenefitsSection /> */}
