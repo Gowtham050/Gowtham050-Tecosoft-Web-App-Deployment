@@ -5,8 +5,7 @@ export const footerCardConfig = {
     highlightText: "Are You Ready to Lead?",
     buttonText: "Talk to an Expert",
     buttonHref: "#demo",
-    description: "", 
-    
+    description: "",
   },
   "/eagle": {
     title: "Explore Solutions from ",
@@ -30,6 +29,14 @@ export const footerCardConfig = {
     highlightText: "Are You Ready to Lead?",
     buttonText: "Talk to an Expert",
     buttonHref: "#demo",
+  },
+  "/production-digitization/": {
+    title: "Achieve 360° Production Visibility with  ",
+    highlightText: "EAGLE",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Empower your manufacturing operations with real-time OEE tracking, closed-loop feedback, and performance-driven insights.",
   },
 };
 
