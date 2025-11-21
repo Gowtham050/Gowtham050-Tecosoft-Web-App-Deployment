@@ -38,6 +38,14 @@ export const footerCardConfig = {
     buttonText: "Talk to an Expert",
     buttonHref: "#demo",
   },
+  "/production-digitization/": {
+    title: "Achieve 360° Production Visibility with  ",
+    highlightText: "EAGLE",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Empower your manufacturing operations with real-time OEE tracking, closed-loop feedback, and performance-driven insights.",
+  },
 };
 
 // Helper function to get config based on pathname
