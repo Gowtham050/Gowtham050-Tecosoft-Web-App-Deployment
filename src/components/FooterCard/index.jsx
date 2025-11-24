@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 const FooterCard = ({
   title = "Next-Gen Industry is Here",
   highlightText = "Are You Ready to Lead?",
+  title2 = "",
   description = "",
   buttonText = "Talk to an Expert",
   buttonHref = "#",
@@ -53,6 +54,7 @@ const FooterCard = ({
                   <span className="font-semibold text-[#13F495]">
                     {highlightText}
                   </span>
+                  {title2}
                 </h2>
                 <p className="text-white/90 text-sm sm:text-base md:text-lg mt-4 max-w-2xl leading-relaxed">
                   {description}

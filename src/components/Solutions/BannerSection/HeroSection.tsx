@@ -61,11 +61,11 @@ function TextContent({ title, highlight, description }: TextContentProps) {
   return (
     <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 text-white text-center w-full max-w-[900px]">
       <h1 className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight">
-        <div>{title}</div>
-        <div className="flex items-center justify-center gap-2 sm:gap-3">
-          <span>with </span>
+        <div>
+          {title}
+
           <span
-            className="text-[var(--brand-color)]"
+            className="text-[var(--brand-color)] ml-2"
             style={{ "--brand-color": BRAND_COLOR } as React.CSSProperties}
           >
             {highlight}

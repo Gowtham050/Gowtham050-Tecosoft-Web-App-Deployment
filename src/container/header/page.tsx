@@ -126,7 +126,13 @@ const Navbar = () => {
   console.log(open, isScrolled);
 
   useEffect(() => {
-    const isHomePage = pathname === "/" || pathname === "/production-digitization/";
+    const isHomePage =
+      pathname === "/" ||
+      pathname === "/production-digitization/" ||
+      pathname === "/connected-factories/production-digitization/" ||
+      pathname === "/connected-factories/tool-life-monitoring-digitization/" ||
+      pathname === "/connected-factories/maintenance-digitization/" ||
+      pathname === "/connected-factories/inspection-digitization/";
 
     if (isHomePage) {
       const handleScroll = () => {
@@ -232,9 +238,10 @@ const Navbar = () => {
             {navItems.map((item) => (
               <li key={item.name} className="relative">
                 {item.hasDropdown ? (
-                  <div ref={item.name === "Platform" ? dropdownRef : null}
-                  onMouseEnter={() => handleDropdownClick(item.name)}
-                  onMouseLeave={() => handleDropdownClick("")}
+                  <div
+                    ref={item.name === "Platform" ? dropdownRef : null}
+                    onMouseEnter={() => handleDropdownClick(item.name)}
+                    onMouseLeave={() => handleDropdownClick("")}
                   >
                     <button
                       onClick={() => handleDropdownClick(item.name)}

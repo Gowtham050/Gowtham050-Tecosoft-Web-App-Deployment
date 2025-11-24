@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { statsContent } from "../../../constants/solutions/production-digitization";
+import { statsContent } from "../../../constants/connected-factories/production-digitization";
 
 interface StatCardProps {
   value: string;
