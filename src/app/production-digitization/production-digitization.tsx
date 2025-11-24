@@ -9,7 +9,7 @@ import { heroContent } from "@/constants/solutions/production-digitization";
 
 const ProductionDigitizationHomePage = () => {
   return (
-    <div className="content-stretch flex flex-col items-start relative size-full bg-white">
+    <div className="content-stretch flex flex-col items-start relative size-full bg-white py-10 sm:pt-2">
       <HeroSection content={heroContent} />
       <StatsSection />
       <FeaturesSection />

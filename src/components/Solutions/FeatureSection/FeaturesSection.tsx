@@ -61,7 +61,7 @@ function SectionHeader() {
 
 function TopGradient() {
   return (
-    <div className="absolute h-32 md:h-40 lg:h-[180px] left-0 top-0 w-full">
+    <div className="absolute h-32 md:h-40 lg:h-[180px] left-0 top-0 w-full hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <img
           alt=""
