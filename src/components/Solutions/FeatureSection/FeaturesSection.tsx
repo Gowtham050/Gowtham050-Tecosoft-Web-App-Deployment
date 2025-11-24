@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { iconMap, type IconType } from "../../icons/AnimatedIcons";
 import { featuresContent } from "../../../constants/solutions/production-digitization";
 
@@ -16,7 +16,22 @@ function FeatureCard({
   bgColor = "rgba(204,241,255,0.5)",
 }: FeatureCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const IconComponent = iconMap[icon];
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    // Check on mount
+    checkScreenSize();
+
+    // Add resize listener
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   return (
     <div
@@ -32,7 +47,7 @@ function FeatureCard({
         className="box-border content-stretch flex gap-[10px] items-center justify-center overflow-clip p-5 md:p-6 relative rounded-[12px] shrink-0"
         style={{ backgroundColor: bgColor }}
       >
-        <IconComponent isHovered={isHovered} />
+        <IconComponent isHovered={isMobile || isHovered} />
       </div>
       <div className="content-stretch flex flex-col gap-3 items-start leading-[22px] not-italic relative shrink-0 w-full">
         <p className=" font-semibold  relative shrink-0 text-[#181818] text-base md:text-lg">

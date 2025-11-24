@@ -59,17 +59,20 @@ interface TextContentProps {
 
 function TextContent({ title, highlight, description }: TextContentProps) {
   return (
-    <div className="flex flex-col gap-4 sm:gap-6 md:gap-7 lg:gap-9 text-white text-center lg:text-left w-full lg:max-w-[550px] xl:max-w-[650px] 2xl:max-w-[700px]">
-      <h1 className=" font-semibold  text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[86px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-tight 2xl:leading-[96px]">
-        <span>{title} </span>
-        <span
-          className="text-[var(--brand-color)]"
-          style={{ "--brand-color": BRAND_COLOR } as React.CSSProperties}
-        >
-          {highlight}
-        </span>
+    <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 text-white text-center w-full max-w-[900px]">
+      <h1 className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight">
+        <div>{title}</div>
+        <div className="flex items-center justify-center gap-2 sm:gap-3">
+          <span>with </span>
+          <span
+            className="text-[var(--brand-color)]"
+            style={{ "--brand-color": BRAND_COLOR } as React.CSSProperties}
+          >
+            {highlight}
+          </span>
+        </div>
       </h1>
-      <p className=" font-medium text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-[21px] leading-normal sm:leading-relaxed md:leading-relaxed lg:leading-relaxed 2xl:leading-[29px] opacity-90">
+      <p className="font-normal text-sm sm:text-base md:text-lg lg:text-[19px] leading-relaxed opacity-90 max-w-[800px] mx-auto px-4">
         {description}
       </p>
     </div>
@@ -84,7 +87,7 @@ interface DeviceImageProps {
 function DeviceImage({ imagePath, imageAlt }: DeviceImageProps) {
   return (
     <div
-      className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[420px] xl:max-w-[460px] 2xl:max-w-[482px] h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] xl:h-[320px] 2xl:h-[341px] rounded-lg overflow-hidden flex-shrink-0"
+      className="absolute right-0 top-1/2 -translate-y-1/2 w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] xl:w-[400px] h-auto opacity-70 lg:opacity-80 hidden md:block"
       data-name="Eagle Device"
     >
       <img
@@ -107,9 +110,12 @@ function HeroContent({
   imageAlt,
 }: HeroContentComponentProps) {
   return (
-    <div className="absolute inset-0 z-10 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-8 lg:gap-12 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 2xl:px-[100px] py-20 md:py-24 lg:py-32 xl:py-[180px]">
-      <TextContent title={title} highlight={highlight} description={description} />
-      <DeviceImage imagePath={image} imageAlt={imageAlt} />
+    <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-16 md:py-20 lg:py-24">
+      <TextContent
+        title={title}
+        highlight={highlight}
+        description={description}
+      />
     </div>
   );
 }
@@ -126,7 +132,7 @@ export function HeroSection({ content }: HeroSectionProps) {
 
   return (
     <section
-      className="relative w-full min-h-[500px] h-[550px] sm:h-[600px] md:h-[650px] lg:h-[700px] xl:h-[711px] overflow-hidden"
+      className="relative w-full h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px] overflow-hidden"
       data-name="Hero section"
       aria-label="Production Digitization Hero Section"
     >

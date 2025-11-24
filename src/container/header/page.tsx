@@ -126,7 +126,7 @@ const Navbar = () => {
   console.log(open, isScrolled);
 
   useEffect(() => {
-    const isHomePage = pathname === "/" || pathname === "/production-digitization";
+    const isHomePage = pathname === "/" || pathname === "/production-digitization/";
 
     if (isHomePage) {
       const handleScroll = () => {
