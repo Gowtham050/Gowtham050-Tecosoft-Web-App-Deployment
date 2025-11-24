@@ -53,11 +53,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={gilroy.variable}>
         <ClientLayout>
-          <ScrollWrapperSection>
+          {/* <ScrollWrapperSection> */}
             <HeaderSection />
             {children}
             <FooterSection />
-          </ScrollWrapperSection>
+          {/* </ScrollWrapperSection> */}
         </ClientLayout>
       </body>
     </html>
