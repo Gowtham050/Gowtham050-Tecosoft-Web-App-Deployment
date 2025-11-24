@@ -26,7 +26,7 @@ function BenefitCard({ icon, title, bgColor, iconColor }: BenefitCardProps) {
       >
         <IconComponent color={isHovered ? "#FFFFFF" : iconColor} />
       </div>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-relaxed text-sm md:text-base text-black text-center">
+      <p className=" font-medium leading-relaxed text-sm md:text-base text-black text-center">
         {title}
       </p>
     </div>
@@ -36,10 +36,10 @@ function BenefitCard({ icon, title, bgColor, iconColor }: BenefitCardProps) {
 function SectionHeader() {
   return (
     <div className="flex flex-col gap-3 md:gap-4 items-center text-center w-full max-w-4xl px-4">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-tight text-[#282828] text-2xl md:text-3xl lg:text-4xl">
+      <p className=" font-semibold  leading-tight text-[#282828] text-2xl md:text-3xl lg:text-4xl">
         {benefitsContent.sectionTitle}
       </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-relaxed text-[#8e8e8e] text-sm md:text-base">
+      <p className=" font-medium leading-relaxed text-[#8e8e8e] text-sm md:text-base">
         {benefitsContent.sectionDescription}
       </p>
     </div>

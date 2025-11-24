@@ -234,10 +234,10 @@ function ArrowIcon() {
 function FeaturesHeader() {
   return (
     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 w-full">
-      <h2 className="font-['Gilroy:Semibold',sans-serif] text-white text-2xl sm:text-3xl lg:text-4xl leading-tight">
+      <h2 className="font-semibold  text-white text-2xl sm:text-3xl lg:text-4xl leading-tight">
         Key Use Cases
       </h2>
-      <p className="font-['Gilroy:Medium',sans-serif] text-[#ccf1ff] text-sm sm:text-base leading-relaxed max-w-full sm:max-w-md lg:max-w-lg">
+      <p className=" font-medium text-[#ccf1ff] text-sm sm:text-base leading-relaxed max-w-full sm:max-w-md lg:max-w-lg">
         Transform Your Shop Floor into a Smart, Connected, and Insight-Driven
         Ecosystem
       </p>
@@ -270,7 +270,7 @@ function BulletPoint({
         </svg>
       </div>
       <p
-        className="font-['Gilroy:Medium',sans-serif] text-sm leading-relaxed text-[#0098d4] group-hover:text-white transition-colors duration-300"
+        className=" font-medium text-sm leading-relaxed text-[#0098d4] group-hover:text-white transition-colors duration-300"
       >
         {text}
       </p>
@@ -315,7 +315,7 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
           <div className="flex flex-col gap-1 flex-1 min-w-0">
             <div className="flex items-center justify-between w-full">
               <h3
-                className="font-['Gilroy:Semibold',sans-serif] text-xl sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300"
+                className="font-semibold  text-xl sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300"
               >
                 {title}
               </h3>
@@ -324,7 +324,7 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
               </div>
             </div>
             <p
-              className="font-['Gilroy:Regular',sans-serif] text-xs sm:text-[13px] leading-relaxed text-[#636363] group-hover:text-white transition-colors duration-300"
+              className=" font-normal  text-xs sm:text-[13px] leading-relaxed text-[#636363] group-hover:text-white transition-colors duration-300"
             >
               {description}
             </p>

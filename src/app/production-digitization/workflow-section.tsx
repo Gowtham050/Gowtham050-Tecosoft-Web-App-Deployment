@@ -15,15 +15,15 @@ function WorkflowStep({
   return (
     <div className="backdrop-blur-md backdrop-filter bg-[rgba(255,255,255,0.32)] box-border content-stretch flex gap-[26px] items-start p-[26px] rounded-[16px] w-full">
       <div className="bg-white box-border content-stretch flex gap-[10px] items-center justify-center overflow-clip p-[24px] relative rounded-[12px] shrink-0 size-[60px]">
-        <p className="font-['Gilroy:Bold',sans-serif] leading-[30px] not-italic relative shrink-0 text-[#07af40] text-[26px] text-nowrap whitespace-pre">
+        <p className="font-bold:Bold',sans-serif] leading-[30px] not-italic relative shrink-0 text-[#07af40] text-[26px] text-nowrap whitespace-pre">
           {number}
         </p>
       </div>
       <div className="basis-0 content-stretch flex flex-col gap-[14px] grow items-start min-h-px min-w-px not-italic relative shrink-0 text-white">
-        <p className="font-['Gilroy:Semibold',sans-serif] leading-[36px] relative shrink-0 text-[26px] text-nowrap whitespace-pre">
+        <p className=" font-semibold  leading-[36px] relative shrink-0 text-[26px] text-nowrap whitespace-pre">
           {title}
         </p>
-        <p className="font-['Gilroy:Medium',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[16px] w-[min-content]">
+        <p className=" font-medium leading-[22px] min-w-full relative shrink-0 text-[16px] w-[min-content]">
           {description}
         </p>
       </div>
@@ -70,12 +70,12 @@ function LeftContent() {
     <div className="flex flex-col items-start justify-center px-[60px] py-[80px]">
       <EagleLogo />
       <h2
-        className="font-['Gilroy:Bold',sans-serif] leading-[52px] not-italic text-[44px] mb-[24px]"
+        className="font-bold:Bold',sans-serif] leading-[52px] not-italic text-[44px] mb-[24px]"
         style={{ color: "rgba(0, 255, 132, 1)" }}
       >
         EAGLE <span className="text-white">Workflow</span>
       </h2>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[26px] not-italic text-[18px] text-white/90 max-w-[500px]">
+      <p className=" font-medium leading-[26px] not-italic text-[18px] text-white/90 max-w-[500px]">
         Follow our streamlined production workflow from setup to
         analysis. Each step ensures accountability,
         traceability, and real-time performance monitoring.

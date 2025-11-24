@@ -29,7 +29,7 @@ function Frame25() {
         aria-hidden="true"
         className="absolute border border-[#07af40] border-solid inset-0 pointer-events-none rounded-[60px]"
       />
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[18px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px] text-nowrap whitespace-pre">
+      <p className=" font-semibold  leading-[18px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px] text-nowrap whitespace-pre">
         Connected Factories
       </p>
     </div>
@@ -63,7 +63,7 @@ function IconoirArrowDown5() {
 function Frame2() {
   return (
     <div className="bg-[#07af40] box-border content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
+      <p className=" font-semibold  leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
         Book a Demo
       </p>
       <div
@@ -86,7 +86,7 @@ function Frame2() {
 function Frame23() {
   return (
     <div className="bg-white box-border content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0 w-[144px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] not-italic relative shrink-0 text-[#4f4f4f] text-[15px] text-nowrap whitespace-pre">
+      <p className=" font-semibold  leading-[20px] not-italic relative shrink-0 text-[#4f4f4f] text-[15px] text-nowrap whitespace-pre">
         See Capabilities
       </p>
     </div>
@@ -106,10 +106,10 @@ function Frame28() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[40px] items-start left-[140px] top-[140px] w-[700px]">
       <Frame25 />
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[72px] min-w-full not-italic relative shrink-0 text-[#282828] text-[60px] tracking-[-0.9px] w-[min-content]">
+      <p className=" font-semibold  leading-[72px] min-w-full not-italic relative shrink-0 text-[#282828] text-[60px] tracking-[-0.9px] w-[min-content]">
         Experience the Power of Connected Factories
       </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[24px] min-w-full not-italic opacity-75 relative shrink-0 text-[#4f4f4f] text-[16px] w-[min-content]">
+      <p className=" font-medium leading-[24px] min-w-full not-italic opacity-75 relative shrink-0 text-[#4f4f4f] text-[16px] w-[min-content]">
         Connected Factory Solutions connect machines, processes, and workflows -
         turning real-time data from production, quality, and maintenance into
         insights for flexible, scalable, and smarter operational decisions.
@@ -352,7 +352,7 @@ function ConnectedFactories() {
               </svg>
             </div>
           </div>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2217px] not-italic opacity-100 text-[#282828] text-[14px] text-nowrap top-[605px] whitespace-pre">
+          <p className="absolute  font-semibold  leading-[16px] left-[2217px] not-italic opacity-100 text-[#282828] text-[14px] text-nowrap top-[605px] whitespace-pre">
             Hard Wiring to Machine
           </p>
           <div className="absolute h-0 left-[2107px] top-[673px] w-[90px]">
@@ -371,7 +371,7 @@ function ConnectedFactories() {
               </svg>
             </div>
           </div>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2217px] not-italic opacity-100 text-[#282828] text-[14px] text-nowrap top-[665px] whitespace-pre">
+          <p className="absolute  font-semibold  leading-[16px] left-[2217px] not-italic opacity-100 text-[#282828] text-[14px] text-nowrap top-[665px] whitespace-pre">
             Wifi/Ethernet Connection
           </p>
           <div className="absolute h-0 left-[1438px] top-[414px] w-[185px]">
@@ -633,10 +633,10 @@ function ConnectedFactories() {
             </div>
           </div>
 
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[1015px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[712px] translate-x-[-50%] w-[80px]">
+          <p className="absolute  font-semibold  leading-[16px] left-[1015px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[712px] translate-x-[-50%] w-[80px]">
             Grinding Machines
           </p>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[1284px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[712px] translate-x-[-50%] w-[108px]">
+          <p className="absolute  font-semibold  leading-[16px] left-[1284px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[712px] translate-x-[-50%] w-[108px]">
             EAGLE Pro IOT Gateway
           </p>
           <div className="absolute h-0 left-[1833px] top-[414px] w-[91px]">
@@ -683,14 +683,14 @@ function ConnectedFactories() {
               />
             </div>
           </div>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[1728.5px] not-italic opacity-100 text-[#282828] text-[14px] text-center text-nowrap top-[475px] translate-x-[-50%] whitespace-pre">
+          <p className="absolute  font-semibold  leading-[16px] left-[1728.5px] not-italic opacity-100 text-[#282828] text-[14px] text-center text-nowrap top-[475px] translate-x-[-50%] whitespace-pre">
             Router
           </p>
           <Background />
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2029px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[475px] translate-x-[-50%] w-[126px]">
+          <p className="absolute  font-semibold  leading-[16px] left-[2029px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[475px] translate-x-[-50%] w-[126px]">
             Local/Cloud Server
           </p>
-          <p className="absolute font-['Gilroy:Semibold',sans-serif] leading-[16px] left-[2330px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[473px] translate-x-[-50%] w-[130px]">
+          <p className="absolute  font-semibold  leading-[16px] left-[2330px] not-italic opacity-100 text-[#282828] text-[14px] text-center top-[473px] translate-x-[-50%] w-[130px]">
             Loginware Analytics Dashboard
           </p>
           <Group4 />

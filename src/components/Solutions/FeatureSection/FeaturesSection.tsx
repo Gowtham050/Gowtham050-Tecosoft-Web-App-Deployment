@@ -35,10 +35,10 @@ function FeatureCard({
         <IconComponent isHovered={isHovered} />
       </div>
       <div className="content-stretch flex flex-col gap-3 items-start leading-[22px] not-italic relative shrink-0 w-full">
-        <p className="font-['Gilroy:Semibold',sans-serif] relative shrink-0 text-[#181818] text-base md:text-lg">
+        <p className=" font-semibold  relative shrink-0 text-[#181818] text-base md:text-lg">
           {title}
         </p>
-        <p className="font-['Gilroy:Regular',sans-serif] relative shrink-0 text-[#777777] text-sm md:text-[15px] leading-relaxed">
+        <p className=" font-normal  relative shrink-0 text-[#777777] text-sm md:text-[15px] leading-relaxed">
           {description}
         </p>
       </div>
@@ -49,10 +49,10 @@ function FeatureCard({
 function SectionHeader() {
   return (
     <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-20 items-start lg:items-center not-italic w-full max-w-7xl px-6 md:px-8 lg:px-12">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-tight text-[#181818] text-2xl md:text-3xl lg:text-4xl lg:w-[384px] shrink-0">
+      <p className=" font-semibold  leading-tight text-[#181818] text-2xl md:text-3xl lg:text-4xl lg:w-[384px] shrink-0">
         {featuresContent.sectionTitle}
       </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-relaxed text-[#8e8e8e] text-sm md:text-base flex-1">
+      <p className=" font-medium leading-relaxed text-[#8e8e8e] text-sm md:text-base flex-1">
         {featuresContent.sectionDescription}
       </p>
     </div>

@@ -60,7 +60,7 @@ interface TextContentProps {
 function TextContent({ title, highlight, description }: TextContentProps) {
   return (
     <div className="flex flex-col gap-4 sm:gap-6 md:gap-7 lg:gap-9 text-white text-center lg:text-left w-full lg:max-w-[550px] xl:max-w-[650px] 2xl:max-w-[700px]">
-      <h1 className="font-['Gilroy:Semibold',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[86px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-tight 2xl:leading-[96px]">
+      <h1 className=" font-semibold  text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[86px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-tight 2xl:leading-[96px]">
         <span>{title} </span>
         <span
           className="text-[var(--brand-color)]"
@@ -69,7 +69,7 @@ function TextContent({ title, highlight, description }: TextContentProps) {
           {highlight}
         </span>
       </h1>
-      <p className="font-['Gilroy:Medium',sans-serif] text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-[21px] leading-normal sm:leading-relaxed md:leading-relaxed lg:leading-relaxed 2xl:leading-[29px] opacity-90">
+      <p className=" font-medium text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-[21px] leading-normal sm:leading-relaxed md:leading-relaxed lg:leading-relaxed 2xl:leading-[29px] opacity-90">
         {description}
       </p>
     </div>

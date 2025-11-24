@@ -74,12 +74,12 @@ function StatCard({ value, title, description, shouldAnimate }: StatCardProps & 
 
   return (
     <div className="flex flex-col gap-3  justify-content-center sm:items-start w-full min-w-[200px]">
-      <p className="bg-clip-text font-['Gilroy:Semibold',sans-serif] leading-tight not-italic text-5xl md:text-6xl lg:text-[68px] tracking-tight" style={{ WebkitTextFillColor: "transparent", backgroundImage: "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)" }}>
+      <p className="bg-clip-text  font-semibold  leading-tight not-italic text-5xl md:text-6xl lg:text-[68px] tracking-tight" style={{ WebkitTextFillColor: "transparent", backgroundImage: "linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%)" }}>
         {displayValue}
       </p>
       <div className="flex flex-col gap-1 items-start w-full">
-        <p className="font-['Gilroy:Semibold',sans-serif] leading-snug text-[#282828] text-base md:text-lg">{title}</p>
-        <p className="font-['Gilroy:Medium',sans-serif] leading-relaxed text-[#8e8e8e] text-sm md:text-base">{description}</p>
+        <p className=" font-semibold  leading-snug text-[#282828] text-base md:text-lg">{title}</p>
+        <p className=" font-medium leading-relaxed text-[#8e8e8e] text-sm md:text-base">{description}</p>
       </div>
     </div>
   );
@@ -88,10 +88,10 @@ function StatCard({ value, title, description, shouldAnimate }: StatCardProps & 
 function SectionHeader() {
   return (
     <div className="flex flex-col gap-3 md:gap-4 items-start w-full lg:max-w-[600px] relative z-10">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-tight text-[#282828] text-2xl md:text-3xl lg:text-4xl">
+      <p className=" font-semibold  leading-tight text-[#282828] text-2xl md:text-3xl lg:text-4xl">
         {statsContent.sectionTitle}
       </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-relaxed text-[#8e8e8e] text-sm md:text-base">
+      <p className=" font-medium leading-relaxed text-[#8e8e8e] text-sm md:text-base">
         {statsContent.sectionDescription}
       </p>
     </div>
