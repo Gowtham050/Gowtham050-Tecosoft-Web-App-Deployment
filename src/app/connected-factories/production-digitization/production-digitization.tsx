@@ -13,7 +13,7 @@ const ProductionDigitizationHomePage = () => {
       <HeroSection content={heroContent} />
       <StatsSection />
       <FeaturesSection content={featuresContent} />
-      {/* <WorkflowSection /> */}
+      <WorkflowSection />
       <BenefitsSection />
     </div>
   );
