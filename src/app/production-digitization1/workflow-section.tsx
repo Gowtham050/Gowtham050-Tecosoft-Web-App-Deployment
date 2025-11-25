@@ -1,167 +1,354 @@
-import svgPaths from "../../imports/svg-6sw94kd16o";
-import { workflowContent } from "../../constants/connected-factories/production-digitization";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import svgPathsSettings from "../../imports/svg-9h0ezj771j";
+import svgPathsDoc from "../../imports/svg-3zywriu5xc";
+import svgPathsProduction from "../../imports/svg-knaibo6bbd";
 
-interface WorkflowStepProps {
-  number: string;
+interface WorkflowStep {
+  id: number;
   title: string;
   description: string;
+  iconPath: string;
+  iconViewBox: string;
 }
 
-function WorkflowStep({
-  number,
-  title,
-  description,
-}: WorkflowStepProps) {
-  return (
-    <div className="backdrop-blur-md backdrop-filter bg-[rgba(255,255,255,0.32)] box-border content-stretch flex gap-[26px] items-start p-[26px] rounded-[16px] w-full">
-      <div className="bg-white box-border content-stretch flex gap-[10px] items-center justify-center overflow-clip p-[24px] relative rounded-[12px] shrink-0 size-[60px]">
-        <p className="font-bold:Bold',sans-serif] leading-[30px] not-italic relative shrink-0 text-[#07af40] text-[26px] text-nowrap whitespace-pre">
-          {number}
-        </p>
-      </div>
-      <div className="basis-0 content-stretch flex flex-col gap-[14px] grow items-start min-h-px min-w-px not-italic relative shrink-0 text-white">
-        <p className=" font-semibold  leading-[36px] relative shrink-0 text-[26px] text-nowrap whitespace-pre">
-          {title}
-        </p>
-        <p className=" font-medium leading-[22px] min-w-full relative shrink-0 text-[16px] w-[min-content]">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-}
+const workflowSteps: WorkflowStep[] = [
+  {
+    id: 0,
+    title: "Setup & Configuration",
+    description:
+      "Define Production Context. EAGLE and configure parameters such as Machine ID, Idle Timeout, and server connectivity to get production lines digitally ready.",
+    iconPath: svgPathsSettings.p27d7e8c0,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 1,
+    title: "Define Production Context",
+    description:
+      "Setup company details, shifts, operators, and alarm reasons in Tecosoft Analytics for structured and accurate monitoring.",
+    iconPath: svgPathsDoc.p1038e800,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 2,
+    title: "Start Production",
+    description:
+      "Log in, select model and Job ID, and begin production - EAGLE automatically initiates real-time data collection.",
+    iconPath: svgPathsProduction.p17d91e00,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 3,
+    title: "Monitor & Control",
+    description:
+      "Live performance metrics, production counts, and downtime alerts directly on dashboards for proactive control.",
+    iconPath: svgPathsSettings.p27d7e8c0,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 4,
+    title: "Closed-loop Response",
+    description:
+      "When a machine goes idle or into alarm, EAGLE prompts for a reason and pauses production to keep downtime data accurate.",
+    iconPath: svgPathsSettings.p27d7e8c0,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 5,
+    title: "Inspect & Analyze OEE",
+    description:
+      "Review part inspections, validate OK/NC counts, and compute APQ & OEE automatically to measure real-time performance.",
+    iconPath: svgPathsSettings.p27d7e8c0,
+    iconViewBox: "0 0 70 70",
+  },
+];
 
-function EagleLogo() {
+function IconoirArrowDown() {
   return (
-    <div className="relative h-[75.479px] w-[212px] mb-[60px]">
-      <div className="absolute h-[42.123px] left-0 top-[16.678px] w-[118.357px]">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 119 43"
-        >
-          <g>
-            <path
-              d={svgPaths.pbbe0700}
-              fill="var(--fill-0, white)"
-            />
-            <path
-              d={svgPaths.p21df9100}
-              fill="var(--fill-0, white)"
-            />
-            <path
-              d={svgPaths.p2b759e00}
-              fill="var(--fill-0, white)"
-            />
-            <path
-              d={svgPaths.p2f050180}
-              fill="var(--fill-0, white)"
-            />
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-function LeftContent() {
-  return (
-    <div className="flex flex-col items-start justify-center px-[60px] py-[80px]">
-      <EagleLogo />
-      <h2
-        className="font-bold:Bold',sans-serif] leading-[52px] not-italic text-[44px] mb-[24px]"
-        style={{ color: "rgba(0, 255, 132, 1)" }}
+    <div className="relative size-[20px]">
+      <svg
+        className="block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 20 20"
       >
-        EAGLE <span className="text-white">Workflow</span>
-      </h2>
-      <p className=" font-medium leading-[26px] not-italic text-[18px] text-white/90 max-w-[500px]">
-        Follow our streamlined production workflow from setup to
-        analysis. Each step ensures accountability,
-        traceability, and real-time performance monitoring.
-      </p>
+        <g>
+          <path
+            d={svgPathsSettings.p124ac900}
+            stroke="white"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.35"
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function IconoirArrowDownBlue() {
+  return (
+    <div className="relative shrink-0 size-[20px]">
+      <svg
+        className="block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 20 20"
+      >
+        <g>
+          <path
+            d={svgPathsSettings.p124ac900}
+            stroke="#0098D4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.35"
+          />
+        </g>
+      </svg>
     </div>
   );
 }
 
 export function WorkflowSection() {
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const nextStep = () => {
+    if (currentStep < workflowSteps.length - 1) {
+      setCurrentStep((prev) => (prev + 1) % workflowSteps.length);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep((prev) => prev - 1);
+    }
+  };
+
+  const activeStep = workflowSteps[currentStep];
+
+  // Calculate the offset for sliding animation
+  // Each step moves the container 850px to the left
+  const containerOffset = 10;
+
+  // Get previous steps (to show on the left)
+  const previousSteps = workflowSteps.slice(0, currentStep);
+
+  // Get future steps (to show on the right)
+  const futureSteps = workflowSteps.slice(currentStep + 1);
+
   return (
-    <div
-      className="relative shrink-0 w-full min-h-[550px] flex"
-      style={{
-        backgroundImage:
-          "linear-gradient(90deg, rgb(7, 80, 142) 0%, rgb(7, 80, 142) 100%)",
-      }}
-    >
-      {/* Fixed Left Side */}
-      <div className="w-[45%] flex-shrink-0 sticky top-0 h-screen">
-        <LeftContent />
+    <div className="bg-gradient-to-r from-[#00d4ff] via-[#0098d4] to-[#0047ab] relative w-full h-[690px] overflow-hidden">
+      {/* Header */}
+      <div className="absolute content-stretch flex flex-col gap-[16px] items-center left-1/2 -translate-x-1/2 not-italic text-white top-[60px]">
+        <p className="font-['Gilroy:Semibold',sans-serif] leading-[46px] relative shrink-0 text-[42px] text-nowrap whitespace-pre">
+          <span className="not-italic text-white">Workflow:</span>
+          <span>{` A Connected Inspection Journey`}</span>
+        </p>
+        <p className="font-['Gilroy:Regular',sans-serif] leading-[24px] relative shrink-0 text-[16px] text-center w-[500px]">
+          A simple, connected flow from setup to continuous improvement - short,
+          clear steps for shopfloor adoption.
+        </p>
       </div>
 
-      {/* Scrollable Right Side */}
-      <div className="w-[55%] flex-shrink-0 overflow-y-auto py-[80px] pr-[60px] pl-[40px] h-screen snap-y snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        <div className="flex flex-col gap-[32px]">
-          <WorkflowStep
-            number="1"
-            title="Setup & Configuration"
-            description="Map tool setup, configure machine time and output expectations, or leverage pre-built configurations from the cloud."
-          />
-
-          {/* Vertical dotted line separator */}
-          <div className="flex justify-start my-[-16px] ml-[56px]">
-            <div className="h-[40px] w-[2px] border-l-2 border-dashed border-white"></div>
+      {/* Animated Container */}
+      <motion.div
+        className="absolute inset-0"
+        animate={{ x: containerOffset }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+      >
+        <div className="relative size-full">
+          {/* Timeline Line */}
+          <div className="absolute h-0 left-0 top-[423px] w-[3000px]">
+            <div className="absolute bottom-[-1px] left-0 right-0 top-[-1px]">
+              <svg
+                className="block size-full"
+                fill="none"
+                preserveAspectRatio="none"
+                viewBox="0 0 3000 2"
+              >
+                <path
+                  d="M0 1H3000"
+                  stroke="white"
+                  strokeOpacity="0.24"
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
           </div>
 
-          <WorkflowStep
-            number="2"
-            title="Define Production Context"
-            description="Select job, machine shift, and operator info to contextualize production with traceability and accountability."
-          />
+          {/* Render all steps with animations */}
+          {workflowSteps.map((step, index) => {
+            const isActive = index === currentStep;
+            const isPast = index < currentStep;
+            const isFuture = index > currentStep;
 
-          {/* Vertical dotted line separator */}
-          <div className="flex justify-start my-[-16px] ml-[56px]">
-            <div className="h-[40px] w-[2px] border-l-2 border-dashed border-white"></div>
-          </div>
+            // Calculate position based on state
+            let left = 100; // default active position
+            let top = 200;
+            let opacity = 1;
+            let titleSize = 56;
+            let descriptionSize = 20;
+            let iconSize = 140;
+            let showDescription = true;
 
-          <WorkflowStep
-            number="3"
-            title="Record Tool Alarms"
-            description="Document tool faults or alarms with reasons, classify as Maintenance or Operational issue, and notify the relevant party."
-          />
+            if (isPast) {
+              // Past steps - small on the left
+              const pastIndex = currentStep - index;
+              if (pastIndex === 1) {
+                left = -350;
+              } else if (pastIndex === 2) {
+                left = -800;
+              } else {
+                left = -1250; // far left, hidden
+              }
+              top = 365;
+              opacity = 0.5;
+              titleSize = 24;
+              showDescription = false;
+              iconSize = 0; // hide icon
+            } else if (isFuture) {
+              // Future steps - small on the right
+              const futureIndex = index - currentStep;
+              const rightPositions = [950, 1400, 1850, 2300, 2750];
+              left = rightPositions[futureIndex - 1] || 3000;
+              top = 365;
+              opacity = 0.5;
+              titleSize = 24;
+              showDescription = false;
+              iconSize = 0; // hide icon
+            }
 
-          {/* Vertical dotted line separator */}
-          <div className="flex justify-start my-[-16px] ml-[56px]">
-            <div className="h-[40px] w-[2px] border-l-2 border-dashed border-white"></div>
-          </div>
+            return (
+              <motion.div
+                key={step.id}
+                className="absolute content-stretch flex flex-col items-start w-[700px]"
+                animate={{
+                  left: `${left}px`,
+                  top: `${top}px`,
+                  opacity: opacity,
+                }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className="content-stretch flex gap-[36px] items-start relative shrink-0">
+                  <motion.div
+                    className="bg-[rgba(255,255,255,0.2)] box-border content-stretch flex gap-[10px] items-center justify-center px-0 py-[7px] relative rounded-[12px] shrink-0 shadow-2xl overflow-hidden"
+                    animate={{
+                      width: iconSize,
+                      height: iconSize,
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {isActive && (
+                      <div className="relative shrink-0 size-[70px]">
+                        <svg
+                          className="block size-full"
+                          fill="none"
+                          preserveAspectRatio="none"
+                          viewBox={step.iconViewBox}
+                        >
+                          <g>
+                            <path d={step.iconPath} fill="#00FF84" />
+                          </g>
+                        </svg>
+                      </div>
+                    )}
+                  </motion.div>
+                  <motion.p
+                    className={`font-['Gilroy:Semibold',sans-serif] leading-[normal] not-italic relative shrink-0 max-w-[477px] ${
+                      isActive ? "text-[#00ff84]" : "text-white"
+                    } ${!isActive ? "font-['Gilroy:Medium',sans-serif]" : ""}`}
+                    animate={{ fontSize: `${titleSize}px` }}
+                    transition={{
+                      duration: 0.6,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {step.title}
+                  </motion.p>
+                </div>
 
-          <WorkflowStep
-            number="4"
-            title="Track Tool Downtime Reasons"
-            description="Whenever the tool stops, operators record standardized downtime reasons (e.g. Setup, Unplanned Stop, Break), and production halts until recorded."
-          />
+                <motion.div
+                  className="relative shrink-0 size-[10px]"
+                  animate={{
+                    marginTop: isActive ? "78px" : "24px",
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <svg
+                    className="block size-full"
+                    fill="none"
+                    preserveAspectRatio="none"
+                    viewBox="0 0 10 10"
+                  >
+                    <circle cx="5" cy="5" fill="white" r="5" />
+                  </svg>
+                </motion.div>
 
-          {/* Vertical dotted line separator */}
-          <div className="flex justify-start my-[-16px] ml-[56px]">
-            <div className="h-[40px] w-[2px] border-l-2 border-dashed border-white"></div>
-          </div>
-
-          <WorkflowStep
-            number="5"
-            title="Calculate Machine Time"
-            description="Compute machine run time, downtime, planned idle, and stop durations automatically based on tool activity and operator inputs."
-          />
-
-          {/* Vertical dotted line separator */}
-          <div className="flex justify-start my-[-16px] ml-[56px] rounded-[123px]">
-            <div className="h-[40px] w-[2px] border-l-2 border-dashed border-white"></div>
-          </div>
-
-          <WorkflowStep
-            number="6"
-            title="Inspect & Analyze OEE"
-            description="Perform part inspections, validate OK/NC counts, and compute APQ & OEE automatically to measure real-time performance."
-          />
+                {showDescription && (
+                  <motion.p
+                    className="font-['Gilroy:Regular',sans-serif] leading-[28px] min-w-full not-italic relative shrink-0 text-white w-[min-content]"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      fontSize: `${descriptionSize}px`,
+                      marginTop: "50px",
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {step.description}
+                  </motion.p>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
+      </motion.div>
+
+      {/* Navigation Buttons - Fixed Position */}
+      <div className="absolute content-stretch flex gap-[12px] items-center right-[100px] top-[486px] z-10">
+        {/* Previous Button */}
+        <button
+          onClick={prevStep}
+          disabled={currentStep === 0}
+          className={`box-border content-stretch flex gap-[10px] items-center p-[7px] relative rounded-[8px] shrink-0 ${
+            currentStep === 0 ? "opacity-50 cursor-not-allowed" : "opacity-100"
+          }`}
+        >
+          <div
+            aria-hidden="true"
+            className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[8px]"
+          />
+          <div className="flex items-center justify-center relative shrink-0">
+            <div className="flex-none rotate-[180deg] scale-y-[-100%]">
+              <IconoirArrowDown />
+            </div>
+          </div>
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={nextStep}
+          disabled={currentStep === workflowSteps.length - 1}
+          className={`bg-white box-border content-stretch flex gap-[10px] items-center p-[7px] relative rounded-[8px] shrink-0 ${
+            currentStep === workflowSteps.length - 1
+              ? "opacity-50 cursor-not-allowed"
+              : "opacity-100"
+          }`}
+        >
+          <IconoirArrowDownBlue />
+        </button>
       </div>
     </div>
   );

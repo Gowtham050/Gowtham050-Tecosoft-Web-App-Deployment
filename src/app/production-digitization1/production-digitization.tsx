@@ -6,14 +6,16 @@ import { HeroSection } from "../../components/Solutions/BannerSection/HeroSectio
 import { StatsSection } from "../../components/Solutions/StatsSection/StatsSection";
 import { WorkflowSection } from "./workflow-section";
 import { heroContent } from "@/constants/connected-factories/production-digitization";
+import WhyUs from "./step-ui";
 
 const ProductionDigitizationHomePage = () => {
   return (
     <div className="content-stretch flex flex-col items-start relative size-full">
       <HeroSection content={heroContent} />
       <StatsSection />
-      <FeaturesSection />
-      {/* <WorkflowSection /> */}
+      {/* <FeaturesSection /> */}
+      <WhyUs />
+      <WorkflowSection />
       <BenefitsSection />
     </div>
   );
