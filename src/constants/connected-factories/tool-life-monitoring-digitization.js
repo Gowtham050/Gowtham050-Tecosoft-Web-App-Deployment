@@ -44,7 +44,7 @@ export const featuresContent = {
     },
     {
       id: "analytics",
-      icon: "presentation-chart",
+      icon: "presentationChart",
       title: "Analytics & Reports",
       description:
         "Access detailed insights such as tool trends, cost-per component & damage causes in a one dashboard.",

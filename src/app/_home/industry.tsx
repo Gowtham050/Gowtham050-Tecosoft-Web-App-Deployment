@@ -12,6 +12,7 @@ interface IndustryCard {
   width: string;
   border: boolean;
   animationDelay: string;
+  routeName?: string;
 }
 
 interface IndustryContent {
@@ -47,6 +48,7 @@ const Industry = () => {
         width: "lg:w-[280px] xl:w-[320px] 2xl:w-[360px]",
         border: false,
         animationDelay: "0s",
+        routeName: "/connected-factories",
       },
       {
         id: 2,
@@ -59,6 +61,7 @@ const Industry = () => {
         width: "lg:w-[280px] xl:w-[320px] 2xl:w-[360px]",
         border: false,
         animationDelay: "1s",
+        routeName: "#ai-enabled-solutions",
       },
       {
         id: 3,
@@ -71,6 +74,7 @@ const Industry = () => {
         width: "lg:w-[280px] xl:w-[320px] 2xl:w-[360px]",
         border: false,
         animationDelay: "2s",
+        routeName: "#digital-twin-solutions",
       },
     ],
     arrowIcon: "/assets/icons/solutions/right-arrow.svg",
@@ -177,6 +181,12 @@ const Industry = () => {
             key={card.id}
             onMouseEnter={() => setHover(card.id)}
             onMouseLeave={() => setHover(null)}
+            onClick={() => {
+              // Handle navigation to product route
+              if (card.routeName) {
+                window.location.href = card.routeName;
+              }
+            }}
             className={`group flex w-full max-w-full sm:max-w-[90%] md:max-w-[85%] ${
               card.width
             } items-center gap-3 md:gap-3.5 p-3 md:p-4 lg:absolute ${

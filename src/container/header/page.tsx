@@ -184,7 +184,16 @@ const Navbar = () => {
         { name: "Tecosoft Analytics", href: "/analytics" },
       ],
     },
-    { name: "Solutions", href: "#" },
+    {
+      name: "Solutions",
+      href: "#",
+      hasDropdown: true,
+      dropdownItems: [
+        { name: "Connected Factories", href: "/connected-factories" },
+        { name: "AI-Enabled", href: "#AI-Enabled" },
+        { name: "Digital Twin", href: "#Digital-Twin" },
+      ],
+    },
     { name: "Industries", href: "#" },
     { name: "Company", href: "#" },
     { name: "Why TecoSoft", href: "#" },
@@ -239,7 +248,11 @@ const Navbar = () => {
               <li key={item.name} className="relative">
                 {item.hasDropdown ? (
                   <div
-                    ref={item.name === "Platform" ? dropdownRef : null}
+                    ref={
+                      item.name === "Platform" || item.name === "Solutions"
+                        ? dropdownRef
+                        : null
+                    }
                     onMouseEnter={() => handleDropdownClick(item.name)}
                     onMouseLeave={() => handleDropdownClick("")}
                   >

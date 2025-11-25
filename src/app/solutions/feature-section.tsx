@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import svgPaths from "../../imports/svg-0dlgmqgi5c";
 
 // Types
@@ -12,6 +12,7 @@ interface FeatureCardData {
   title: string;
   description: string;
   bullets: BulletPoint[];
+  routeName: string;
   variant: "gradient-first" | "white-first";
 }
 
@@ -25,6 +26,7 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "setting",
     title: "Production Digitization",
+    routeName: "/connected-factories/production-digitization",
     description:
       "Digitize your production floor with real-time monitoring, smart job tracking, and automated data insights to optimize performance.",
     bullets: [
@@ -37,6 +39,7 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "tools",
     title: "Tool Life Monitoring",
+    routeName: "/connected-factories/tool-life-monitoring-digitization",
     description:
       "Keep tools healthy and efficient using predictive insights and real-time alerts that prevent breakdowns and optimize usage.",
     bullets: [
@@ -49,6 +52,7 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "tick-circle",
     title: "Quality Inspection",
+    routeName: "/connected-factories/inspection-digitization",
     description:
       "Ensure consistent quality with digital inspection workflows, AI-driven checks, and instant analytics for defect prevention.",
     bullets: [
@@ -61,6 +65,7 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "document",
     title: "Maintenance Digitization",
+    routeName: "/connected-factories/maintenance-digitization",
     description:
       "Shift from reactive to predictive maintenance with digital checklists, IoT-based alerts, and condition monitoring systems.",
     bullets: [
@@ -269,9 +274,7 @@ function BulletPoint({
           />
         </svg>
       </div>
-      <p
-        className=" font-medium text-sm leading-relaxed text-[#0098d4] group-hover:text-white transition-colors duration-300"
-      >
+      <p className=" font-medium text-sm leading-relaxed text-[#0098d4] group-hover:text-white transition-colors duration-300">
         {text}
       </p>
     </div>
@@ -293,20 +296,21 @@ function IconBox({
   };
 
   return (
-    <div
-      className="flex items-center justify-center rounded-lg p-5 size-[70px] shrink-0 [background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] group-hover:[background:white] transition-all duration-300"
-    >
+    <div className="flex items-center justify-center rounded-lg p-5 size-[70px] shrink-0 [background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] group-hover:[background:white] transition-all duration-300">
       <div className="size-[30px]">{iconMap[icon]}</div>
     </div>
   );
 }
 
 function FeatureCard({ data }: { data: FeatureCardData }) {
-  const { icon, title, description, bullets, variant } = data;
+  const { icon, title, description, bullets, variant, routeName } = data;
 
   return (
     <div
       className="group bg-white hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C] hover:cursor-pointer relative rounded-2xl transition-all duration-300 w-full"
+      onClick={() => {
+        window.location.href = routeName;
+      }}
     >
       <div className="flex flex-col gap-7 p-6 relative">
         {/* Header */}
@@ -314,18 +318,14 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
           <IconBox icon={icon} variant={variant} />
           <div className="flex flex-col gap-1 flex-1 min-w-0">
             <div className="flex items-center justify-between w-full">
-              <h3
-                className="font-semibold  text-xl sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300"
-              >
+              <h3 className="font-semibold  text-xl sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300">
                 {title}
               </h3>
               <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center shrink-0">
                 <ArrowIcon />
               </div>
             </div>
-            <p
-              className=" font-normal  text-xs sm:text-[13px] leading-relaxed text-[#636363] group-hover:text-white transition-colors duration-300"
-            >
+            <p className=" font-normal  text-xs sm:text-[13px] leading-relaxed text-[#636363] group-hover:text-white transition-colors duration-300">
               {description}
             </p>
           </div>
