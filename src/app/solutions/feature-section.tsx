@@ -203,14 +203,14 @@ function DocumentIcon() {
           strokeWidth="2"
         />
         <path
-          d="M10 16.25H15"
+          d={svgPaths.p2a1b3c40}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="10"
           strokeWidth="2"
         />
         <path
-          d="M10 21.25H20"
+          d={svgPaths.p2a1b3c50}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="10"

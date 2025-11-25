@@ -137,7 +137,10 @@ export function WorkflowSection() {
   const futureSteps = workflowSteps.slice(currentStep + 1);
 
   return (
-    <div className="bg-gradient-to-r from-[#00d4ff] via-[#0098d4] to-[#0047ab] relative w-full h-[690px] overflow-hidden">
+    <div
+      className="bg-[linear-gradient(242.47deg,#00BCEF_6.45%,#002363_95.13%)] relative w-full h-[690px] overflow-hidden"
+      data-name="Workflow Section"
+    >
       {/* Header */}
       <div className="absolute content-stretch flex flex-col gap-[16px] items-center left-1/2 -translate-x-1/2 not-italic text-white top-[60px]">
         <p className="font-['Gilroy:Semibold',sans-serif] leading-[46px] relative shrink-0 text-[42px] text-nowrap whitespace-pre">
@@ -276,7 +279,7 @@ export function WorkflowSection() {
                 <motion.div
                   className="relative shrink-0 size-[10px]"
                   animate={{
-                    marginTop: isActive ? "78px" : "24px",
+                    marginTop: isActive ? "78px" : "25px",
                   }}
                   transition={{
                     duration: 0.6,
@@ -295,7 +298,7 @@ export function WorkflowSection() {
 
                 {showDescription && (
                   <motion.p
-                    className="font-['Gilroy:Regular',sans-serif] leading-[28px] min-w-full not-italic relative shrink-0 text-white w-[min-content]"
+                    className="font-['Gilroy:Regular',sans-serif] leading-[25px] min-w-full not-italic relative shrink-0 text-white w-[min-content] text-[18px]"
                     initial={{ opacity: 0 }}
                     animate={{
                       opacity: 1,
