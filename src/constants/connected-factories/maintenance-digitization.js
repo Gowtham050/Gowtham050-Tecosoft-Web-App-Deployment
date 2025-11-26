@@ -60,3 +60,46 @@ export const featuresContent = {
     },
   ],
 };
+
+export const whyDigitizeContent = {
+  sectionTitle: "Why Maintenance Digitization?",
+  sectionDescription:
+    "Transform your maintenance process from reactive to proactive. Gain visibility, prevent downtime, and make data-driven decisions that extend equipment life.",
+  image:
+    "/assets/pages/solutions/maintenance-digitization/why-us-maintenance.png",
+  imageAlt: "Digital Maintenance Tools",
+  benefits: [
+    {
+      id: "stop-surprises-start-uptime",
+      icon: "/assets/pages/solutions/maintenance-digitization/timer.svg",
+      title: "Stop Surprises. Start Uptime.",
+      description:
+        "Catch issues early with operator checklists, automated alerts and predictive insights.",
+      bgColor: "rgba(225, 245, 232, 1)",
+    },
+    {
+      id: "one-source-total-visibility",
+      icon: "/assets/pages/solutions/maintenance-digitization/crowdfunding.svg",
+      title: "One Source - Total Visibility",
+      description:
+        "All maintenance activities, checklists and reports live in EAGLE for audits and analytics.",
+      bgColor: "rgba(214, 244, 252, 1)",
+    },
+    {
+      id: "complete-traceability",
+      icon: "/assets/pages/solutions/maintenance-digitization/computer.svg",
+      title: "Audit Ready. Paperless. ",
+      description:
+        "Timestamped, operator-tagged digital records replace paper forms for easy traceability.",
+      bgColor: "rgba(252, 238, 214, 1)",
+    },
+    {
+      id: "informed-decisions",
+      icon: "/assets/pages/solutions/maintenance-digitization/repeat-circle.svg",
+      title: "Close the Loop on Machine Health",
+      description:
+        "Automatic holds and feedback loops protect quality and improve machine life.",
+      bgColor: "rgba(247, 216, 216, 1)",
+    },
+  ],
+};

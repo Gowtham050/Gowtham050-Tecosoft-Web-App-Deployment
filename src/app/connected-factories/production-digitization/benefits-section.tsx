@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   benefitsIconMap,
   type BenefitsIconType,
-} from "../../../components/icons/BenefitsIcons";
+} from "../../../components/Icons/BenefitsIcons";
 import { benefitsContent } from "../../../constants/connected-factories/production-digitization";
 
 interface BenefitCardProps {

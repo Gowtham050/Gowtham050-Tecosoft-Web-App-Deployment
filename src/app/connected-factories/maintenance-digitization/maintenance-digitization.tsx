@@ -3,14 +3,16 @@ import React from "react";
 
 import { FeaturesSection } from "../../../components/Solutions/FeatureSection/FeaturesSection";
 import { HeroSection } from "../../../components/Solutions/BannerSection/HeroSection";
+import { WhyUsSection } from "@/components/Solutions/WhyUsSection/WhyUsSection";
 
-import { heroContent, featuresContent } from "@/constants/connected-factories/maintenance-digitization";
+import { heroContent, featuresContent , whyDigitizeContent } from "@/constants/connected-factories/maintenance-digitization";
 
 const MaintenanceDigitizationHomePage = () => {
   return (
     <div className="content-stretch flex flex-col items-start relative size-full">
       <HeroSection content={heroContent} />
       <FeaturesSection content={featuresContent} />
+      <WhyUsSection content={whyDigitizeContent} />
     </div>
   );
 };

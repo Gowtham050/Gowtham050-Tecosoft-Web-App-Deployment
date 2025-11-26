@@ -52,3 +52,62 @@ export const featuresContent = {
     },
   ],
 };
+
+export const whyDigitizeContent = {
+  sectionTitle: "Why Digitize Tool Life Monitoring?",
+  sectionDescription:
+    "Turn your manual tool management into a predictive and data-driven system that minimizes waste, boosts uptime, and increases operational reliability.",
+  image:
+    "/assets/pages/solutions/tool-life-monitoring-digitization/why-us-tools.png",
+  imageAlt: "Digital inspection on tablet device",
+  benefits: [
+    {
+      id: "reliable-data",
+      icon: "/assets/pages/solutions/tool-life-monitoring-digitization/tabler.svg",
+      title: "Extended Tool Life",
+      description:
+        "Get smart alerts to track tool performance and predict lifespan.",
+      bgColor: "rgba(225, 245, 232, 1)",
+    },
+    {
+      id: "reduced-downtime",
+      icon: "/assets/pages/solutions/tool-life-monitoring-digitization/clock.svg",
+      title: "Reduced Downtime",
+      description:
+        "Use real-time monitoring and machine hold to reduce downtime.",
+      bgColor: "rgba(214, 244, 252, 1)",
+    },
+    {
+      id: "cost-optimization",
+      icon: "/assets/pages/solutions/tool-life-monitoring-digitization/dollar-square.svg",
+      title: "Cost Optimization",
+      description:
+        "Cut costs with precise CPC reports and smart stock management.",
+      bgColor: "rgba(246, 223, 215, 1)",
+    },
+    {
+      id: "informed-decisions",
+      icon: "/assets/pages/solutions/tool-life-monitoring-digitization/hierarchy-3.svg",
+      title: "Informed Decisions",
+      description:
+        "Get actionable insights into tool performance, costs, and replacement.",
+      bgColor: "rgba(252, 238, 214, 1)",
+    },
+    {
+      id: "proactive-maintenance",
+      icon: "/assets/pages/solutions/tool-life-monitoring-digitization/ai-brain.svg",
+      title: "Proactive Maintenance",
+      description:
+        "Schedule tool changes with smart analytics to prevent failures.",
+      bgColor: "rgba(247, 216, 216, 1)",
+    },
+    {
+      id: "quality-precision",
+      icon: "/assets/pages/solutions/tool-life-monitoring-digitization/target.svg",
+      title: "Quality Precision",
+      description:
+        "Ensure consistent quality and precision with automated tool life tracking.",
+      bgColor: "rgba(215, 214, 252, 1)",
+    },
+  ],
+};

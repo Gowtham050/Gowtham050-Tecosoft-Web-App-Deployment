@@ -51,3 +51,47 @@ export const featuresContent = {
     },
   ],
 };
+
+export const whyDigitizeContent = {
+  sectionTitle: "Why Maintenance Digitization?",
+  sectionDescription:
+    "Transform your maintenance process from reactive to proactive. Gain visibility, prevent downtime, and make data-driven decisions that extend equipment life.",
+  image: "/assets/pages/solutions/inspection-digitization/why-us-image.png",
+  imageAlt: "Digital inspection on tablet device",
+  benefits: [
+    {
+      id: "reliable-data",
+      icon: "/assets/pages/solutions/inspection-digitization/file.svg",
+      title: "Reliable Data Capture",
+      description:
+        "Automated, standardized logging - no more handwritten sheets.",
+      bgColor: "rgba(204, 241, 223, 1)",
+    },
+    {
+      id: "reports-digitization",
+      icon: "/assets/pages/solutions/inspection-digitization/folder.svg",
+      title: "Inspection Reports Digitization",
+      description:
+        "Generate audit-ready digital reports for traceability and compliance.",
+      bgColor: "rgba(204, 241, 255, 1)",
+      iconColor: "#00B8DB",
+    },
+    {
+      id: "end-to-end-traceability",
+      icon: "/assets/pages/solutions/inspection-digitization/chart.svg",
+      title: "End-to-End Traceability",
+      description: "Follow every part from operator checks to final packing.",
+      bgColor: "rgba(255, 243, 224, 1)",
+      iconColor: "#FF9500",
+    },
+    {
+      id: "closed-loop-correction",
+      icon: "/assets/pages/solutions/inspection-digitization/refresh.svg",
+      title: "Closed-Loop Correction",
+      description:
+        "Feed gauge feedback to machines to reduce rework and escapes.",
+      bgColor: "rgba(255, 224, 230, 1)",
+      iconColor: "#FF3B30",
+    },
+  ],
+};

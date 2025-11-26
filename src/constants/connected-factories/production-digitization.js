@@ -13,8 +13,8 @@ export const featuresContent = {
   sectionTitle: "Your All-in-One Intelligence Platform",
   sectionDescription:
     "Tecosoft Analytics unifies data across manufacturing, energy, logistics, and healthcare, turning complex information into real-time insights that power smarter decisions and greater operational efficiency.",
-  
-    backgroundImage:
+
+  backgroundImage:
     "./assets/pages/solutions/production-digitization/3a380a8126032af34701f98b609fdbd9e932781c.png",
   features: [
     {
@@ -72,8 +72,10 @@ export const statsContent = {
   sectionTitle: "Performance at a Glance",
   sectionDescription:
     "Get a quick view of your factory's most important benchmarks - overall equipment efficiency, production yield, downtime savings, and throughput.",
-  backgroundImage: "/assets/pages/solutions/production-digitization/stats-bg.svg",
-  bottomGradient: "/assets/platform/analytics/5b09b3ed17e7e67dbdf8354dab5988545de2374f.png",
+  backgroundImage:
+    "/assets/pages/solutions/production-digitization/stats-bg.svg",
+  bottomGradient:
+    "/assets/platform/analytics/5b09b3ed17e7e67dbdf8354dab5988545de2374f.png",
   stats: [
     {
       id: "average-oee",
@@ -152,54 +154,53 @@ export const benefitsContent = {
   ],
 };
 
-export const workflowContent = {
-  title: "EAGLE Workflow",
-  highlightText: "EAGLE",
-  description:
-    "Follow our streamlined production workflow from setup to analysis. Each step ensures accountability, traceability, and real-time performance monitoring.",
-  backgroundColor: "linear-gradient(90deg, rgb(7, 80, 142) 0%, rgb(7, 80, 142) 100%)",
-  steps: [
-    {
-      id: "setup",
-      number: "1",
-      title: "Setup & Configuration",
-      description:
-        "Map tool setup, configure machine time and output expectations, or leverage pre-built configurations from the cloud.",
-    },
-    {
-      id: "context",
-      number: "2",
-      title: "Define Production Context",
-      description:
-        "Select job, machine shift, and operator info to contextualize production with traceability and accountability.",
-    },
-    {
-      id: "alarms",
-      number: "3",
-      title: "Record Tool Alarms",
-      description:
-        "Document tool faults or alarms with reasons, classify as Maintenance or Operational issue, and notify the relevant party.",
-    },
-    {
-      id: "downtime",
-      number: "4",
-      title: "Track Tool Downtime Reasons",
-      description:
-        "Whenever the tool stops, operators record standardized downtime reasons (e.g. Setup, Unplanned Stop, Break), and production halts until recorded.",
-    },
-    {
-      id: "calculate",
-      number: "5",
-      title: "Calculate Machine Time",
-      description:
-        "Compute machine run time, downtime, planned idle, and stop durations automatically based on tool activity and operator inputs.",
-    },
-    {
-      id: "analyze",
-      number: "6",
-      title: "Inspect & Analyze OEE",
-      description:
-        "Perform part inspections, validate OK/NC counts, and compute APQ & OEE automatically to measure real-time performance.",
-    },
-  ],
-};
+const workflowSteps = [
+  {
+    id: 0,
+    title: "Setup & Configuration",
+    description:
+      "Define Production Context. EAGLE and configure parameters such as Machine ID, Idle Timeout, and server connectivity to get production lines digitally ready.",
+    iconPath: svgPathsSettings.p27d7e8c0,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 1,
+    title: "Define Production Context",
+    description:
+      "Setup company details, shifts, operators, and alarm reasons in Tecosoft Analytics for structured and accurate monitoring.",
+    iconPath: svgPathsDoc.p1038e800,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 2,
+    title: "Start Production",
+    description:
+      "Log in, select model and Job ID, and begin production - EAGLE automatically initiates real-time data collection.",
+    iconPath: svgPathsProduction.p17d91e00,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 3,
+    title: "Monitor & Control",
+    description:
+      "Live performance metrics, production counts, and downtime alerts directly on dashboards for proactive control.",
+    iconPath: svgPathsSettings.p27d7e8c0,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 4,
+    title: "Closed-loop Response",
+    description:
+      "When a machine goes idle or into alarm, EAGLE prompts for a reason and pauses production to keep downtime data accurate.",
+    iconPath: svgPathsSettings.p27d7e8c0,
+    iconViewBox: "0 0 70 70",
+  },
+  {
+    id: 5,
+    title: "Inspect & Analyze OEE",
+    description:
+      "Review part inspections, validate OK/NC counts, and compute APQ & OEE automatically to measure real-time performance.",
+    iconPath: svgPathsSettings.p27d7e8c0,
+    iconViewBox: "0 0 70 70",
+  },
+];
