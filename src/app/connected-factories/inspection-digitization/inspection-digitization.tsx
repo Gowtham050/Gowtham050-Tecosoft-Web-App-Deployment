@@ -9,7 +9,9 @@ import {
   heroContent,
   featuresContent,
   whyDigitizeContent,
+  workflowContent,
 } from "@/constants/connected-factories/inspection-digitization";
+import { WorkflowSection } from "@/components/Solutions/WorkflowSection/WorkflowSection";
 
 const InspectionDigitizationHomePage = () => {
   return (
@@ -17,6 +19,7 @@ const InspectionDigitizationHomePage = () => {
       <HeroSection content={heroContent} />
       <FeaturesSection content={featuresContent} />
       <WhyUsSection content={whyDigitizeContent} />
+      <WorkflowSection content={workflowContent} />
     </div>
   );
 };

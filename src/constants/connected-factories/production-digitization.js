@@ -154,53 +154,58 @@ export const benefitsContent = {
   ],
 };
 
-const workflowSteps = [
-  {
-    id: 0,
-    title: "Setup & Configuration",
-    description:
-      "Define Production Context. EAGLE and configure parameters such as Machine ID, Idle Timeout, and server connectivity to get production lines digitally ready.",
-    iconPath: svgPathsSettings.p27d7e8c0,
-    iconViewBox: "0 0 70 70",
-  },
-  {
-    id: 1,
-    title: "Define Production Context",
-    description:
-      "Setup company details, shifts, operators, and alarm reasons in Tecosoft Analytics for structured and accurate monitoring.",
-    iconPath: svgPathsDoc.p1038e800,
-    iconViewBox: "0 0 70 70",
-  },
-  {
-    id: 2,
-    title: "Start Production",
-    description:
-      "Log in, select model and Job ID, and begin production - EAGLE automatically initiates real-time data collection.",
-    iconPath: svgPathsProduction.p17d91e00,
-    iconViewBox: "0 0 70 70",
-  },
-  {
-    id: 3,
-    title: "Monitor & Control",
-    description:
-      "Live performance metrics, production counts, and downtime alerts directly on dashboards for proactive control.",
-    iconPath: svgPathsSettings.p27d7e8c0,
-    iconViewBox: "0 0 70 70",
-  },
-  {
-    id: 4,
-    title: "Closed-loop Response",
-    description:
-      "When a machine goes idle or into alarm, EAGLE prompts for a reason and pauses production to keep downtime data accurate.",
-    iconPath: svgPathsSettings.p27d7e8c0,
-    iconViewBox: "0 0 70 70",
-  },
-  {
-    id: 5,
-    title: "Inspect & Analyze OEE",
-    description:
-      "Review part inspections, validate OK/NC counts, and compute APQ & OEE automatically to measure real-time performance.",
-    iconPath: svgPathsSettings.p27d7e8c0,
-    iconViewBox: "0 0 70 70",
-  },
-];
+export const workflowContent = {
+  steps: [
+    {
+      id: 0,
+      title: "Setup & Configuration",
+      description:
+        "Install EAGLE and configure parameters such as Machine ID, Idle Timeout, and server connectivity to get production lines digitally ready.",
+      iconPath:
+        "/assets/pages/solutions/production-digitization/workflow/setting-3.svg",
+    },
+    {
+      id: 1,
+      title: "Define Production Context",
+      description:
+        "Setup company details, shifts, operators, and alarm reasons in Tecosoft Analytics for structured and accurate monitoring.",
+
+      iconPath:
+        "/assets/pages/solutions/production-digitization/workflow/document.svg",
+    },
+    {
+      id: 2,
+      title: "Start Production",
+      description:
+        "Log in, select model and Job ID, and begin production - EAGLE automatically initiates real-time data collection.",
+
+      iconPath:
+        "/assets/pages/solutions/production-digitization/workflow/belt-solid.svg",
+    },
+    {
+      id: 3,
+      title: "Monitor & Control",
+      description:
+        "Live performance metrics, production counts, and downtime alerts directly on dashboards for proactive control.",
+
+      iconPath:
+        "/assets/pages/solutions/production-digitization/workflow/dashboard.svg",
+    },
+    {
+      id: 4,
+      title: "Closed-loop Response",
+      description:
+        "When a machine goes idle or into alarm, EAGLE prompts for a reason and pauses production to keep downtime data accurate.",
+      iconPath:
+        "/assets/pages/solutions/production-digitization/workflow/refresh-square-2.svg",
+    },
+    {
+      id: 5,
+      title: "Inspect & Analyze OEE",
+      description:
+        "Review part inspections, validate OK/NC counts, and compute APQ & OEE automatically to measure real-time performance.",
+      iconPath:
+        "/assets/pages/solutions/production-digitization/workflow/analyse.svg",
+    },
+  ],
+};

@@ -5,13 +5,20 @@ import { FeaturesSection } from "../../../components/Solutions/FeatureSection/Fe
 import { HeroSection } from "../../../components/Solutions/BannerSection/HeroSection";
 import { WhyUsSection } from "@/components/Solutions/WhyUsSection/WhyUsSection";
 
-import { heroContent, featuresContent , whyDigitizeContent } from "@/constants/connected-factories/maintenance-digitization";
+import {
+  heroContent,
+  featuresContent,
+  whyDigitizeContent,
+  workflowContent,
+} from "@/constants/connected-factories/maintenance-digitization";
+import { WorkflowSection } from "../production-digitization/workflow-section";
 
 const MaintenanceDigitizationHomePage = () => {
   return (
     <div className="content-stretch flex flex-col items-start relative size-full">
       <HeroSection content={heroContent} />
       <FeaturesSection content={featuresContent} />
+      <WorkflowSection content={workflowContent} />
       <WhyUsSection content={whyDigitizeContent} />
     </div>
   );

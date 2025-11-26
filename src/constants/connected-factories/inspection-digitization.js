@@ -95,3 +95,66 @@ export const whyDigitizeContent = {
     },
   ],
 };
+
+export const workflowContent = {
+  steps: [
+    {
+      id: 0,
+      title: "Define Master Data",
+      description:
+        "Configure essential details, quality checks, and critical parameters for precise manufacturing.",
+      iconPath:
+        "/assets/pages/solutions/inspection-digitization/workflow/directbox-notif.svg",
+    },
+    {
+      id: 1,
+      title: "Establish SCP",
+      description:
+        "Define the sampling plan, acceptance criteria, and control limits for the inspection process.",
+
+      iconPath:
+        "/assets/pages/solutions/inspection-digitization/workflow/calendar.svg",
+    },
+    {
+      id: 2,
+      title: "Sync with EAGLE",
+      description:
+        "Seamlessly transmit inspection data to EAGLE, ensuring real-time synchronization of setups and results.",
+
+      iconPath:
+        "/assets/pages/solutions/inspection-digitization/workflow/sync.svg",
+    },
+    {
+      id: 3,
+      title: "First-Piece Check",
+      description:
+        "Validate the initial part produced to identify and address any defects early in the production cycle.",
+      iconPath:
+        "/assets/pages/solutions/inspection-digitization/workflow/tick-square.svg",
+    },
+    {
+      id: 4,
+      title: "Interval Inspections",
+      description:
+        "Scheduled checks with automated alerts ensure consistent quality and immediate response.",
+      iconPath:
+        "/assets/pages/solutions/inspection-digitization/workflow/clock.svg",
+    },
+    {
+      id: 5,
+      title: "Closed-loop Gauge Feedback",
+      description:
+        "Real-time gauge data automatically adjusts machine offsets, ensuring consistent part quality and reducing manual adjustments.",
+      iconPath:
+        "/assets/pages/solutions/inspection-digitization/workflow/refresh-2.svg",
+    },
+    {
+      id: 6,
+      title: "Review & Improve",
+      description:
+        "All inspection data is securely stored, enabling comprehensive audits and immediate improvements.",
+      iconPath:
+        "/assets/pages/solutions/inspection-digitization/workflow/chart.svg",
+    },
+  ],
+};

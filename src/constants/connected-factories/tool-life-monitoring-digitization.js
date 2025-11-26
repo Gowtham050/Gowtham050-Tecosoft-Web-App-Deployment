@@ -111,3 +111,64 @@ export const whyDigitizeContent = {
     },
   ],
 };
+
+export const workflowContent = {
+  steps: [
+    {
+      id: 0,
+      title: "Manage Tool Master Data",
+      description:
+        "Define tool attributes like Tool Name, Make, and Life within the centralized monitoring system.",
+      iconPath:
+        "/assets/pages/solutions/tool-life-monitoring-digitization/workflow/note.svg",
+    },
+    {
+      id: 1,
+      title: "EAGLE Synchronization",
+      description:
+        "EAGLE and the Tool Life module work together via a central server, ensuring synchronized and updated data.",
+      iconPath:
+        "/assets/pages/solutions/tool-life-monitoring-digitization/workflow/sync.svg",
+    },
+    {
+      id: 2,
+      title: "Operator Tool Handling",
+      description:
+        "Operators can request, mount, or unmount tools through the EAGLE interface with real-time tool validation.",
+      iconPath:
+        "/assets/pages/solutions/tool-life-monitoring-digitization/workflow/toolbox.svg",
+    },
+    {
+      id: 3,
+      title: "Tool Request Workflow",
+      description:
+        "Requests from operators are processed by the Tool Room, where tools are issued and tracked using barcodes or QR codes. ",
+      iconPath:
+        "/assets/pages/solutions/tool-life-monitoring-digitization/workflow/tool-fill.svg",
+    },
+    {
+      id: 4,
+      title: "Continuous Tracking & Alerts",
+      description:
+        "Tool usage is continuously tracked, with multi-level alerts triggered as tool life decreases.",
+      iconPath:
+        "/assets/pages/solutions/tool-life-monitoring-digitization/workflow/alert.svg",
+    },
+    {
+      id: 5,
+      title: "Closed-loop Gauge Feedback",
+      description:
+        "When the tool expires, EAGLE automatically holds machine operations until the tool is replaced.",
+      iconPath:
+        "/assets/pages/solutions/tool-life-monitoring-digitization/workflow/refresh-2.svg",
+    },
+    {
+      id: 6,
+      title: "Analytics & Reports ",
+      description:
+        "Generate detailed analytics, CPC insights, and downloadable tool reports for better management decisions.",
+      iconPath:
+        "/assets/pages/solutions/tool-life-monitoring-digitization/workfolw/presentation-chart.svg",
+    },
+  ],
+};

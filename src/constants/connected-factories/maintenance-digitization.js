@@ -103,3 +103,72 @@ export const whyDigitizeContent = {
     },
   ],
 };
+
+export const workflowContent = {
+  steps: [
+    {
+      id: 0,
+      title: "Master Data & Setup (Analytics-backed)",
+      description:
+        "Configure maintenance types, set frequencies, and customize checklist templates for optimal equipment upkeep.",
+      iconPath:
+        "/assets/pages/solutions/maintenance-digitization/workflow/document-text.svg",
+    },
+    {
+      id: 1,
+      title: "Plan & Schedule",
+      description:
+        "Admin users can configure checklist triggers by frequency: Daily, Weekly, Monthly, Half-Yearly, Yearly.",
+      iconPath:
+        "/assets/pages/solutions/maintenance-digitization/workflow/calendar-tick.svg",
+    },
+    {
+      id: 2,
+      title: "EAGLE ↔ Inspection Sync",
+      description:
+        "EAGLE and the Inspection Digitization module synchronize through the centralized server in real-time.",
+      iconPath:
+        "/assets/pages/solutions/maintenance-digitization/workflow/link-square.svg",
+    },
+    {
+      id: 3,
+      title: "Machine Health Check",
+      description:
+        "Operators verify and acknowledge items that need attention; issues immediately update analytics.",
+      iconPath:
+        "/assets/pages/solutions/maintenance-digitization/workflow/machine-robot.svg",
+    },
+    {
+      id: 4,
+      title: "Checklist Push & Operator Execution",
+      description:
+        "Operators see assigned machines and due checklists, open the form, fill fields, tick completed items and submit.",
+      iconPath:
+        "/assets/pages/solutions/maintenance-digitization/workflow/task-square.svg",
+    },
+    {
+      id: 5,
+      title: "Machine Hold & Validation",
+      description:
+        "If a critical issue is detected, EAGLE can place the machine on hold until maintenance is completed and validated.",
+      iconPath:
+        "/assets/pages/solutions/maintenance-digitization/workflow/verify.svg",
+    },
+    {
+      id: 6,
+      title: "Analytics, Reporting & Traceability",
+      description:
+        "Accessible for audit, reporting and analytics: view compliance, track missed checklists and generate historical reports.",
+      iconPath:
+        "/assets/pages/solutions/maintenance-digitization/workflow/graph.svg",
+    },
+    {
+      id: 7,
+      title: "Paperless Records",
+      description:
+        "Eliminate paper-based inspection reports: digital records provide easier audits and long-term traceability.",
+      iconPath:
+        "/assets/pages/solutions/maintenance-digitization/workflow/computer.svg",
+    },
+  ],
+};
