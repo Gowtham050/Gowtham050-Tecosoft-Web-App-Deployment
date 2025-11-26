@@ -168,7 +168,7 @@ export const workflowContent = {
       description:
         "Generate detailed analytics, CPC insights, and downloadable tool reports for better management decisions.",
       iconPath:
-        "/assets/pages/solutions/tool-life-monitoring-digitization/workfolw/presentation-chart.svg",
+        "/assets/pages/solutions/tool-life-monitoring-digitization/workflow/presentation-chart.svg",
     },
   ],
 };
