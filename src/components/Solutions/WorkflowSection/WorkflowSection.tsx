@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import svgPathsSettings from "../../../imports/svg-9h0ezj771j";
 
-
-
 function IconoirArrowDown() {
   return (
     <div className="relative size-[18px] lg:size-[20px]">
@@ -145,7 +143,7 @@ export function WorkflowSection({ content }: any) {
       data-name="Workflow Section"
     >
       {/* Header */}
-      <div className="absolute content-stretch flex flex-col gap-[10px] lg:gap-[16px] items-center left-1/2 -translate-x-1/2 not-italic text-white top-[20px] lg:top-[60px] px-5 w-full max-w-[95%] lg:max-w-none">
+      <div className="absolute content-stretch flex flex-col gap-[10px] lg:gap-[16px] items-center left-1/2 -translate-x-1/2 not-italic text-white top-[22px] lg:top-[30px] px-5 w-full max-w-[95%] lg:max-w-none">
         <p className="font-['Gilroy:Semibold',sans-serif] leading-[1.3] lg:leading-normal relative shrink-0 text-[22px] sm:text-[26px] md:text-[32px] lg:text-[42px] text-center">
           {/* <span className="not-italic text-white">Workflow:</span> */}
           <span className="block sm:inline">{` Workflow: A Connected Inspection Journey`}</span>
