@@ -196,7 +196,7 @@ export function WorkflowSection() {
 
   return (
     <div
-      className="bg-[linear-gradient(242.47deg,#00BCEF_6.45%,#002363_95.13%)] relative w-full min-h-[580px] lg:h-[690px] overflow-hidden"
+      className="bg-[linear-gradient(242.47deg,#00BCEF_6.45%,#002363_95.13%)] relative w-full h-[510px] lg:h-[630px] overflow-hidden"
       data-name="Workflow Section"
     >
       {/* Header */}
@@ -289,13 +289,20 @@ export function WorkflowSection() {
                 key={step.id}
                 className="absolute content-stretch flex flex-col items-start"
                 style={{ width: `${responsiveValues.stepWidth}px` }}
+                initial={{
+                  left: `${left}px`,
+                  top: `${top}px`,
+                  opacity: 0,
+                  x: responsiveValues.isMobile ? 50 : 0,
+                }}
                 animate={{
                   left: `${left}px`,
                   top: `${top}px`,
                   opacity: opacity,
+                  x: 0,
                 }}
                 transition={{
-                  duration: 0.6,
+                  duration: responsiveValues.isMobile ? 0.5 : 0.6,
                   ease: "easeInOut",
                 }}
               >

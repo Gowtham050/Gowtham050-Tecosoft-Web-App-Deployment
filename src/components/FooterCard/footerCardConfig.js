@@ -40,7 +40,7 @@ export const footerCardConfig = {
     buttonText: "Talk to an Expert",
     buttonHref: "#demo",
   },
-  "/production-digitization/": {
+  "/connected-factories/production-digitization/": {
     title: "Achieve 360° Production Visibility with  ",
     highlightText: "EAGLE",
     buttonText: "Request a Demo",
