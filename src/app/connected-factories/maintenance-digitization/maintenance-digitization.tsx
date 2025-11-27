@@ -11,7 +11,7 @@ import {
   whyDigitizeContent,
   workflowContent,
 } from "@/constants/connected-factories/maintenance-digitization";
-import { WorkflowSection } from "../production-digitization/workflow-section";
+import { WorkflowSection } from "@/components/Solutions/WorkflowSection/WorkflowSection";
 
 const MaintenanceDigitizationHomePage = () => {
   return (

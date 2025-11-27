@@ -80,7 +80,7 @@ export function WorkflowSection({ content }: any) {
   const activeStep = workflowSteps[currentStep];
 
   // Calculate the offset for sliding animation
-  const containerOffset = 10;
+  const containerOffset = 0;
 
   // Get previous steps (to show on the left)
   const previousSteps = workflowSteps.slice(0, currentStep);
@@ -103,7 +103,7 @@ export function WorkflowSection({ content }: any) {
         pastTop: 180,
         futureTop: 180,
         activeTitleSize:
-          width < 400 ? 24 : width < 640 ? 26 : width < 768 ? 28 : 32,
+          width < 400 ? 24 : width < 640 ? 26 : width < 768 ? 28 : 30,
         passiveTitleSize: 0, // Hide passive steps
         descriptionSize: width < 640 ? 14 : width < 768 ? 15 : 16,
         activeIconSize: width < 640 ? 70 : width < 768 ? 80 : 90,
@@ -123,7 +123,7 @@ export function WorkflowSection({ content }: any) {
         futureLeft: [950, 1400, 1850, 2300, 2750],
         pastTop: 365,
         futureTop: 365,
-        activeTitleSize: 56,
+        activeTitleSize: 52,
         passiveTitleSize: 24,
         descriptionSize: 20,
         activeIconSize: 140,
@@ -264,10 +264,10 @@ export function WorkflowSection({ content }: any) {
                       width: iconSize,
                       height: iconSize,
                     }}
-                    transition={{
-                      duration: 0.8,
-                      ease: "easeInOut",
-                    }}
+                    // transition={{
+                    //   duration: 0.8,
+                    //   ease: "easeInOut",
+                    // }}
                   >
                     {isActive && step.iconPath && (
                       <div className="relative shrink-0 size-[40px] sm:size-[50px] md:size-[55px] lg:size-[70px]">
@@ -280,16 +280,16 @@ export function WorkflowSection({ content }: any) {
                     )}
                   </motion.div>
                   <motion.p
-                    className={` font-semibold  leading-tight lg:leading-[normal] not-italic relative ${
+                    className={`   leading-tight lg:leading-[normal] not-italic relative ${
                       responsiveValues.isMobile ? "flex-1" : "flex-1"
                     } ${isActive ? "text-[#00ff84]" : "text-white"} ${
-                      !isActive ? " font-medium " : ""
+                      !isActive ? " font-medium " : "font-semibold"
                     }`}
                     animate={{ fontSize: `${titleSize}px` }}
-                    transition={{
-                      duration: 0.6,
-                      ease: "easeInOut",
-                    }}
+                    // transition={{
+                    //   duration: 2,
+                    //   ease: "easeInOut",
+                    // }}
                   >
                     {step.title}
                   </motion.p>
@@ -310,10 +310,10 @@ export function WorkflowSection({ content }: any) {
                       ? "15px"
                       : "25px",
                   }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeInOut",
-                  }}
+                  // transition={{
+                  //   duration: 0.6,
+                  //   ease: "easeInOut",
+                  // }}
                 >
                   <svg
                     className="block size-full"
@@ -336,10 +336,10 @@ export function WorkflowSection({ content }: any) {
                       fontSize: `${descriptionSize}px`,
                       marginTop: screenSize.width < 1024 ? "20px" : "50px",
                     }}
-                    transition={{
-                      duration: 0.6,
-                      ease: "easeInOut",
-                    }}
+                    // transition={{
+                    //   duration: 0.6,
+                    //   ease: "easeInOut",
+                    // }}
                   >
                     {step.description}
                   </motion.p>

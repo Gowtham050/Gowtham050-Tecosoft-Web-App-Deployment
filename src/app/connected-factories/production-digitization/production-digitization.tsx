@@ -4,12 +4,12 @@ import { BenefitsSection } from "./benefits-section";
 import { FeaturesSection } from "../../../components/Solutions/FeatureSection/FeaturesSection";
 import { HeroSection } from "../../../components/Solutions/BannerSection/HeroSection";
 import { StatsSection } from "../../../components/Solutions/StatsSection/StatsSection";
+import { WorkflowSection } from "@/components/Solutions/WorkflowSection/WorkflowSection";
 import {
   heroContent,
   featuresContent,
   workflowContent,
 } from "@/constants/connected-factories/production-digitization";
-import { WorkflowSection } from "@/components/Solutions/WorkflowSection/WorkflowSection";
 
 const ProductionDigitizationHomePage = () => {
   return (
