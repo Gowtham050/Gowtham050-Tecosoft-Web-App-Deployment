@@ -105,7 +105,7 @@ export default function HeroSection() {
   const isSmallScreen = windowWidth <= 1023.5;
 
   return (
-    <div className="bg-white h-[1320px] max-[1023px]:h-auto min-[768px]:max-[1023px]:min-h-[900px] max-[767px]:min-h-[750px] overflow-clip relative shrink-0 w-full" data-name="Hero section" ref={containerRef}>
+    <div className="bg-white h-[1320px] max-[1023px]:h-auto min-[768px]:max-[1023px]:min-h-[900px] max-[767px]:min-h-[700px] overflow-clip relative shrink-0 w-full" data-name="Hero section" ref={containerRef}>
       <div className="absolute h-[680px] left-0 top-0 w-full" data-name="Rectangle">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
           <Image alt="" fill className="max-w-none object-cover opacity-40" src={imgRectangle} sizes="100vw" priority />

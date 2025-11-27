@@ -235,6 +235,19 @@ function ArrowIcon() {
   );
 }
 
+function ArrowIcon2() {
+  return (
+    <svg className="size-5 rotate-270" fill="none" viewBox="0 0 24 24">
+      <path
+        d="M12 4V20M12 20L19 12.4444M12 20L5 12.4444"
+        stroke="green"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
 // Components
 function FeaturesHeader() {
   return (
@@ -296,8 +309,8 @@ function IconBox({
   };
 
   return (
-    <div className="flex items-center justify-center rounded-lg p-5 size-[70px] shrink-0 [background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] group-hover:[background:white] transition-all duration-300">
-      <div className="size-[30px]">{iconMap[icon]}</div>
+    <div className="flex items-center justify-center rounded-lg p-3 lg:p-5 size-[50px] lg:size-[70px] shrink-0 [background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] group-hover:[background:white] transition-all duration-300">
+      <div className="size-[25px] lg:size-[30px]">{iconMap[icon]}</div>
     </div>
   );
 }
@@ -312,17 +325,24 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
         window.location.href = routeName;
       }}
     >
-      <div className="flex flex-col gap-7 p-6 relative">
+      <div className="flex flex-col gap-7 lg:gap-8 p-5 lg:p-6 relative">
         {/* Header */}
         <div className="flex gap-5 items-center w-full">
           <IconBox icon={icon} variant={variant} />
           <div className="flex flex-col gap-1 flex-1 min-w-0">
             <div className="flex items-center justify-between w-full">
-              <h3 className="font-semibold  text-xl sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300">
-                {title}
+              <h3 className="font-semibold  text-[18px] sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300">
+                {title}{" "}
+                {/* <span className="inline-block lg:hidden">
+                  <ArrowIcon2 />
+                </span> */}
               </h3>
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center shrink-0">
+
+              <div className=" hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center shrink-0">
                 <ArrowIcon />
+              </div>
+              <div className="  lg:hidden  flex items-center justify-center shrink-0">
+                <ArrowIcon2 />
               </div>
             </div>
             <p className=" font-normal  text-xs sm:text-[13px] leading-relaxed text-[#636363] group-hover:text-white transition-colors duration-300">

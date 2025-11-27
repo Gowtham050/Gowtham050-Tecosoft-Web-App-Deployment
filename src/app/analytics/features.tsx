@@ -454,7 +454,7 @@ function Frame37Icon() {
 
 export default function Features() {
   return (
-    <div className="min-h-[720px] min-[300px]:min-h-[1200px] min-[600px]:min-h-[1000px] min-[767px]:min-h-[800px] lg:min-h-[680px] overflow-clip relative shrink-0 w-full transition-all duration-500" data-name="Features" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 184, 219, 0.08) 0%, rgba(0, 184, 219, 0.08) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }}>
+    <div className="min-h-[720px] min-[300px]:min-h-[1050px] min-[600px]:min-h-[1000px] min-[767px]:min-h-[800px] lg:min-h-[680px] overflow-clip relative shrink-0 w-full transition-all duration-500" data-name="Features" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 184, 219, 0.08) 0%, rgba(0, 184, 219, 0.08) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)" }}>
       <div className="absolute h-[150px] left-0 top-0 w-full">
         <Image alt="" className="max-w-none object-cover pointer-events-none" src={imgRectangle33} fill sizes="100vw" style={{ objectPosition: '50% 50%' }} />
       </div>

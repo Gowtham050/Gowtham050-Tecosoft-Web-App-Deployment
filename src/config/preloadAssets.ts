@@ -5,7 +5,7 @@
 
 export const preloadAssets = {
   // Loader assets
-  loader: ["/assets/loader/loader.svg"],
+  // loader: ["/assets/loader/loader.svg"],
 
   // Logo and branding
   branding: [
@@ -68,5 +68,9 @@ export function getAssetsByCategory(
  * Get critical assets only (loader, branding, above-the-fold content)
  */
 export function getCriticalAssets(): string[] {
-  return [...preloadAssets?.loader, ...preloadAssets.branding, ...preloadAssets.home, ...preloadAssets.eagleFeatures];
+  return [
+    // ...preloadAssets?.loader,
+     ...preloadAssets.branding,
+      ...preloadAssets.home, 
+      ...preloadAssets.eagleFeatures];
 }
