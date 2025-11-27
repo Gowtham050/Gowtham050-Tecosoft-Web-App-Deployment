@@ -146,11 +146,11 @@ export function WorkflowSection({ content }: any) {
     >
       {/* Header */}
       <div className="absolute content-stretch flex flex-col gap-[10px] lg:gap-[16px] items-center left-1/2 -translate-x-1/2 not-italic text-white top-[20px] lg:top-[60px] px-5 w-full max-w-[95%] lg:max-w-none">
-        <p className="font-['Gilroy:Semibold',sans-serif] leading-[1.3] lg:leading-normal relative shrink-0 text-[22px] sm:text-[26px] md:text-[32px] lg:text-[42px] text-center">
+        <p className=" font-semibold  leading-[1.3] lg:leading-normal relative shrink-0 text-[22px] sm:text-[26px] md:text-[32px] lg:text-[42px] text-center">
           {/* <span className="not-italic text-white">Workflow:</span> */}
           <span className="block sm:inline">{` Workflow: A Connected Inspection Journey`}</span>
         </p>
-        <p className="font-['Gilroy:Regular',sans-serif] leading-[1.4] lg:leading-[24px] relative shrink-0 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] text-center w-full max-w-[90%] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[500px]">
+        <p className=" font-normal leading-[1.4] lg:leading-[24px] relative shrink-0 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] text-center w-full max-w-[90%] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[500px]">
           A simple, connected flow from setup to continuous improvement - short,
           clear steps for shopfloor adoption.
         </p>
@@ -282,10 +282,10 @@ export function WorkflowSection({ content }: any) {
                     )}
                   </motion.div>
                   <motion.p
-                    className={`font-['Gilroy:Semibold',sans-serif] leading-tight lg:leading-[normal] not-italic relative ${
+                    className={` font-semibold  leading-tight lg:leading-[normal] not-italic relative ${
                       responsiveValues.isMobile ? "flex-1" : "flex-1"
                     } ${isActive ? "text-[#00ff84]" : "text-white"} ${
-                      !isActive ? "font-['Gilroy:Medium',sans-serif]" : ""
+                      !isActive ? " font-medium " : ""
                     }`}
                     animate={{ fontSize: `${titleSize}px` }}
                     transition={{
@@ -329,7 +329,7 @@ export function WorkflowSection({ content }: any) {
 
                 {showDescription && (
                   <motion.p
-                    className={`font-['Gilroy:Regular',sans-serif] leading-[1.5] lg:leading-[25px] min-w-full not-italic relative shrink-0 text-white ${
+                    className={` font-normal leading-[1.5] lg:leading-[25px] min-w-full not-italic relative shrink-0 text-white ${
                       screenSize.width < 1024 ? "w-full" : "w-[min-content]"
                     }`}
                     initial={{ opacity: 0 }}

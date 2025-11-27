@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   return (
     <div
-      className="flex flex-col items-center justify-between p-6 md:p-8 lg:p-10 relative flex-1 rounded-xl transition-all duration-500 group cursor-pointer"
+      className="flex flex-col items-center justify-between p-6 md:p-8 lg:p-10 relative flex-1 rounded-xl transition-all duration-500 group "
       style={{
         position: "relative",
         backdropFilter: "blur(10px)",
@@ -70,7 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       {/* Product Image */}
       <div
-        className="w-full h-40 md:h-48 lg:h-44 flex items-center justify-center mb-6 md:mb-8 relative overflow-visible"
+        className="w-full h-40 md:h-48 lg:h-44 flex items-center justify-center mb-6 md:mb-8 relative overflow-visible cursor-pointer"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -111,7 +111,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Explore Link */}
         <button
-          className="inline-flex items-center gap-2 transition-all duration-300"
+          className="inline-flex items-center gap-2 transition-all duration-300 cursor-pointer"
           style={{
             transform: isHovered ? "translateX(5px)" : "translateX(0)",
           }}
@@ -139,8 +139,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   );
 };
 
-const Products = ({ products,hoveredProduct, setHoveredProduct }: any) => {
-
+const Products = ({ products, hoveredProduct, setHoveredProduct }: any) => {
   return (
     <section className="relative w-full overflow-hidden bg-[#0a0e27] py-12 md:py-16 lg:py-20">
       {/* CSS Animations */}
@@ -234,7 +233,6 @@ const Products = ({ products,hoveredProduct, setHoveredProduct }: any) => {
           </div>
         </div>
       </div>
-      
     </section>
   );
 };

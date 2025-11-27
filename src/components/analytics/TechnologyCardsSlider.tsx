@@ -255,7 +255,9 @@ export default function TechnologyCardsSlider() {
           <div
             ref={swiperContainerRef}
             className={`absolute left-1/2 top-[220px] lg:top-[180px] xl:top-[220px] translate-x-[-50%] ${
-              isMidRange ? "w-[1150px] min-[1400px]:max-w-[1512px]" : "w-[90%] lg:w-[88%] xl:w-[1152px]"
+              isMidRange
+                ? "w-[1150px] min-[1400px]:max-w-[1512px]"
+                : "w-[90%] lg:w-[88%] xl:w-[1152px]"
             } h-[368px] lg:h-[320px] xl:h-[368px] opacity-0 animate-[cardFadeIn_1s_ease-out_0.6s_forwards]`}
             onMouseEnter={handleSwiperMouseEnter}
             onMouseLeave={handleSwiperMouseLeave}
@@ -349,7 +351,9 @@ export default function TechnologyCardsSlider() {
           {/* Custom Pagination Buttons - For large screens */}
           <div
             className={`absolute content-stretch flex gap-[16px] lg:gap-[12px] xl:gap-[16px] items-center left-1/2 -translate-x-1/2 top-[648px] lg:top-[560px] xl:top-[648px] ${
-              isMidRange ? "w-[1150px] min-[1400px]:max-w-[1512px]" : "w-[84%] lg:w-[88%] xl:w-[1032px]"
+              isMidRange
+                ? "w-[1150px] min-[1400px]:max-w-[1512px]"
+                : "w-[84%] lg:w-[88%] xl:w-[1032px]"
             } opacity-0 animate-[buttonsSlideUp_0.8s_ease-out_1s_forwards]`}
           >
             {cardData.map((card, index) => (
@@ -366,7 +370,7 @@ export default function TechnologyCardsSlider() {
                   <div className="box-border content-stretch flex gap-[10px] items-center justify-center px-[24px] lg:px-[18px] xl:px-[24px] py-[10px] lg:py-[8px] xl:py-[10px] relative w-full">
                     <p
                       className={`font-[${
-                        activeIndex === index ? "Semibold" : "Medium"
+                        activeIndex === index ? "semibold" : "medium"
                       }] leading-[28px] lg:leading-[24px] xl:leading-[28px] not-italic relative shrink-0 text-[18px] lg:text-[15px] xl:text-[18px] text-nowrap whitespace-pre ${
                         activeIndex === index ? "text-[#0098d4]" : "text-white"
                       }`}

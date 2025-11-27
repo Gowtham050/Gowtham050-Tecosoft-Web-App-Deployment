@@ -39,10 +39,10 @@ function BenefitCard({
           </div>
 
           <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 w-full">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[22px] lg:leading-[24px] 2xl:leading-[26px] relative shrink-0 text-[#181818] text-[18px] lg:text-[19px] 2xl:text-[20px] w-full">
+            <p className=" font-semibold  leading-[22px] lg:leading-[24px] 2xl:leading-[26px] relative shrink-0 text-[#181818] text-[18px] lg:text-[19px] 2xl:text-[20px] w-full">
               {title}
             </p>
-            <p className="font-['Gilroy:Regular',sans-serif] leading-[19px] lg:leading-[20px] 2xl:leading-[21px] relative shrink-0 text-[#777777] text-[14px] lg:text-[15px] 2xl:text-[16px] w-full">
+            <p className=" font-normal leading-[19px] lg:leading-[20px] 2xl:leading-[21px] relative shrink-0 text-[#777777] text-[14px] lg:text-[15px] 2xl:text-[16px] w-full">
               {description}
             </p>
           </div>
@@ -63,10 +63,10 @@ export function WhyUsSection({
         <div className="box-border content-stretch flex flex-col gap-[40px] md:gap-[60px] items-center pb-[60px] md:pb-[90px] pt-[40px] md:pt-[60px] px-[20px] sm:px-[40px] lg:px-[60px] 2xl:px-[100px] relative w-full">
           {/* Header */}
           <div className="content-stretch flex flex-col gap-[12px] md:gap-[16px] items-center not-italic relative shrink-0 text-center w-full max-w-[800px]">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[32px] sm:leading-[38px] md:leading-[44px] relative shrink-0 text-[#282828] text-[28px] sm:text-[32px] md:text-[36px] whitespace-normal lg:whitespace-pre">
+            <p className=" font-semibold  leading-[32px] sm:leading-[38px] md:leading-[44px] relative shrink-0 text-[#282828] text-[28px] sm:text-[32px] md:text-[36px] whitespace-normal lg:whitespace-pre">
               {whyDigitizeContent.sectionTitle}
             </p>
-            <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] md:leading-[23px] w-full relative shrink-0 text-[#8e8e8e] text-[14px] md:text-[16px]">
+            <p className=" font-medium  leading-[20px] md:leading-[23px] w-full relative shrink-0 text-[#8e8e8e] text-[14px] md:text-[16px]">
               {whyDigitizeContent.sectionDescription}
             </p>
           </div>
