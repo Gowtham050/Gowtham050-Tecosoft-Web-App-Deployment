@@ -1,5 +1,5 @@
 "use client";
-import HeroDashboardAnimation from "../../components/Analytics/HeroDashboardAnimation";
+import HeroDashboardAnimation from "../../components/analytics/HeroDashboardAnimation";
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";

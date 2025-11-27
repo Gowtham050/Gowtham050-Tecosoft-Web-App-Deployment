@@ -1,6 +1,6 @@
 import HeroSection from "./hero-section";
 import Features from "./features";
-import TechnologyCardsSlider from "../../components/Analytics/TechnologyCardsSlider";
+import TechnologyCardsSlider from "../../components/analytics/TechnologyCardsSlider";
 import Benefits from "./Benefits";
 
 export default function TecosoftAnalytics() {

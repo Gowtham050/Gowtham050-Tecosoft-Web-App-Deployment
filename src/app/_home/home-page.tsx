@@ -6,7 +6,7 @@ import IndustriesSection from "./industries-section";
 import Industry from "./industry";
 import Products from "./products-section";
 import BannerSection from "./banner-section";
-import ModelGif from "@/components/Modelgif";
+import ModelGif from "@/components/modelgif";
 
 const HomePage = () => {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);

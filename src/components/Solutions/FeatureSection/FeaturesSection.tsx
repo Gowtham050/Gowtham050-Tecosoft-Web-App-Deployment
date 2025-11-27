@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { iconMap, type IconType } from "../../Icons/AnimatedIcons";
+import { iconMap, type IconType } from "../../icons/AnimatedIcons";
 
 interface FeatureCardProps {
   icon: IconType;
