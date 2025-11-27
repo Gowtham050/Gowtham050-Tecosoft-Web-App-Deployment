@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import svgPaths from "../../imports/svg-0dlgmqgi5c";
 
 // Types
@@ -78,7 +78,7 @@ const FEATURES_DATA: FeatureCardData[] = [
 ];
 
 // Icon Components
-function SettingIcon() {
+function SettingIcon({ isActive }: { isActive?: boolean }) {
   return (
     <svg
       className="block size-full"
@@ -98,7 +98,13 @@ function SettingIcon() {
           <stop offset="76.42%" stopColor={GRADIENT_COLORS.to} />
         </linearGradient>
       </defs>
-      <g className="[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#settingGradient)] [&>path]:transition-all [&>path]:duration-300">
+      <g
+        className={`[&>path]:transition-all [&>path]:duration-300 ${
+          isActive
+            ? "[&>path]:stroke-[url(#settingGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#settingGradient)]"
+            : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#settingGradient)]"
+        }`}
+      >
         <path d={svgPaths.p3fcd8970} strokeLinecap="round" strokeWidth="2" />
         <path d={svgPaths.p112e5b80} strokeWidth="2" />
       </g>
@@ -106,7 +112,7 @@ function SettingIcon() {
   );
 }
 
-function ToolsIcon() {
+function ToolsIcon({ isActive }: { isActive?: boolean }) {
   return (
     <svg
       className="block size-full"
@@ -120,7 +126,13 @@ function ToolsIcon() {
           <stop offset="76.42%" stopColor={GRADIENT_COLORS.to} />
         </linearGradient>
       </defs>
-      <g className="[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#toolsGradient)] [&>path]:transition-all [&>path]:duration-300">
+      <g
+        className={`[&>path]:transition-all [&>path]:duration-300 ${
+          isActive
+            ? "[&>path]:stroke-[url(#toolsGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#toolsGradient)]"
+            : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#toolsGradient)]"
+        }`}
+      >
         <path d={svgPaths.p297286c0} strokeWidth="2" />
         <path d={svgPaths.p1562d00} strokeLinejoin="round" strokeWidth="2" />
         <path d={svgPaths.p304bc400} strokeLinejoin="round" strokeWidth="2" />
@@ -129,7 +141,7 @@ function ToolsIcon() {
   );
 }
 
-function TickCircleIcon() {
+function TickCircleIcon({ isActive }: { isActive?: boolean }) {
   return (
     <svg
       className="block size-full"
@@ -149,7 +161,13 @@ function TickCircleIcon() {
           <stop offset="76.42%" stopColor={GRADIENT_COLORS.to} />
         </linearGradient>
       </defs>
-      <g className="[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#tickCircleGradient)] [&>path]:transition-all [&>path]:duration-300">
+      <g
+        className={`[&>path]:transition-all [&>path]:duration-300 ${
+          isActive
+            ? "[&>path]:stroke-[url(#tickCircleGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#tickCircleGradient)]"
+            : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#tickCircleGradient)]"
+        }`}
+      >
         <path
           d={svgPaths.p1d400b00}
           strokeLinecap="round"
@@ -167,7 +185,7 @@ function TickCircleIcon() {
   );
 }
 
-function DocumentIcon() {
+function DocumentIcon({ isActive }: { isActive?: boolean }) {
   return (
     <svg
       className="block size-full"
@@ -187,7 +205,13 @@ function DocumentIcon() {
           <stop offset="76.42%" stopColor={GRADIENT_COLORS.to} />
         </linearGradient>
       </defs>
-      <g className="[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#documentGradient)] [&>path]:transition-all [&>path]:duration-300">
+      <g
+        className={`[&>path]:transition-all [&>path]:duration-300 ${
+          isActive
+            ? "[&>path]:stroke-[url(#documentGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#documentGradient)]"
+            : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#documentGradient)]"
+        }`}
+      >
         <path
           d={svgPaths.p23d97900}
           strokeLinecap="round"
@@ -235,12 +259,12 @@ function ArrowIcon() {
   );
 }
 
-function ArrowIcon2() {
+function ArrowIcon2({ isActive }: { isActive?: boolean }) {
   return (
     <svg className="size-5 rotate-270" fill="none" viewBox="0 0 24 24">
       <path
         d="M12 4V20M12 20L19 12.4444M12 20L5 12.4444"
-        stroke="green"
+        stroke={isActive ? "white" : "green"}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
@@ -266,9 +290,11 @@ function FeaturesHeader() {
 function BulletPoint({
   text,
   variant,
+  isActive,
 }: {
   text: string;
   variant: "gradient-first" | "white-first";
+  isActive?: boolean;
 }) {
   return (
     <div className="flex gap-3 items-center">
@@ -283,11 +309,17 @@ function BulletPoint({
             cx="5"
             cy="5"
             r="5"
-            className="fill-[#0098D4] group-hover:fill-white transition-all duration-300"
+            className={`fill-[#0098D4] group-hover:fill-white transition-all duration-300 ${
+              isActive ? "lg:fill-[#0098D4] fill-white" : ""
+            }`}
           />
         </svg>
       </div>
-      <p className=" font-medium text-sm leading-relaxed text-[#0098d4] group-hover:text-white transition-colors duration-300">
+      <p
+        className={`font-medium text-sm leading-relaxed text-[#0098d4] group-hover:text-white transition-colors duration-300 ${
+          isActive ? "lg:text-[#0098d4] text-white" : ""
+        }`}
+      >
         {text}
       </p>
     </div>
@@ -297,19 +329,27 @@ function BulletPoint({
 function IconBox({
   icon,
   variant,
+  isActive,
 }: {
   icon: FeatureCardData["icon"];
   variant: FeatureCardData["variant"];
+  isActive?: boolean;
 }) {
   const iconMap = {
-    setting: <SettingIcon />,
-    tools: <ToolsIcon />,
-    "tick-circle": <TickCircleIcon />,
-    document: <DocumentIcon />,
+    setting: <SettingIcon isActive={isActive} />,
+    tools: <ToolsIcon isActive={isActive} />,
+    "tick-circle": <TickCircleIcon isActive={isActive} />,
+    document: <DocumentIcon isActive={isActive} />,
   };
 
   return (
-    <div className="flex items-center justify-center rounded-lg p-3 lg:p-5 size-[50px] lg:size-[70px] shrink-0 [background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] group-hover:[background:white] transition-all duration-300">
+    <div
+      className={`flex items-center justify-center rounded-lg p-3 lg:p-5 size-[50px] lg:size-[70px] shrink-0 [background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] group-hover:[background:white] transition-all duration-300 ${
+        isActive
+          ? "lg:[background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] [background:white]"
+          : ""
+      }`}
+    >
       <div className="size-[25px] lg:size-[30px]">{iconMap[icon]}</div>
     </div>
   );
@@ -317,21 +357,51 @@ function IconBox({
 
 function FeatureCard({ data }: { data: FeatureCardData }) {
   const { icon, title, description, bullets, variant, routeName } = data;
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = (e: React.MouseEvent) => {
+    // Check if screen is below lg breakpoint (1024px)
+    const isDesktop = window.innerWidth >= 1024;
+
+    if (isDesktop) {
+      // On desktop, navigate immediately
+      window.location.href = routeName;
+    } else {
+      // On mobile/tablet, toggle gradient on first click, navigate on second
+      if (isActive) {
+        // Second click - navigate
+        window.location.href = routeName;
+      } else {
+        window.location.href = routeName;
+
+        // First click - just show gradient, don't navigate
+        e.preventDefault();
+        e.stopPropagation();
+        setIsActive(true);
+      }
+    }
+  };
 
   return (
     <div
-      className="group bg-white hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C] hover:cursor-pointer relative rounded-2xl transition-all duration-300 w-full"
-      onClick={() => {
-        window.location.href = routeName;
-      }}
+      className={`group bg-white lg:hover:bg-gradient-to-br lg:hover:from-[#00B7FF] lg:hover:to-[#0EB05C] hover:cursor-pointer relative rounded-2xl transition-all duration-300 w-full ${
+        isActive
+          ? "bg-gradient-to-br from-[#00B7FF] to-[#0EB05C] lg:bg-white"
+          : ""
+      }`}
+      onClick={handleClick}
     >
       <div className="flex flex-col gap-7 lg:gap-8 p-5 lg:p-6 relative">
         {/* Header */}
         <div className="flex gap-5 items-center w-full">
-          <IconBox icon={icon} variant={variant} />
+          <IconBox icon={icon} variant={variant} isActive={isActive} />
           <div className="flex flex-col gap-1 flex-1 min-w-0">
             <div className="flex items-center justify-between w-full">
-              <h3 className="font-semibold  text-[18px] sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300">
+              <h3
+                className={`font-semibold text-[18px] sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300 ${
+                  isActive ? "lg:text-[#282828] text-white" : ""
+                }`}
+              >
                 {title}{" "}
                 {/* <span className="inline-block lg:hidden">
                   <ArrowIcon2 />
@@ -342,10 +412,14 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
                 <ArrowIcon />
               </div>
               <div className="  lg:hidden  flex items-center justify-center shrink-0">
-                <ArrowIcon2 />
+                <ArrowIcon2 isActive={isActive} />
               </div>
             </div>
-            <p className=" font-normal  text-xs sm:text-[13px] leading-relaxed text-[#636363] group-hover:text-white transition-colors duration-300">
+            <p
+              className={`font-normal text-xs sm:text-[13px] leading-relaxed text-[#636363] group-hover:text-white transition-colors duration-300 ${
+                isActive ? "lg:text-[#636363] text-white" : ""
+              }`}
+            >
               {description}
             </p>
           </div>
@@ -354,7 +428,12 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
         {/* Bullets */}
         <div className="flex flex-col gap-4">
           {bullets.map((bullet, index) => (
-            <BulletPoint key={index} text={bullet.text} variant={variant} />
+            <BulletPoint
+              key={index}
+              text={bullet.text}
+              variant={variant}
+              isActive={isActive}
+            />
           ))}
         </div>
       </div>
@@ -362,7 +441,9 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
       {/* Border */}
       <div
         aria-hidden="true"
-        className="absolute border-[#bbbbbb] group-hover:border-transparent border-[0.5px] border-solid inset-0 pointer-events-none rounded-2xl transition-all duration-300"
+        className={`absolute border-[#bbbbbb] group-hover:border-transparent border-[0.5px] border-solid inset-0 pointer-events-none rounded-2xl transition-all duration-300 ${
+          isActive ? "lg:border-[#bbbbbb] border-transparent" : ""
+        }`}
       />
     </div>
   );

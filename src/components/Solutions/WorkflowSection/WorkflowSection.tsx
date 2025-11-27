@@ -103,7 +103,7 @@ export function WorkflowSection({ content }: any) {
         pastTop: 180,
         futureTop: 180,
         activeTitleSize:
-          width < 400 ? 24 : width < 640 ? 26 : width < 768 ? 28 : 30,
+          width < 400 ? 20 : width < 640 ? 26 : width < 768 ? 28 : 30,
         passiveTitleSize: 0, // Hide passive steps
         descriptionSize: width < 640 ? 14 : width < 768 ? 15 : 16,
         activeIconSize: width < 640 ? 70 : width < 768 ? 80 : 90,
