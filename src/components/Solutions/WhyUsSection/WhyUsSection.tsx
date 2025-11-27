@@ -17,11 +17,11 @@ function BenefitCard({
 }: BenefitCardProps) {
   return (
     <div
-      className="w-full sm:basis-0 sm:grow min-h-[140px] relative rounded-[20px] sm:shrink-0"
+      className="w-full h-full relative rounded-[20px]"
       style={{ backgroundColor: bgColor }}
     >
-      <div className="flex flex-col justify-center h-full">
-        <div className="box-border content-stretch flex flex-col gap-[16px] lg:gap-[18px] 2xl:gap-[24px] items-start justify-center p-[16px] lg:p-[18px] 2xl:p-[24px] relative w-full">
+      <div className="flex flex-col h-full">
+        <div className="box-border content-stretch flex flex-col gap-[16px] lg:gap-[18px] 2xl:gap-[24px] items-start p-[16px] lg:p-[18px] 2xl:p-[24px] relative w-full h-full">
           <div className="bg-white box-border content-stretch flex gap-[10px] items-center justify-center overflow-hidden p-[16px] lg:p-[18px] 2xl:p-[20px] relative rounded-[12px] shrink-0">
             {iconPath ? (
               <div className="w-[32px] h-[32px] flex items-center justify-center">
@@ -88,9 +88,9 @@ export function WhyUsSection({
             {/* Benefits Grid */}
 
             {whyDigitizeContent.benefits.length === 6 ? (
-              <div className="grid grid-cols-1  lg:grid-cols-3 gap-[20px] lg:gap-[24px] 2xl:gap-[36px] w-full lg:flex-1">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-[20px] lg:gap-[24px] 2xl:gap-[36px] w-full lg:flex-1 auto-rows-fr">
                 {whyDigitizeContent.benefits?.map((item: any) => (
-                  <div key={item.id}>
+                  <div key={item.id} className="h-full">
                     <BenefitCard
                       iconPath={item.icon}
                       title={item.title}
@@ -101,9 +101,9 @@ export function WhyUsSection({
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-[20px] lg:gap-[24px] 2xl:gap-[36px] w-full lg:flex-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-[20px] lg:gap-[24px] 2xl:gap-[36px] w-full lg:flex-1 auto-rows-fr">
                 {whyDigitizeContent.benefits?.map((item: any) => (
-                  <div key={item.id}>
+                  <div key={item.id} className="h-full">
                     <BenefitCard
                       iconPath={item.icon}
                       title={item.title}

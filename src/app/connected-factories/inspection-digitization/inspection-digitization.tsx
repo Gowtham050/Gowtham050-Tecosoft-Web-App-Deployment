@@ -18,8 +18,8 @@ const InspectionDigitizationHomePage = () => {
     <div className="content-stretch flex flex-col items-start relative size-full">
       <HeroSection content={heroContent} />
       <FeaturesSection content={featuresContent} />
-      <WhyUsSection content={whyDigitizeContent} />
       <WorkflowSection content={workflowContent} />
+      <WhyUsSection content={whyDigitizeContent} />
     </div>
   );
 };

@@ -201,13 +201,13 @@ const Industry = () => {
             }}
           >
             {/* Arrow Icon - Hidden by default, visible on hover (desktop only) */}
-            <div className="absolute top-3 right-3 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute top-3 right-3 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
               <Image
                 src={industryContent.arrowIcon}
                 alt="Arrow"
                 width={24}
                 height={24}
-                className="w-5 h-5 lg:w-6 lg:h-6"
+                className="w-4 h-4 lg:w-6 lg:h-6"
               />
             </div>
 

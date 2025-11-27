@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   benefitsIconMap,
   type BenefitsIconType,
@@ -14,15 +14,40 @@ interface BenefitCardProps {
 
 function BenefitCard({ icon, title, bgColor, iconColor }: BenefitCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const IconComponent = benefitsIconMap[icon];
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (isDesktop) {
+      setIsHovered(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isDesktop) {
+      setIsHovered(false);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-6 md:gap-7 items-center w-full max-w-[200px]">
       <div
-        className="flex items-center justify-center p-5 md:p-6 rounded-xl cursor-pointer transition-colors duration-300 hover:shadow-md"
+        className={`flex items-center justify-center p-5 md:p-6 rounded-xl transition-colors duration-300 ${
+          isDesktop ? "cursor-pointer hover:shadow-md" : ""
+        }`}
         style={{ backgroundColor: isHovered ? iconColor : bgColor }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <IconComponent color={isHovered ? "#FFFFFF" : iconColor} />
       </div>
