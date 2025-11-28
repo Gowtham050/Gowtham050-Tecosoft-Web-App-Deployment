@@ -124,7 +124,7 @@ function Frame1({ hoveredCard, setHoveredCard, clearHoveredCard }: { hoveredCard
   const isSmallScreen = windowWidth < 1024;
 
   return (
-    <a href="/connected-factory">
+    <a href="/connected-factories">
     <motion.div
       ref={ref}
       className="absolute h-[441px] left-[50%] -translate-x-1/2 max-[1023px]:top-[70px] min-[1024px]:left-[calc(50%-460px)] min-[1024px]:translate-x-0 min-[1100px]:left-[calc(50%-490px)] min-[1200px]:left-[calc(50%-520px)] min-[1300px]:left-[calc(50%-540px)] min-[1400px]:left-[180px] overflow-clip rounded-[12px] top-[70px] w-[360px] max-[1023px]:w-[90%] max-[1023px]:max-w-[360px] min-[1024px]:w-[300px] min-[1100px]:w-[320px] min-[1200px]:w-[340px] min-[1300px]:w-[350px] min-[1400px]:w-[360px] z-30 transition-all duration-500"
