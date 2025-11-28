@@ -6,8 +6,8 @@ import React from "react";
 import Analytics from "./tecosoft-analytics";
 
 export const metadata: Metadata = {
-  title: "home page tech soft",
-  description: "home page tech soft",
+  title: "Tecosoft - Analytics",
+  description: "Tecosoft",
 };
 
 export default function page() {

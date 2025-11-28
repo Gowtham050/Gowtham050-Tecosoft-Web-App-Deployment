@@ -14,9 +14,7 @@ export default function ConnectedFactories1() {
       data-name="Connected Factories"
     >
       <div className="w-full">
-        {/* <HorizontalScrollSection scrollDistance={1300}> */}
         <ConnectedFactories />
-        {/* </HorizontalScrollSection> */}
       </div>
       <Features />
       <Stats />

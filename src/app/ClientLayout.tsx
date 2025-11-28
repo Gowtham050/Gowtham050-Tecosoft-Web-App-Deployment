@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import PageLoader from "@/components/PageLoader";
 import { getAllAssets, getCriticalAssets } from "@/config/preloadAssets";
 import { usePathname } from "next/navigation";
@@ -19,8 +19,9 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   const assetsToLoad = getAllAssets(); // Change to getCriticalAssets() for faster load
 
   const pathname: any = usePathname();
-  useEffect(() => {
-    // Disable browser scroll restoration
+  
+  useLayoutEffect(() => {
+    setIsLoading(true);
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }

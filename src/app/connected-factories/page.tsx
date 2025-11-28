@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import SolutionPage from "../../app/solutions/solution-page";
 
 export const metadata: Metadata = {
-  title: "",
-  description: "",
+  title: "Tecosoft - Connected Factories",
+  description: "Tecosoft",
 };
 
 export default function Home() {

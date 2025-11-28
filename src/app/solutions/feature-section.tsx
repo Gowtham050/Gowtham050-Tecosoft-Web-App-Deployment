@@ -99,11 +99,10 @@ function SettingIcon({ isActive }: { isActive?: boolean }) {
         </linearGradient>
       </defs>
       <g
-        className={`[&>path]:transition-all [&>path]:duration-300 ${
-          isActive
+        className={`[&>path]:transition-all [&>path]:duration-300 ${isActive
             ? "[&>path]:stroke-[url(#settingGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#settingGradient)]"
             : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#settingGradient)]"
-        }`}
+          }`}
       >
         <path d={svgPaths.p3fcd8970} strokeLinecap="round" strokeWidth="2" />
         <path d={svgPaths.p112e5b80} strokeWidth="2" />
@@ -127,11 +126,10 @@ function ToolsIcon({ isActive }: { isActive?: boolean }) {
         </linearGradient>
       </defs>
       <g
-        className={`[&>path]:transition-all [&>path]:duration-300 ${
-          isActive
+        className={`[&>path]:transition-all [&>path]:duration-300 ${isActive
             ? "[&>path]:stroke-[url(#toolsGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#toolsGradient)]"
             : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#toolsGradient)]"
-        }`}
+          }`}
       >
         <path d={svgPaths.p297286c0} strokeWidth="2" />
         <path d={svgPaths.p1562d00} strokeLinejoin="round" strokeWidth="2" />
@@ -162,11 +160,10 @@ function TickCircleIcon({ isActive }: { isActive?: boolean }) {
         </linearGradient>
       </defs>
       <g
-        className={`[&>path]:transition-all [&>path]:duration-300 ${
-          isActive
+        className={`[&>path]:transition-all [&>path]:duration-300 ${isActive
             ? "[&>path]:stroke-[url(#tickCircleGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#tickCircleGradient)]"
             : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#tickCircleGradient)]"
-        }`}
+          }`}
       >
         <path
           d={svgPaths.p1d400b00}
@@ -206,11 +203,10 @@ function DocumentIcon({ isActive }: { isActive?: boolean }) {
         </linearGradient>
       </defs>
       <g
-        className={`[&>path]:transition-all [&>path]:duration-300 ${
-          isActive
+        className={`[&>path]:transition-all [&>path]:duration-300 ${isActive
             ? "[&>path]:stroke-[url(#documentGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#documentGradient)]"
             : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#documentGradient)]"
-        }`}
+          }`}
       >
         <path
           d={svgPaths.p23d97900}
@@ -309,16 +305,14 @@ function BulletPoint({
             cx="5"
             cy="5"
             r="5"
-            className={`fill-[#0098D4] group-hover:fill-white transition-all duration-300 ${
-              isActive ? "lg:fill-[#0098D4] fill-white" : ""
-            }`}
+            className={`fill-[#0098D4] group-hover:fill-white transition-all duration-300 ${isActive ? "lg:fill-[#0098D4] fill-white" : ""
+              }`}
           />
         </svg>
       </div>
       <p
-        className={`font-medium text-sm leading-relaxed text-[#0098d4] group-hover:text-white transition-colors duration-300 ${
-          isActive ? "lg:text-[#0098d4] text-white" : ""
-        }`}
+        className={`font-medium text-sm leading-relaxed text-[#0098d4] group-hover:text-white transition-colors duration-300 ${isActive ? "lg:text-[#0098d4] text-white" : ""
+          }`}
       >
         {text}
       </p>
@@ -344,11 +338,10 @@ function IconBox({
 
   return (
     <div
-      className={`flex items-center justify-center rounded-lg p-3 lg:p-5 size-[50px] lg:size-[70px] shrink-0 [background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] group-hover:[background:white] transition-all duration-300 ${
-        isActive
+      className={`flex items-center justify-center rounded-lg p-3 lg:p-5 size-[50px] lg:size-[70px] shrink-0 [background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] group-hover:[background:white] transition-all duration-300 ${isActive
           ? "lg:[background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] [background:white]"
           : ""
-      }`}
+        }`}
     >
       <div className="size-[25px] lg:size-[30px]">{iconMap[icon]}</div>
     </div>
@@ -377,18 +370,19 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
         // First click - just show gradient, don't navigate
         e.preventDefault();
         e.stopPropagation();
-        setIsActive(true);
+        if (isDesktop) {
+          setIsActive(true);
+        }
       }
     }
   };
 
   return (
     <div
-      className={`group bg-white lg:hover:bg-gradient-to-br lg:hover:from-[#00B7FF] lg:hover:to-[#0EB05C] hover:cursor-pointer relative rounded-2xl transition-all duration-300 w-full ${
-        isActive
+      className={`group bg-white lg:hover:bg-gradient-to-br lg:hover:from-[#00B7FF] lg:hover:to-[#0EB05C] hover:cursor-pointer relative rounded-2xl transition-all duration-300 w-full ${isActive
           ? "bg-gradient-to-br from-[#00B7FF] to-[#0EB05C] lg:bg-white"
           : ""
-      }`}
+        }`}
       onClick={handleClick}
     >
       <div className="flex flex-col gap-7 lg:gap-8 p-5 lg:p-6 relative">
@@ -398,9 +392,8 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
           <div className="flex flex-col gap-1 flex-1 min-w-0">
             <div className="flex items-center justify-between w-full">
               <h3
-                className={`font-semibold text-[18px] sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300 ${
-                  isActive ? "lg:text-[#282828] text-white" : ""
-                }`}
+                className={`font-semibold text-[18px] sm:text-[22px] leading-tight text-[#282828] group-hover:text-white transition-colors duration-300 ${isActive ? "lg:text-[#282828] text-white" : ""
+                  }`}
               >
                 {title}{" "}
                 {/* <span className="inline-block lg:hidden">
@@ -416,9 +409,8 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
               </div>
             </div>
             <p
-              className={`font-normal text-xs sm:text-[13px] leading-relaxed text-[#636363] group-hover:text-white transition-colors duration-300 ${
-                isActive ? "lg:text-[#636363] text-white" : ""
-              }`}
+              className={`font-normal text-xs sm:text-[13px] leading-relaxed text-[#636363] group-hover:text-white transition-colors duration-300 ${isActive ? "lg:text-[#636363] text-white" : ""
+                }`}
             >
               {description}
             </p>
@@ -441,9 +433,8 @@ function FeatureCard({ data }: { data: FeatureCardData }) {
       {/* Border */}
       <div
         aria-hidden="true"
-        className={`absolute border-[#bbbbbb] group-hover:border-transparent border-[0.5px] border-solid inset-0 pointer-events-none rounded-2xl transition-all duration-300 ${
-          isActive ? "lg:border-[#bbbbbb] border-transparent" : ""
-        }`}
+        className={`absolute border-[#bbbbbb] group-hover:border-transparent border-[0.5px] border-solid inset-0 pointer-events-none rounded-2xl transition-all duration-300 ${isActive ? "lg:border-[#bbbbbb] border-transparent" : ""
+          }`}
       />
     </div>
   );

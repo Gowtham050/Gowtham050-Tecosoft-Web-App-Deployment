@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import svgPaths from "../../imports/svg-omq1srbluw";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { FaArrowRightLong } from 'react-icons/fa6';
 
 function Background() {
   return (
@@ -123,6 +124,7 @@ function Frame1({ hoveredCard, setHoveredCard, clearHoveredCard }: { hoveredCard
   const isSmallScreen = windowWidth < 1024;
 
   return (
+    <a href="/connected-factory">
     <motion.div
       ref={ref}
       className="absolute h-[441px] left-[50%] -translate-x-1/2 max-[1023px]:top-[70px] min-[1024px]:left-[calc(50%-460px)] min-[1024px]:translate-x-0 min-[1100px]:left-[calc(50%-490px)] min-[1200px]:left-[calc(50%-520px)] min-[1300px]:left-[calc(50%-540px)] min-[1400px]:left-[180px] overflow-clip rounded-[12px] top-[70px] w-[360px] max-[1023px]:w-[90%] max-[1023px]:max-w-[360px] min-[1024px]:w-[300px] min-[1100px]:w-[320px] min-[1200px]:w-[340px] min-[1300px]:w-[350px] min-[1400px]:w-[360px] z-30 transition-all duration-500"
@@ -139,8 +141,9 @@ function Frame1({ hoveredCard, setHoveredCard, clearHoveredCard }: { hoveredCard
         style={{ opacity: isSmallScreen ? 1 : opacity }}
         className={`absolute font-semibold leading-[32px] min-[1024px]:leading-[26px] min-[1100px]:leading-[28px] min-[1200px]:leading-[30px] min-[1300px]:leading-[31px] min-[1400px]:leading-[32px] left-[34px] max-[1023px]:left-[5%] min-[1024px]:left-[24px] min-[1100px]:left-[28px] min-[1200px]:left-[30px] min-[1300px]:left-[32px] min-[1400px]:left-[34px] not-italic text-[26px] min-[1024px]:text-[21px] min-[1100px]:text-[22px] min-[1200px]:text-[24px] min-[1300px]:text-[25px] min-[1400px]:text-[26px] text-nowrap top-[34px] min-[1024px]:top-[28px] min-[1100px]:top-[30px] min-[1200px]:top-[32px] min-[1300px]:top-[33px] min-[1400px]:top-[34px] whitespace-pre transition-all ${isHovered ? 'text-white' : 'text-[#282828]'}`}
       >
-        Connected Factory
+       Connected Factory
       </motion.p>
+      <FaArrowRightLong  className={`absolute top-3 right-5 text-[26px] ${isHovered ? 'text-white' : 'text-[#282828]'}`}>→</FaArrowRightLong>
       <motion.p
         style={{ opacity: isSmallScreen ? 1 : opacity }}
         className={`absolute font-medium leading-[23px] min-[1024px]:leading-[19px] min-[1100px]:leading-[20px] min-[1200px]:leading-[21px] min-[1300px]:leading-[22px] min-[1400px]:leading-[23px] left-[calc(50%-146px)] max-[1023px]:left-[5%] max-[1023px]:w-[90%] min-[1024px]:left-[calc(50%-120px)] min-[1100px]:left-[calc(50%-130px)] min-[1200px]:left-[calc(50%-138px)] min-[1300px]:left-[calc(50%-142px)] min-[1400px]:left-[calc(50%-146px)] not-italic text-[17px] min-[1024px]:text-[14px] min-[1100px]:text-[15px] min-[1200px]:text-[16px] min-[1300px]:text-[16px] min-[1400px]:text-[17px] top-[81px] min-[1024px]:top-[68px] min-[1100px]:top-[72px] min-[1200px]:top-[76px] min-[1300px]:top-[78px] min-[1400px]:top-[81px] w-[292px] min-[1024px]:w-[240px] min-[1100px]:w-[260px] min-[1200px]:w-[276px] min-[1300px]:w-[284px] min-[1400px]:w-[292px] transition-all ${isHovered ? 'text-[#e4e4e4]' : 'text-[#8e8e8e]'}`}
@@ -152,6 +155,7 @@ function Frame1({ hoveredCard, setHoveredCard, clearHoveredCard }: { hoveredCard
         <Background />
       </motion.div>
     </motion.div>
+    </a>
   );
 }
 

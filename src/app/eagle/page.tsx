@@ -4,8 +4,8 @@ import React from "react";
 import EagePage from "./eagle-page";
 
 export const metadata: Metadata = {
-  title: "home page tech soft",
-  description: "home page tech soft",
+  title: "Tecosoft - Eagle",
+  description: "Tecosoft",
 };
 
 export default function page() {

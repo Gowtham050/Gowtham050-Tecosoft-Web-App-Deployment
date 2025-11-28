@@ -4,8 +4,8 @@ import React from "react";
 import HomePage from "./home-page";
 
 export const metadata: Metadata = {
-  title: "home page tech soft",
-  description: "home page tech soft",
+  title: "Tecosoft - Home",
+  description: "Tecosoft",
 };
 
 export default function page() {
