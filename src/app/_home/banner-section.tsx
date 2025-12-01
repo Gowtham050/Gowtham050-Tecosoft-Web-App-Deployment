@@ -69,17 +69,24 @@ const ClientSlider = () => {
 
 const BannerSection = () => {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden bg-black">
       {/* Video Background */}
       <video
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
+        poster="/assets/images/banner-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: Z_INDEX.VIDEO_LAYER }}
+        onError={(e) => {
+          console.error("Banner video failed to load:", e);
+          // Fallback: hide video and show static background
+          e.currentTarget.style.display = "none";
+        }}
       >
-        <source src="./assets/video/banner-video.mp4" type="video/mp4" />
+        <source src="/assets/video/banner-video.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay */}
