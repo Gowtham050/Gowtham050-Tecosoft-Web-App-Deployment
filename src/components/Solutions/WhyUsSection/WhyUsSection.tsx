@@ -17,7 +17,7 @@ function BenefitCard({
 }: BenefitCardProps) {
   return (
     <div
-      className="w-full h-full relative rounded-[20px]"
+      className="w-full h-full relative rounded-[20px] transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer"
       style={{ backgroundColor: bgColor }}
     >
       <div className="flex flex-col h-full">

@@ -15,10 +15,10 @@ const ProductionDigitizationHomePage = () => {
   return (
     <div className="content-stretch flex flex-col items-start relative size-full">
       <HeroSection content={heroContent} />
-      <StatsSection />
       <FeaturesSection content={featuresContent} />
       <WorkflowSection content={workflowContent} />
       <BenefitsSection />
+      <StatsSection />
     </div>
   );
 };
