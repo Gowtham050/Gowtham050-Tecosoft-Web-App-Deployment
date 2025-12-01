@@ -8576,7 +8576,7 @@ export default function Benefits() {
 
   return (
     <section
-      className="bg-[#e8f9ff] block relative size-full max-[1023px]:min-h-[1800px] overflow-hidden"
+      className="bg-[#e8f9ff] block relative size-full max-[1023px]:min-h-[1750px] overflow-hidden"
       data-name="Benefits"
     >
       <Frame1
