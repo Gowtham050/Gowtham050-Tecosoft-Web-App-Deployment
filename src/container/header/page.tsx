@@ -18,7 +18,11 @@ interface NavItem {
   name: string;
   href: string;
   hasDropdown?: boolean;
-  dropdownItems?: { name: string; href: string }[];
+  dropdownItems?: {
+    name: string;
+    href: string;
+    insideDropdown?: { name: string; href: string }[];
+  }[];
 }
 
 // ===================== DESKTOP NAVIGATION COMPONENT =====================
@@ -29,16 +33,33 @@ interface DesktopNavProps {
 
 const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
   const router = useRouter();
+  const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openNestedDropdown, setOpenNestedDropdown] = useState<string | null>(
+    null
+  );
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleDropdownClick = (itemName: string) => {
     setOpenDropdown(openDropdown === itemName ? null : itemName);
+    setOpenNestedDropdown(null);
   };
 
   const handleDropdownItemClick = (href: string) => {
     router.push(href);
     setOpenDropdown(null);
+    setOpenNestedDropdown(null);
+  };
+
+  const handleNestedDropdownToggle = (itemName: string) => {
+    setOpenNestedDropdown(openNestedDropdown === itemName ? null : itemName);
+  };
+
+  const isActivePage = (href: string) => {
+    if (href === "#") return false;
+    const sanitize = (url: string) => url.replace(/\/$/, "");
+
+    return sanitize(pathname) === sanitize(href);
   };
 
   const logoSrc = isScrolled
@@ -88,7 +109,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                 >
                   <button
                     onClick={() => handleDropdownClick(item.name)}
-                    className={`text-[16px] font-semibold transition-colors flex items-center gap-1 ${navTextColor} hover:cursor-pointer`}
+                    className={`text-[16px] font-semibold transition-colors flex items-center gap-1 ${navTextColor} hover:cursor-pointer `}
                   >
                     {item.name}
                     <ArrowDown
@@ -108,15 +129,93 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                       style={{ zIndex: Z_INDEX.DROPDOWN }}
                     >
                       {item.dropdownItems.map((dropdownItem) => (
-                        <button
-                          key={dropdownItem.name}
-                          onClick={() =>
-                            handleDropdownItemClick(dropdownItem.href)
-                          }
-                          className="w-full text-left px-4 py-3 text-[15px] font-medium text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c] transition-colors hover:cursor-pointer"
-                        >
-                          {dropdownItem.name}
-                        </button>
+                        <div key={dropdownItem.name} className="relative">
+                          {dropdownItem.insideDropdown ? (
+                            <div
+                              className="relative"
+                              onMouseEnter={() =>
+                                handleNestedDropdownToggle(dropdownItem.name)
+                              }
+                              onMouseLeave={() =>
+                                handleNestedDropdownToggle("")
+                              }
+                            >
+                              <div
+                                className={`w-full px-4 py-3 text-[15px] font-medium transition-colors hover:cursor-pointer flex items-center justify-between group ${
+                                  isActivePage(dropdownItem.href)
+                                    ? "text-[#0eb05c] hover:bg-[#0eb05c]/10"
+                                    : "text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c]"
+                                }`}
+                              >
+                                <span
+                                  onClick={() =>
+                                    handleDropdownItemClick(dropdownItem.href)
+                                  }
+                                  className={`flex-1 hover:underline underline-offset-2 ${
+                                    isActivePage(dropdownItem.href)
+                                      ? "underline"
+                                      : ""
+                                  }`}
+                                >
+                                  {dropdownItem.name}
+                                </span>
+                                <ArrowDown
+                                  size={14}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleNestedDropdownToggle(
+                                      dropdownItem.name
+                                    );
+                                  }}
+                                  className={`transition-transform cursor-pointer ${
+                                    openNestedDropdown === dropdownItem.name
+                                      ? "-rotate-90"
+                                      : ""
+                                  }`}
+                                />
+                              </div>
+                              {openNestedDropdown === dropdownItem.name && (
+                                <div
+                                  className="absolute left-full top-0 ml-1 bg-white rounded-lg shadow-lg py-2 min-w-[240px] border border-gray-100"
+                                  style={{ zIndex: Z_INDEX.DROPDOWN + 1 }}
+                                >
+                                  {dropdownItem.insideDropdown.map(
+                                    (nestedItem) => (
+                                      <button
+                                        key={nestedItem.name}
+                                        onClick={() =>
+                                          handleDropdownItemClick(
+                                            nestedItem.href
+                                          )
+                                        }
+                                        className={`w-full text-left px-4 py-3 text-[14px] font-medium transition-colors hover:cursor-pointer hover:underline underline-offset-2 ${
+                                          isActivePage(nestedItem.href)
+                                            ? "underline text-[#0eb05c] hover:bg-[#0eb05c]/10"
+                                            : "text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c]"
+                                        }`}
+                                      >
+                                        {nestedItem.name}
+                                      </button>
+                                    )
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                          ) : (
+                            <button
+                              onClick={() =>
+                                handleDropdownItemClick(dropdownItem.href)
+                              }
+                              className={`w-full text-left px-4 py-3 text-[15px] font-medium transition-colors hover:cursor-pointer hover:underline underline-offset-2 ${
+                                isActivePage(dropdownItem.href)
+                                  ? "underline text-[#0eb05c] hover:bg-[#0eb05c]/10"
+                                  : "text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c]"
+                              }`}
+                            >
+                              {dropdownItem.name}
+                            </button>
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}
@@ -154,18 +253,36 @@ interface MobileNavProps {
 
 const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
   const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  const [expandedNestedItem, setExpandedNestedItem] = useState<string | null>(
+    null
+  );
 
   const handleNavigation = (href: string) => {
     if (href !== "#") {
       router.push(href);
       setIsOpen(false);
+      setExpandedItem(null);
+      setExpandedNestedItem(null);
     }
   };
 
   const toggleExpand = (itemName: string) => {
     setExpandedItem(expandedItem === itemName ? null : itemName);
+    setExpandedNestedItem(null);
+  };
+
+  const toggleNestedExpand = (itemName: string) => {
+    setExpandedNestedItem(expandedNestedItem === itemName ? null : itemName);
+  };
+
+  const isActivePage = (href: string) => {
+    if (href === "#") return false;
+    const sanitize = (url: string) => url.replace(/\/$/, "");
+
+    return sanitize(pathname) === sanitize(href);
   };
 
   const logoSrc = isOpen
@@ -179,10 +296,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
     : "text-white hover:bg-white/10";
 
   const navBg = isOpen
-    ? "bg-[#1a4d8f]"  // When menu is open, always blue to match menu
+    ? "bg-[#1a4d8f]" // When menu is open, always blue to match menu
     : isScrolled
-    ? "bg-white shadow-md"  // When closed and scrolled, white with shadow
-    : "bg-transparent";  // When closed and not scrolled, transparent
+    ? "bg-white shadow-md" // When closed and scrolled, white with shadow
+    : "bg-transparent"; // When closed and not scrolled, transparent
 
   return (
     <>
@@ -263,14 +380,72 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
                       <ul className="mt-2 ml-4 flex flex-col gap-3">
                         {item.dropdownItems.map((dropdownItem) => (
                           <li key={dropdownItem.name}>
-                            <button
-                              onClick={() =>
-                                handleNavigation(dropdownItem.href)
-                              }
-                              className="text-lg font-normal block py-1 hover:text-[#0eb05c] transition-colors text-white/90"
-                            >
-                              {dropdownItem.name}
-                            </button>
+                            {dropdownItem.insideDropdown ? (
+                              <div>
+                                <div
+                                  className={`text-lg font-normal py-1 hover:text-[#0eb05c] transition-colors w-full flex items-center justify-between ${
+                                    isActivePage(dropdownItem.href)
+                                      ? "text-[#0eb05c] underline underline-offset-2"
+                                      : "text-white/90"
+                                  }`}
+                                >
+                                  <span
+                                    onClick={() =>
+                                      handleNavigation(dropdownItem.href)
+                                    }
+                                    className="flex-1 cursor-pointer"
+                                  >
+                                    {dropdownItem.name}
+                                  </span>
+                                  <ArrowDown
+                                    size={16}
+                                    onClick={() =>
+                                      toggleNestedExpand(dropdownItem.name)
+                                    }
+                                    className={`transition-transform cursor-pointer ${
+                                      expandedNestedItem === dropdownItem.name
+                                        ? "rotate-180"
+                                        : ""
+                                    }`}
+                                  />
+                                </div>
+                                {expandedNestedItem === dropdownItem.name && (
+                                  <ul className="mt-2 ml-4 flex flex-col gap-2">
+                                    {dropdownItem.insideDropdown.map(
+                                      (nestedItem) => (
+                                        <li key={nestedItem.name}>
+                                          <button
+                                            onClick={() =>
+                                              handleNavigation(nestedItem.href)
+                                            }
+                                            className={`text-base font-light block py-1 hover:text-[#0eb05c] transition-colors ${
+                                              isActivePage(nestedItem.href)
+                                                ? "text-[#0eb05c] underline underline-offset-2"
+                                                : "text-white/80"
+                                            }`}
+                                          >
+                                            {nestedItem.name}
+                                          </button>
+                                        </li>
+                                      )
+                                    )}
+                                  </ul>
+                                )}
+                              </div>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  handleNavigation(dropdownItem.href)
+                                }
+                                className={`text-lg font-normal block py-1 hover:text-[#0eb05c] transition-colors ${
+                                  isActivePage(dropdownItem.href)
+                                    ? "text-[#0eb05c] underline underline-offset-2"
+                                    : "text-white/90"
+                                }`}
+                              >
+                                {dropdownItem.name}
+                              </button>
+                            )}
                           </li>
                         ))}
                       </ul>
@@ -350,7 +525,29 @@ const Navbar = () => {
       href: "#",
       hasDropdown: true,
       dropdownItems: [
-        { name: "Connected Factories", href: "/connected-factories" },
+        {
+          name: "Connected Factories",
+          href: "/connected-factories",
+          insideDropdown: [
+            {
+              name: "Production Digitization",
+              href: "/connected-factories/production-digitization",
+            },
+            {
+              name: "Tool Life Monitoring",
+              href: "/connected-factories/tool-life-monitoring-digitization",
+            },
+            {
+              name: "Maintenance Digitization",
+              href: "/connected-factories/maintenance-digitization",
+            },
+            {
+              name: "Inspection Digitization",
+              href: "/connected-factories/inspection-digitization",
+            },
+          ],
+        },
+
         { name: "AI-Enabled", href: "#AI-Enabled" },
         { name: "Digital Twin", href: "#Digital-Twin" },
       ],
