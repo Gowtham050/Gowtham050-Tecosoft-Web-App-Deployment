@@ -12,6 +12,8 @@ import {
   workflowContent,
 } from "@/constants/connected-factories/maintenance-digitization";
 import { WorkflowSection } from "@/components/Solutions/WorkflowSection/WorkflowSection";
+import { StatsSection } from "@/components/Solutions/StatsSection/StatsSection";
+import { statsContent } from "@/constants/connected-factories/inspection-digitization";
 
 const MaintenanceDigitizationHomePage = () => {
   return (
@@ -20,6 +22,7 @@ const MaintenanceDigitizationHomePage = () => {
       <FeaturesSection content={featuresContent} />
       <WorkflowSection content={workflowContent} />
       <WhyUsSection content={whyDigitizeContent} />
+      <StatsSection content={statsContent} />
     </div>
   );
 };

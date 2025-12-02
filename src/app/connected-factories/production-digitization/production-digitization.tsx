@@ -9,6 +9,7 @@ import {
   heroContent,
   featuresContent,
   workflowContent,
+  statsContent,
 } from "@/constants/connected-factories/production-digitization";
 
 const ProductionDigitizationHomePage = () => {
@@ -18,7 +19,7 @@ const ProductionDigitizationHomePage = () => {
       <FeaturesSection content={featuresContent} />
       <WorkflowSection content={workflowContent} />
       <BenefitsSection />
-      <StatsSection />
+      <StatsSection content={statsContent} />
     </div>
   );
 };

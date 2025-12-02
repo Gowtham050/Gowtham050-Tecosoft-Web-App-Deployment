@@ -11,7 +11,9 @@ import {
   featuresContent,
   whyDigitizeContent,
   workflowContent,
+  statsContent
 } from "@/constants/connected-factories/tool-life-monitoring-digitization";
+import { StatsSection } from "@/components/Solutions/StatsSection/StatsSection";
 
 const ToolLiftMonitoringDigitizationPage = () => {
   return (
@@ -20,6 +22,7 @@ const ToolLiftMonitoringDigitizationPage = () => {
       <FeaturesSection content={featuresContent} />
       <WorkflowSection content={workflowContent} />
       <WhyUsSection content={whyDigitizeContent} />
+      <StatsSection content={statsContent} />
     </div>
   );
 };

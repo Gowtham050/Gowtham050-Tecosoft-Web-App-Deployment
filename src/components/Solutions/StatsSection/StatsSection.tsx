@@ -1,10 +1,26 @@
 import { useEffect, useRef, useState } from "react";
-import { statsContent } from "../../../constants/connected-factories/production-digitization";
 
 interface StatCardProps {
   value: string;
   title: string;
   description: string;
+}
+
+interface StatContent {
+  sectionTitle: string;
+  sectionDescription: string;
+  backgroundImage: string;
+  bottomGradient: string;
+  stats: Array<{
+    id: string;
+    value: string;
+    title: string;
+    description: string;
+  }>;
+}
+
+interface StatsSectionProps {
+  content: StatContent;
 }
 // Custom hook for animating numbers
 function useAnimatedCounter(
@@ -106,7 +122,7 @@ function StatCard({
         <p className=" font-semibold  leading-snug text-[#282828] text-base md:text-lg">
           {title}
         </p>
-        <p className=" font-medium leading-relaxed text-[#8e8e8e] text-sm md:text-base">
+        <p className=" font-medium leading-relaxed text-[#8e8e8e] text-sm md:text-base  text-center sm:text-left">
           {description}
         </p>
       </div>
@@ -114,20 +130,20 @@ function StatCard({
   );
 }
 
-function SectionHeader() {
+function SectionHeader({ content }: { content: StatContent }) {
   return (
     <div className="flex flex-col gap-3 md:gap-4 items-center text-center sm:text-left sm:items-start  w-full lg:max-w-[600px] relative z-10">
       <p className=" font-semibold  leading-tight text-[#282828] text-2xl md:text-3xl lg:text-4xl">
-        {statsContent.sectionTitle}
+        {content.sectionTitle}
       </p>
       <p className=" font-medium  leading-relaxed text-[#8e8e8e] text-sm md:text-base">
-        {statsContent.sectionDescription}
+        {content.sectionDescription}
       </p>
     </div>
   );
 }
 
-function StatsGrid() {
+function StatsGrid({ content }: { content: StatContent }) {
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -161,7 +177,7 @@ function StatsGrid() {
       ref={gridRef}
       className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-20 w-full lg:max-w-[650px] relative z-10 justify-items-center sm:justify-items-start"
     >
-      {statsContent.stats.map((stat) => (
+      {content.stats.map((stat) => (
         <StatCard
           key={stat.id}
           value={stat.value}
@@ -174,46 +190,46 @@ function StatsGrid() {
   );
 }
 
-function BackgroundPattern() {
+function BackgroundPattern({ content }: { content: StatContent }) {
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden ">
       <div className="absolute inset-0 rotate-180 w-full h-full">
         <img
           alt=""
           className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-100"
-          src={statsContent.backgroundImage}
+          src={content.backgroundImage}
         />
       </div>
     </div>
   );
 }
 
-function BottomGradient() {
+function BottomGradient({ content }: { content: StatContent }) {
   return (
     <div className="absolute bottom-0 left-0 w-full h-20 md:h-[100px] z-0">
       <div className="scale-y-[-100%] w-full h-full">
         <img
           alt=""
           className="w-full h-full object-cover pointer-events-none"
-          src={statsContent.bottomGradient}
+          src={content.bottomGradient}
         />
       </div>
     </div>
   );
 }
 
-export function StatsSection() {
+export function StatsSection({ content }: StatsSectionProps) {
   return (
     <div
       className="bg-white relative w-full min-h-[500px] md:min-h-[600px]"
       data-name="Stats"
     >
       <div className="flex flex-col items-center overflow-clip w-full h-full">
-        <BackgroundPattern />
+        <BackgroundPattern content={content} />
         <div className="box-border flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-16 lg:gap-20 py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-24 relative w-full max-w-[1400px] mx-auto min-h-[500px] md:min-h-[600px]">
-          <BottomGradient />
-          <SectionHeader />
-          <StatsGrid />
+          <BottomGradient content={content} />
+          <SectionHeader content={content} />
+          <StatsGrid content={content} />
         </div>
       </div>
     </div>

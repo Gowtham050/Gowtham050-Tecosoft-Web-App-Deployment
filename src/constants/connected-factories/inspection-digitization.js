@@ -158,3 +158,43 @@ export const workflowContent = {
     },
   ],
 };
+
+export const statsContent = {
+  sectionTitle: "Performance at a Glance",
+  sectionDescription:
+    "Get a clear snapshot of your maintenance readiness — daily machine health checks, planned service adherence, digital maintenance records, and machine blocking to ensure upkeep is completed before production.",
+  backgroundImage:
+    "/assets/pages/solutions/production-digitization/stats-bg.svg",
+  bottomGradient:
+    "/assets/platform/analytics/5b09b3ed17e7e67dbdf8354dab5988545de2374f.png",
+  stats: [
+    {
+      id: "daily-health-compliance",
+      value: "91%",
+      title: "Daily Health Compliance",
+      description:
+        "Machines checked through operator logins as per daily checklist.",
+    },
+    {
+      id: "planned-maintenance-adherence",
+      value: "84%",
+      title: "Planned Maintenance Adherence",
+      description:
+        "Scheduled weekly, monthly & half-yearly services completed on time.",
+    },
+    {
+      id: "maintenance-popups-triggered",
+      value: "620",
+      title: "Maintenance Pop-ups Triggered",
+      description:
+        "Alerts displayed on EAGLE Pro for pending checklists and service tasks per month.",
+    },
+    {
+      id: "machine-block-events",
+      value: "270",
+      title: "Machine Block Events",
+      description:
+        "Machines prevented from starting until maintenance was completed per month.",
+    },
+  ],
+};

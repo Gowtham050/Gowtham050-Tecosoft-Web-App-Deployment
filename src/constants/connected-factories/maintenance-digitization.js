@@ -172,3 +172,43 @@ export const workflowContent = {
     },
   ],
 };
+
+
+export const statsContent = {
+  sectionTitle: "Performance at a Glance",
+  sectionDescription:
+    "Get a quick view of your tooling health — tool utilization accuracy, life tracking efficiency, tool request automation, and machine protection through threshold-based blocking.",
+  backgroundImage:
+    "/assets/pages/solutions/production-digitization/stats-bg.svg",
+  bottomGradient:
+    "/assets/platform/analytics/5b09b3ed17e7e67dbdf8354dab5988545de2374f.png",
+  stats: [
+    {
+      id: "tool-life-accuracy",
+      value: "92%",
+      title: "Tool Life Accuracy",
+      description: "Tools tracked precisely against defined life thresholds.",
+    },
+    {
+      id: "unplanned-wear-prevention",
+      value: "68%",
+      title: "Unplanned Wear Prevention",
+      description:
+        "Reduction in unexpected tool failures due to proactive monitoring.",
+    },
+    {
+      id: "tool-requests-processed",
+      value: "740",
+      title: "Tool Requests Processed",
+      description:
+        "Requests auto-routed from EAGLE Pro to Tool Room per month.",
+    },
+    {
+      id: "machine-block-interventions",
+      value: "26%",
+      title: "Machine Block Interventions",
+      description:
+        "Instances where machines were safely stopped to prevent tool overuse per month.",
+    },
+  ],
+};
