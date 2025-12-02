@@ -1,5 +1,3 @@
-import { title } from "process";
-
 // Footer card configuration based on route paths
 export const footerCardConfig = {
   "/": {
@@ -25,7 +23,7 @@ export const footerCardConfig = {
     description:
       "Book a personalized demo and see how our platform can transform your data into decisions.",
   },
-  "/solutions/": {
+  "/solutions": {
     title: "Ready to modernize your ",
     highlightText: "factory?",
     buttonText: "Request a Pilot",
@@ -40,7 +38,7 @@ export const footerCardConfig = {
     buttonText: "Talk to an Expert",
     buttonHref: "#demo",
   },
-  "/connected-factories/production-digitization/": {
+  "/connected-factories/production-digitization": {
     title: "Achieve 360° Production Visibility with  ",
     highlightText: "EAGLE",
     buttonText: "Request a Demo",
@@ -48,25 +46,25 @@ export const footerCardConfig = {
     description:
       "Empower your manufacturing operations with real-time OEE tracking, closed-loop feedback, and performance-driven insights.",
   },
-  "/connected-factories/inspection-digitization/": {
+  "/connected-factories/inspection-digitization": {
     title: "Bring ",
     highlightText: "Inspection Digitization ",
     title2: "to Your Floor",
     buttonText: "Request a Demo",
     buttonHref: "#contact",
     description:
-      "Reduce escapes, improve traceability, and enable intelligent process correction with Tecosoft’s Inspection Digitization suite.",
+      "Reduce escapes, improve traceability, and enable intelligent process correction with Tecosoft's Inspection Digitization suite.",
   },
-  "/connected-factories/tool-life-monitoring-digitization/": {
+  "/connected-factories/tool-life-monitoring-digitization": {
     title: "Digitize Your",
     highlightText: " Tool Management",
     title2: " Today",
     buttonText: "Request a Demo",
     buttonHref: "#contact",
     description:
-      "Transform tool management with Tecosoft’s Tool Life Monitoring - enabling precision, accountability, and operational excellence.",
+      "Transform tool management with Tecosoft's Tool Life Monitoring - enabling precision, accountability, and operational excellence.",
   },
-  "/connected-factories/maintenance-digitization/": {
+  "/connected-factories/maintenance-digitization": {
     title: "From Paper to ",
     highlightText: "Performance",
     buttonText: "Request a Demo",
@@ -78,5 +76,9 @@ export const footerCardConfig = {
 
 // Helper function to get config based on pathname
 export const getFooterCardConfig = (pathname) => {
-  return footerCardConfig[pathname] || footerCardConfig.default;
+  // Sanitize pathname to remove trailing slashes (except for root "/")
+  const sanitize = (url) => url.replace(/\/$/, "") || "/";
+  const sanitizedPathname = sanitize(pathname);
+
+  return footerCardConfig[sanitizedPathname] || footerCardConfig.default;
 };

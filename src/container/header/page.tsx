@@ -486,13 +486,19 @@ const Navbar = () => {
 
   // Determine if header should be in scrolled state
   useEffect(() => {
-    const isHomePage =
-      pathname === "/" ||
-      pathname === "/production-digitization/" ||
-      pathname === "/connected-factories/production-digitization/" ||
-      pathname === "/connected-factories/tool-life-monitoring-digitization/" ||
-      pathname === "/connected-factories/maintenance-digitization/" ||
-      pathname === "/connected-factories/inspection-digitization/";
+    const sanitize = (url: string) => url.replace(/\/$/, "") || "/";
+    const sanitizedPathname = sanitize(pathname);
+
+    const homePages = [
+      "/",
+      "/production-digitization",
+      "/connected-factories/production-digitization",
+      "/connected-factories/tool-life-monitoring-digitization",
+      "/connected-factories/maintenance-digitization",
+      "/connected-factories/inspection-digitization",
+    ];
+
+    const isHomePage = homePages.includes(sanitizedPathname);
 
     if (isHomePage) {
       const handleScroll = () => {
