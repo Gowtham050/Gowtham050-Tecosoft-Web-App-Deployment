@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useLayoutEffect, useState } from "react";
 import PageLoader from "@/components/PageLoader";
-import { getAllAssets, getCriticalAssets } from "@/config/preloadAssets";
+import preloadAssets from "@/utills/preload-assets";
 import { usePathname } from "next/navigation";
 import { useLenis } from "../../libs/react-lenis";
 
@@ -13,13 +13,8 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   const [isLoading, setIsLoading] = useState(true);
   const lenis = useLenis();
 
-  // Choose which assets to preload:
-  // - getAllAssets(): Preload ALL assets (slower initial load, smoother navigation)
-  // - getCriticalAssets(): Preload only critical assets (faster initial load)
-  const assetsToLoad = getAllAssets(); // Change to getCriticalAssets() for faster load
-
   const pathname: any = usePathname();
-  
+
   useLayoutEffect(() => {
     setIsLoading(true);
     if ("scrollRestoration" in window.history) {
@@ -33,16 +28,16 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
         force: true,
       });
     }
+
+    // Preload all assets on the page
+    preloadAssets().then(() => {
+      setIsLoading(false);
+    });
   }, [pathname, lenis]);
 
   return (
     <>
-      {isLoading && (
-        <PageLoader
-          onLoadComplete={() => setIsLoading(false)}
-          assetsToLoad={assetsToLoad}
-        />
-      )}
+      {isLoading && <PageLoader />}
       <div
         className={`transition-opacity duration-500 ${
           isLoading ? "opacity-0" : "opacity-100"

@@ -13,9 +13,10 @@ export const featuresContent = {
   sectionTitle: "Key Features",
   sectionDescription:
     "Digitize every inspection point - from first piece to final packing - to enhance visibility, accuracy, and accountability.",
-
   backgroundImage:
-    "linear-gradient(90deg, rgba(0, 184, 219, 0.12) 0%, rgba(0, 184, 219, 0.12) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)",
+    "/assets/pages/solutions/production-digitization/3a380a8126032af34701f98b609fdbd9e932781c.png",
+  // backgroundImage:
+  //   "linear-gradient(90deg, rgba(0, 184, 219, 0.12) 0%, rgba(0, 184, 219, 0.12) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)",
   features: [
     {
       id: "operator-inspection",

@@ -15,7 +15,7 @@ export const featuresContent = {
     "Tecosoft Analytics unifies data across manufacturing, energy, logistics, and healthcare, turning complex information into real-time insights that power smarter decisions and greater operational efficiency.",
 
   backgroundImage:
-    "./assets/pages/solutions/production-digitization/3a380a8126032af34701f98b609fdbd9e932781c.png",
+    "/assets/pages/solutions/production-digitization/3a380a8126032af34701f98b609fdbd9e932781c.png",
   features: [
     {
       id: "collect-connect",

@@ -13,9 +13,10 @@ export const featuresContent = {
   sectionTitle: "Key Featuress",
   sectionDescription:
     "Complete solutions designed to maintain organization, encourage proactive measures, and ensure full traceability across all maintenance activities.",
-
-  backgroundImage:
-    "linear-gradient(90deg, rgba(0, 184, 219, 0.12) 0%, rgba(0, 184, 219, 0.12) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)",
+ backgroundImage:
+    "/assets/pages/solutions/production-digitization/3a380a8126032af34701f98b609fdbd9e932781c.png",
+  // backgroundImage:
+    // "linear-gradient(90deg, rgba(0, 184, 219, 0.12) 0%, rgba(0, 184, 219, 0.12) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)",
 
   features: [
     {
