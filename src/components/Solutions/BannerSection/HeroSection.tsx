@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 // Types
 interface HeroContentProps {
@@ -90,12 +91,16 @@ function DeviceImage({ imagePath, imageAlt }: DeviceImageProps) {
       className="absolute right-0 top-1/2 -translate-y-1/2 w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] xl:w-[400px] h-auto opacity-70 lg:opacity-80 hidden md:block"
       data-name="Eagle Device"
     >
-      <img
-        alt={imageAlt}
-        className="w-full h-full object-contain"
-        src={imagePath}
-        loading="lazy"
-      />
+      <div className="relative w-full h-full">
+        <Image
+          alt={imageAlt}
+          className="w-full h-full object-contain"
+          src={imagePath}
+          fill
+          sizes="(max-width: 768px) 250px, (max-width: 1024px) 300px, (max-width: 1280px) 350px, 400px"
+          style={{ objectFit: "contain" }}
+        />
+      </div>
     </div>
   );
 }

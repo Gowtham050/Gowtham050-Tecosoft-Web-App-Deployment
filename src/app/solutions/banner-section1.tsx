@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import svgPaths from "../../imports/svg-0dlgmqgi5c";
 
 const imgLogo2 =
@@ -282,10 +283,13 @@ function ConnectedFactories() {
             data-name="Mask group 2"
           >
             <div className="absolute inset-0 overflow-hidden rounded-[6px]">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[109.93%] left-0 max-w-none top-[-0.02%] w-full"
                 src={imgMaskGroup2}
+                fill
+                sizes="168px"
+                style={{ objectFit: "none" }}
               />
             </div>
             <div
@@ -298,10 +302,13 @@ function ConnectedFactories() {
             data-name="Mask group (1) 1"
           >
             <div className="absolute inset-0 overflow-hidden rounded-[6px]">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[109.93%] left-0 max-w-none top-[-0.02%] w-full"
                 src={imgMaskGroup11}
+                fill
+                sizes="168px"
+                style={{ objectFit: "none" }}
               />
             </div>
             <div
@@ -313,10 +320,13 @@ function ConnectedFactories() {
             className="absolute h-[86px] left-[2041px] pointer-events-none rounded-[6px] top-[153px] w-[168px]"
             data-name="Frame 1171277184 (1) 1"
           >
-            <img
+            <Image
               alt=""
               className="absolute inset-0 max-w-none object-50%-50% object-cover rounded-[6px] size-full"
               src={imgFrame117127718411}
+              fill
+              sizes="168px"
+              style={{ objectFit: "cover", objectPosition: "50% 50%" }}
             />
             <div
               aria-hidden="true"
@@ -327,10 +337,13 @@ function ConnectedFactories() {
             className="absolute h-[86px] left-[2215px] pointer-events-none rounded-[6px] top-[153px] w-[168px]"
             data-name="Frame 1171277185 (1) 1"
           >
-            <img
+            <Image
               alt=""
               className="absolute inset-0 max-w-none object-50%-50% object-cover rounded-[6px] size-full"
               src={imgFrame117127718511}
+              fill
+              sizes="168px"
+              style={{ objectFit: "cover", objectPosition: "50% 50%" }}
             />
             <div
               aria-hidden="true"
@@ -398,10 +411,13 @@ function ConnectedFactories() {
             data-name="HMC"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[154.38%] left-[-4.55%] max-w-none top-[-2.34%] w-[109.09%]"
                 src={imgHmc}
+                fill
+                sizes="110px"
+                style={{ objectFit: "none" }}
               />
             </div>
           </div>
@@ -410,10 +426,13 @@ function ConnectedFactories() {
             data-name="HMC"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[154.38%] left-[-4.55%] max-w-none top-[-2.34%] w-[109.09%]"
                 src={imgHmc}
+                fill
+                sizes="110px"
+                style={{ objectFit: "none" }}
               />
             </div>
           </div>
@@ -422,10 +441,13 @@ function ConnectedFactories() {
             data-name="HMC"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[154.38%] left-[-4.55%] max-w-none top-[-2.34%] w-[109.09%]"
                 src={imgHmc}
+                fill
+                sizes="110px"
+                style={{ objectFit: "none" }}
               />
             </div>
           </div>
@@ -434,10 +456,13 @@ function ConnectedFactories() {
             data-name="Manual Machine"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[158.19%] left-[-5.42%] max-w-none top-[-38.15%] w-[111.79%]"
                 src={imgManualMachine}
+                fill
+                sizes="110px"
+                style={{ objectFit: "none" }}
               />
             </div>
           </div>
@@ -446,10 +471,13 @@ function ConnectedFactories() {
             data-name="Eagle (1) 1"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[102.09%] left-[-0.63%] max-w-none top-[-0.9%] w-[101.27%]"
                 src={imgEagle11}
+                fill
+                sizes="108px"
+                style={{ objectFit: "none" }}
               />
             </div>
           </div>
@@ -458,10 +486,13 @@ function ConnectedFactories() {
             data-name="Eagle (1) 2"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[102.09%] left-[-0.63%] max-w-none top-[-0.9%] w-[101.27%]"
                 src={imgEagle11}
+                fill
+                sizes="108px"
+                style={{ objectFit: "none" }}
               />
             </div>
           </div>
@@ -470,10 +501,13 @@ function ConnectedFactories() {
             data-name="Eagle (1) 3"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[102.09%] left-[-0.63%] max-w-none top-[-0.9%] w-[101.27%]"
                 src={imgEagle11}
+                fill
+                sizes="108px"
+                style={{ objectFit: "none" }}
               />
             </div>
           </div>
@@ -482,10 +516,13 @@ function ConnectedFactories() {
             data-name="Eagle (1) 4"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[102.09%] left-[-0.63%] max-w-none top-[-0.9%] w-[101.27%]"
                 src={imgEagle11}
+                fill
+                sizes="108px"
+                style={{ objectFit: "none" }}
               />
             </div>
           </div>
@@ -677,10 +714,13 @@ function ConnectedFactories() {
             data-name="CNC"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[80.11%] left-[-26.12%] max-w-none top-[9.94%] w-[150.12%]"
                 src={imgCnc}
+                fill
+                sizes="130px"
+                style={{ objectFit: "none" }}
               />
             </div>
           </div>

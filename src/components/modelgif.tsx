@@ -28,12 +28,15 @@ export default function ModelGif({ currentProduct, hoveredProduct }: any) {
               }}
             />
           ) : (
-            <img
+            <Image
               src={currentProduct?.gifPath}
               alt={`${currentProduct?.title} animation`}
               className="max-w-[600px] max-h-[600px] lg:max-w-[900px] lg:max-h-[900px] object-contain"
+              width={900}
+              height={900}
               style={{
                 animation: "imageReveal 0.7s ease-out forwards",
+                objectFit: "contain",
               }}
             />
           )}

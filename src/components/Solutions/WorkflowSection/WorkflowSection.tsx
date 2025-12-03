@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import svgPathsSettings from "../../../imports/svg-9h0ezj771j";
 
@@ -271,10 +272,13 @@ export function WorkflowSection({ content }: any) {
                   >
                     {isActive && step.iconPath && (
                       <div className="relative shrink-0 size-[40px] sm:size-[50px] md:size-[55px] lg:size-[70px]">
-                        <img
+                        <Image
                           src={step.iconPath}
                           alt={step.title}
                           className="block size-full object-contain"
+                          fill
+                          sizes="(max-width: 640px) 40px, (max-width: 768px) 50px, (max-width: 1024px) 55px, 70px"
+                          style={{ objectFit: "contain" }}
                         />
                       </div>
                     )}

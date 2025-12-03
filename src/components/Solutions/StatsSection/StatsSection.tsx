@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 interface StatCardProps {
   value: string;
@@ -194,10 +195,13 @@ function BackgroundPattern({ content }: { content: StatContent }) {
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden ">
       <div className="absolute inset-0 rotate-180 w-full h-full">
-        <img
+        <Image
           alt=""
           className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-100"
           src={content.backgroundImage}
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
         />
       </div>
     </div>
@@ -208,10 +212,13 @@ function BottomGradient({ content }: { content: StatContent }) {
   return (
     <div className="absolute bottom-0 left-0 w-full h-20 md:h-[100px] z-0">
       <div className="scale-y-[-100%] w-full h-full">
-        <img
+        <Image
           alt=""
           className="w-full h-full object-cover pointer-events-none"
           src={content.bottomGradient}
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
         />
       </div>
     </div>

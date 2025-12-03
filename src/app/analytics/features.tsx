@@ -1054,10 +1054,13 @@ export default function Features() {
         <div className="absolute bottom-0 flex h-[60px] items-center justify-center left-0 w-full">
           <div className="flex-none scale-y-[-100%]">
             <div className="h-[60px] relative w-full">
-              <img
+              <Image
                 alt=""
                 className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full"
                 src={imgRectangle34}
+                fill
+                sizes="100vw"
+                style={{ objectFit: "cover", objectPosition: "50% 50%" }}
               />
             </div>
           </div>

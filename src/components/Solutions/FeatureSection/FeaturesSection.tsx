@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { iconMap, type IconType } from "../../icons/AnimatedIcons";
 
 interface FeatureCardProps {
@@ -77,10 +78,13 @@ function TopGradient({ content: featuresContent }: { content: any }) {
   return (
     <div className="absolute h-32 md:h-40 lg:h-[180px] left-0 top-0 w-full hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img
+        <Image
           alt=""
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           src={featuresContent.backgroundImage}
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
         />
       </div>
     </div>

@@ -77,10 +77,13 @@ export function WhyUsSection({
             <div className="content-stretch flex h-[300px] sm:h-[400px] lg:h-[380px] 2xl:h-[476px] items-center relative shrink-0 w-full sm:w-[300px] lg:w-[280px] 2xl:w-[350px] mx-auto lg:mx-0 ">
               <div className="absolute bg-[#00b8db] h-[300px] sm:h-[400px] lg:h-[380px] 2xl:h-[476px] right-[-12px] sm:right-[-20px] lg:right-[-16px] rounded-[12px] top-[12px] sm:top-[20px] lg:top-[16px] w-full sm:w-[300px] lg:w-[280px] 2xl:w-[350px]" />
               <div className="basis-0 grow h-full min-h-px min-w-px relative rounded-[12px] shrink-0 z-10">
-                <img
+                <Image
                   alt={whyDigitizeContent.imageAlt}
                   className="absolute inset-0 max-w-none object-center object-cover pointer-events-none rounded-[12px] w-full h-full"
                   src={whyDigitizeContent.image}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 300px, (max-width: 1536px) 280px, 350px"
+                  style={{ objectFit: "cover", objectPosition: "center" }}
                 />
               </div>
             </div>
