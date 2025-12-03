@@ -2,7 +2,6 @@
 import { imgDashboardDrawio212 } from "../../imports/svg-e8co2";
 import Group1152 from "./Group1152";
 import { MotionValue } from "framer-motion";
-import Image from "next/image";
 const imgDashboardDrawio213 = "/assets/platform/analytics/1ae33b1441a77bdf1e366d60901c43de63161240.png";
 function MaskGroup() {
   return (
@@ -16,13 +15,10 @@ function MaskGroup() {
         style={{ maskImage: `url('${imgDashboardDrawio212}')` }}
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Image
+          <img
             alt=""
             className="absolute h-[551.79%] left-[-0.82%] max-w-none top-[-3.73%] w-[101.65%]"
             src={imgDashboardDrawio213}
-            fill
-            sizes="100vw"
-            style={{ objectFit: "none" }}
           />
         </div>
       </div>
@@ -42,13 +38,10 @@ function MaskGroup1() {
         style={{ maskImage: `url('${imgDashboardDrawio212}')` }}
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Image
+          <img
             alt=""
             className="absolute h-[551.79%] left-[-0.82%] max-w-none top-[-3.73%] w-[101.65%]"
             src={imgDashboardDrawio213}
-            fill
-            sizes="100vw"
-            style={{ objectFit: "none" }}
           />
         </div>
       </div>
@@ -68,13 +61,10 @@ function MaskGroup2() {
         style={{ maskImage: `url('${imgDashboardDrawio212}')` }}
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Image
+          <img
             alt=""
             className="absolute h-[551.79%] left-[-0.82%] max-w-none top-[-3.73%] w-[101.65%]"
             src={imgDashboardDrawio213}
-            fill
-            sizes="100vw"
-            style={{ objectFit: "none" }}
           />
         </div>
       </div>
@@ -94,13 +84,10 @@ function MaskGroup3() {
         style={{ maskImage: `url('${imgDashboardDrawio212}')` }}
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Image
+          <img
             alt=""
             className="absolute h-[551.79%] left-[-0.82%] max-w-none top-[-3.73%] w-[101.65%]"
             src={imgDashboardDrawio213}
-            fill
-            sizes="100vw"
-            style={{ objectFit: "none" }}
           />
         </div>
       </div>
@@ -124,13 +111,10 @@ function MaskGroup4({
         style={{ maskImage: `url('${imgDashboardDrawio212}')` }}
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Image
+          <img
             alt=""
             className="absolute h-[551.79%] left-[-0.82%] max-w-none top-[-3.73%] w-[101.65%]"
             src={imgDashboardDrawio213}
-            fill
-            sizes="100vw"
-            style={{ objectFit: "none" }}
           />
         </div>
       </div>

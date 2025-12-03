@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   motion,
   useTransform,
@@ -66,13 +65,10 @@ export default function Group({ scrollYProgress }: GroupProps) {
           rotate: useTransform(rotation, (value) => -value),
         }}
       >
-        <Image
+        <img
           alt=""
           className="absolute inset-0 max-w-none object-50%-50% object-cover rounded-[16.438px] size-full"
           src={imgImage21}
-          fill
-          sizes="212px"
-          style={{ objectFit: "cover", objectPosition: "50% 50%" }}
         />
         <div
           aria-hidden="true"
@@ -90,13 +86,10 @@ export default function Group({ scrollYProgress }: GroupProps) {
           rotate: useTransform(rotation, (value) => -value),
         }}
       >
-        <Image
+        <img
           alt=""
           className="absolute inset-0 max-w-none object-50%-50% object-cover rounded-[16.438px] size-full"
           src={imgImage20}
-          fill
-          sizes="212px"
-          style={{ objectFit: "cover", objectPosition: "50% 50%" }}
         />
         <div
           aria-hidden="true"
@@ -114,13 +107,10 @@ export default function Group({ scrollYProgress }: GroupProps) {
           rotate: rotation,
         }}
       >
-        <Image
+        <img
           alt=""
           className="absolute inset-0 max-w-none object-50%-50% object-cover rounded-[16.438px] size-full"
           src={imgImage19}
-          fill
-          sizes="212px"
-          style={{ objectFit: "cover", objectPosition: "50% 50%" }}
         />
         <div
           aria-hidden="true"
@@ -138,13 +128,10 @@ export default function Group({ scrollYProgress }: GroupProps) {
           rotate: rotation,
         }}
       >
-        <Image
+        <img
           alt=""
           className="absolute inset-0 max-w-none object-50%-50% object-cover rounded-[16.438px] size-full"
           src={imgImage18}
-          fill
-          sizes="212px"
-          style={{ objectFit: "cover", objectPosition: "50% 50%" }}
         />
         <div
           aria-hidden="true"
