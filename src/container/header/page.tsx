@@ -305,10 +305,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
     <>
       {/* Mobile Header */}
       <header
-        className={`lg:hidden fixed top-0 w-full ${navBg}`}
+        className={`lg:hidden fixed top-0 w-full ${navBg} transition-colors duration-300`}
         style={{ zIndex: Z_INDEX.HEADER }}
       >
-        <nav className="max-w-full    mx-auto  flex items-center justify-between py-4 px-4">
+        <nav className="max-w-full mx-auto flex items-center justify-between py-4 px-4">
           {/* Logo */}
           <div
             className="relative hover:cursor-pointer"
