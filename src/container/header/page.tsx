@@ -303,16 +303,15 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
 
   return (
     <>
-      {/* Mobile Header */}
+      {/* Static Mobile Header - Always Visible */}
       <header
         className={`lg:hidden fixed top-0 w-full ${navBg} transition-colors duration-300`}
-        style={{ zIndex: Z_INDEX.HEADER }}
+        style={{ zIndex: Z_INDEX.INTERACTIVE }}
       >
         <nav className="max-w-full mx-auto flex items-center justify-between py-4 px-4">
           {/* Logo */}
           <div
             className="relative hover:cursor-pointer"
-            style={{ zIndex: Z_INDEX.INTERACTIVE }}
             onClick={() => {
               router.push("/");
               setIsOpen(false);
@@ -333,7 +332,6 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
             className={`p-2 rounded-lg transition-colors ${
               isOpen ? "text-white hover:bg-white/10" : hamburgerColor
             }`}
-            style={{ zIndex: Z_INDEX.INTERACTIVE }}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -342,137 +340,167 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
         </nav>
       </header>
 
-      {/* Mobile Slide-in Menu */}
+      {/* Mobile Slide-in Section - Header + Menu Together */}
       <div
-        className={`lg:hidden fixed left-0 right-0 bg-[#1a4d8f] transition-transform duration-300 ${
+        className={`lg:hidden fixed top-0 left-0 right-0 bg-[#1a4d8f] transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{
           zIndex: Z_INDEX.MOBILE_MENU,
-          top: "64px",
-          height: "calc(100vh - 64px)",
-          maxHeight: "550px",
+          height: "100vh",
         }}
       >
-        <div className="pt-6 px-8 h-full overflow-y-auto">
-          <ul className="flex flex-col gap-6">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                {item.hasDropdown ? (
-                  <div>
-                    <button
-                      onClick={() => toggleExpand(item.name)}
-                      className="text-xl font-medium block py-2 hover:text-[#0eb05c] transition-colors text-white w-full text-left flex items-center justify-between"
-                    >
-                      {item.name}
-                      <ArrowDown
-                        style={{
-                          visibility:
-                            item.name === "Industries" ? "hidden" : "visible",
-                        }}
-                        size={18}
-                        className={`transition-transform ${
-                          expandedItem === item.name ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                    {expandedItem === item.name && item.dropdownItems && (
-                      <ul className="mt-2 ml-4 flex flex-col gap-3">
-                        {item.dropdownItems.map((dropdownItem) => (
-                          <li key={dropdownItem.name}>
-                            {dropdownItem.insideDropdown ? (
-                              <div>
-                                <div
-                                  className={`text-lg font-normal py-1 hover:text-[#0eb05c] transition-colors w-full flex items-center justify-between ${
+        {/* Header in Slide-in */}
+        <div className="w-full bg-[#1a4d8f]">
+          <nav className="max-w-full mx-auto flex items-center justify-between py-4 px-4">
+            <Image
+              src="/assets/tecosoft-logo.svg"
+              alt="Tecosoft Logo"
+              width={150}
+              height={36}
+              className="h-8 w-auto"
+              priority
+            />
+            <button
+              className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={28} />
+            </button>
+          </nav>
+        </div>
+
+        {/* Mobile Menu Content */}
+        <div
+          className="w-full bg-[#1a4d8f]"
+          style={{
+            height: "calc(100vh - 64px)",
+            maxHeight: "550px",
+          }}
+        >
+          <div className="pt-6 px-8 h-full overflow-y-auto">
+            <ul className="flex flex-col gap-6">
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  {item.hasDropdown ? (
+                    <div>
+                      <button
+                        onClick={() => toggleExpand(item.name)}
+                        className="text-xl font-medium block py-2 hover:text-[#0eb05c] transition-colors text-white w-full text-left flex items-center justify-between"
+                      >
+                        {item.name}
+                        <ArrowDown
+                          style={{
+                            visibility:
+                              item.name === "Industries" ? "hidden" : "visible",
+                          }}
+                          size={18}
+                          className={`transition-transform ${
+                            expandedItem === item.name ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      {expandedItem === item.name && item.dropdownItems && (
+                        <ul className="mt-2 ml-4 flex flex-col gap-3">
+                          {item.dropdownItems.map((dropdownItem) => (
+                            <li key={dropdownItem.name}>
+                              {dropdownItem.insideDropdown ? (
+                                <div>
+                                  <div
+                                    className={`text-lg font-normal py-1 hover:text-[#0eb05c] transition-colors w-full flex items-center justify-between ${
+                                      isActivePage(dropdownItem.href)
+                                        ? "text-[#0eb05c] underline underline-offset-2"
+                                        : "text-white/90"
+                                    }`}
+                                  >
+                                    <span
+                                      onClick={() =>
+                                        handleNavigation(dropdownItem.href)
+                                      }
+                                      className="flex-1 cursor-pointer"
+                                    >
+                                      {dropdownItem.name}
+                                    </span>
+                                    <ArrowDown
+                                      size={16}
+                                      onClick={() =>
+                                        toggleNestedExpand(dropdownItem.name)
+                                      }
+                                      className={`transition-transform cursor-pointer ${
+                                        expandedNestedItem === dropdownItem.name
+                                          ? "rotate-180"
+                                          : ""
+                                      }`}
+                                    />
+                                  </div>
+                                  {expandedNestedItem === dropdownItem.name && (
+                                    <ul className="mt-2 ml-4 flex flex-col gap-2">
+                                      {dropdownItem.insideDropdown.map(
+                                        (nestedItem) => (
+                                          <li key={nestedItem.name}>
+                                            <button
+                                              onClick={() =>
+                                                handleNavigation(
+                                                  nestedItem.href
+                                                )
+                                              }
+                                              className={`text-base font-light block py-1 hover:text-[#0eb05c] transition-colors ${
+                                                isActivePage(nestedItem.href)
+                                                  ? "text-[#0eb05c] underline underline-offset-2"
+                                                  : "text-white/80"
+                                              }`}
+                                            >
+                                              {nestedItem.name}
+                                            </button>
+                                          </li>
+                                        )
+                                      )}
+                                    </ul>
+                                  )}
+                                </div>
+                              ) : (
+                                <button
+                                  onClick={() =>
+                                    handleNavigation(dropdownItem.href)
+                                  }
+                                  className={`text-lg font-normal block py-1 hover:text-[#0eb05c] transition-colors ${
                                     isActivePage(dropdownItem.href)
                                       ? "text-[#0eb05c] underline underline-offset-2"
                                       : "text-white/90"
                                   }`}
                                 >
-                                  <span
-                                    onClick={() =>
-                                      handleNavigation(dropdownItem.href)
-                                    }
-                                    className="flex-1 cursor-pointer"
-                                  >
-                                    {dropdownItem.name}
-                                  </span>
-                                  <ArrowDown
-                                    size={16}
-                                    onClick={() =>
-                                      toggleNestedExpand(dropdownItem.name)
-                                    }
-                                    className={`transition-transform cursor-pointer ${
-                                      expandedNestedItem === dropdownItem.name
-                                        ? "rotate-180"
-                                        : ""
-                                    }`}
-                                  />
-                                </div>
-                                {expandedNestedItem === dropdownItem.name && (
-                                  <ul className="mt-2 ml-4 flex flex-col gap-2">
-                                    {dropdownItem.insideDropdown.map(
-                                      (nestedItem) => (
-                                        <li key={nestedItem.name}>
-                                          <button
-                                            onClick={() =>
-                                              handleNavigation(nestedItem.href)
-                                            }
-                                            className={`text-base font-light block py-1 hover:text-[#0eb05c] transition-colors ${
-                                              isActivePage(nestedItem.href)
-                                                ? "text-[#0eb05c] underline underline-offset-2"
-                                                : "text-white/80"
-                                            }`}
-                                          >
-                                            {nestedItem.name}
-                                          </button>
-                                        </li>
-                                      )
-                                    )}
-                                  </ul>
-                                )}
-                              </div>
-                            ) : (
-                              <button
-                                onClick={() =>
-                                  handleNavigation(dropdownItem.href)
-                                }
-                                className={`text-lg font-normal block py-1 hover:text-[#0eb05c] transition-colors ${
-                                  isActivePage(dropdownItem.href)
-                                    ? "text-[#0eb05c] underline underline-offset-2"
-                                    : "text-white/90"
-                                }`}
-                              >
-                                {dropdownItem.name}
-                              </button>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ) : (
-                  <a
-                    href={item.href}
-                    className="text-xl font-medium block py-2 hover:text-[#0eb05c] transition-colors text-white"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                )}
+                                  {dropdownItem.name}
+                                </button>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="text-xl font-medium block py-2 hover:text-[#0eb05c] transition-colors text-white"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                  )}
+                </li>
+              ))}
+              <li className="mt-5 mb-3">
+                <a
+                  href="#demo"
+                  className="bg-[#0eb05c] text-white px-6 py-3 rounded-lg hover:bg-[#0d9d52] transition-colors font-medium flex items-center justify-center gap-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Book a Demo
+                  <span>→</span>
+                </a>
               </li>
-            ))}
-            <li className="mt-5 mb-3">
-              <a
-                href="#demo"
-                className="bg-[#0eb05c] text-white px-6 py-3 rounded-lg hover:bg-[#0d9d52] transition-colors font-medium flex items-center justify-center gap-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Book a Demo
-                <span>→</span>
-              </a>
-            </li>
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
     </>
@@ -480,6 +508,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
 };
 
 // ===================== MAIN NAVBAR COMPONENT =====================
+
 const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
