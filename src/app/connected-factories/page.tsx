@@ -1,6 +1,6 @@
 // ***************************** Import packages ***********************************************
 import type { Metadata } from "next";
-import SolutionPage from "../../app/solutions/solution-page";
+import SolutionPage from "./connected-factories";
 
 export const metadata: Metadata = {
   title: "Tecosoft - Connected Factories",
