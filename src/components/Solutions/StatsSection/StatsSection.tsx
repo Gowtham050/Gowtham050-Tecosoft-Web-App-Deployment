@@ -107,7 +107,7 @@ function StatCard({
   const displayValue = formatValue(animatedValue) + suffix;
 
   return (
-    <div className="flex flex-col gap-3 justify-center items-center sm:items-start w-full min-w-[200px]">
+    <div className="flex flex-col gap-3 items-center sm:items-start w-full min-w-[200px] h-full">
       <p
         className="bg-clip-text  font-semibold  leading-tight not-italic text-5xl md:text-6xl lg:text-[68px] tracking-tight"
         style={{
@@ -175,7 +175,7 @@ function StatsGrid({ content }: { content: StatContent }) {
   return (
     <div
       ref={gridRef}
-      className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-20 w-full lg:max-w-[650px] relative z-10 justify-items-center sm:justify-items-start"
+      className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-20 w-full lg:max-w-[650px] relative z-10 justify-items-center sm:justify-items-start items-start"
     >
       {content.stats.map((stat) => (
         <StatCard
