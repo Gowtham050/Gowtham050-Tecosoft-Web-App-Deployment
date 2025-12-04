@@ -88,7 +88,7 @@ export default function CapabilitiesSection() {
 
             {/* Card 3 - Bottom layer */}
             <motion.div
-              className="absolute top-[30px] lg:top-0 left-0 w-full origin-center"
+              className="absolute top-0 left-0 w-full origin-center"
               style={{
                 y: card3Y,
                 scale: card3Scale,
@@ -101,7 +101,7 @@ export default function CapabilitiesSection() {
 
             {/* Card 2 - Middle layer */}
             <motion.div
-              className="absolute top-[30px] lg:top-0 left-0 w-full origin-center"
+              className="absolute top-0 left-0 w-full origin-center"
               style={{
                 y: card2Y,
                 scale: card2Scale,
@@ -115,7 +115,7 @@ export default function CapabilitiesSection() {
 
             {/* Card 1 - Top layer */}
             <motion.div
-              className="absolute top-[30px] lg:top-0 left-0 w-full origin-center"
+              className="absolute top-0 left-0 w-full origin-center"
               style={{
                 y: card1Y,
                 opacity: card1Opacity,
