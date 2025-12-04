@@ -4,22 +4,24 @@ import Image from "next/image";
 
 const ClientSlider = () => {
   const clients = [
-    { name: "Ennar", logo: "/assets/pages/home/client/ennar.png" },
+    { name: "Ennar", logo: "/assets/pages/home/client/ennar.png", width: 140, height: 80 },
     {
       name: "Fasteners India",
       logo: "/assets/pages/home/client/fasteners-india.png",
+      width: 140,
+      height: 80,
     },
-    { name: "Fujitec", logo: "/assets/pages/home/client/fujitec.png" },
-    { name: "Gaha", logo: "/assets/pages/home/client/gaha.png" },
-    { name: "Greaves", logo: "/assets/pages/home/client/greaves.png" },
-    { name: "MacPro", logo: "/assets/pages/home/client/mac-pro.png" },
-    { name: "Matalsa", logo: "/assets/pages/home/client/matalsa.png" },
-    { name: "Neolite", logo: "/assets/pages/home/client/neolite.png" },
-    { name: "Netalkar", logo: "/assets/pages/home/client/netalkar.png" },
-    { name: "Paras Wires", logo: "/assets/pages/home/client/paras-wires.png" },
-    { name: "Raj Auto", logo: "/assets/pages/home/client/raj-auto.png" },
-    { name: "Skipper", logo: "/assets/pages/home/client/skipper.png" },
-    { name: "Wheels India", logo: "/assets/pages/home/client/wheels.png" },
+    { name: "Fujitec", logo: "/assets/pages/home/client/fujitec.png", width: 140, height: 90 },
+    { name: "Gaha", logo: "/assets/pages/home/client/gaha.png", width: 140, height: 60 },
+    { name: "Greaves", logo: "/assets/pages/home/client/greaves.png", width: 140, height: 80 },
+    { name: "MacPro", logo: "/assets/pages/home/client/mac-pro.png", width: 140, height: 80 },
+    { name: "Matalsa", logo: "/assets/pages/home/client/matalsa.png", width: 140, height: 80 },
+    { name: "Neolite", logo: "/assets/pages/home/client/neolite.png", width: 160, height: 90 },
+    { name: "Netalkar", logo: "/assets/pages/home/client/netalkar.png", width: 140, height: 70 },
+    { name: "Paras Wires", logo: "/assets/pages/home/client/paras-wires.png", width: 140, height: 60 },
+    { name: "Raj Auto", logo: "/assets/pages/home/client/raj-auto.png", width: 140, height: 60 },
+    { name: "Skipper", logo: "/assets/pages/home/client/skipper.png", width: 140, height: 70 },
+    { name: "Wheels India", logo: "/assets/pages/home/client/wheels.png", width: 140, height: 70 },
   ];
 
   return (
@@ -34,11 +36,13 @@ const ClientSlider = () => {
             <Image
               src={client.logo}
               alt={`${client.name} logo`}
-              width={200}
-              height={100}
-              className="w-[140px] h-[90px] object-contain"
+              width={client.width}
+              height={client.height}
+              className="object-contain"
               style={{
                 filter: "brightness(0) invert(1)",
+                width: `${client.width}px`,
+                height: `${client.height}px`,
               }}
             />
           </div>
@@ -54,7 +58,7 @@ const ClientSlider = () => {
           }
         }
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 36s linear infinite;
           will-change: transform;
         }
       `}</style>
