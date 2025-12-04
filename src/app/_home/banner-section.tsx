@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import ClientSlider from "@/components/client";
 
 // Z-index constants - Banner should be below navbar (navbar uses 999-1001)
 const Z_INDEX = {
@@ -10,62 +11,7 @@ const Z_INDEX = {
   CONTENT_LAYER: 10, // Banner content (below navbar)
 };
 
-const ClientSlider = () => {
-  const clients = [
-    { name: "Gaha", logo: "/assets/pages/home/client/gaha.png" },
-    { name: "Greaves", logo: "/assets/pages/home/client/greaves.png" },
-    { name: "Matalsa", logo: "/assets/pages/home/client/matalsa.png" },
-    { name: "Neolite", logo: "/assets/pages/home/client/neolite.png" },
-    { name: "Skipper", logo: "/assets/pages/home/client/skipper.png" },
-    { name: "Wheels India", logo: "/assets/pages/home/client/wheels.png" },
 
-    // { name: "MacPro", logo: "/assets/pages/home/new/macpro.png" },`
-    // { name: "Fujitec", logo: "/assets/pages/home/new/fujitec.jpg" },
-    // { name: "Netalkar", logo: "/assets/pages/home/new/netalkar.png" },
-    // { name: "Paras Wires", logo: "/assets/pages/home/new/paras-wires.png" },
-    // { name: "Ennar", logo: "/assets/pages/home/new/ennar.png" },
-    // { name: "Fasteners India", logo: "/assets/pages/home/new/fasteners-india.png" },
-    // { name: "Raj Auto", logo: "/assets/pages/home/new/raj-auto.png" },
-  ];
-
-  return (
-    <div className="relative overflow-hidden pt-8 lg:pt-10 ">
-      <div className="flex animate-scroll gap-12 lg:gap-16">
-        {/* Duplicate for seamless loop */}
-        {[...clients, ...clients].map((client, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 flex items-center justify-center min-w-[140px] lg:min-w-[180px]"
-          >
-            <Image
-              src={client.logo}
-              alt={`${client.name} logo`}
-              width={200}
-              height={100}
-              className=" w-[140px]  h-[90px] object-contain"
-              style={{
-                filter:"brightness(0) invert(1)"
-              }}
-            />
-          </div>
-        ))}
-      </div>
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll {
-          animation: scroll 25s linear infinite;
-        }
-      `}</style>
-    </div>
-  );
-};
 
 const BannerSection = () => {
   return (

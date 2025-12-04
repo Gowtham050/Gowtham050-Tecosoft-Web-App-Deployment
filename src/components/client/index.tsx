@@ -1,94 +1,65 @@
-"use client";
-
 import React from "react";
+
 import Image from "next/image";
-import dynamic from "next/dynamic";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-// 👇 Import all your images directly from the public folder
-// import Morfo from "../../../public/assets/images/banner-morfo.svg";
-// import Flomodai from "../../../public/assets/images/banner-flomodai.svg";
-// import Qileo from "../../../public/assets/images/banner-qileo.svg";
-// import Ramify from "../../../public/assets/images/banner-ramify.svg";
-// import Weglot from "../../../public/assets/images/banner-weglot.svg";
-
-// 👇 Dynamically import react-slick to avoid SSR issues
-const Slider = dynamic(() => import("react-slick"), { ssr: false });
-
-const ClientContent = () => {
-  const settings = {
-    autoplay: true,
-    autoplaySpeed: 0,
-    infinite: true,
-    speed: 5000,
-    cssEase: "linear", // makes smooth continuous scroll
-    arrows: false,
-    pauseOnHover: false,
-    slidesToShow: 4,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1 } },
-    ],
-    dots: false,
-  };
+const ClientSlider = () => {
+  const clients = [
+    { name: "Ennar", logo: "/assets/pages/home/client/ennar.png" },
+    {
+      name: "Fasteners India",
+      logo: "/assets/pages/home/client/fasteners-india.png",
+    },
+    { name: "Fujitec", logo: "/assets/pages/home/client/fujitec.png" },
+    { name: "Gaha", logo: "/assets/pages/home/client/gaha.png" },
+    { name: "Greaves", logo: "/assets/pages/home/client/greaves.png" },
+    { name: "MacPro", logo: "/assets/pages/home/client/mac-pro.png" },
+    { name: "Matalsa", logo: "/assets/pages/home/client/matalsa.png" },
+    { name: "Neolite", logo: "/assets/pages/home/client/neolite.png" },
+    { name: "Netalkar", logo: "/assets/pages/home/client/netalkar.png" },
+    { name: "Paras Wires", logo: "/assets/pages/home/client/paras-wires.png" },
+    { name: "Raj Auto", logo: "/assets/pages/home/client/raj-auto.png" },
+    { name: "Skipper", logo: "/assets/pages/home/client/skipper.png" },
+    { name: "Wheels India", logo: "/assets/pages/home/client/wheels.png" },
+  ];
 
   return (
-    <div>
-      <Slider {...settings} className="gap-8">
-        <div className="flex items-center justify-center h-24">
-          <Image
-            src="/assets/images/banner-morfo.svg"
-            alt="Morfo logo"
-            width={120}
-            height={48}
-            className="h-12 w-auto max-w-[120px] mx-auto"
-          />
-        </div>
-
-        <div className="flex items-center justify-center h-24">
-          <Image
-            src="/assets/images/banner-flomodai.svg"
-            alt="Flomodai logo"
-            width={120}
-            height={48}
-            className="h-12 w-auto max-w-[120px] mx-auto"
-          />
-        </div>
-
-        <div className="flex items-center justify-center h-24">
-          <Image
-            src="/assets/images/banner-qileo.svg"
-            alt="Qileo logo"
-            width={120}
-            height={48}
-            className="h-12 w-auto max-w-[120px] mx-auto"
-          />
-        </div>
-
-        <div className="flex items-center justify-center h-24">
-          <Image
-            src="/assets/images/banner-ramify.svg"
-            alt="Ramify logo"
-            width={120}
-            height={48}
-            className="h-12 w-auto max-w-[120px] mx-auto"
-          />
-        </div>
-
-        <div className="flex items-center justify-center h-24">
-          <Image
-            src="/assets/images/banner-weglot.svg"
-            alt="Weglot logo"
-            width={120}
-            height={48}
-            className="h-12 w-auto max-w-[120px] mx-auto"
-          />
-        </div>
-      </Slider>
+    <div className="relative overflow-hidden pt-8 lg:pt-10">
+      <div className="flex animate-scroll gap-11 lg:gap-14" style={{ width: 'max-content' }}>
+        {/* Duplicate multiple times for seamless loop */}
+        {[...clients, ...clients, ...clients].map((client, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 flex items-center justify-center min-w-[140px] lg:min-w-[180px]"
+          >
+            <Image
+              src={client.logo}
+              alt={`${client.name} logo`}
+              width={200}
+              height={100}
+              className="w-[140px] h-[90px] object-contain"
+              style={{
+                filter: "brightness(0) invert(1)",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+          will-change: transform;
+        }
+      `}</style>
     </div>
   );
 };
 
-export default ClientContent;
+export default ClientSlider;
