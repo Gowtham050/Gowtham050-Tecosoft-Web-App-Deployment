@@ -44,3 +44,90 @@ export const WHY_AI_FEATURES = [
     iconColor: "#E53A3A",
   },
 ];
+
+// ===========================
+// Solutions Section
+// ===========================
+
+export const SOLUTIONS_SECTION = {
+  title: "Solutions",
+  description:
+    "Deliver smarter, scalable solutions with AI-driven workflows that reduce errors, enhance decision-making, and streamline execution across teams, systems, and end-to-end business operations.",
+};
+
+export const SOLUTIONS_DATA = [
+  {
+    id: "smart-energy-management",
+    title: "Smart Energy Management",
+    description:
+      "Forecast, optimize, and automate energy efficiency across utilities and lines. Build a digital energy twin and let AI reduce cost, peaks, and carbon.",
+    features: [
+      {
+        icon: "thunder",
+        label: "Real-time Energy Metering",
+        bgColor: "rgba(204,241,255,0.5)",
+        iconColor: "#0098D4",
+      },
+      {
+        icon: "cpu",
+        label: "Edge Aggregation & Control",
+        bgColor: "rgba(204,241,255,0.5)",
+        iconColor: "#0098D4",
+      },
+      {
+        icon: "battery",
+        label: "Automated Load Balancing",
+        bgColor: "rgba(204,241,255,0.5)",
+        iconColor: "#0098D4",
+      },
+      {
+        icon: "brain",
+        label: "AI-driven Optimization",
+        bgColor: "rgba(204,241,255,0.5)",
+        iconColor: "#0098D4",
+      },
+    ],
+    images: [
+      "/assets/pages/ai-enabled/cbd07f254dfbf3ad759e853c6d966c3252b8ad07.png",
+      "/assets/pages/ai-enabled/f01f07ceb8ba38fc08ca15a17209afd0ee47f318.png",
+      "/assets/pages/ai-enabled/f3618873d8cb715764fc03e465951335b8a8705c.png",
+    ],
+  },
+  {
+    id: "predictive-maintenance",
+    title: "Predictive Maintenance",
+    description:
+      "Move from reactive to proactive maintenance. Predict failures, schedule service automatically, and sustain peak performance across assets and shifts.",
+    features: [
+      {
+        icon: "dashboard-add",
+        label: "Sensors Integration",
+        bgColor: "rgba(205,239,217,0.46)",
+        iconColor: "#069235",
+      },
+      {
+        icon: "star",
+        label: "Edge Intelligence",
+        bgColor: "rgba(205,239,217,0.46)",
+        iconColor: "#069235",
+      },
+      {
+        icon: "server",
+        label: "Automated Maintenance",
+        bgColor: "rgba(205,239,217,0.46)",
+        iconColor: "#069235",
+      },
+      {
+        icon: "dashboard",
+        label: "Failure Prediction",
+        bgColor: "rgba(205,239,217,0.46)",
+        iconColor: "#069235",
+      },
+    ],
+    images: [
+      "/assets/pages/ai-enabled/f01f07ceb8ba38fc08ca15a17209afd0ee47f318.png",
+      "/assets/pages/ai-enabled/cbd07f254dfbf3ad759e853c6d966c3252b8ad07.png",
+      "/assets/pages/ai-enabled/f3618873d8cb715764fc03e465951335b8a8705c.png",
+    ],
+  },
+];
