@@ -525,6 +525,7 @@ const Navbar = () => {
       "/connected-factories/tool-life-monitoring-digitization",
       "/connected-factories/maintenance-digitization",
       "/connected-factories/inspection-digitization",
+      "/ai-enabled-services"
     ];
 
     const isHomePage = homePages.includes(sanitizedPathname);
@@ -583,7 +584,20 @@ const Navbar = () => {
           ],
         },
 
-        { name: "AI-Enabled", href: "#AI-Enabled" },
+        {
+          name: "AI-Enabled",
+          href: "/ai-enabled-services",
+          insideDropdown: [
+            {
+              name: "Smart Energy Management",
+              href: "/ai-enabled-services/smart-energy-management",
+            },
+            {
+              name: "Predictive Maintenance",
+              href: "/ai-enabled-services/predictive-maintenance",
+            },
+          ],
+        },
         { name: "Digital Twin", href: "#Digital-Twin" },
       ],
     },

@@ -1,3 +1,5 @@
+import { title } from "process";
+
 // Footer card configuration based on route paths
 export const footerCardConfig = {
   "/": {
@@ -71,6 +73,15 @@ export const footerCardConfig = {
     buttonHref: "#contact",
     description:
       "Eliminate paperwork, improve accountability, and make audits effortless with digital records.",
+  },
+  "/ai-enabled-services": {
+    title: "Ready to ",
+    highlightText: "power the future",
+    title2: " of your factory?",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Start with Energy Intelligence or Predictive Maintenance - or deploy both for compounding gains.",
   },
 };
 
