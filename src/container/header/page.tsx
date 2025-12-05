@@ -520,12 +520,13 @@ const Navbar = () => {
 
     const homePages = [
       "/",
-      "/production-digitization",
       "/connected-factories/production-digitization",
       "/connected-factories/tool-life-monitoring-digitization",
       "/connected-factories/maintenance-digitization",
       "/connected-factories/inspection-digitization",
-      "/ai-enabled-services"
+      "/ai-enabled-services",
+      "/ai-enabled-services/predictive-maintenance",
+      "/ai-enabled-services/smart-energy-management",
     ];
 
     const isHomePage = homePages.includes(sanitizedPathname);

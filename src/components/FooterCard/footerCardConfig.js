@@ -83,6 +83,22 @@ export const footerCardConfig = {
     description:
       "Start with Energy Intelligence or Predictive Maintenance - or deploy both for compounding gains.",
   },
+  "/ai-enabled-services/smart-energy-management": {
+    title: "Ready to Power the ",
+    highlightText: "Future with AI?",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Deploy AI‑enabled energy intelligence with EAGLE to forecast, optimize, and sustain - turning every kilowatt into a strategic advantage.",
+  },
+  "/ai-enabled-services/predictive-maintenance": {
+    title: "Ready to ",
+    highlightText: "Predict?",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Bring EAGLE-enabled edge intelligence and machine-specific AI to your shopfloor — reduce downtime and plan maintenance with confidence.",
+  },
 };
 
 // Helper function to get config based on pathname
