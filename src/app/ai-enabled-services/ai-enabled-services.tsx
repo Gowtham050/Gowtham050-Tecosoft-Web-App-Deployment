@@ -15,7 +15,7 @@ export default function ConnectedFactories1() {
       <HeroSection />
       <WhyAiEnabledServices />
       <Solutions />
-      {/* <HowItWorks /> */}
+      <HowItWorks />
     </div>
   );
 }
