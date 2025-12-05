@@ -13,8 +13,8 @@ export default function ConnectedFactories1() {
       data-name="AI Enabled Services"
     >
       <HeroSection />
-      {/* <WhyAiEnabledServices />
-      <Solutions />
+      <WhyAiEnabledServices />
+      {/* <Solutions />
       <HowItWorks /> */}
     </div>
   );
