@@ -1,0 +1,950 @@
+import svgPaths from "../../../imports/svg-plhzsxyavn";
+import { ComponentType } from "react";
+
+// Types
+interface Feature {
+  icon: string;
+  title: string;
+}
+
+interface AnalyticsContent {
+  title: string;
+  titleHighlight: string;
+  description: string;
+  features: Feature[];
+}
+
+// Content Configuration
+const ANALYTICS_CONTENT: AnalyticsContent = {
+  title: "Analytics View - ",
+  titleHighlight: "Turning Data into Decisions",
+  description:
+    "The predictive maintenance dashboard translates complex machine data into simple, actionable visuals for faster decision-making and smarter planning.",
+  features: [
+    {
+      icon: "analytics",
+      title: "Energy Command Center",
+    },
+    {
+      icon: "chart-breakout",
+      title: "Peak Demand Prediction",
+    },
+    {
+      icon: "indbox-download",
+      title: "Dynamic Load Forecasting",
+    },
+    {
+      icon: "batteries-energy",
+      title: "Renewable Source Analytics",
+    },
+    {
+      icon: "crowd-funding",
+      title: "AI‑Based Cost Attribution",
+    },
+    {
+      icon: "unlink-02",
+      title: "Predictive Maintenance Linkage",
+    },
+    {
+      icon: "house-solar-panel",
+      title: "AI‑Assisted Energy Scheduling",
+    },
+    {
+      icon: "eco-power",
+      title: "Carbon Footprint Forecasting",
+    },
+  ],
+};
+
+// Icon Components
+function Analytics() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[28px]"
+      data-name="sidebar-left"
+    >
+      <div
+        className="absolute inset-[12.5%_8.34%_12.5%_8.33%]"
+        data-name="elements"
+      >
+        <div className="absolute inset-[-4.17%_-3.76%_-4.17%_-3.74%]">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.125 17.7917L6.125 13.125"
+              stroke="url(#paint0_linear_981_2450)"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+            />
+            <path
+              d="M11.957 17.7917L11.957 6.125"
+              stroke="url(#paint1_linear_981_2450)"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+            />
+            <path
+              d="M17.7891 17.7917L17.7891 10.7917"
+              stroke="url(#paint2_linear_981_2450)"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+            />
+            <path
+              d="M0.875 11.9583C0.875 6.7336 0.875 4.12123 2.49812 2.49812C4.12123 0.875 6.7336 0.875 11.9583 0.875C17.1831 0.875 19.7954 0.875 21.4185 2.49812C23.0417 4.12123 23.0417 6.7336 23.0417 11.9583C23.0417 17.1831 23.0417 19.7954 21.4185 21.4185C19.7954 23.0417 17.1831 23.0417 11.9583 23.0417C6.7336 23.0417 4.12123 23.0417 2.49812 21.4185C0.875 19.7954 0.875 17.1831 0.875 11.9583Z"
+              stroke="url(#paint3_linear_981_2450)"
+              strokeWidth="1.75"
+              strokeLinejoin="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_981_2450"
+                x1="6.91196"
+                y1="14.1361"
+                x2="5.88436"
+                y2="14.3447"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_981_2450"
+                x1="12.744"
+                y1="8.65278"
+                x2="11.681"
+                y2="8.73909"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint2_linear_981_2450"
+                x1="18.576"
+                y1="12.3084"
+                x2="17.5253"
+                y2="12.4506"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint3_linear_981_2450"
+                x1="18.3192"
+                y1="5.67778"
+                x2="5.82036"
+                y2="17.5191"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ChartBreakout() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[28px]"
+      data-name="dashboard-speed-01"
+    >
+      <div
+        className="absolute inset-[10.42%_10.41%_10.42%_10.42%]"
+        data-name="elements"
+      >
+        <div className="absolute inset-[-3.95%_-3.94%_-3.95%_-3.95%]">
+          <svg
+            className="block size-full"
+            fill="none"
+            preserveAspectRatio="none"
+            viewBox="0 0 24 24"
+          >
+            <g>
+              <path
+                d={svgPaths.p3d858300}
+                id="Vector"
+                stroke="url(#paint0_linear_1_538)"
+                strokeLinecap="round"
+                strokeWidth="1.75"
+              />
+              <path
+                d={svgPaths.p14edd540}
+                id="Vector_2"
+                stroke="url(#paint1_linear_1_538)"
+                strokeLinecap="round"
+                strokeWidth="1.75"
+              />
+              <path
+                d={svgPaths.p3cddcc00}
+                id="Vector_3"
+                stroke="url(#paint2_linear_1_538)"
+                strokeWidth="1.75"
+              />
+            </g>
+            <defs>
+              <linearGradient
+                gradientUnits="userSpaceOnUse"
+                id="paint0_linear_1_538"
+                x1="16.0517"
+                x2="10.8728"
+                y1="10.4805"
+                y2="14.7737"
+              >
+                <stop stopColor="#00B7FF" />
+                <stop offset="1" stopColor="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                gradientUnits="userSpaceOnUse"
+                id="paint1_linear_1_538"
+                x1="13.2213"
+                x2="9.50066"
+                y1="6.47493"
+                y2="11.7623"
+              >
+                <stop stopColor="#00B7FF" />
+                <stop offset="1" stopColor="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                gradientUnits="userSpaceOnUse"
+                id="paint2_linear_1_538"
+                x1="18.3192"
+                x2="5.82036"
+                y1="5.67778"
+                y2="17.5191"
+              >
+                <stop stopColor="#00B7FF" />
+                <stop offset="1" stopColor="#0EB05C" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InboxDownload() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[28px]"
+      data-name="notification-square"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.75%_-3.75%_-3.75%_-3.74%]">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.16797 2.91663C6.52611 3.10955 5.39628 3.51731 4.54109 4.3792C2.91797 6.015 2.91797 8.64778 2.91797 13.9133C2.91797 19.1789 2.91797 21.8117 4.54109 23.4475C6.1642 25.0833 8.77657 25.0833 14.0013 25.0833C19.226 25.0833 21.8384 25.0833 23.4615 23.4475C25.0846 21.8117 25.0846 19.1789 25.0846 13.9133C25.0846 8.64778 25.0846 6.015 23.4615 4.3792C22.6063 3.51731 21.4765 3.10955 19.8346 2.91663"
+              stroke="url(#paint0_linear_913_3212)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M11.082 9.33333C11.6555 9.92332 13.1818 12.25 13.9987 12.25M16.9154 9.33333C16.3419 9.92332 14.8156 12.25 13.9987 12.25M13.9987 12.25L13.9987 2.91667"
+              stroke="url(#paint1_linear_913_3212)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M25.0846 15.75H19.338C18.3556 15.75 17.5836 16.5709 17.1507 17.4384C16.6803 18.381 15.7383 19.25 14.0013 19.25C12.2643 19.25 11.3223 18.381 10.8519 17.4384C10.419 16.5709 9.64703 15.75 8.66457 15.75H2.91797"
+              stroke="url(#paint2_linear_913_3212)"
+              stroke-width="1.75"
+              stroke-linejoin="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_913_3212"
+                x1="20.3622"
+                y1="7.7194"
+                x2="7.86332"
+                y2="19.5607"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_913_3212"
+                x1="15.6726"
+                y1="10.2278"
+                x2="11.0514"
+                y2="7.49149"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint2_linear_913_3212"
+                x1="20.3622"
+                y1="16.5083"
+                x2="19.7212"
+                y2="20.3543"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+function BatteriesEnergy() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[28px]"
+      data-name="notification-square"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.75%_-3.75%_-3.75%_-3.74%]">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.5846 2.33337L11.668 7.00004H16.3346L13.418 11.6667"
+              stroke="url(#paint0_linear_913_3216)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M19.832 7C20.932 7 21.4819 7 21.8237 7.34171C22.1654 7.68342 22.1654 8.23339 22.1654 9.33333V12.25M8.16536 7C7.06542 7 6.51545 7 6.17374 7.34171C5.83203 7.68342 5.83203 8.23339 5.83203 9.33333L5.83203 12.25"
+              stroke="url(#paint1_linear_913_3216)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M23.3346 15.1666H21.0013C19.9014 15.1666 19.3514 15.1666 19.0097 15.5083C18.668 15.85 18.668 16.4 18.668 17.5V23.3333C18.668 24.4332 18.668 24.9832 19.0097 25.3249C19.3514 25.6666 19.9014 25.6666 21.0013 25.6666H23.3346C24.4346 25.6666 24.9846 25.6666 25.3263 25.3249C25.668 24.9832 25.668 24.4332 25.668 23.3333V17.5C25.668 16.4 25.668 15.85 25.3263 15.5083C24.9846 15.1666 24.4346 15.1666 23.3346 15.1666Z"
+              stroke="url(#paint2_linear_913_3216)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18.668 22.1666H25.668"
+              stroke="url(#paint3_linear_913_3216)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18.668 18.6666H25.668"
+              stroke="url(#paint4_linear_913_3216)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6.9987 15.1666H4.66536C3.56542 15.1666 3.01545 15.1666 2.67374 15.5083C2.33203 15.85 2.33203 16.4 2.33203 17.5V23.3333C2.33203 24.4332 2.33203 24.9832 2.67374 25.3249C3.01545 25.6666 3.56542 25.6666 4.66536 25.6666H6.9987C8.09864 25.6666 8.64861 25.6666 8.99032 25.3249C9.33203 24.9832 9.33203 24.4332 9.33203 23.3333V17.5C9.33203 16.4 9.33203 15.85 8.99032 15.5083C8.64861 15.1666 8.09864 15.1666 6.9987 15.1666Z"
+              stroke="url(#paint5_linear_913_3216)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2.33203 22.1666H9.33203"
+              stroke="url(#paint6_linear_913_3216)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2.33203 18.6666H9.33203"
+              stroke="url(#paint7_linear_913_3216)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_913_3216"
+                x1="15.3404"
+                y1="4.3556"
+                x2="11.2624"
+                y2="6.28735"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_913_3216"
+                x1="18.6857"
+                y1="8.1375"
+                x2="16.8817"
+                y2="13.4546"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint2_linear_913_3216"
+                x1="24.1767"
+                y1="17.4416"
+                x2="18.8228"
+                y2="20.8231"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint3_linear_913_3216"
+                x1="24.1767"
+                y1="22.3833"
+                x2="24.0102"
+                y2="23.4875"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint4_linear_913_3216"
+                x1="24.1767"
+                y1="18.8833"
+                x2="24.0102"
+                y2="19.9875"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint5_linear_913_3216"
+                x1="7.84073"
+                y1="17.4416"
+                x2="2.48682"
+                y2="20.8231"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint6_linear_913_3216"
+                x1="7.84073"
+                y1="22.3833"
+                x2="7.67422"
+                y2="23.4875"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint7_linear_913_3216"
+                x1="7.84073"
+                y1="18.8833"
+                x2="7.67422"
+                y2="19.9875"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+function CrowdFunding() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[28px]"
+      data-name="notification-square"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.75%_-3.75%_-3.75%_-3.74%]">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="14"
+              cy="5.83337"
+              r="3.5"
+              stroke="url(#paint0_linear_913_3221)"
+              stroke-width="1.75"
+            />
+            <circle
+              cx="14.0013"
+              cy="23.3333"
+              r="2.33333"
+              stroke="url(#paint1_linear_913_3221)"
+              stroke-width="1.75"
+            />
+            <circle
+              cx="23.3333"
+              cy="23.3333"
+              r="2.33333"
+              stroke="url(#paint2_linear_913_3221)"
+              stroke-width="1.75"
+            />
+            <circle
+              cx="4.66536"
+              cy="23.3333"
+              r="2.33333"
+              stroke="url(#paint3_linear_913_3221)"
+              stroke-width="1.75"
+            />
+            <path
+              d="M23.3346 17.5C23.3346 16.2113 22.0288 15.1666 20.418 15.1666H7.58464C5.9738 15.1666 4.66797 16.2113 4.66797 17.5"
+              stroke="url(#paint4_linear_913_3221)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+            />
+            <path
+              d="M14 12.8334L14 17.5"
+              stroke="url(#paint5_linear_913_3221)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_913_3221"
+                x1="16.0087"
+                y1="3.85004"
+                x2="12.0617"
+                y2="7.5894"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_913_3221"
+                x1="15.3404"
+                y1="22.0111"
+                x2="12.7091"
+                y2="24.504"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint2_linear_913_3221"
+                x1="24.6725"
+                y1="22.0111"
+                x2="22.0411"
+                y2="24.504"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint3_linear_913_3221"
+                x1="6.00449"
+                y1="22.0111"
+                x2="3.37316"
+                y2="24.504"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint4_linear_913_3221"
+                x1="19.3578"
+                y1="15.6722"
+                x2="19.0161"
+                y2="18.2623"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint5_linear_913_3221"
+                x1="14.787"
+                y1="13.8445"
+                x2="13.7594"
+                y2="14.0531"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+function Unlink() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[28px]"
+      data-name="notification-square"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.75%_-3.75%_-3.75%_-3.74%]">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.654 17.0445L22.6985 14C25.1005 11.598 25.1005 7.70354 22.6985 5.30151C20.2965 2.89949 16.402 2.8995 14 5.30151L10.9555 8.34598M17.0445 19.654L14 22.6985C11.598 25.1005 7.70354 25.1005 5.30152 22.6985C2.89949 20.2965 2.89949 16.402 5.30152 14L8.34598 10.9555"
+              stroke="url(#paint0_linear_913_3225)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+            />
+            <path
+              d="M25.6654 19.8334H23.24M19.832 25.6667L19.832 23.2413"
+              stroke="url(#paint1_linear_913_3225)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2.33203 8.16671H4.7574M8.16536 2.33337L8.16536 4.75875"
+              stroke="url(#paint2_linear_913_3225)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_913_3225"
+                x1="20.0261"
+                y1="8.05"
+                x2="8.18507"
+                y2="19.2681"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_913_3225"
+                x1="24.4226"
+                y1="21.0973"
+                x2="21.1334"
+                y2="24.2134"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint2_linear_913_3225"
+                x1="6.92261"
+                y1="3.59726"
+                x2="3.63344"
+                y2="6.7134"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+function HouseSolarPanel() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[28px]"
+      data-name="notification-square"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.75%_-3.75%_-3.75%_-3.74%]">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.62684 6.76372L5.33069 5.12943C5.91499 3.77272 6.20714 3.09436 6.77994 2.71381C7.35274 2.33325 8.08163 2.33325 9.53941 2.33325H18.4606C19.9184 2.33325 20.6473 2.33325 21.2201 2.71381C21.7929 3.09436 22.085 3.77272 22.6693 5.12943L23.3732 6.76372C24.326 8.97611 24.8024 10.0823 24.2924 10.8744C23.7824 11.6666 22.5938 11.6666 20.2166 11.6666H7.78338C5.40618 11.6666 4.21758 11.6666 3.70759 10.8744C3.1976 10.0823 3.67401 8.97611 4.62684 6.76372Z"
+              stroke="url(#paint0_linear_913_3230)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M5.25 11.6667V17.5001C5.25 19.7 5.25 20.7999 5.93342 21.4833C6.48355 22.0335 7.30359 22.1408 8.75 22.1617M22.75 11.6667V17.5001C22.75 19.7 22.75 20.7999 22.0666 21.4833C21.5165 22.0335 20.6964 22.1408 19.25 22.1617"
+              stroke="url(#paint1_linear_913_3230)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M15.168 16.3333L12.1414 19.9116C11.7719 20.3907 11.5872 20.6302 11.7016 20.8151C11.8161 20.9999 12.1491 20.9999 12.8152 20.9999H15.1875C15.8535 20.9999 16.1865 20.9999 16.301 21.1848C16.4154 21.3696 16.2307 21.6092 15.8612 22.0882L12.8152 25.6666"
+              stroke="url(#paint2_linear_913_3230)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M11.6667 2.33325L10.5 11.6666M16.3333 2.33325L17.5 11.6666"
+              stroke="url(#paint3_linear_913_3230)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M4.66797 7L23.3346 7"
+              stroke="url(#paint4_linear_913_3230)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_913_3230"
+                x1="20.0261"
+                y1="4.35547"
+                x2="15.9731"
+                y2="12.9949"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_913_3230"
+                x1="19.0217"
+                y1="13.9406"
+                x2="13.6653"
+                y2="22.4025"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint2_linear_913_3230"
+                x1="15.3404"
+                y1="18.3555"
+                x2="11.2624"
+                y2="20.2872"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint3_linear_913_3230"
+                x1="16.0087"
+                y1="4.35547"
+                x2="11.0318"
+                y2="7.8918"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint4_linear_913_3230"
+                x1="19.3578"
+                y1="7.21667"
+                x2="19.2942"
+                y2="8.34243"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+function EcoPower() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[28px]"
+      data-name="notification-square"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.75%_-3.75%_-3.75%_-3.74%]">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.5 23.3333C6.10044 22.3204 3.5 18.29 3.5 14.5952C3.5 10.2018 7.43185 5.86028 10.1916 3.35409C11.6904 1.99297 13.9763 1.99297 15.4751 3.35409C17.233 4.95053 19.3374 7.29169 20.7097 9.91659"
+              stroke="url(#paint0_linear_913_3234)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+            />
+            <path
+              d="M19.832 18.0833C18.082 19.2499 15.1654 21.5833 12.832 25.6666M15.1654 22.1666C12.0575 15.3307 18.4726 13.108 23.2444 12.8517C23.8202 12.8207 24.1082 12.8053 24.315 13.0047C24.5218 13.2041 24.5098 13.4885 24.486 14.0571C24.288 18.7853 22.1592 25.2079 15.1654 22.1666Z"
+              stroke="url(#paint1_linear_913_3234)"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_913_3234"
+                x1="17.0433"
+                y1="6.88325"
+                x2="5.55486"
+                y2="15.8028"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_913_3234"
+                x1="22.0132"
+                y1="15.6138"
+                x2="14.8465"
+                y2="21.7862"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#00B7FF" />
+                <stop offset="1" stop-color="#0EB05C" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const ICON_COMPONENTS: Record<string, ComponentType> = {
+  analytics: Analytics,
+  "chart-breakout": ChartBreakout,
+  "indbox-download": InboxDownload,
+  "batteries-energy": BatteriesEnergy,
+  "crowd-funding": CrowdFunding,
+  "unlink-02": Unlink,
+  "house-solar-panel": HouseSolarPanel,
+  "eco-power": EcoPower,
+};
+
+// Shared class names
+const ICON_WRAPPER_BASE_CLASS =
+  "bg-[#f0f0f0] box-border content-stretch flex gap-[10px] items-center overflow-clip relative rounded-[12px] shrink-0";
+const ICON_WRAPPER_DEFAULT_CLASS = `${ICON_WRAPPER_BASE_CLASS} justify-center p-[18px] size-[66px]`;
+
+// Feature Item Component
+interface AnalyticsFeatureItemProps {
+  icon: string;
+  title: string;
+}
+
+function AnalyticsFeatureItem({ icon, title }: AnalyticsFeatureItemProps) {
+  const IconComponent = ICON_COMPONENTS[icon];
+  const iconWrapperClass = ICON_WRAPPER_DEFAULT_CLASS;
+
+  return (
+    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-[311px]">
+      <div className={iconWrapperClass}>
+        <IconComponent />
+      </div>
+      <p className="basis-0 font-['Gilroy:Medium',sans-serif] grow leading-[26px] min-h-px min-w-px not-italic relative shrink-0 text-[#282828] text-[20px]">
+        {title}
+      </p>
+    </div>
+  );
+}
+
+// Header Section Component
+function AnalyticsHeader() {
+  return (
+    <div className="content-stretch flex flex-col items-start justify-between not-italic relative self-stretch shrink-0 w-[450px]">
+      <p className="font-['Gilroy:Semibold',sans-serif] leading-[45px] relative shrink-0 text-[#282828] text-[36px] w-full">
+        <span>{ANALYTICS_CONTENT.title}</span>
+        <span className="text-[#0098d4]">
+          {ANALYTICS_CONTENT.titleHighlight}
+        </span>
+      </p>
+      <p className="font-['Gilroy:Medium',sans-serif] leading-[24px] relative shrink-0 text-[#8e8e8e] text-[16px] w-full">
+        {ANALYTICS_CONTENT.description}
+      </p>
+    </div>
+  );
+}
+
+// Features Grid Component
+function AnalyticsGrid() {
+  // Group features into rows of 2
+  const featureRows: Feature[][] = [];
+  for (let i = 0; i < ANALYTICS_CONTENT.features.length; i += 2) {
+    featureRows.push(ANALYTICS_CONTENT.features.slice(i, i + 2));
+  }
+
+  return (
+    <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0">
+      {featureRows.map((row, rowIndex) => (
+        <div
+          key={rowIndex}
+          className="content-stretch flex gap-[90px] items-center relative shrink-0 w-full"
+        >
+          {row.map((feature, featureIndex) => (
+            <AnalyticsFeatureItem
+              key={`${rowIndex}-${featureIndex}`}
+              icon={feature.icon}
+              title={feature.title}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Main Component
+export default function AnalyticsFeatures() {
+  return (
+    <div
+      className="bg-white box-border content-stretch flex items-start justify-between overflow-clip px-[100px] py-[60px] relative shrink-0 w-[1512px]"
+      data-name="Analytics - Features"
+    >
+      <AnalyticsHeader />
+      <AnalyticsGrid />
+    </div>
+  );
+}
