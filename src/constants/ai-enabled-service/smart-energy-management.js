@@ -4,6 +4,7 @@ export const heroContent = {
   description:
     "Unify your plant’s energy and process data under a single intelligent layer. Let AI forecast, optimize, and automate energy efficiency — every hour, every shift.",
   video: "/assets/video/inspection-digitization.mp4",
+  imagepath: "/assets/pages/ai-enabled/smart-energy-management/banner-hero.jpg",
   image:
     "/assets/pages/solutions/production-digitization/722868975ad87bdad1f880aefbc37c33e60f610d.png",
   imageAlt: "EAGLE Edge inspection Digitization",
@@ -20,7 +21,7 @@ export const featuresContent = {
   features: [
     {
       id: "predict-dont-react",
-      icon: "people",
+      icon: "search-2",
       title: "Predict. Don’t React.",
       description:
         "Predict peaks, forecast consumption, and act before inefficiencies impact cost.",
@@ -28,7 +29,7 @@ export const featuresContent = {
     },
     {
       id: "extend-equipment-life",
-      icon: "ruler",
+      icon: "service",
       title: "Self‑Optimizing Operations",
       description:
         "Continuous learning ensures your systems adapt to production dynamics automatically.",
@@ -36,7 +37,7 @@ export const featuresContent = {
     },
     {
       id: "boost-efficiency",
-      icon: "folder",
+      icon: "chart-histogram",
       title: "Smarter Sustainability",
       description:
         "Track and minimize emissions with real‑time AI‑driven carbon analytics.",

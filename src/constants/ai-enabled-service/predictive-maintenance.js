@@ -6,7 +6,8 @@ export const heroContent = {
   video: "/assets/video/inspection-digitization.mp4",
   image:
     "/assets/pages/solutions/production-digitization/722868975ad87bdad1f880aefbc37c33e60f610d.png",
-  imageAlt: "EAGLE Edge inspection Digitization",
+  imageAlt: "Predictive Maintenance Banner",
+  imagepath: "/assets/pages/ai-enabled/predictive-maintenance/banner-hero.jpg",
 };
 
 export const featuresContent = {
@@ -20,7 +21,7 @@ export const featuresContent = {
   features: [
     {
       id: "avoid-downtime",
-      icon: "people",
+      icon: "time-management",
       title: "Avoid Downtime",
       description:
         "Real-time anomaly alerts minimize sudden stoppages and production loss.",
@@ -28,7 +29,7 @@ export const featuresContent = {
     },
     {
       id: "extend-equipment-life",
-      icon: "ruler",
+      icon: "battery",
       title: "Extend Equipment Life",
       description:
         "Continuous monitoring ensures timely care and prolonged asset lifespan.",
@@ -36,7 +37,7 @@ export const featuresContent = {
     },
     {
       id: "boost-efficiency",
-      icon: "folder",
+      icon: "text-link",
       title: "Boost Efficiency",
       description:
         "Predictive insights optimize maintenance cycles and production planning.",

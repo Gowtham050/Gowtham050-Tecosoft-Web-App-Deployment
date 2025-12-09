@@ -9,6 +9,7 @@ interface HeroContentProps {
   video: string;
   image: string;
   imageAlt: string;
+  imagepath: string;
 }
 
 // Constants
@@ -35,6 +36,27 @@ function BackgroundVideo({ videoPath }: BackgroundVideoProps) {
       <source src={videoPath} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
+  );
+}
+
+interface BackgroundImageProps {
+  imagePath: string;
+  imageAlt: string;
+}
+
+function BackgroundImage({ imagePath, imageAlt }: BackgroundImageProps) {
+  return (
+    <div className="absolute inset-0 w-full h-full">
+      <Image
+        alt={imageAlt}
+        className="w-full h-full object-cover"
+        src={imagePath}
+        fill
+        sizes="100vw"
+        priority
+        style={{ objectFit: "cover" }}
+      />
+    </div>
   );
 }
 
@@ -113,6 +135,7 @@ function HeroContent({
   description,
   image,
   imageAlt,
+  imagepath,
 }: HeroContentComponentProps) {
   return (
     <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-16 md:py-20 lg:py-24">
@@ -141,7 +164,11 @@ export function HeroSection({ content }: HeroSectionProps) {
       data-name="Hero section"
       aria-label="Production Digitization Hero Section"
     >
-      <BackgroundVideo videoPath={content.video} />
+      {content?.imagepath ? (
+        <BackgroundImage imagePath={content.imagepath} imageAlt={content.imageAlt} />
+      ) : (
+        <BackgroundVideo videoPath={content.video} />
+      )}
       <GradientOverlay />
       <HeroContent {...content} />
     </section>
