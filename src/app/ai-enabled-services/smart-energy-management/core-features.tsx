@@ -1,4 +1,9 @@
+"use client";
+
 import svgPaths from "../../../imports/svg-plhzsxyavn";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Content Configuration
 const CORE_FEATURES_CONTENT = {
@@ -29,6 +34,24 @@ const CORE_FEATURES_CONTENT = {
       title: "AI‑driven Efficiency Optimization",
       description:
         "Predictive algorithms identify inefficiencies, forecast demand, and dynamically tune process parameters for optimal usage.",
+    },
+    {
+      icon: "danger",
+      title: "Self‑Learning Energy Models",
+      description:
+        "Machine learning models continuously learn from historical data to improve accuracy of consumption forecasts.",
+    },
+    {
+      icon: "danger",
+      title: "Self‑Learning Energy Models",
+      description:
+        "Machine learning models continuously learn from historical data to improve accuracy of consumption forecasts.",
+    },
+    {
+      icon: "danger",
+      title: "Self‑Learning Energy Models",
+      description:
+        "Machine learning models continuously learn from historical data to improve accuracy of consumption forecasts.",
     },
     {
       icon: "danger",
@@ -315,51 +338,232 @@ function CoreFeatureCard({
       : VuesaxLinearDanger;
 
   return (
-    <div className="bg-[rgba(255,255,255,0.16)] box-border content-stretch flex flex-col gap-[32px] items-start overflow-clip p-[24px] relative rounded-[16px] shrink-0 w-[310px]">
-      {icon === "database-export" ? (
-        <div className="flex items-center justify-center relative shrink-0">
-          <div className="flex-none scale-y-[-100%]">
-            <IconComponent />
+    <div className="bg-[rgba(255,255,255,0.16)] backdrop-blur-md box-border flex flex-col gap-[20px] items-start p-[24px] rounded-[16px] h-full min-h-[280px] transition-all duration-300 hover:bg-[rgba(255,255,255,0.22)]">
+      <div className="shrink-0">
+        {icon === "database-export" ? (
+          <div className="flex items-center justify-center">
+            <div className="flex-none scale-y-[-100%]">
+              <IconComponent />
+            </div>
           </div>
-        </div>
-      ) : (
-        <IconComponent />
-      )}
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[28px] min-w-full not-italic relative shrink-0 text-[#00ff84] text-[23px] w-[min-content]">
-        {title}
-      </p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-white w-[min-content]">
-        {description}
-      </p>
+        ) : (
+          <IconComponent />
+        )}
+      </div>
+      <div className="flex flex-col gap-[16px] flex-1">
+        <h3 className="font-semibold leading-[28px] text-[#00ff84] text-[20px] m-0">
+          {title}
+        </h3>
+        <p className="font-normal leading-[22px] text-[14px] text-white text-opacity-90 m-0">
+          {description}
+        </p>
+      </div>
     </div>
   );
 }
 
 function Frame35() {
   return (
-    <div className="content-stretch flex items-start justify-between not-italic relative shrink-0 text-white w-full">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[46px] relative shrink-0 text-[42px] text-nowrap whitespace-pre">
+    <div className="flex flex-col md:flex-row items-start md:justify-between gap-6 md:gap-8 text-white w-full">
+      <h2 className="font-semibold text-[36px] md:text-[42px] leading-[42px] md:leading-[50px] text-white m-0 whitespace-nowrap">
         {CORE_FEATURES_CONTENT.title}
+      </h2>
+      <p className="font-normal text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] text-white text-opacity-90 max-w-[645px] m-0">
+        {CORE_FEATURES_CONTENT.description}
       </p>
-      <div className="font-['Gilroy:Regular',sans-serif] leading-[24px] relative shrink-0 text-[16px] w-[645px]">
-        <p className="mb-0">{`From precise sensor integration to automated maintenance and AI-driven predictions, each layer works together to create a connected, self-aware `}</p>
-        <p>maintenance ecosystem.</p>
-      </div>
     </div>
   );
 }
 
-function Frame40() {
+// Custom Arrow Components for React Slick
+interface ArrowProps {
+  onClick?: () => void;
+}
+
+function CustomPrevArrow({ onClick }: ArrowProps) {
   return (
-    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full">
-      {CORE_FEATURES_CONTENT.features.map((feature, index) => (
-        <CoreFeatureCard
-          key={index}
-          icon={feature.icon}
-          title={feature.title}
-          description={feature.description}
+    <button
+      onClick={onClick}
+      className="slick-arrow slick-prev"
+      aria-label="Previous slide"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 18L9 12L15 6"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
-      ))}
+      </svg>
+    </button>
+  );
+}
+
+function CustomNextArrow({ onClick }: ArrowProps) {
+  return (
+    <button
+      onClick={onClick}
+      className="slick-arrow slick-next"
+      aria-label="Next slide"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9 18L15 12L9 6"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  );
+}
+
+function Frame40() {
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4.25,
+    slidesToScroll: 4,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3.5,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1.5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  return (
+    <div className="core-features-slider w-full max-w-full">
+      <style jsx>{`
+        .core-features-slider :global(.slick-slide) {
+          padding: 0 10px;
+        }
+        .core-features-slider :global(.slick-list) {
+          margin: 0 -10px;
+          overflow: visible;
+        }
+        .core-features-slider :global(.slick-track) {
+          display: flex !important;
+          align-items: stretch;
+        }
+        .core-features-slider :global(.slick-slide) {
+          height: inherit !important;
+        }
+        .core-features-slider :global(.slick-slide > div) {
+          height: 100%;
+          min-width: 280px;
+          max-width: 340px;
+        }
+        .core-features-slider :global(.slick-arrow) {
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.16);
+          backdrop-filter: blur(10px);
+          transition: all 0.3s ease;
+          border: none;
+          cursor: pointer;
+          z-index: 10;
+          position: absolute;
+        }
+        .core-features-slider :global(.slick-arrow:hover:not(.slick-disabled)) {
+          background: rgba(255, 255, 255, 0.25);
+          transform: scale(1.08);
+        }
+        .core-features-slider :global(.slick-arrow.slick-disabled) {
+          opacity: 0.4;
+          cursor: not-allowed;
+        }
+        .core-features-slider :global(.slick-arrow::before) {
+          display: none;
+        }
+        .core-features-slider :global(.slick-prev) {
+          left: 50%;
+          transform: translateX(-58px);
+          bottom: -85px;
+          top: auto;
+        }
+        .core-features-slider :global(.slick-next) {
+          right: 50%;
+          transform: translateX(58px);
+          bottom: -85px;
+          top: auto;
+        }
+        .core-features-slider :global(.slick-prev:hover:not(.slick-disabled)) {
+          transform: translateX(-58px) scale(1.08);
+        }
+        .core-features-slider :global(.slick-next:hover:not(.slick-disabled)) {
+          transform: translateX(58px) scale(1.08);
+        }
+
+        @media (max-width: 768px) {
+          .core-features-slider :global(.slick-prev) {
+            bottom: -75px;
+          }
+          .core-features-slider :global(.slick-next) {
+            bottom: -75px;
+          }
+          .core-features-slider :global(.slick-arrow) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      `}</style>
+      <Slider {...settings}>
+        {CORE_FEATURES_CONTENT.features.map((feature, index) => (
+          <div key={index} className="h-full">
+            <CoreFeatureCard
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 }
@@ -367,7 +571,7 @@ function Frame40() {
 function CoreFeatures() {
   return (
     <div
-      className="box-border content-stretch flex flex-col gap-[60px] items-start overflow-clip px-[100px] py-[60px] relative shrink-0 w-[1512px]"
+      className="box-border flex flex-col gap-[50px] md:gap-[60px] items-start px-6 md:px-16 lg:px-[100px] pt-[50px] md:pt-[60px] pb-[130px] md:pb-[150px] w-full overflow-hidden"
       data-name="Core features"
       style={{
         background: "linear-gradient(242.47deg, #00BCEF 6.45%, #002363 95.13%)",

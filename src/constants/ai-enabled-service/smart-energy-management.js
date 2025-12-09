@@ -22,7 +22,7 @@ export const featuresContent = {
     {
       id: "predict-dont-react",
       icon: "search-2",
-      title: "Predict. Don’t React.",
+      title: "Predict. Don't React.",
       description:
         "Predict peaks, forecast consumption, and act before inefficiencies impact cost.",
       bgColor: "rgba(204,241,255,0.5)",
@@ -42,6 +42,47 @@ export const featuresContent = {
       description:
         "Track and minimize emissions with real‑time AI‑driven carbon analytics.",
       bgColor: "rgba(204,241,255,0.5)",
+    },
+  ],
+};
+
+export const analyticsContent = {
+  title: "Analytics View - ",
+  titleHighlight: "Turning Data into Decisions",
+  description:
+    "The predictive maintenance dashboard translates complex machine data into simple, actionable visuals for faster decision-making and smarter planning.",
+  features: [
+    {
+      icon: "analytics",
+      title: "Energy Command Center",
+    },
+    {
+      icon: "chart-breakout",
+      title: "Peak Demand Prediction",
+    },
+    {
+      icon: "indbox-download",
+      title: "Dynamic Load Forecasting",
+    },
+    {
+      icon: "batteries-energy",
+      title: "Renewable Source Analytics",
+    },
+    {
+      icon: "crowd-funding",
+      title: "AI‑Based Cost Attribution",
+    },
+    {
+      icon: "unlink-02",
+      title: "Predictive Maintenance Linkage",
+    },
+    {
+      icon: "house-solar-panel",
+      title: "AI‑Assisted Energy Scheduling",
+    },
+    {
+      icon: "eco-power",
+      title: "Carbon Footprint Forecasting",
     },
   ],
 };

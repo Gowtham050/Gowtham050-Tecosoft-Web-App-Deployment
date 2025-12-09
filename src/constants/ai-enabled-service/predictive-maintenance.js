@@ -45,3 +45,36 @@ export const featuresContent = {
     },
   ],
 };
+
+export const analyticsContent = {
+  title: "Analytics View - ",
+  titleHighlight: "Turning Data into Decisions",
+  description:
+    "The predictive maintenance dashboard translates complex machine data into simple, actionable visuals for faster decision-making and smarter planning.",
+  features: [
+    {
+      icon: "sidebar-left",
+      title: "Machine Health Dashboard",
+    },
+    {
+      icon: "dashboard-speed",
+      title: "Performance Trends",
+    },
+    {
+      icon: "notification-square",
+      title: "Anomaly Detection",
+    },
+    {
+      icon: "alert",
+      title: "Predictive Alerts & Insights",
+    },
+    {
+      icon: "database-sync",
+      title: "Maintenance Forecasting",
+    },
+    {
+      icon: "kanban",
+      title: "Comparative Analytics",
+    },
+  ],
+};
