@@ -901,7 +901,7 @@ const ICON_COMPONENTS: Record<string, ComponentType> = {
 // Shared class names
 const ICON_WRAPPER_BASE_CLASS =
   "bg-[#f0f0f0] box-border content-stretch flex gap-[10px] items-center overflow-clip relative rounded-[12px] shrink-0 group transition-all duration-300";
-const ICON_WRAPPER_DEFAULT_CLASS = `${ICON_WRAPPER_BASE_CLASS} justify-center p-[18px] size-[66px]`;
+const ICON_WRAPPER_DEFAULT_CLASS = `${ICON_WRAPPER_BASE_CLASS} justify-center p-3 sm:p-4 xl:p-[18px] size-[56px] sm:size-[60px] xl:size-[66px]`;
 
 // Feature Item Component
 interface AnalyticsFeatureItemProps {
@@ -914,11 +914,11 @@ function AnalyticsFeatureItem({ icon, title }: AnalyticsFeatureItemProps) {
   const iconWrapperClass = ICON_WRAPPER_DEFAULT_CLASS;
 
   return (
-    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-[311px]">
+    <div className="content-stretch flex gap-5 sm:gap-[24px] items-center relative shrink-0 w-[90%] sm:w-[calc(50%-24px)] sm:max-w-[320px] lg:max-w-[360px] xl:w-[311px] xl:max-w-none ">
       <div className={`${iconWrapperClass} icon-wrapper`}>
         <IconComponent />
       </div>
-      <p className="basis-0 font-medium grow leading-[26px] min-h-px min-w-px not-italic relative shrink-0 text-[#282828] text-[20px]">
+      <p className="basis-0 font-medium grow leading-[22px] sm:leading-[26px] min-h-px min-w-px not-italic relative shrink-0 text-[#282828] text-[18px] sm:text-[20px]">
         {title}
       </p>
     </div>
@@ -928,14 +928,14 @@ function AnalyticsFeatureItem({ icon, title }: AnalyticsFeatureItemProps) {
 // Header Section Component
 function AnalyticsHeader() {
   return (
-    <div className="content-stretch flex flex-col items-start justify-between not-italic relative self-stretch shrink-0 w-[450px]">
-      <p className="font-semibold leading-[45px] relative shrink-0 text-[#282828] text-[36px] w-full">
+    <div className="content-stretch flex flex-col items-start sm:items-center xl:items-start justify-between not-italic relative self-stretch shrink-0 w-full xl:w-[450px] sm:text-center xl:text-left">
+      <p className="font-semibold leading-[32px] sm:leading-[40px] xl:leading-[45px] relative shrink-0 text-[#282828] text-[28px] sm:text-[32px] xl:text-[36px] w-full mb-4">
         <span>{ANALYTICS_CONTENT.title}</span>
         <span className="text-[#0098d4]">
           {ANALYTICS_CONTENT.titleHighlight}
         </span>
       </p>
-      <p className="font-medium leading-[24px] relative shrink-0 text-[#8e8e8e] text-[16px] w-full">
+      <p className="font-medium leading-[22px] sm:leading-[24px] relative shrink-0 text-[#8e8e8e] text-[14px] sm:text-[16px] w-full sm:max-w-[700px] xl:max-w-none">
         {ANALYTICS_CONTENT.description}
       </p>
     </div>
@@ -951,11 +951,11 @@ function AnalyticsGrid() {
   }
 
   return (
-    <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0">
+    <div className="content-stretch flex flex-col gap-10 sm:gap-16 xl:gap-[80px] items-start sm:items-center    xl:items-start relative shrink-0 w-full xl:w-auto">
       {featureRows.map((row, rowIndex) => (
         <div
           key={rowIndex}
-          className="content-stretch flex gap-[90px] items-center relative shrink-0 w-full"
+          className="content-stretch flex flex-col sm:flex-row sm:flex-wrap gap-8 sm:gap-x-12 sm:gap-y-8 xl:gap-[90px] xl:flex-nowrap items-center sm:items-start relative shrink-0 w-full sm:justify-start lg:justify-center"
         >
           {row.map((feature, featureIndex) => (
             <AnalyticsFeatureItem
@@ -980,7 +980,7 @@ export default function AnalyticsFeatures() {
         }
       `}</style>
       <div
-        className="bg-white box-border content-stretch flex items-start justify-between overflow-clip px-[100px] py-[60px] relative shrink-0 w-[1512px]"
+        className="bg-white box-border content-stretch flex flex-col xl:flex-row items-start sm:items-center xl:items-start justify-between overflow-clip px-5 sm:px-10 lg:px-16 xl:px-[100px] py-8 sm:py-12 lg:py-[60px] relative shrink-0 w-full max-w-[1512px] mx-auto gap-10 xl:gap-0"
         data-name="Analytics - Features"
       >
         <AnalyticsHeader />
