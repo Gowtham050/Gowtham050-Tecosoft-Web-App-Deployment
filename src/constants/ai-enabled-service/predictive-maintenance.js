@@ -3,7 +3,7 @@ export const heroContent = {
   highlight: "AI that Sees Tomorrow",
   description:
     "Combine sensor intelligence, edge computing, and predictive AI to forecast failures, plan maintenance, and keep production running at its best.",
-  video: "/assets/video/inspection-digitization.mp4",
+  video: "",
   image:
     "/assets/pages/solutions/production-digitization/722868975ad87bdad1f880aefbc37c33e60f610d.png",
   imageAlt: "Predictive Maintenance Banner",
@@ -75,6 +75,38 @@ export const analyticsContent = {
     {
       icon: "kanban",
       title: "Comparative Analytics",
+    },
+  ],
+};
+
+export const coreFeaturesContent = {
+  title: "Core Features",
+  description:
+    "From precise sensor integration to automated maintenance and AI-driven predictions, each layer works together to create a connected, self-aware maintenance ecosystem.",
+  features: [
+    {
+      icon: "chart-relationship",
+      title: "Advanced Sensors Integration",
+      description:
+        "Industrial-grade sensors capture vibration, temperature, pressure, flow, and energy data, providing the foundation for accurate machine health insights.",
+    },
+    {
+      icon: "artificial-intelligence",
+      title: "Real-Time Edge Intelligence",
+      description:
+        "EAGLE Gateway pre processes data locally, filters noise, and transmits only essential information - enabling real-time alerts and low-latency decisions.",
+    },
+    {
+      icon: "database-export",
+      title: "Smart Maintenance Automation",
+      description:
+        "Automatically schedules maintenance based on predicted wear and performance data - ensuring optimal uptime and reduced manual dependency.",
+    },
+    {
+      icon: "danger",
+      title: "AI-driven Failure Prediction",
+      description:
+        "AI models analyze sensor patterns to predict failures, estimate remaining useful life, and recommend preventive actions before issues occur.",
     },
   ],
 };

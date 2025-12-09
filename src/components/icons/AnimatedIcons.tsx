@@ -1686,7 +1686,7 @@ export function TimeManagementIcon({ isHovered }: IconProps) {
               <path
                 d="M1 24.3333C1 22.762 1 21.9763 1.58579 21.4882C2.17157 21 3.11438 21 5 21C6.88562 21 7.82843 21 8.41421 21.4882C9 21.9763 9 22.762 9 24.3333C9 25.9047 9 26.6904 8.41421 27.1785C7.82843 27.6667 6.88562 27.6667 5 27.6667C3.11438 27.6667 2.17157 27.6667 1.58579 27.1785C1 26.6904 1 25.9047 1 24.3333Z"
                 stroke="#07AF40"
-                stroke-width="2"
+                strokeWidth="2"
                 className={`timemanagement-path-1 ${
                   isHovered ? "animate" : ""
                 }`}
@@ -1694,7 +1694,7 @@ export function TimeManagementIcon({ isHovered }: IconProps) {
               <path
                 d="M19.6641 24.3333C19.6641 22.762 19.6641 21.9763 20.2498 21.4882C20.8356 21 21.7784 21 23.6641 21C25.5497 21 26.4925 21 27.0783 21.4882C27.6641 21.9763 27.6641 22.762 27.6641 24.3333C27.6641 25.9047 27.6641 26.6904 27.0783 27.1785C26.4925 27.6667 25.5497 27.6667 23.6641 27.6667C21.7784 27.6667 20.8356 27.6667 20.2498 27.1785C19.6641 26.6904 19.6641 25.9047 19.6641 24.3333Z"
                 stroke="#07AF40"
-                stroke-width="2"
+                strokeWidth="2"
                 className={`timemanagement-path-2 ${
                   isHovered ? "animate" : ""
                 }`}
@@ -1702,9 +1702,9 @@ export function TimeManagementIcon({ isHovered }: IconProps) {
               <path
                 d="M23.6667 21C23.6667 17.6907 22.6749 17 17.9231 17H10.7436C5.99173 17 5 17.6907 5 21"
                 stroke="#07AF40"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={`timemanagement-path-3 ${
                   isHovered ? "animate" : ""
                 }`}
@@ -1712,8 +1712,8 @@ export function TimeManagementIcon({ isHovered }: IconProps) {
               <path
                 d="M14.332 7L15.6654 5M20.332 7C20.332 10.3137 17.6457 13 14.332 13C11.0183 13 8.33203 10.3137 8.33203 7C8.33203 3.68629 11.0183 1 14.332 1C17.6457 1 20.332 3.68629 20.332 7Z"
                 stroke="#07AF40"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
                 className={`timemanagement-path-4 ${
                   isHovered ? "animate" : ""
                 }`}
@@ -1777,23 +1777,23 @@ export function BatteryIcon({ isHovered }: IconProps) {
               <path
                 d="M10.668 25.3333H17.3346C21.1059 25.3333 22.9915 25.3333 24.1631 24.1617C25.3346 22.9901 25.3346 21.1045 25.3346 17.3333C25.3346 14.8488 25.3346 13.1827 24.9996 12M7.33464 9.3844C5.65743 9.4785 4.59861 9.74576 3.83954 10.5048C2.66797 11.6764 2.66797 13.562 2.66797 17.3333C2.66797 20.325 2.66797 22.13 3.25285 23.3333"
                 stroke="#07AF40"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
                 className={`battery-path-1 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M25.332 13.9999L26.7016 14.2282C27.61 14.3796 28.0642 14.4553 28.4088 14.6755C28.7478 14.8921 29.0136 15.2058 29.1715 15.5758C29.332 15.9519 29.332 16.4124 29.332 17.3333C29.332 18.2542 29.332 18.7146 29.1715 19.0908C29.0136 19.4607 28.7478 19.7745 28.4088 19.9911C28.0642 20.2112 27.61 20.2869 26.7016 20.4383L25.332 20.6666"
                 stroke="#07AF40"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
                 className={`battery-path-2 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M6.70962 26.6666C6.05872 19.4666 11.9991 18 14.6657 14.6666M14.7106 21.1137C18.1036 20.1658 20.2797 17.8966 21.087 14.4644C22.0014 10.5774 20.362 5.28433 16.1355 5.33366C16.1355 5.33366 16.5658 7.01279 16.1894 7.83518C14.8016 10.8674 9.99903 10.6568 8.44203 14.5025C7.51484 16.6544 8.07556 19.0584 9.82025 20.4372C10.9165 21.3037 13.0813 21.5689 14.7106 21.1137Z"
                 stroke="#07AF40"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={`battery-path-3 ${isHovered ? "animate" : ""}`}
               />
             </svg>
@@ -1866,30 +1866,30 @@ export function TextLinkIcon({ isHovered }: IconProps) {
               <path
                 d="M28 28H13.3333C8.93356 28 6.73367 28 5.36683 26.6332C4 25.2663 4 23.0664 4 18.6667V4"
                 stroke="#07AF40"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
                 className={`textlink-path-1 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M9.33464 5.33331H10.668"
                 stroke="#07AF40"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
                 className={`textlink-path-2 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M9.33464 9.33331H14.668"
                 stroke="#07AF40"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
                 className={`textlink-path-3 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M6.66797 26.6666C8.09588 24.0707 10.0317 17.3585 13.743 17.3585C16.3081 17.3585 16.9724 20.6289 19.4861 20.6289C23.8109 20.6289 23.184 13.3333 28.0013 13.3333"
                 stroke="#07AF40"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={`textlink-path-4 ${isHovered ? "animate" : ""}`}
               />
             </svg>
@@ -1963,23 +1963,23 @@ export function SearchIcon2({ isHovered }: IconProps) {
               <path
                 d="M15.3346 28C9.36351 28 6.37795 28 4.52296 26.145C2.66797 24.29 2.66797 21.3045 2.66797 15.3334C2.66797 9.36223 2.66797 6.37667 4.52296 4.52168C6.37795 2.66669 9.36351 2.66669 15.3346 2.66669C21.3058 2.66669 24.2913 2.66669 26.1463 4.52168C28.0013 6.37667 28.0013 9.36223 28.0013 15.3334"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linecap="round"
+                strokeWidth="1.75"
+                strokeLinecap="round"
                 className={`searchicon-path-1 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M2.66797 9.33331L28.0013 9.33331"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linejoin="round"
+                strokeWidth="1.75"
+                strokeLinejoin="round"
                 className={`searchicon-path-2 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M13.3333 21.3333H14.6667M8 21.3333H9.33333M13.3333 16H18.6667M8 16H9.33333"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={`searchicon-path-3 ${isHovered ? "animate" : ""}`}
               />
               <path
@@ -2034,16 +2034,16 @@ export function ServiceIcon({ isHovered }: IconProps) {
               <path
                 d="M16.6654 10.6666L13.332 15.9999H18.6654L15.332 21.3332"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={`service-path-1 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M28.0159 18.8521C28.7118 18.6606 29.0598 18.5648 29.1972 18.3817C29.3346 18.1987 29.3346 17.9042 29.3346 17.3152V14.6847C29.3346 14.0957 29.3346 13.8012 29.1972 13.6182C29.0598 13.4351 28.7118 13.3394 28.0159 13.1479C25.4154 12.4323 23.7879 9.65834 24.459 7.02234C24.6436 6.2974 24.7359 5.93493 24.6477 5.72234C24.5596 5.50976 24.3067 5.36326 23.801 5.07026L21.5014 3.73809C21.0051 3.45058 20.7569 3.30682 20.5342 3.33744C20.3114 3.36805 20.0602 3.62381 19.5576 4.13534C17.612 6.11577 14.3927 6.11569 12.4471 4.13521C11.9445 3.62368 11.6933 3.36792 11.4705 3.3373C11.2478 3.30669 10.9997 3.45045 10.5033 3.73796L8.20375 5.07013C7.698 5.36311 7.44513 5.5096 7.357 5.72216C7.26888 5.93472 7.36113 6.29723 7.54563 7.02224C8.21646 9.65832 6.58759 12.4324 3.98666 13.1479C3.2908 13.3394 2.94286 13.4351 2.80542 13.6181C2.66797 13.8012 2.66797 14.0957 2.66797 14.6847V17.3152C2.66797 17.9042 2.66797 18.1987 2.8054 18.3818C2.94284 18.5648 3.29078 18.6606 3.98666 18.8521C6.58716 19.5676 8.21475 22.3416 7.5436 24.9776C7.35902 25.7026 7.26673 26.065 7.35485 26.2776C7.44298 26.4902 7.69586 26.6367 8.20164 26.9297L10.5012 28.2619C10.9976 28.5494 11.2458 28.6932 11.4685 28.6625C11.6913 28.6319 11.9425 28.3761 12.4449 27.8646C14.3916 25.8825 17.6131 25.8824 19.5598 27.8644C20.0622 28.376 20.3135 28.6318 20.5362 28.6624C20.759 28.693 21.0071 28.5493 21.5035 28.2617L23.8031 26.9296C24.3089 26.6366 24.5618 26.49 24.6499 26.2774C24.738 26.0648 24.6457 25.7024 24.461 24.9775C23.7896 22.3416 25.4159 19.5677 28.0159 18.8521Z"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linecap="round"
+                strokeWidth="1.75"
+                strokeLinecap="round"
                 className={`service-path-2 ${isHovered ? "animate" : ""}`}
               />
             </svg>
@@ -2127,40 +2127,40 @@ export function ChartHistogramIcon({ isHovered }: IconProps) {
               <path
                 d="M24.875 24.875H10.2083C5.80856 24.875 3.60867 24.875 2.24183 23.5082C0.875 22.1413 0.875 19.9414 0.875 15.5417V0.875"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linecap="round"
+                strokeWidth="1.75"
+                strokeLinecap="round"
                 className={`histogram-path-1 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M14.207 10.2083L14.207 24.875"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={`histogram-path-2 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M20.875 14.2083L20.875 24.875"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={`histogram-path-3 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M7.54297 14.2083L7.54297 23.5416"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={`histogram-path-4 ${isHovered ? "animate" : ""}`}
               />
               <path
                 d="M24.875 7.52426C22.4216 7.52426 19.7979 7.86505 18.0444 5.53297C16.048 2.87793 12.3686 2.87793 10.3723 5.53297C8.61876 7.86505 5.99503 7.52426 3.54167 7.52426H0.875"
                 stroke="#07AF40"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className={`histogram-path-5 ${isHovered ? "animate" : ""}`}
               />
             </svg>
@@ -2170,7 +2170,6 @@ export function ChartHistogramIcon({ isHovered }: IconProps) {
     </div>
   );
 }
-
 
 export const iconMap = {
   settings: SettingsIcon,

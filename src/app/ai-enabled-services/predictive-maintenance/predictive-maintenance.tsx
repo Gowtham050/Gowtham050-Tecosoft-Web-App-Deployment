@@ -2,14 +2,15 @@
 
 import { HeroSection } from "@/components/Solutions/BannerSection/HeroSection";
 import { FeaturesSection } from "@/components/Solutions/FeatureSection/FeaturesSection";
-import { AnalyticsSection } from "@/components/Solutions/AnalyticsSection/analyticsSection";
+import { AnalyticsSection } from "@/components/Solutions/AnalyticsSection/AnalyticsSection";
 import {
   heroContent,
   featuresContent,
   analyticsContent,
+  coreFeaturesContent,
 } from "@/constants/ai-enabled-service/predictive-maintenance";
 import React from "react";
-import CoreFeatures from "./core-features";
+import CoreFeatures from "@/components/Solutions/CoreFeatures/CoreFeaturesSection";
 
 export default function ConnectedFactories1() {
   return (
@@ -19,7 +20,7 @@ export default function ConnectedFactories1() {
     >
       <HeroSection content={heroContent} />
       <FeaturesSection content={featuresContent} />
-      <CoreFeatures />
+      <CoreFeatures content={coreFeaturesContent} />
       <AnalyticsSection content={analyticsContent} />
     </div>
   );

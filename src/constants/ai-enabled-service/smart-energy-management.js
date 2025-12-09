@@ -3,7 +3,7 @@ export const heroContent = {
   highlight: "Intelligence that Powers Efficiency",
   description:
     "Unify your plant’s energy and process data under a single intelligent layer. Let AI forecast, optimize, and automate energy efficiency — every hour, every shift.",
-  video: "/assets/video/inspection-digitization.mp4",
+  video: "",
   imagepath: "/assets/pages/ai-enabled/smart-energy-management/banner-hero.jpg",
   image:
     "/assets/pages/solutions/production-digitization/722868975ad87bdad1f880aefbc37c33e60f610d.png",
@@ -83,6 +83,63 @@ export const analyticsContent = {
     {
       icon: "eco-power",
       title: "Carbon Footprint Forecasting",
+    },
+  ],
+};
+
+// Default content (keeps backwards compatibility)
+export const CoreFeaturesContent = {
+  title: "Core Features",
+  description:
+    "From precise sensor integration to automated maintenance and AI-driven predictions, each layer works together to create a connected, self-aware maintenance ecosystem.",
+  features: [
+    {
+      icon: "chart-relationship",
+      title: "Real‑time Energy Metering",
+      description:
+        "Precision sub‑metering captures energy flow from each asset and zone - creating a digital energy twin for your plant.",
+    },
+    {
+      icon: "artificial-intelligence",
+      title: "Edge Aggregation & Control",
+      description:
+        "EAGLE Gateway filters, processes, and controls energy data locally, enabling autonomous decision‑making at the edge.",
+    },
+    {
+      icon: "database-export",
+      title: "Automated Load Balancing",
+      description:
+        "Smart scheduling powered by AI distributes loads efficiently, reducing energy spikes and lowering operational costs.",
+    },
+    {
+      icon: "danger",
+      title: "AI‑driven Efficiency Optimization",
+      description:
+        "Predictive algorithms identify inefficiencies, forecast demand, and dynamically tune process parameters for optimal usage.",
+    },
+    {
+      icon: "energy",
+      title: "Self‑Learning Energy Models",
+      description:
+        "Machine learning models continuously learn from historical data to improve accuracy of consumption forecasts.",
+    },
+    {
+      icon: "prediction",
+      title: "Energy Anomaly Prediction",
+      description:
+        "AI predicts unusual consumption patterns before they occur, allowing preventive action to avoid waste.",
+    },
+    {
+      icon: "data",
+      title: "Advanced Asset Interrelation",
+      description:
+        "Predictive algorithms identify inefficiencies, forecast demand, and dynamically tune process parameters for optimal usage.",
+    },
+    {
+      icon: "sun",
+      title: "Enhanced Sustainability Intelligence",
+      description:
+        "Tracks carbon impact and renewable energy usage in real‑time, helping achieve ESG and green compliance goals.",
     },
   ],
 };

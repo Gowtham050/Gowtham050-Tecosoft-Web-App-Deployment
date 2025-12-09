@@ -4,6 +4,8 @@ export const heroContent = {
   description:
     "Digitize every maintenance touchpoint — from daily checks to proactive scheduling — with EAGLE’s connected maintenance suite.",
   video: "/assets/video/maintenance-digitization.mp4",
+  imagepath: "",
+
   image:
     "/assets/pages/solutions/production-digitization/722868975ad87bdad1f880aefbc37c33e60f610d.png",
   imageAlt: "EAGLE Edge Gateway Device",
@@ -13,10 +15,10 @@ export const featuresContent = {
   sectionTitle: "Key Featuress",
   sectionDescription:
     "Complete solutions designed to maintain organization, encourage proactive measures, and ensure full traceability across all maintenance activities.",
- backgroundImage:
+  backgroundImage:
     "/assets/pages/solutions/production-digitization/3a380a8126032af34701f98b609fdbd9e932781c.png",
   // backgroundImage:
-    // "linear-gradient(90deg, rgba(0, 184, 219, 0.12) 0%, rgba(0, 184, 219, 0.12) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)",
+  // "linear-gradient(90deg, rgba(0, 184, 219, 0.12) 0%, rgba(0, 184, 219, 0.12) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)",
 
   features: [
     {
@@ -173,7 +175,6 @@ export const workflowContent = {
     },
   ],
 };
-
 
 export const statsContent = {
   sectionTitle: "Performance at a Glance",

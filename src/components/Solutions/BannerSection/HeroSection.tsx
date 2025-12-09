@@ -6,7 +6,7 @@ interface HeroContentProps {
   title: string;
   highlight: string;
   description: string;
-  video: string;
+  video?: string;
   image: string;
   imageAlt: string;
   imagepath: string;
@@ -40,7 +40,7 @@ function BackgroundVideo({ videoPath }: BackgroundVideoProps) {
 }
 
 interface BackgroundImageProps {
-  imagePath: string;
+  imagePath: string ;
   imageAlt: string;
 }
 
@@ -102,31 +102,6 @@ function TextContent({ title, highlight, description }: TextContentProps) {
   );
 }
 
-interface DeviceImageProps {
-  imagePath: string;
-  imageAlt: string;
-}
-
-function DeviceImage({ imagePath, imageAlt }: DeviceImageProps) {
-  return (
-    <div
-      className="absolute right-0 top-1/2 -translate-y-1/2 w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] xl:w-[400px] h-auto opacity-70 lg:opacity-80 hidden md:block"
-      data-name="Eagle Device"
-    >
-      <div className="relative w-full h-full">
-        <Image
-          alt={imageAlt}
-          className="w-full h-full object-contain"
-          src={imagePath}
-          fill
-          sizes="(max-width: 768px) 250px, (max-width: 1024px) 300px, (max-width: 1280px) 350px, 400px"
-          style={{ objectFit: "contain" }}
-        />
-      </div>
-    </div>
-  );
-}
-
 interface HeroContentComponentProps extends HeroContentProps {}
 
 function HeroContent({
@@ -164,10 +139,13 @@ export function HeroSection({ content }: HeroSectionProps) {
       data-name="Hero section"
       aria-label="Production Digitization Hero Section"
     >
-      {content?.imagepath ? (
-        <BackgroundImage imagePath={content.imagepath} imageAlt={content.imageAlt} />
-      ) : (
+      {content?.video ? (
         <BackgroundVideo videoPath={content.video} />
+      ) : (
+        <BackgroundImage
+          imagePath={content.imagepath}
+          imageAlt={content.imageAlt}
+        />
       )}
       <GradientOverlay />
       <HeroContent {...content} />

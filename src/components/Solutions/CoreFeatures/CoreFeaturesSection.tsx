@@ -5,63 +5,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Content Configuration
-const CORE_FEATURES_CONTENT = {
-  title: "Core Features",
-  description:
-    "From precise sensor integration to automated maintenance and AI-driven predictions, each layer works together to create a connected, self-aware maintenance ecosystem.",
-  features: [
-    {
-      icon: "chart-relationship",
-      title: "Real‑time Energy Metering",
-      description:
-        "Precision sub‑metering captures energy flow from each asset and zone - creating a digital energy twin for your plant.",
-    },
-    {
-      icon: "artificial-intelligence",
-      title: "Edge Aggregation & Control",
-      description:
-        "EAGLE Gateway filters, processes, and controls energy data locally, enabling autonomous decision‑making at the edge.",
-    },
-    {
-      icon: "database-export",
-      title: "Automated Load Balancing",
-      description:
-        "Smart scheduling powered by AI distributes loads efficiently, reducing energy spikes and lowering operational costs.",
-    },
-    {
-      icon: "danger",
-      title: "AI‑driven Efficiency Optimization",
-      description:
-        "Predictive algorithms identify inefficiencies, forecast demand, and dynamically tune process parameters for optimal usage.",
-    },
-    {
-      icon: "danger",
-      title: "Self‑Learning Energy Models",
-      description:
-        "Machine learning models continuously learn from historical data to improve accuracy of consumption forecasts.",
-    },
-    {
-      icon: "danger",
-      title: "Self‑Learning Energy Models",
-      description:
-        "Machine learning models continuously learn from historical data to improve accuracy of consumption forecasts.",
-    },
-    {
-      icon: "danger",
-      title: "Self‑Learning Energy Models",
-      description:
-        "Machine learning models continuously learn from historical data to improve accuracy of consumption forecasts.",
-    },
-    {
-      icon: "danger",
-      title: "Self‑Learning Energy Models",
-      description:
-        "Machine learning models continuously learn from historical data to improve accuracy of consumption forecasts.",
-    },
-  ],
-};
-
 // Icon Components
 function ChartRelationship() {
   return (
@@ -318,6 +261,178 @@ function VuesaxLinearDanger() {
   );
 }
 
+function Energy() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[36px]"
+      data-name="chart-relationship"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.33%]">
+          <svg
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M30 21.7479C30 27.9623 24.6274 33 18 33C11.3726 33 6 27.9623 6 21.7479L6 21.4191C6 20.3177 6 19.767 6.38047 19.565C7.20509 19.1272 9 21 9 21"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 14.2521C6 8.03773 11.3726 3 18 3C24.6274 3 30 8.03773 30 14.2521V14.5809C30 15.6823 30 16.233 29.6195 16.435C28.7949 16.8728 27 15 27 15"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M17.9694 16.7407C16.8901 18.8761 16.1019 22.3392 17.3433 26.25M16.7146 22.5425C10.3459 18.0118 14.721 12.8006 18.8399 10.1703C19.337 9.85283 19.5855 9.69411 19.8748 9.76785C20.1642 9.84159 20.3032 10.1011 20.5813 10.6201C22.8935 14.9355 24.5501 21.7339 16.7146 22.5425Z"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+function Prediction() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[36px]"
+      data-name="chart-relationship"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.33%]">
+          <svg
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="18" cy="27" r="4.5" stroke="white" stroke-width="2" />
+            <path
+              d="M18 22.5V15"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M33 19.5C33 11.2157 26.2843 4.5 18 4.5C9.71573 4.5 3 11.2157 3 19.5"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+function Sun() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[36px]"
+      data-name="chart-relationship"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.33%]">
+          <svg
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M25.5 18C25.5 22.1421 22.1421 25.5 18 25.5C13.8579 25.5 10.5 22.1421 10.5 18C10.5 13.8579 13.8579 10.5 18 10.5C22.1421 10.5 25.5 13.8579 25.5 18Z"
+              stroke="white"
+              stroke-width="2"
+            />
+            <path
+              d="M18 3V5.25M18 30.75V33M28.6062 28.6069L27.0152 27.0159M8.98389 8.98389L7.3929 7.3929M33 18H30.75M5.25 18H3M28.6069 7.39307L27.0159 8.98406M8.98462 27.0161L7.39363 28.6071"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Data() {
+  return (
+    <div
+      className="overflow-clip relative shrink-0 size-[36px]"
+      data-name="chart-relationship"
+    >
+      <div className="absolute inset-[8.33%]" data-name="elements">
+        <div className="absolute inset-[-3.33%]">
+          <svg
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M30 21C31.6569 21 33 19.6569 33 18C33 16.3431 31.6569 15 30 15C28.3431 15 27 16.3431 27 18C27 19.6569 28.3431 21 30 21Z"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M30 9C31.6569 9 33 7.65685 33 6C33 4.34315 31.6569 3 30 3C28.3431 3 27 4.34315 27 6C27 7.65685 28.3431 9 30 9Z"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M30 33C31.6569 33 33 31.6569 33 30C33 28.3431 31.6569 27 30 27C28.3431 27 27 28.3431 27 30C27 31.6569 28.3431 33 30 33Z"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 18H27"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M27 6H21C18 6 16.5 7.5 16.5 10.5V25.5C16.5 28.5 18 30 21 30H27"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
 // Feature Card Component
 function CoreFeatureCard({
   icon,
@@ -335,6 +450,14 @@ function CoreFeatureCard({
       ? ArtificialIntelligence
       : icon === "database-export"
       ? DatabaseExport
+      : icon === "energy"
+      ? Energy
+      : icon === "prediction"
+      ? Prediction
+      : icon === "sun"
+      ? Sun
+      : icon === "data"
+      ? Data
       : VuesaxLinearDanger;
 
   return (
@@ -362,14 +485,14 @@ function CoreFeatureCard({
   );
 }
 
-function Frame35() {
+function Frame35({ content }: any) {
   return (
     <div className="flex flex-col md:flex-row items-start md:justify-between gap-6 md:gap-8 text-white w-full">
       <h2 className="font-semibold text-[36px] md:text-[42px] leading-[42px] md:leading-[50px] text-white m-0 whitespace-nowrap">
-        {CORE_FEATURES_CONTENT.title}
+        {content.title}
       </h2>
       <p className="font-normal text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] text-white text-opacity-90 max-w-[645px] m-0">
-        {CORE_FEATURES_CONTENT.description}
+        {content.description}
       </p>
     </div>
   );
@@ -432,7 +555,7 @@ function CustomNextArrow({ onClick }: ArrowProps) {
   );
 }
 
-function Frame40() {
+function Frame40({ content }: any) {
   const settings = {
     dots: false,
     infinite: false,
@@ -443,9 +566,16 @@ function Frame40() {
     nextArrow: <CustomNextArrow />,
     responsive: [
       {
-        breakpoint: 1280,
+        breakpoint: 1400,
         settings: {
           slidesToShow: 3.5,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
           slidesToScroll: 3,
         },
       },
@@ -457,7 +587,15 @@ function Frame40() {
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 850,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+
+      {
+        breakpoint: 750,
         settings: {
           slidesToShow: 1.5,
           slidesToScroll: 1,
@@ -465,6 +603,13 @@ function Frame40() {
       },
       {
         breakpoint: 640,
+        settings: {
+          slidesToShow: 1.2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 500,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -554,21 +699,26 @@ function Frame40() {
         }
       `}</style>
       <Slider {...settings}>
-        {CORE_FEATURES_CONTENT.features.map((feature, index) => (
-          <div key={index} className="h-full">
-            <CoreFeatureCard
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          </div>
-        ))}
+        {content?.features?.length
+          ? content.features.map((feature: any, index: number) => (
+              <div key={index} className="h-full">
+                <CoreFeatureCard
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                  // bgColor={feature.bgColor}
+                />
+              </div>
+            ))
+          : null}
       </Slider>
     </div>
   );
 }
 
-function CoreFeatures() {
+export default function CoreFeatures({ content }: any) {
+  console.log(content, "89899889");
+
   return (
     <div
       className="box-border flex flex-col gap-[50px] md:gap-[60px] items-start px-6 md:px-16 lg:px-[100px] pt-[50px] md:pt-[60px] pb-[130px] md:pb-[150px] w-full overflow-hidden"
@@ -577,10 +727,8 @@ function CoreFeatures() {
         background: "linear-gradient(242.47deg, #00BCEF 6.45%, #002363 95.13%)",
       }}
     >
-      <Frame35 />
-      <Frame40 />
+      <Frame35 content={content} />
+      <Frame40 content={content} />
     </div>
   );
 }
-
-export default CoreFeatures;

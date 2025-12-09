@@ -1473,7 +1473,11 @@ function AnalyticsFeatureItem({ icon, title }: AnalyticsFeatureItemProps) {
 }
 
 // Header Section Component
-function AnalyticsHeader({ content }: { content: AnalyticsSectionProps["content"] }) {
+function AnalyticsHeader({
+  content,
+}: {
+  content: AnalyticsSectionProps["content"];
+}) {
   return (
     <div className="content-stretch flex flex-col items-start sm:items-center xl:items-start justify-between not-italic relative self-stretch shrink-0 w-full xl:w-[450px] sm:text-center xl:text-left">
       <p className="font-semibold leading-[32px] sm:leading-[40px] xl:leading-[45px] relative shrink-0 text-[#282828] text-[28px] sm:text-[32px] xl:text-[36px] w-full mb-4">
@@ -1517,6 +1521,8 @@ function AnalyticsGrid({ features }: { features: Feature[] }) {
 
 // Main Component
 export function AnalyticsSection({ content }: AnalyticsSectionProps) {
+  console.log(content, "452343242");
+
   return (
     <>
       <style>{`

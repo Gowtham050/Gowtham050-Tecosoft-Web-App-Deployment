@@ -4,6 +4,8 @@ export const heroContent = {
   description:
     "Digitize your production floor with live data collection, real-time OEE tracking, and closed-loop feedback powered by Tecosoft's EAGLE Edge Gateway.",
   video: "/assets/video/production-digitization.mp4",
+  imagepath: "",
+
   image:
     "/assets/pages/solutions/production-digitization/722868975ad87bdad1f880aefbc37c33e60f610d.png",
   imageAlt: "EAGLE Edge Gateway Device",
