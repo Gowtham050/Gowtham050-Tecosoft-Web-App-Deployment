@@ -80,24 +80,28 @@ function Analytics() {
               stroke="url(#paint0_linear_981_2450)"
               strokeWidth="1.75"
               strokeLinecap="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M11.957 17.7917L11.957 6.125"
               stroke="url(#paint1_linear_981_2450)"
               strokeWidth="1.75"
               strokeLinecap="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M17.7891 17.7917L17.7891 10.7917"
               stroke="url(#paint2_linear_981_2450)"
               strokeWidth="1.75"
               strokeLinecap="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M0.875 11.9583C0.875 6.7336 0.875 4.12123 2.49812 2.49812C4.12123 0.875 6.7336 0.875 11.9583 0.875C17.1831 0.875 19.7954 0.875 21.4185 2.49812C23.0417 4.12123 23.0417 6.7336 23.0417 11.9583C23.0417 17.1831 23.0417 19.7954 21.4185 21.4185C19.7954 23.0417 17.1831 23.0417 11.9583 23.0417C6.7336 23.0417 4.12123 23.0417 2.49812 21.4185C0.875 19.7954 0.875 17.1831 0.875 11.9583Z"
               stroke="url(#paint3_linear_981_2450)"
               strokeWidth="1.75"
               strokeLinejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <defs>
               <linearGradient
@@ -176,6 +180,7 @@ function ChartBreakout() {
                 stroke="url(#paint0_linear_1_538)"
                 strokeLinecap="round"
                 strokeWidth="1.75"
+                className="group-hover:stroke-white transition-all duration-300"
               />
               <path
                 d={svgPaths.p14edd540}
@@ -183,12 +188,14 @@ function ChartBreakout() {
                 stroke="url(#paint1_linear_1_538)"
                 strokeLinecap="round"
                 strokeWidth="1.75"
+                className="group-hover:stroke-white transition-all duration-300"
               />
               <path
                 d={svgPaths.p3cddcc00}
                 id="Vector_3"
                 stroke="url(#paint2_linear_1_538)"
                 strokeWidth="1.75"
+                className="group-hover:stroke-white transition-all duration-300"
               />
             </g>
             <defs>
@@ -254,6 +261,7 @@ function InboxDownload() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M11.082 9.33333C11.6555 9.92332 13.1818 12.25 13.9987 12.25M16.9154 9.33333C16.3419 9.92332 14.8156 12.25 13.9987 12.25M13.9987 12.25L13.9987 2.91667"
@@ -261,12 +269,14 @@ function InboxDownload() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M25.0846 15.75H19.338C18.3556 15.75 17.5836 16.5709 17.1507 17.4384C16.6803 18.381 15.7383 19.25 14.0013 19.25C12.2643 19.25 11.3223 18.381 10.8519 17.4384C10.419 16.5709 9.64703 15.75 8.66457 15.75H2.91797"
               stroke="url(#paint2_linear_913_3212)"
               stroke-width="1.75"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <defs>
               <linearGradient
@@ -330,6 +340,7 @@ function BatteriesEnergy() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M19.832 7C20.932 7 21.4819 7 21.8237 7.34171C22.1654 7.68342 22.1654 8.23339 22.1654 9.33333V12.25M8.16536 7C7.06542 7 6.51545 7 6.17374 7.34171C5.83203 7.68342 5.83203 8.23339 5.83203 9.33333L5.83203 12.25"
@@ -337,6 +348,7 @@ function BatteriesEnergy() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M23.3346 15.1666H21.0013C19.9014 15.1666 19.3514 15.1666 19.0097 15.5083C18.668 15.85 18.668 16.4 18.668 17.5V23.3333C18.668 24.4332 18.668 24.9832 19.0097 25.3249C19.3514 25.6666 19.9014 25.6666 21.0013 25.6666H23.3346C24.4346 25.6666 24.9846 25.6666 25.3263 25.3249C25.668 24.9832 25.668 24.4332 25.668 23.3333V17.5C25.668 16.4 25.668 15.85 25.3263 15.5083C24.9846 15.1666 24.4346 15.1666 23.3346 15.1666Z"
@@ -344,6 +356,7 @@ function BatteriesEnergy() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M18.668 22.1666H25.668"
@@ -351,6 +364,7 @@ function BatteriesEnergy() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M18.668 18.6666H25.668"
@@ -358,6 +372,7 @@ function BatteriesEnergy() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M6.9987 15.1666H4.66536C3.56542 15.1666 3.01545 15.1666 2.67374 15.5083C2.33203 15.85 2.33203 16.4 2.33203 17.5V23.3333C2.33203 24.4332 2.33203 24.9832 2.67374 25.3249C3.01545 25.6666 3.56542 25.6666 4.66536 25.6666H6.9987C8.09864 25.6666 8.64861 25.6666 8.99032 25.3249C9.33203 24.9832 9.33203 24.4332 9.33203 23.3333V17.5C9.33203 16.4 9.33203 15.85 8.99032 15.5083C8.64861 15.1666 8.09864 15.1666 6.9987 15.1666Z"
@@ -365,6 +380,7 @@ function BatteriesEnergy() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M2.33203 22.1666H9.33203"
@@ -372,6 +388,7 @@ function BatteriesEnergy() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M2.33203 18.6666H9.33203"
@@ -379,6 +396,7 @@ function BatteriesEnergy() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <defs>
               <linearGradient
@@ -497,6 +515,7 @@ function CrowdFunding() {
               r="3.5"
               stroke="url(#paint0_linear_913_3221)"
               stroke-width="1.75"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <circle
               cx="14.0013"
@@ -504,6 +523,7 @@ function CrowdFunding() {
               r="2.33333"
               stroke="url(#paint1_linear_913_3221)"
               stroke-width="1.75"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <circle
               cx="23.3333"
@@ -511,6 +531,7 @@ function CrowdFunding() {
               r="2.33333"
               stroke="url(#paint2_linear_913_3221)"
               stroke-width="1.75"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <circle
               cx="4.66536"
@@ -518,18 +539,21 @@ function CrowdFunding() {
               r="2.33333"
               stroke="url(#paint3_linear_913_3221)"
               stroke-width="1.75"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M23.3346 17.5C23.3346 16.2113 22.0288 15.1666 20.418 15.1666H7.58464C5.9738 15.1666 4.66797 16.2113 4.66797 17.5"
               stroke="url(#paint4_linear_913_3221)"
               stroke-width="1.75"
               stroke-linecap="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M14 12.8334L14 17.5"
               stroke="url(#paint5_linear_913_3221)"
               stroke-width="1.75"
               stroke-linecap="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <defs>
               <linearGradient
@@ -625,6 +649,7 @@ function Unlink() {
               stroke="url(#paint0_linear_913_3225)"
               stroke-width="1.75"
               stroke-linecap="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M25.6654 19.8334H23.24M19.832 25.6667L19.832 23.2413"
@@ -632,6 +657,7 @@ function Unlink() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M2.33203 8.16671H4.7574M8.16536 2.33337L8.16536 4.75875"
@@ -639,6 +665,7 @@ function Unlink() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <defs>
               <linearGradient
@@ -702,6 +729,7 @@ function HouseSolarPanel() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M5.25 11.6667V17.5001C5.25 19.7 5.25 20.7999 5.93342 21.4833C6.48355 22.0335 7.30359 22.1408 8.75 22.1617M22.75 11.6667V17.5001C22.75 19.7 22.75 20.7999 22.0666 21.4833C21.5165 22.0335 20.6964 22.1408 19.25 22.1617"
@@ -709,6 +737,7 @@ function HouseSolarPanel() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M15.168 16.3333L12.1414 19.9116C11.7719 20.3907 11.5872 20.6302 11.7016 20.8151C11.8161 20.9999 12.1491 20.9999 12.8152 20.9999H15.1875C15.8535 20.9999 16.1865 20.9999 16.301 21.1848C16.4154 21.3696 16.2307 21.6092 15.8612 22.0882L12.8152 25.6666"
@@ -716,6 +745,7 @@ function HouseSolarPanel() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M11.6667 2.33325L10.5 11.6666M16.3333 2.33325L17.5 11.6666"
@@ -723,6 +753,7 @@ function HouseSolarPanel() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M4.66797 7L23.3346 7"
@@ -730,6 +761,7 @@ function HouseSolarPanel() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <defs>
               <linearGradient
@@ -814,6 +846,7 @@ function EcoPower() {
               stroke="url(#paint0_linear_913_3234)"
               stroke-width="1.75"
               stroke-linecap="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <path
               d="M19.832 18.0833C18.082 19.2499 15.1654 21.5833 12.832 25.6666M15.1654 22.1666C12.0575 15.3307 18.4726 13.108 23.2444 12.8517C23.8202 12.8207 24.1082 12.8053 24.315 13.0047C24.5218 13.2041 24.5098 13.4885 24.486 14.0571C24.288 18.7853 22.1592 25.2079 15.1654 22.1666Z"
@@ -821,6 +854,7 @@ function EcoPower() {
               stroke-width="1.75"
               stroke-linecap="round"
               stroke-linejoin="round"
+              className="group-hover:stroke-white transition-all duration-300"
             />
             <defs>
               <linearGradient
@@ -866,7 +900,7 @@ const ICON_COMPONENTS: Record<string, ComponentType> = {
 
 // Shared class names
 const ICON_WRAPPER_BASE_CLASS =
-  "bg-[#f0f0f0] box-border content-stretch flex gap-[10px] items-center overflow-clip relative rounded-[12px] shrink-0";
+  "bg-[#f0f0f0] box-border content-stretch flex gap-[10px] items-center overflow-clip relative rounded-[12px] shrink-0 group transition-all duration-300";
 const ICON_WRAPPER_DEFAULT_CLASS = `${ICON_WRAPPER_BASE_CLASS} justify-center p-[18px] size-[66px]`;
 
 // Feature Item Component
@@ -881,10 +915,10 @@ function AnalyticsFeatureItem({ icon, title }: AnalyticsFeatureItemProps) {
 
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-[311px]">
-      <div className={iconWrapperClass}>
+      <div className={`${iconWrapperClass} icon-wrapper`}>
         <IconComponent />
       </div>
-      <p className="basis-0 font-['Gilroy:Medium',sans-serif] grow leading-[26px] min-h-px min-w-px not-italic relative shrink-0 text-[#282828] text-[20px]">
+      <p className="basis-0 font-medium grow leading-[26px] min-h-px min-w-px not-italic relative shrink-0 text-[#282828] text-[20px]">
         {title}
       </p>
     </div>
@@ -895,13 +929,13 @@ function AnalyticsFeatureItem({ icon, title }: AnalyticsFeatureItemProps) {
 function AnalyticsHeader() {
   return (
     <div className="content-stretch flex flex-col items-start justify-between not-italic relative self-stretch shrink-0 w-[450px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[45px] relative shrink-0 text-[#282828] text-[36px] w-full">
+      <p className="font-semibold leading-[45px] relative shrink-0 text-[#282828] text-[36px] w-full">
         <span>{ANALYTICS_CONTENT.title}</span>
         <span className="text-[#0098d4]">
           {ANALYTICS_CONTENT.titleHighlight}
         </span>
       </p>
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[24px] relative shrink-0 text-[#8e8e8e] text-[16px] w-full">
+      <p className="font-medium leading-[24px] relative shrink-0 text-[#8e8e8e] text-[16px] w-full">
         {ANALYTICS_CONTENT.description}
       </p>
     </div>
@@ -939,12 +973,19 @@ function AnalyticsGrid() {
 // Main Component
 export default function AnalyticsFeatures() {
   return (
-    <div
-      className="bg-white box-border content-stretch flex items-start justify-between overflow-clip px-[100px] py-[60px] relative shrink-0 w-[1512px]"
-      data-name="Analytics - Features"
-    >
-      <AnalyticsHeader />
-      <AnalyticsGrid />
-    </div>
+    <>
+      <style>{`
+        .icon-wrapper:hover {
+          background: linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%) !important;
+        }
+      `}</style>
+      <div
+        className="bg-white box-border content-stretch flex items-start justify-between overflow-clip px-[100px] py-[60px] relative shrink-0 w-[1512px]"
+        data-name="Analytics - Features"
+      >
+        <AnalyticsHeader />
+        <AnalyticsGrid />
+      </div>
+    </>
   );
 }

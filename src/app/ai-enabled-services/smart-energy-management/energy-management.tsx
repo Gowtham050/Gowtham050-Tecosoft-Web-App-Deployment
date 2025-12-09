@@ -18,7 +18,7 @@ export default function ConnectedFactories1() {
     >
       <HeroSection content={heroContent} />
       <FeaturesSection content={featuresContent} />
-      <CoreFeatures />
+      {/* <CoreFeatures /> */}
       <AnalyticsFeatures />
     </div>
   );
