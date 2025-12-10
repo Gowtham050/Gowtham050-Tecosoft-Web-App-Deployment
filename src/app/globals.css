@@ -39,3 +39,30 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
+
+/* ---------- 3D perspective + rotate-x helpers ---------- */
+
+.perspective-3d {
+  /* smaller value = more perspective, larger = flatter */
+  perspective: 900px;
+  perspective-origin: 50% 50%;
+  display: block;
+  transform-style: preserve-3d;
+}
+
+/* rotate-x helpers (used for the cube-like face flip) */
+.rotate-x-90 { transform: rotateX(360deg); }
+.rotate-x-0 { transform: rotateX(0deg); }
+
+/* We already apply transforms via tailwind-arbitrary and inline class utility, but add fallback helpers */
+.group-hover\:rotate-x-90 {}
+.group-hover\:rotate-x-0 {}
+
+/* Optional: improve smoothing on transform/opacity transitions */
+.perspective-3d > * {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}

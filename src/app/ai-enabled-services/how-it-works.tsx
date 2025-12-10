@@ -1,3 +1,4 @@
+// src/components/HowItWorks.tsx
 import React from "react";
 
 // ===========================
@@ -74,42 +75,83 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   );
 };
 
-const StepNumber: React.FC<{
-  number: number;
-}> = ({ number }) => {
+/**
+ * StepNumber
+ *
+ * - Uses two stacked number layers (top + bottom).
+ * - Container has fixed width & height so there is NO layout shift.
+ * - A `perspective` wrapper gives a cube-like rotateX effect.
+ * - Animations rely on `group-hover:` from the parent StepCard (which has `group`).
+ */
+const StepNumber: React.FC<{ number: number }> = ({ number }) => {
   const gradientStyle = "bg-gradient-to-br from-[#00B7FF] to-[#0EB05C]";
 
   return (
+    // IMPORTANT: fixed size container prevents layout shifts across breakpoints.
     <div
-      className={`${gradientStyle} bg-clip-text text-transparent font-medium text-[100px] sm:text-[120px] md:text-[140px] lg:text-[160px] xl:text-[175px] leading-none select-none flex-shrink-0 w-[80px] sm:w-[90px] md:w-[100px] lg:w-[106px] text-center`}
-      aria-label={`Step ${number}`}
+      className="relative w-[80px] sm:w-[90px] md:w-[100px] lg:w-[106px] h-[120px] sm:h-[130px] md:h-[150px] lg:h-[170px] overflow-hidden select-none"
+      aria-hidden="true"
     >
-      {number}
+      {/* Perspective wrapper for 3D cube rotate */}
+      <div className="perspective-3d relative w-full h-full">
+        {/* Top number — visible by default, slides up & rotates out on hover */}
+        <div
+          className={`
+            absolute inset-0 flex justify-center items-center
+            text-[100px] sm:text-[120px] md:text-[140px] lg:text-[160px]
+            ${gradientStyle} bg-clip-text text-transparent font-medium leading-none
+            transform transition-all duration-700
+            [transition-timing-function:cubic-bezier(0.65,0,-0.15,1.5)]
+            -translate-y-0 opacity-100 rotate-x-0
+            group-hover:-translate-y-full group-hover:opacity-0 group-hover:rotate-x-90
+          `}
+        >
+          {number}
+        </div>
+
+        {/* Bottom number — positioned below, slides up & rotates in on hover */}
+        <div
+          className={`
+            absolute inset-0 flex justify-center items-center
+            text-[100px] sm:text-[120px] md:text-[140px] lg:text-[160px]
+            ${gradientStyle} bg-clip-text text-transparent font-medium leading-none
+            transform transition-all duration-700
+            [transition-timing-function:cubic-bezier(0.65,0,-0.15,1.5)]
+            translate-y-full opacity-0 rotate-x-90
+            group-hover:translate-y-0 group-hover:opacity-100 group-hover:rotate-x-0
+          `}
+        >
+          {number}
+        </div>
+      </div>
     </div>
   );
 };
 
 const StepCard: React.FC<StepCardProps> = ({ step, index }) => {
   return (
+    // `group` enables child group-hover states.
     <div
-      className="relative bg-[rgba(204,241,255,0.36)] backdrop-blur-sm rounded-[14px] sm:rounded-[15px] md:rounded-[16px] w-full border border-[#55cfff] transition-all duration-300 hover:shadow-lg hover:bg-[rgba(204,241,255,0.45)] group"
+      className="relative bg-[rgba(204,241,255,0.36)] backdrop-blur-sm rounded-[14px] sm:rounded-[15px] md:rounded-[16px] w-full border border-[#55cfff] transition-all duration-300 hover:shadow-lg hover:bg-[rgba(204,241,255,0.45)] group hover:cursor-pointer"
       role="article"
       tabIndex={index}
       aria-labelledby={`step-title-${step.id}`}
     >
       <div className="overflow-clip rounded-[inherit] size-full">
         <div className="relative h-[145px] sm:h-[140px] md:h-[150px] w-full px-[18px] sm:px-[25px] md:px-[32px] py-[20px] sm:py-[25px] md:py-[30px]">
-          <div className="absolute left-[45px] sm:left-[55px] md:left-[75px]  top-1/2 -translate-y-1/2 -translate-x-1/2">
+          {/* Positioning the number with absolute so text area flow is unaffected */}
+          <div className="absolute left-[45px] sm:left-[55px] md:left-[75px] top-2/3 -translate-y-1/2 -translate-x-1/2">
             <StepNumber number={step.id} />
           </div>
-          <div className="ml-[100px] sm:ml-[140px] md:ml-[160px]  flex flex-col gap-[10px] sm:gap-[12px]">
+
+          <div className="ml-[100px] sm:ml-[140px] md:ml-[160px] flex flex-col gap-[10px] sm:gap-[12px]">
             <h3
               id={`step-title-${step.id}`}
               className="font-semibold leading-[24px] sm:leading-[26px] md:leading-[28px] text-[#282828] text-[20px] sm:text-[22px] md:text-[24px]"
             >
               {step.title}
             </h3>
-            <p className="font-normal leading-[18px] sm:leading-[23px] md:leading-[24px]  text-[#8e8e8e] text-[12px] sm:text-[16px] md:text-[16px]">
+            <p className="font-normal leading-[18px] sm:leading-[23px] md:leading-[24px] text-[#8e8e8e] text-[12px] sm:text-[16px] md:text-[16px]">
               {step.description}
             </p>
           </div>

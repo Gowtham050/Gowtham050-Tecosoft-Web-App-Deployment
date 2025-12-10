@@ -1,162 +1,156 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
 
-function Frame3() {
+// -----------------------------
+// Reusable Components
+// -----------------------------
+function MetricCard({
+  bg,
+  valueColor,
+  value,
+  labelColor = "#282828",
+  label,
+}: any) {
   return (
-    <div className="bg-[#07af40] flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0 rounded-md cursor-pointer max-w-[150px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] text-[15px] text-white whitespace-nowrap">
-        Request Demo
-      </p>
-
-      {/* Arrow */}
-      <div className="flex items-center justify-center size-[14px]">
-        <div className="rotate-[270deg]">
-          <IconoirArrowDown4 />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function IconoirArrowDown4() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      fill="none"
-      viewBox="0 0 14 14"
-      className="block"
+    <div
+      className={`rounded-2xl w-full aspect-[1.4] ${bg} flex flex-col justify-end p-5 sm:p-6 lg:p-7`}
     >
-      <path
-        d="M7 1.75V12.25M7 12.25L11.9583 7.29167M7 12.25L2.04167 7.29167"
-        stroke="white"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.35"
-      />
-    </svg>
-  );
-}
-
-function Frame11() {
-  return (
-    <div className="absolute flex flex-col gap-[46px] left-[100px] top-[calc(50%+32px)] -translate-y-1/2 w-[650px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[90px] text-[76px] text-white">
-        One platform. Two{" "}
-        <span className="text-[#00ff84]">Super power potentials.</span>
+      <p
+        className="text-[34px] sm:text-[48px] lg:text-[60px] leading-tight tracking-tight"
+        style={{ color: valueColor }}
+      >
+        {value}
       </p>
 
-      <p className="font-['Gilroy:Medium',sans-serif] leading-[26px] text-[18px] text-white">
-        Unify energy and machine health under a single AI layer. Forecast
-        demand, prevent failures, and automate actions across your shopfloor.
+      <p
+        className="text-[13px] sm:text-[15px] lg:text-[16px] leading-[20px] mt-1 sm:mt-2 max-w-[220px]"
+        style={{ color: labelColor }}
+      >
+        {label}
       </p>
-
-      <Frame3 />
     </div>
   );
 }
 
-function Frame12() {
+function ImageCard({ src }: any) {
   return (
-    <div className="h-[250px] relative rounded-[20px] w-full overflow-hidden">
+    <div className="rounded-2xl w-full  relative overflow-hidden shadow-lg">
       <Image
-        src="/assets/pages/ai-enabled/67afda521ae6a78fba911782311713969b82ad14.png"
-        alt="AI Enabled"
+        src={src}
+        alt="AI Insight"
         fill
-        className="object-cover rounded-[20px]"
+        quality={100}
+        className="object-cover"
         priority
       />
     </div>
   );
 }
 
-function Frame15() {
+function RequestDemoButton() {
   return (
-    <div className="bg-[#cdefd9] h-[250px] rounded-[20px] w-full">
-      <div className="flex flex-col justify-end h-full p-[28px]">
-        <p className="text-[#07af40] text-[60px] leading-[60px] tracking-[-1.2px]">
-          15%+
-        </p>
-        <p className="text-[#282828] text-[16px] leading-[20px] w-[181px]">
-          Carbon intensity improvement
-        </p>
+    <button className="bg-[#07af40] hover:bg-[#049836] transition-all duration-300 flex items-center gap-2 px-5 py-3 text-white font-semibold rounded-md w-fit shadow-lg active:scale-95">
+      Request Demo
+      <span className="block rotate-[270deg]">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path
+            d="M7 1.75V12.25M7 12.25L11.9583 7.29167M7 12.25L2.04167 7.29167"
+            stroke="white"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
+    </button>
+  );
+}
+
+// -----------------------------
+// Hero Text
+// -----------------------------
+function HeroText() {
+  return (
+    <div className="absolute left-0 top-[18%] sm:top-[25%] lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-auto px-6 sm:px-10 lg:left-[8%] max-w-[650px] space-y-5 sm:space-y-7">
+      <h1 className="text-white font-semibold text-[34px] leading-[42px] sm:text-[48px] sm:leading-[56px] lg:text-[64px] lg:leading-[72px]">
+        One platform. Two{" "}
+        <span className="text-[#00ff84]">Super power potentials.</span>
+      </h1>
+
+      <p className="text-white text-[14px] sm:text-[17px] leading-[22px] sm:leading-[26px] opacity-90 max-w-[520px]">
+        Unify energy and machine health under a single AI layer. Forecast
+        demand, prevent failures, and automate actions across your shop floor.
+      </p>
+
+      <RequestDemoButton />
+    </div>
+  );
+}
+
+// -----------------------------
+// Metrics Section
+// -----------------------------
+function MetricsSection() {
+  return (
+    <div className="absolute bottom-6 sm:bottom-10 lg:top-[150px] lg:right-[8%] left-0 px-6 sm:px-10 lg:px-0">
+      <div
+        className="
+          grid 
+          grid-cols-1 
+          sm:grid-cols-2 
+          gap-5 
+          sm:gap-6 
+          w-full 
+          max-w-[560px] 
+          ml-auto
+        "
+      >
+        <ImageCard src="/assets/pages/ai-enabled/67afda521ae6a78fba911782311713969b82ad14.png" />
+
+        <MetricCard
+          bg="bg-[#cdefd9]"
+          valueColor="#07af40"
+          value="15%+"
+          label="Carbon intensity improvement"
+        />
+
+        <MetricCard
+          bg="bg-[#ccf1ff]"
+          valueColor="#0098d4"
+          value="10–18%"
+          label="Typical energy cost reduction"
+        />
+
+        <MetricCard
+          bg="bg-[#003d55]"
+          valueColor="#55cfff"
+          labelColor="white"
+          value="<6 mo"
+          label="Median payback period"
+        />
       </div>
     </div>
   );
 }
 
-function Frame17() {
-  return (
-    <div className="flex flex-col gap-[20px] w-[250px]">
-      <Frame12 />
-      <Frame15 />
-    </div>
-  );
-}
-
-function Frame13() {
-  return (
-    <div className="bg-[#ccf1ff] h-[250px] rounded-[20px] w-full">
-      <div className="flex flex-col justify-end h-full p-[28px]">
-        <p className="text-[#0098d4] text-[60px] leading-[60px] tracking-[-1.2px]">
-          10-18%
-        </p>
-        <p className="text-[#282828] text-[16px] leading-[20px] w-[181px]">
-          Typical energy cost reduction
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function Frame14() {
-  return (
-    <div className="bg-[#003d55] h-[250px] rounded-[20px] w-full">
-      <div className="flex flex-col justify-end h-full p-[28px]">
-        <p className="text-[#55cfff] text-[60px] leading-[60px] tracking-[-1.2px]">
-          &lt;6 mo
-        </p>
-        <p className="text-white text-[16px] leading-[20px] w-[181px]">
-          Median payback period
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function Frame16() {
-  return (
-    <div className="flex flex-col gap-[20px] w-[250px]">
-      <Frame13 />
-      <Frame14 />
-    </div>
-  );
-}
-
-function Frame18() {
-  return (
-    <div className="absolute flex gap-[24px] left-[888px] top-[140px]">
-      <Frame17 />
-      <Frame16 />
-    </div>
-  );
-}
-
+// -----------------------------
+// HERO SECTION WRAPPER
+// -----------------------------
 export default function HeroSection() {
   return (
-    <div className="relative w-full h-[750px] overflow-hidden">
-      {/* Background image */}
+    <div className="relative w-full min-h-[90vh] lg:min-h-[750px] max-h-[1100px] overflow-hidden">
+      {/* Background Image */}
       <Image
         src="/assets/pages/ai-enabled/6be83863a5fa40ccefa1725cc8f430fd0def2e3a.png"
         alt="Hero Background"
         fill
+        quality={100}
         className="object-cover"
         priority
       />
 
-      {/* Gradient Layer */}
+      {/* Overlay */}
       <div
         className="absolute inset-0 backdrop-blur-[10px]"
         style={{
@@ -165,8 +159,8 @@ export default function HeroSection() {
         }}
       />
 
-      <Frame11 />
-      <Frame18 />
+      <HeroText />
+      <MetricsSection />
     </div>
   );
 }
