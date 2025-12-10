@@ -6,7 +6,7 @@ import WhyAiEnabledServices from "./why-section";
 import HeroSection from "./banner-section";
 import Solutions from "./solutions-section";
 
-export default function ConnectedFactories1() {
+export default function Aienabled() {
   return (
     <div
       className="content-stretch flex flex-col items-start relative size-full"

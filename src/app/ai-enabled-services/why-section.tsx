@@ -24,7 +24,7 @@ function FeatureCard({
       style={{ backgroundColor: bgColor }}
     >
       <div className="size-full">
-        <div className="box-border content-stretch flex flex-col items-start justify-between p-[16px] md:p-[20px] lg:p-[24px] relative size-full gap-[16px] md:gap-[20px]">
+        <div className="box-border content-stretch flex flex-col items-start justify-between p-[16px] md:p-[20px] lg:p-[24px] relative size-full gap-[30px] md:gap-[80px]">
           {/* Icon Container */}
           <div className="bg-white box-border content-stretch flex gap-[10px] items-center justify-center overflow-clip p-[12px] md:p-[16px] lg:p-[20px] relative rounded-[8px] md:rounded-[12px] shrink-0">
             <div className="relative shrink-0 size-[24px] md:size-[28px] lg:size-[32px]">

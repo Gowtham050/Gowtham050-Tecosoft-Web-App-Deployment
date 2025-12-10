@@ -8,7 +8,6 @@ interface Step {
   id: number;
   title: string;
   description: string;
-  variant?: "default" | "special";
 }
 
 interface StepCardProps {
@@ -49,7 +48,6 @@ const HOW_IT_WORKS_DATA: Step[] = [
     title: "Act",
     description:
       "Align all elements by effectively integrating schedules, set points, and work orders. This approach will help close the loop and boost operational efficiency.",
-    variant: "special",
   },
 ];
 
@@ -78,16 +76,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 
 const StepNumber: React.FC<{
   number: number;
-  variant?: "default" | "special";
-}> = ({ number, variant = "default" }) => {
-  const gradientStyle =
-    variant === "special"
-      ? "bg-gradient-to-br from-[#00B7FF] to-[#0EB05C]"
-      : "bg-gradient-to-br from-[#55cfff] to-[#00B7FF]";
+}> = ({ number }) => {
+  const gradientStyle = "bg-gradient-to-br from-[#00B7FF] to-[#0EB05C]";
 
   return (
     <div
-      className={`${gradientStyle} bg-clip-text text-transparent font-medium text-[120px] sm:text-[140px] md:text-[160px] lg:text-[180px] xl:text-[198px] leading-none select-none flex-shrink-0 w-[80px] sm:w-[90px] md:w-[100px] lg:w-[106px] text-center`}
+      className={`${gradientStyle} bg-clip-text text-transparent font-medium text-[100px] sm:text-[120px] md:text-[140px] lg:text-[160px] xl:text-[175px] leading-none select-none flex-shrink-0 w-[80px] sm:w-[90px] md:w-[100px] lg:w-[106px] text-center`}
       aria-label={`Step ${number}`}
     >
       {number}
@@ -104,18 +98,18 @@ const StepCard: React.FC<StepCardProps> = ({ step, index }) => {
       aria-labelledby={`step-title-${step.id}`}
     >
       <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="relative h-[130px] sm:h-[140px] md:h-[150px] w-full px-[20px] sm:px-[30px] md:px-[40px] py-[20px] sm:py-[25px] md:py-[30px]">
-          <div className="absolute left-[40px] sm:left-[60px] md:left-[80px] lg:left-[99px] top-1/2 -translate-y-1/2 -translate-x-1/2">
-            <StepNumber number={step.id} variant={step.variant} />
+        <div className="relative h-[145px] sm:h-[140px] md:h-[150px] w-full px-[18px] sm:px-[25px] md:px-[32px] py-[20px] sm:py-[25px] md:py-[30px]">
+          <div className="absolute left-[45px] sm:left-[55px] md:left-[75px]  top-1/2 -translate-y-1/2 -translate-x-1/2">
+            <StepNumber number={step.id} />
           </div>
-          <div className="ml-[120px] sm:ml-[140px] md:ml-[160px] lg:ml-[198px] flex flex-col gap-[10px] sm:gap-[12px]">
+          <div className="ml-[100px] sm:ml-[140px] md:ml-[160px]  flex flex-col gap-[10px] sm:gap-[12px]">
             <h3
               id={`step-title-${step.id}`}
               className="font-semibold leading-[24px] sm:leading-[26px] md:leading-[28px] text-[#282828] text-[20px] sm:text-[22px] md:text-[24px]"
             >
               {step.title}
             </h3>
-            <p className="font-normal leading-[22px] sm:leading-[23px] md:leading-[24px] lg:leading-[25px] text-[#8e8e8e] text-[15px] sm:text-[16px] md:text-[17px]">
+            <p className="font-normal leading-[18px] sm:leading-[23px] md:leading-[24px]  text-[#8e8e8e] text-[12px] sm:text-[16px] md:text-[16px]">
               {step.description}
             </p>
           </div>
