@@ -527,6 +527,7 @@ const Navbar = () => {
       "/ai-enabled-services",
       "/ai-enabled-services/predictive-maintenance",
       "/ai-enabled-services/smart-energy-management",
+      "/digital-twin-platform",
     ];
 
     const isHomePage = homePages.includes(sanitizedPathname);
@@ -599,7 +600,7 @@ const Navbar = () => {
             },
           ],
         },
-        { name: "Digital Twin", href: "#Digital-Twin" },
+        { name: "Digital Twin Platform", href: "digital-twin-platform" },
       ],
     },
     { name: "Company", href: "#", hasDropdown: true },
