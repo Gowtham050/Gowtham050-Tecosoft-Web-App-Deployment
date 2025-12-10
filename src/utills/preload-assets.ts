@@ -75,7 +75,6 @@ const preloadAssets = () => {
     // Wait for all assets to be loaded
     Promise.all(preloadPromises)
       .then(() => {
-        console.log("All assets loaded!");
         resolve();
       })
       .catch((error) => {

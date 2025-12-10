@@ -717,7 +717,6 @@ function Frame40({ content }: any) {
 }
 
 export default function CoreFeatures({ content }: any) {
-  console.log(content, "89899889");
 
   return (
     <div
