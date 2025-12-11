@@ -233,34 +233,36 @@ const CarouselIndicator: React.FC<{
 
   return (
     <div
-      className="flex items-center justify-center gap-2 mt-3 md:mt-4"
+      className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-10"
       role="tablist"
       aria-label="Carousel navigation"
     >
-      {Array.from({ length: total }).map((_, index) => {
-        const isActive = activeIndex === index;
-        return (
-          <button
-            key={index}
-            className={`rounded-full transition-all duration-300 ${
-              isActive
-                ? "bg-white w-2.5 h-2.5"
-                : "bg-white/50 w-2 h-2 hover:bg-white/75"
-            }`}
-            onClick={() => onDotClick(index)}
-            role="tab"
-            aria-selected={isActive}
-            aria-label={`Go to slide ${index + 1} of ${total}`}
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                onDotClick(index);
-              }
-            }}
-          />
-        );
-      })}
+      <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-lg">
+        {Array.from({ length: total }).map((_, index) => {
+          const isActive = activeIndex === index;
+          return (
+            <button
+              key={index}
+              className={`rounded-full transition-all duration-300 ${
+                isActive
+                  ? "bg-white w-2.5 h-2.5"
+                  : "bg-white/60 w-2 h-2 hover:bg-white/80"
+              }`}
+              onClick={() => onDotClick(index)}
+              role="tab"
+              aria-selected={isActive}
+              aria-label={`Go to slide ${index + 1} of ${total}`}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  onDotClick(index);
+                }
+              }}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
@@ -286,25 +288,23 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
 
   return (
     <div
-      className="w-full "
+      className="relative w-full h-full min-h-[400px] md:min-h-[450px] rounded-2xl md:rounded-[16px] overflow-hidden"
       role="region"
       aria-label="Image carousel"
       aria-live="polite"
     >
-      <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] md:aspect-[16/10] lg:aspect-[3/2] rounded-2xl md:rounded-[16px] overflow-hidden">
-        {images.map((img, index) => (
-          <img
-            key={index}
-            alt={`Solution slide ${index + 1} of ${images.length}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-              activeIndex === index ? "opacity-100" : "opacity-0"
-            }`}
-            src={img}
-            aria-hidden={activeIndex !== index}
-            loading={index === 0 ? "eager" : "lazy"}
-          />
-        ))}
-      </div>
+      {images.map((img, index) => (
+        <img
+          key={index}
+          alt={`Solution slide ${index + 1} of ${images.length}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            activeIndex === index ? "opacity-100" : "opacity-0"
+          }`}
+          src={img}
+          aria-hidden={activeIndex !== index}
+          loading={index === 0 ? "eager" : "lazy"}
+        />
+      ))}
       <CarouselIndicator
         total={images.length}
         activeIndex={activeIndex}
@@ -357,16 +357,16 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   return (
     <article className="bg-white/10 backdrop-blur-sm rounded-2xl md:rounded-3xl p-3 sm:p-4 md:p-5 lg:p-6 w-full border border-white/20 shadow-lg">
       <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5 lg:gap-6 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5 lg:gap-6 w-full items-stretch">
           {imagePosition === "left" ? (
             <>
-              <div className="order-1 lg:order-1">{ImageSection}</div>
-              <div className="order-2 lg:order-2">{ContentSection}</div>
+              <div className="order-1 lg:order-1 h-full">{ImageSection}</div>
+              <div className="order-2 lg:order-2 h-full">{ContentSection}</div>
             </>
           ) : (
             <>
-              <div className="order-1 lg:order-1">{ContentSection}</div>
-              <div className="order-2 lg:order-2">{ImageSection}</div>
+              <div className="order-1 lg:order-1 h-full">{ContentSection}</div>
+              <div className="order-2 lg:order-2 h-full">{ImageSection}</div>
             </>
           )}
         </div>
