@@ -8,7 +8,7 @@ const DigitalTwinPlatform = () => {
     <div data-name="Digital twin Platform" className="">
       <HeroSection />
       <WhyDigitalTwinPlatform />
-      {/* <IndustriesCarousel /> */}
+      <IndustriesCarousel />
       <HowItWorks />
     </div>
   );

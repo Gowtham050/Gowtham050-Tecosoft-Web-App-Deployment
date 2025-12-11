@@ -60,6 +60,7 @@ function TimelineNode({ position, className = "" }: TimelineNodeProps) {
             fill="none"
             stroke="white"
             strokeOpacity="0.36"
+            strokeDasharray="4 4"
             strokeWidth="2"
           />
           {/* Indicator dot */}
@@ -153,6 +154,7 @@ function AnimatedTimeline() {
                 stroke="#FFFFFF3D"
                 strokeLinecap="round"
                 strokeWidth="2"
+                
                 x1="1"
                 x2="1575"
                 y1="1"
