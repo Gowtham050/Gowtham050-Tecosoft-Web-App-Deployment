@@ -5,14 +5,11 @@ import WhyDigitalTwinPlatform from "./why-section";
 
 const DigitalTwinPlatform = () => {
   return (
-    <div
-      className="content-stretch flex flex-col items-start relative size-full"
-      data-name="Digital twin Platform"
-    >
+    <div data-name="Digital twin Platform" className="">
       <HeroSection />
       <WhyDigitalTwinPlatform />
-      <IndustriesCarousel />
-      <HowItWorks />
+      {/* <IndustriesCarousel />
+      <HowItWorks /> */}
     </div>
   );
 };
