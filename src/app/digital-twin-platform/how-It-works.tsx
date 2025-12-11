@@ -25,11 +25,11 @@ interface TimelineNodeProps {
  */
 function SectionHeader() {
   return (
-    <div className="flex flex-col gap-5 items-center text-center max-w-full px-4 md:px-8 lg:px-0 lg:max-w-[980px]">
-      <h2 className="font-semibold text-3xl md:text-4xl lg:text-[42px] leading-tight lg:leading-[46px] text-white">
+    <div className="flex flex-col gap-4 md:gap-5 items-center text-center max-w-full px-6 md:px-8 lg:px-0 lg:max-w-[980px]">
+      <h2 className="font-semibold text-2xl md:text-3xl lg:text-[42px] leading-tight lg:leading-[46px] text-white">
         {HOW_IT_WORKS_SECTION.title}
       </h2>
-      <p className="font-normal text-base md:text-lg leading-relaxed lg:leading-[25px] text-[#e4e4e4] max-w-full lg:max-w-[980px]">
+      <p className="font-normal text-sm md:text-base lg:text-lg leading-relaxed lg:leading-[25px] text-[#e4e4e4] max-w-full lg:max-w-[980px]">
         {HOW_IT_WORKS_SECTION.description}
       </p>
     </div>
@@ -229,43 +229,48 @@ function AnimatedTimeline() {
 }
 
 /**
- * Vertical Timeline Node Component
- * Displays a horizontal line with a dot indicator for vertical timeline
+ * Vertical Timeline Dot Component
+ * Displays a cyan dot on the vertical timeline
  */
-interface VerticalTimelineNodeProps {
-  position: "left" | "right";
+interface VerticalTimelineDotProps {
   className?: string;
 }
 
-function VerticalTimelineNode({ position, className = "" }: VerticalTimelineNodeProps) {
-  const isLeftPosition = position === "left";
+function VerticalTimelineDot({ className = "" }: VerticalTimelineDotProps) {
+  return (
+    <div className={`absolute left-1/2 -translate-x-1/2 w-[12px] h-[12px] rounded-full bg-[#2AC3FF] z-10 ${className}`} />
+  );
+}
+
+/**
+ * Horizontal Dotted Line Component
+ * Displays dotted line extending from center
+ */
+interface DottedLineProps {
+  direction: "left" | "right";
+  className?: string;
+}
+
+function DottedLine({ direction, className = "" }: DottedLineProps) {
+  const isLeft = direction === "left";
 
   return (
-    <div className={`w-[200px] h-[18px] ${className}`}>
+    <div className={`absolute top-1/2 -translate-y-1/2 h-[2px] ${isLeft ? 'right-1/2 left-0 mr-[6px]' : 'left-1/2 right-0 ml-[6px]'} ${className}`}>
       <svg
-        className="block size-full"
+        className="w-full h-full"
         fill="none"
         preserveAspectRatio="none"
-        viewBox="0 0 200 18"
-        aria-hidden="true"
       >
-        <g>
-          {/* Horizontal line */}
-          <path
-            d="M0 9L200 9"
-            fill="none"
-            stroke="white"
-            strokeOpacity="0.36"
-            strokeWidth="2"
-          />
-          {/* Indicator dot */}
-          <circle
-            cx={isLeftPosition ? "191" : "9"}
-            cy="9"
-            fill="#2AC3FF"
-            r="9"
-          />
-        </g>
+        <line
+          x1="0"
+          y1="1"
+          x2="100%"
+          y2="1"
+          stroke="white"
+          strokeOpacity="0.3"
+          strokeWidth="2"
+          strokeDasharray="4 4"
+        />
       </svg>
     </div>
   );
@@ -280,6 +285,7 @@ interface VerticalStepCardProps {
   title: string;
   description: string;
   opacity: any;
+  position: "left" | "right";
   className?: string;
 }
 
@@ -288,17 +294,20 @@ function VerticalStepCard({
   title,
   description,
   opacity,
+  position,
   className = "",
 }: VerticalStepCardProps) {
+  const isLeft = position === "left";
+
   return (
     <motion.div
       style={{ opacity }}
-      className={`flex flex-col gap-2 max-w-[340px] ${className}`}
+      className={`flex flex-col gap-2 ${isLeft ? 'text-right items-end pr-4' : 'text-left items-start pl-4'} ${className}`}
     >
-      <h3 className="font-semibold text-xl md:text-2xl leading-8 text-[#2ac3ff]">
+      <h3 className="font-semibold text-base md:text-lg leading-6 text-[#2ac3ff]">
         {step}. {title}
       </h3>
-      <p className="font-normal text-sm md:text-base leading-relaxed text-white">
+      <p className="font-normal text-xs md:text-sm leading-relaxed text-white/90">
         {description}
       </p>
     </motion.div>
@@ -320,105 +329,93 @@ function VerticalTimeline() {
   });
 
   // Animate the vertical line height based on scroll
-  const lineHeight = useTransform(scrollYProgress, [0, 1], [1, 1200]);
+  const lineHeightPercent = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   // Fade in each step as user scrolls through the timeline
-  const step1Opacity = useTransform(scrollYProgress, [0, 0.2], [0.6, 1]);
-  const step2Opacity = useTransform(scrollYProgress, [0.2, 0.4], [0.6, 1]);
-  const step3Opacity = useTransform(scrollYProgress, [0.4, 0.6], [0.6, 1]);
-  const step4Opacity = useTransform(scrollYProgress, [0.6, 0.85], [0.6, 1]);
+  const step1Opacity = useTransform(scrollYProgress, [0, 0.2], [0.7, 1]);
+  const step2Opacity = useTransform(scrollYProgress, [0.2, 0.4], [0.7, 1]);
+  const step3Opacity = useTransform(scrollYProgress, [0.4, 0.6], [0.7, 1]);
+  const step4Opacity = useTransform(scrollYProgress, [0.6, 0.85], [0.7, 1]);
 
   return (
-    <div className="relative w-full lg:hidden px-4">
-      {/* Vertical timeline grid layout */}
-      <div
-        ref={containerRef}
-        className="grid grid-cols-1 grid-rows-1 relative min-h-[1200px]"
-      >
-        {/* Vertical animated line */}
-        <div className="row-start-1 col-start-1 w-0 relative ml-[100px] md:ml-[120px] h-full">
-          <div className="absolute left-[-2px] top-0 bottom-0 right-0">
-            <svg
-              className="block size-full"
-              fill="none"
-              preserveAspectRatio="none"
-              viewBox="0 0 2 1200"
-            >
-              {/* Background line */}
-              <line
-                stroke="#FFFFFF3D"
-                strokeLinecap="round"
-                strokeWidth="2"
-                x1="1"
-                x2="1"
-                y1="1"
-                y2="1200"
-              />
-              {/* Animated foreground line that fills on scroll */}
-              <motion.line
-                stroke="white"
-                strokeLinecap="round"
-                strokeWidth="2"
-                x1="1"
-                x2="1"
-                y1="1"
-                y2={lineHeight}
-              />
-            </svg>
-          </div>
+    <div className="relative w-full lg:hidden px-6 py-8">
+      {/* Vertical timeline container */}
+      <div ref={containerRef} className="relative">
+        {/* Center vertical line */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-white/20">
+          {/* Animated vertical line */}
+          <motion.div
+            style={{ height: lineHeightPercent }}
+            className="w-full bg-[#2AC3FF]"
+          />
         </div>
 
-        {/* Step 1: Connect (left) */}
-        <VerticalTimelineNode
-          position="left"
-          className="row-start-1 col-start-1 mt-[50px] ml-0 md:ml-[20px]"
-        />
-        <VerticalStepCard
-          step={1}
-          title={HOW_IT_WORKS_STEPS[0].title}
-          description={HOW_IT_WORKS_STEPS[0].description}
-          opacity={step1Opacity}
-          className="row-start-1 col-start-1 mt-[35px] ml-[220px] md:ml-[340px]"
-        />
+        {/* Steps Container */}
+        <div className="relative space-y-24">
+          {/* Step 1: Connect (right side) */}
+          <div className="relative grid grid-cols-2 gap-4 items-center min-h-[120px]">
+            <div className="col-start-1" />
+            <motion.div style={{ opacity: step1Opacity }} className="col-start-2">
+              <VerticalStepCard
+                step={1}
+                title={HOW_IT_WORKS_STEPS[0].title}
+                description={HOW_IT_WORKS_STEPS[0].description}
+                opacity={step1Opacity}
+                position="right"
+              />
+            </motion.div>
+            <VerticalTimelineDot className="top-4" />
+            <DottedLine direction="left" className="top-4" />
+          </div>
 
-        {/* Step 2: Model (right) */}
-        <VerticalTimelineNode
-          position="right"
-          className="row-start-1 col-start-1 mt-[300px] ml-0 md:ml-[20px]"
-        />
-        <VerticalStepCard
-          step={2}
-          title={HOW_IT_WORKS_STEPS[1].title}
-          description={HOW_IT_WORKS_STEPS[1].description}
-          opacity={step2Opacity}
-          className="row-start-1 col-start-1 mt-[285px] ml-[220px] md:ml-[340px]"
-        />
+          {/* Step 2: Model (left side) */}
+          <div className="relative grid grid-cols-2 gap-4 items-center min-h-[120px]">
+            <motion.div style={{ opacity: step2Opacity }} className="col-start-1">
+              <VerticalStepCard
+                step={2}
+                title={HOW_IT_WORKS_STEPS[1].title}
+                description={HOW_IT_WORKS_STEPS[1].description}
+                opacity={step2Opacity}
+                position="left"
+              />
+            </motion.div>
+            <div className="col-start-2" />
+            <VerticalTimelineDot className="top-4" />
+            <DottedLine direction="right" className="top-4" />
+          </div>
 
-        {/* Step 3: Simulate (left) */}
-        <VerticalTimelineNode
-          position="left"
-          className="row-start-1 col-start-1 mt-[580px] ml-0 md:ml-[20px]"
-        />
-        <VerticalStepCard
-          step={3}
-          title={HOW_IT_WORKS_STEPS[2].title}
-          description={HOW_IT_WORKS_STEPS[2].description}
-          opacity={step3Opacity}
-          className="row-start-1 col-start-1 mt-[565px] ml-[220px] md:ml-[340px]"
-        />
+          {/* Step 3: Simulate (right side) */}
+          <div className="relative grid grid-cols-2 gap-4 items-center min-h-[120px]">
+            <div className="col-start-1" />
+            <motion.div style={{ opacity: step3Opacity }} className="col-start-2">
+              <VerticalStepCard
+                step={3}
+                title={HOW_IT_WORKS_STEPS[2].title}
+                description={HOW_IT_WORKS_STEPS[2].description}
+                opacity={step3Opacity}
+                position="right"
+              />
+            </motion.div>
+            <VerticalTimelineDot className="top-4" />
+            <DottedLine direction="left" className="top-4" />
+          </div>
 
-        {/* Step 4: Optimize (right) */}
-        <VerticalTimelineNode
-          position="right"
-          className="row-start-1 col-start-1 mt-[860px] ml-0 md:ml-[20px]"
-        />
-        <VerticalStepCard
-          step={4}
-          title={HOW_IT_WORKS_STEPS[3].title}
-          description={HOW_IT_WORKS_STEPS[3].description}
-          opacity={step4Opacity}
-          className="row-start-1 col-start-1 mt-[845px] ml-[220px] md:ml-[340px]"
-        />
+          {/* Step 4: Optimize (left side) */}
+          <div className="relative grid grid-cols-2 gap-4 items-center min-h-[100px]">
+            <motion.div style={{ opacity: step4Opacity }} className="col-start-1">
+              <VerticalStepCard
+                step={4}
+                title={HOW_IT_WORKS_STEPS[3].title}
+                description={HOW_IT_WORKS_STEPS[3].description}
+                opacity={step4Opacity}
+                position="left"
+              />
+            </motion.div>
+            <div className="col-start-2" />
+            <VerticalTimelineDot className="top-4" />
+            <DottedLine direction="right" className="top-4" />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -431,7 +428,7 @@ function VerticalTimeline() {
 function HowItWorks() {
   return (
     <section
-      className="flex flex-col gap-12 md:gap-16 lg:gap-8 xl:gap-20 items-center overflow-clip py-12 md:py-16 lg:pb-[20px] xl:pb-[40px] lg:pt-[60px] px-4 md:px-8 lg:px-0 w-full mx-auto"
+      className="flex flex-col gap-8 md:gap-12 lg:gap-8 xl:gap-20 items-center overflow-clip py-12 md:py-16 lg:pb-[20px] xl:pb-[40px] lg:pt-[60px] w-full mx-auto"
       data-name="How it works"
       style={{
         background: "linear-gradient(257.57deg, #003D55 0%, #055778 100%)",
