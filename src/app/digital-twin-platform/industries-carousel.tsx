@@ -1,27 +1,10 @@
 "use client";
-import { useState, forwardRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { gsap } from "gsap";
 import svgPaths from "../../imports/svg-zvmjtzwbe4";
-
-// import imgFrame1171278959 from "figma:asset/5d4f19825559777cc57fee70478564d07d866ce7.png";
-// import imgFrame1171278964 from "figma:asset/1d9ecc089142280cfa9db0f3c0f1abce5029dd66.png";
-// import imgFrame1171278963 from "figma:asset/9309dccf64f1303adcc012f237f719382b3c67ca.png";
-// import imgFrame1171278962 from "figma:asset/f6058f802ce72f17fabed2207bcc69a51d093449.png";
-// import imgFrame1171278961 from "figma:asset/56ea414f0372a5f85e31c9ca107c2b1c3d5f9df3.png";
-// import imgFrame1171278960 from "figma:asset/27b1cb6fffa72b17039db1871a1f519745ca5b1f.png";
-
-// const imgFrame1171278959 =
-//   "./assets/pages/digital-twin-platform/5d4f19825559777cc57fee70478564d07d866ce7.png";
-// const imgFrame1171278964 =
-//   "./assets/pages/digital-twin-platform/1d9ecc089142280cfa9db0f3c0f1abce5029dd66.png";
-// const imgFrame1171278963 =
-//   "./assets/pages/digital-twin-platform/9309dccf64f1303adcc012f237f719382b3c67ca.png";
-// const imgFrame1171278962 =
-//   "./assets/pages/digital-twin-platform/f6058f802ce72f17fabed2207bcc69a51d093449.png";
-// const imgFrame1171278961 =
-//   "./assets/pages/digital-twin-platform/56ea414f0372a5f85e31c9ca107c2b1c3d5f9df3.png";
-// const imgFrame1171278960 =
-//   "./assets/pages/digital-twin-platform/27b1cb6fffa72b17039db1871a1f519745ca5b1f.png";
 
 const industries = [
   {
@@ -30,7 +13,8 @@ const industries = [
     subtitle: "Smart Energy Management",
     description:
       "Forecast, optimize, and automate energy efficiency across utilities and lines. Build a digital energy twin and let AI reduce cost, peaks, and carbon.",
-    image: "/assets/pages/digital-twin-platform/5d4f19825559777cc57fee70478564d07d866ce7.png",
+    image:
+      "/assets/pages/digital-twin-platform/5d4f19825559777cc57fee70478564d07d866ce7.png",
     tags: [
       "Line & Cell Modeling",
       "Condition & Process Twin",
@@ -44,7 +28,8 @@ const industries = [
     subtitle: "Energy & Utilities",
     description:
       "Build a grid-aware twin for plants, microgrids, and utilities to forecast demand, orchestrate loads, and integrate renewables.",
-    image: "/assets/pages/digital-twin-platform/1d9ecc089142280cfa9db0f3c0f1abce5029dd66.png",
+    image:
+      "/assets/pages/digital-twin-platform/1d9ecc089142280cfa9db0f3c0f1abce5029dd66.png",
     tags: [
       "Load Forecasting",
       "DER Orchestration",
@@ -58,7 +43,8 @@ const industries = [
     subtitle: "Oil & Gas",
     description:
       "From reservoirs and wells to pipelines and plants—unify models to optimize throughput, integrity, and safety.",
-    image: "/assets/pages/digital-twin-platform/9309dccf64f1303adcc012f237f719382b3c67ca.png",
+    image:
+      "/assets/pages/digital-twin-platform/9309dccf64f1303adcc012f237f719382b3c67ca.png",
     tags: [
       "Well & Flow Assurance",
       "Predictive Integrity",
@@ -72,7 +58,8 @@ const industries = [
     subtitle: "Healthcare",
     description:
       "Digital twins for hospital operations, patient flow, and medical equipment. Optimize resource allocation and improve patient outcomes.",
-    image: "/assets/pages/digital-twin-platform/f6058f802ce72f17fabed2207bcc69a51d093449.png",
+    image:
+      "/assets/pages/digital-twin-platform/f6058f802ce72f17fabed2207bcc69a51d093449.png",
     tags: [
       "Patient Flow",
       "Equipment Tracking",
@@ -86,7 +73,8 @@ const industries = [
     subtitle: "Logistics & Warehousing",
     description:
       "Optimize warehouse operations, inventory management, and supply chain logistics. Reduce costs and improve delivery times.",
-    image: "/assets/pages/digital-twin-platform/56ea414f0372a5f85e31c9ca107c2b1c3d5f9df3.png",
+    image:
+      "/assets/pages/digital-twin-platform/56ea414f0372a5f85e31c9ca107c2b1c3d5f9df3.png",
     tags: [
       "Inventory Tracking",
       "Route Optimization",
@@ -100,7 +88,8 @@ const industries = [
     subtitle: "Smart Cities",
     description:
       "Create digital twins of urban infrastructure for traffic management, utilities, and public services. Build sustainable, efficient cities.",
-    image: "/assets/pages/digital-twin-platform/27b1cb6fffa72b17039db1871a1f519745ca5b1f.png",
+    image:
+      "/assets/pages/digital-twin-platform/27b1cb6fffa72b17039db1871a1f519745ca5b1f.png",
     tags: [
       "Traffic Management",
       "Infrastructure",
@@ -125,7 +114,7 @@ function Frame42() {
   );
 }
 
-function IconoirArrowDown5() {
+function IconoirArrowDown() {
   return (
     <div className="relative size-[22px]" data-name="iconoir:arrow-down">
       <svg
@@ -149,98 +138,119 @@ function IconoirArrowDown5() {
   );
 }
 
-function IconoirArrowDown6() {
+interface IndustryCardProps {
+  industry: (typeof industries)[0];
+  isActive: boolean;
+  onClick: () => void;
+}
+
+function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      if (isActive) {
+        gsap.to(cardRef.current, {
+          width: 582,
+          duration: 0.8,
+          ease: "power2.out",
+        });
+
+        // Fade in content after card expands
+        if (contentRef.current) {
+          gsap.fromTo(
+            contentRef.current,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.6, delay: 0.3, ease: "power2.out" }
+          );
+        }
+      } else {
+        // Fade out content before card collapses
+        if (contentRef.current) {
+          gsap.to(contentRef.current, {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.in",
+          });
+        }
+
+        gsap.to(cardRef.current, {
+          width: 130,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.2,
+        });
+      }
+    }
+  }, [isActive]);
+
   return (
     <div
-      className="relative shrink-0 size-[22px]"
-      data-name="iconoir:arrow-down"
+      ref={cardRef}
+      onClick={!isActive ? onClick : undefined}
+      className={`h-[520px] overflow-clip relative rounded-[12px] shrink-0 transition-all ${
+        !isActive ? "cursor-pointer hover:scale-105" : ""
+      }`}
+      style={{ width: isActive ? "582px" : "130px" }}
     >
-      <svg
-        className="block size-full"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 22 22"
-      >
-        <g id="iconoir:arrow-down">
-          <path
-            d={svgPaths.p14bd7580}
-            id="Vector"
-            stroke="var(--stroke-0, #007AAA)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-interface ExpandedCardProps {
-  industry: (typeof industries)[0];
-}
-
-const ExpandedCard = forwardRef<HTMLDivElement, ExpandedCardProps>(
-  ({ industry }, ref) => {
-    return (
       <div
-        ref={ref}
-        className="content-stretch flex flex-col gap-[30px] h-[520px] items-start justify-end overflow-clip p-[30px] relative rounded-[12px] shrink-0 w-[582px]"
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none rounded-[12px] overflow-hidden"
       >
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 pointer-events-none rounded-[12px]"
-        >
-          <img
-            alt=""
-            className="absolute max-w-none object-50%-50% object-cover rounded-[12px] size-full"
-            src={industry.image}
-          />
+        <img
+          alt=""
+          className="absolute max-w-none object-cover rounded-[12px] size-full object-center"
+          src={industry.image}
+        />
+        {isActive ? (
           <div className="absolute bg-gradient-to-b from-[rgba(17,17,17,0)] inset-0 rounded-[12px] to-90% to-[#111111]" />
-        </div>
-        <div className="content-stretch flex flex-col gap-[14px] items-start not-italic relative shrink-0 w-full z-10">
-          <p className="font-['Gilroy:Semibold',sans-serif] leading-[36px] relative shrink-0 text-[#00ff84] text-[32px] text-nowrap whitespace-pre">
-            {industry.title}
-          </p>
-          <div className="font-['Gilroy:Medium',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[#d2d2d2] text-[16px] w-[min-content]">
-            <p className="mb-0">{industry.description}</p>
+        ) : (
+          <div className="absolute backdrop-blur-[1.5px] backdrop-filter bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[16px] to-[rgba(0,0,0,0.8)]" />
+        )}
+      </div>
+
+      {isActive ? (
+        <div
+          ref={contentRef}
+          className="absolute bottom-[30px] left-[30px] right-[30px] flex flex-col gap-[30px] z-10"
+        >
+          <div className="content-stretch flex flex-col gap-[14px] items-start not-italic">
+            <p className="font-['Gilroy:Semibold',sans-serif] leading-[36px] text-[#00ff84] text-[32px] text-nowrap whitespace-pre">
+              {industry.title}
+            </p>
+            <div className="font-['Gilroy:Medium',sans-serif] leading-[22px] text-[#d2d2d2] text-[16px]">
+              <p className="mb-0">{industry.description}</p>
+            </div>
           </div>
-        </div>
-        <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full z-10">
-          <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-            <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow min-h-px min-w-px relative rounded-[8px] shrink-0">
-              <div className="flex flex-row items-center justify-center size-full">
-                <div className="content-stretch flex items-center justify-center px-[14px] py-[12px] relative w-full">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
+          <div className="content-stretch flex flex-col gap-[16px] items-start">
+            <div className="content-stretch flex gap-[16px] items-center w-full">
+              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[8px]">
+                <div className="flex items-center justify-center px-[14px] py-[12px]">
+                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] text-[15px] text-nowrap text-white whitespace-pre">
                     {industry.tags[0]}
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow min-h-px min-w-px relative rounded-[8px] shrink-0">
-              <div className="flex flex-row items-center justify-center size-full">
-                <div className="content-stretch flex items-center justify-center px-[14px] py-[12px] relative w-full">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
+              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[8px]">
+                <div className="flex items-center justify-center px-[14px] py-[12px]">
+                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] text-[15px] text-nowrap text-white whitespace-pre">
                     {industry.tags[1]}
                   </p>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-            <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow min-h-px min-w-px relative rounded-[8px] shrink-0">
-              <div className="flex flex-row items-center justify-center size-full">
-                <div className="content-stretch flex items-center justify-center px-[14px] py-[12px] relative w-full">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
+            <div className="content-stretch flex gap-[16px] items-center w-full">
+              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[8px]">
+                <div className="flex items-center justify-center px-[14px] py-[12px]">
+                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] text-[15px] text-nowrap text-white whitespace-pre">
                     {industry.tags[2]}
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow min-h-px min-w-px relative rounded-[8px] shrink-0">
-              <div className="flex flex-row items-center justify-center size-full">
-                <div className="content-stretch flex items-center justify-center px-[14px] py-[12px] relative w-full">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
+              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[8px]">
+                <div className="flex items-center justify-center px-[14px] py-[12px]">
+                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] text-[15px] text-nowrap text-white whitespace-pre">
                     {industry.tags[3]}
                   </p>
                 </div>
@@ -248,158 +258,134 @@ const ExpandedCard = forwardRef<HTMLDivElement, ExpandedCardProps>(
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
-);
-
-ExpandedCard.displayName = "ExpandedCard";
-
-interface CollapsedCardProps {
-  industry: (typeof industries)[0];
-  onClick: () => void;
-}
-
-const CollapsedCard = forwardRef<HTMLDivElement, CollapsedCardProps>(
-  ({ industry, onClick }, ref) => {
-    return (
-      <div
-        ref={ref}
-        onClick={onClick}
-        className="h-[520px] overflow-clip relative rounded-[12px] shrink-0 w-[130px] cursor-pointer hover:scale-105 transition-transform"
-      >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[12px]">
-          <img
-            alt=""
-            className="absolute max-w-none object-cover rounded-[12px] size-full object-center"
-            src={industry.image}
-          />
-        </div>
-        <div className="absolute backdrop-blur-[1.5px] backdrop-filter bg-gradient-to-b from-[rgba(0,0,0,0)] h-[520px] left-0 rounded-[16px] to-[rgba(0,0,0,0.8)] top-0 w-[130px]" />
+      ) : (
         <div className="absolute flex items-center justify-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[42px]">
           <div className="flex-none rotate-[270deg]">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[42px] not-italic relative text-[28px] text-nowrap text-white whitespace-pre">
+            <p className="font-['Gilroy:Semibold',sans-serif] leading-[42px] not-italic text-[28px] text-nowrap text-white whitespace-pre">
               {industry.subtitle}
             </p>
           </div>
         </div>
+      )}
+    </div>
+  );
+}
+
+interface CustomArrowProps {
+  onClick?: () => void;
+  direction: "prev" | "next";
+}
+
+function CustomArrow({ onClick, direction }: CustomArrowProps) {
+  return (
+    <button
+      onClick={onClick}
+      className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[8px] shrink-0 hover:bg-gray-50 active:scale-95 transition-all hover:cursor-pointer"
+      aria-label={direction === "prev" ? "Previous industry" : "Next industry"}
+    >
+      <div
+        aria-hidden="true"
+        className="absolute border border-[#aae7ff] border-solid inset-0 pointer-events-none rounded-[8px]"
+      />
+      <div className="flex items-center justify-center relative shrink-0">
+        <div
+          className={
+            direction === "prev"
+              ? "flex-none rotate-[180deg] scale-y-[-100%]"
+              : ""
+          }
+        >
+          <IconoirArrowDown />
+        </div>
       </div>
-    );
-  }
-);
-
-CollapsedCard.displayName = "CollapsedCard";
-
-const MotionExpandedCard = motion.create(ExpandedCard);
-const MotionCollapsedCard = motion.create(CollapsedCard);
+    </button>
+  );
+}
 
 function IndustriesCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [expandedPosition, setExpandedPosition] = useState(0); // 0, 1, or 2 for 1st, 2nd, 3rd position
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const sliderRef = useRef<Slider>(null);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    centerMode: false,
+    focusOnSelect: false,
+    arrows: false,
+    swipe: true,
+    draggable: true,
+    variableWidth: true,
+    beforeChange: (current: number, next: number) => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setActiveSlide(next);
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 400);
+      }, 100);
+    },
+    responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 5,
+          variableWidth: true,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          variableWidth: true,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          variableWidth: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          variableWidth: true,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          variableWidth: true,
+        },
+      },
+    ],
+  };
+
+  const handleCardClick = (index: number) => {
+    if (activeSlide !== index && !isTransitioning) {
+      setIsTransitioning(true);
+      sliderRef.current?.slickGoTo(index);
+      setTimeout(() => {
+        setActiveSlide(index);
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 400);
+      }, 100);
+    }
+  };
 
   const handlePrevious = () => {
-    setActiveIndex((prev) => {
-      const newIndex = prev === 0 ? industries.length - 1 : prev - 1;
-      return newIndex;
-    });
-    // Cycle through expanded positions: 0 -> 2 -> 1 -> 0
-    setExpandedPosition((prev) => {
-      if (prev === 0) return 2;
-      if (prev === 2) return 1;
-      return 0;
-    });
+    sliderRef.current?.slickPrev();
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => {
-      const newIndex = prev === industries.length - 1 ? 0 : prev + 1;
-      return newIndex;
-    });
-    // Cycle through expanded positions: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 0
-    setExpandedPosition((prev) => (prev + 1) % 6);
-  };
-
-  const handleCardClick = (clickedIndex: number) => {
-    setActiveIndex(clickedIndex);
-    // Set expanded position based on which card was clicked
-    const visibleCards = getVisibleCards();
-    const clickedPosition = visibleCards.findIndex(
-      (card) => card.id === industries[clickedIndex].id
-    );
-    if (clickedPosition !== -1 && clickedPosition !== expandedPosition) {
-      setExpandedPosition(clickedPosition);
-    }
-  };
-
-  const getVisibleCards = () => {
-    const visible = [];
-    for (let i = 0; i < 6; i++) {
-      const index = (activeIndex + i) % industries.length;
-      visible.push(industries[index]);
-    }
-    return visible;
-  };
-
-  const visibleCards = getVisibleCards();
-
-  // Rearrange cards based on expanded position
-  const renderCards = () => {
-    const cards = [];
-
-    for (let i = 0; i < 6; i++) {
-      const isExpanded = i === expandedPosition;
-      const card = visibleCards[i];
-
-      if (isExpanded) {
-        // Cards at position 2-6 expand from right to left
-        const expandFromRight = i >= 2;
-
-        cards.push(
-          <MotionExpandedCard
-            key={`expanded-${card.id}-${expandedPosition}`}
-            industry={card}
-            layout
-            initial={{
-              opacity: 0,
-              x: expandFromRight ? 50 : -50,
-            }}
-            animate={{
-              opacity: 1,
-              x: 0,
-            }}
-            exit={{
-              opacity: 0,
-              x: expandFromRight ? 50 : -50,
-            }}
-            transition={{
-              layout: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
-              opacity: { duration: 0.6, ease: "easeInOut" },
-              x: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
-            }}
-            style={{
-              transformOrigin: expandFromRight ? "right center" : "left center",
-            }}
-          />
-        );
-      } else {
-        cards.push(
-          <MotionCollapsedCard
-            key={`collapsed-${card.id}-${i}`}
-            industry={card}
-            onClick={() => {
-              const clickedGlobalIndex = (activeIndex + i) % industries.length;
-              handleCardClick(clickedGlobalIndex);
-            }}
-            layout
-            transition={{
-              layout: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
-            }}
-          />
-        );
-      }
-    }
-
-    return cards;
+    sliderRef.current?.slickNext();
   };
 
   return (
@@ -409,39 +395,50 @@ function IndustriesCarousel() {
     >
       <Frame42 />
 
-      <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-        <AnimatePresence mode="popLayout">{renderCards()}</AnimatePresence>
+      <div className="content-stretch relative shrink-0 w-full">
+        <style jsx global>{`
+          .industries-slider .slick-slide {
+            padding: 0 8px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .industries-slider .slick-list {
+            margin: 0 -8px;
+            overflow: hidden;
+          }
+          .industries-slider .slick-track {
+            display: flex !important;
+            gap: 0;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+          }
+          .industries-slider .slick-slide > div {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .industries-slider .slick-slide.slick-active {
+            z-index: 10;
+          }
+        `}</style>
+        <Slider ref={sliderRef} {...settings} className="industries-slider">
+          {industries.map((industry, index) => (
+            <div key={industry.id}>
+              <IndustryCard
+                industry={industry}
+                isActive={index === activeSlide}
+                onClick={() => handleCardClick(index)}
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
 
       <div className="content-stretch flex gap-[10px] items-center relative shrink-0">
-        <button
-          onClick={handlePrevious}
-          className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[8px] shrink-0 hover:bg-gray-50 active:scale-95 transition-all"
-          aria-label="Previous industry"
-        >
-          <div
-            aria-hidden="true"
-            className="absolute border border-[#aae7ff] border-solid inset-0 pointer-events-none rounded-[8px]"
-          />
-          <div className="flex items-center justify-center relative shrink-0">
-            <div className="flex-none rotate-[180deg] scale-y-[-100%]">
-              <IconoirArrowDown5 />
-            </div>
-          </div>
-        </button>
-        <button
-          onClick={handleNext}
-          className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[8px] shrink-0 hover:bg-gray-50 active:scale-95 transition-all"
-          aria-label="Next industry"
-        >
-          <div
-            aria-hidden="true"
-            className="absolute border border-[#aae7ff] border-solid inset-0 pointer-events-none rounded-[8px]"
-          />
-          <IconoirArrowDown6 />
-        </button>
+        <CustomArrow onClick={handlePrevious} direction="prev" />
+        <CustomArrow onClick={handleNext} direction="next" />
       </div>
     </div>
   );
 }
+
 export default IndustriesCarousel;
