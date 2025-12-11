@@ -99,10 +99,10 @@ function StepCard({
       style={{ opacity }}
       className={`flex flex-col gap-2 max-w-[280px] ${className}`}
     >
-      <h3 className="font-semibold text-2xl md:text-[28px] leading-8 text-[#2ac3ff]">
+      <h3 className="font-semibold text-2xl md:text-[28px] lg:text-[24px] lg:text-[28px] leading-8 text-[#2ac3ff]">
         {step}. {title}
       </h3>
-      <p className="font-normal text-sm md:text-base leading-relaxed md:leading-[22px] text-white">
+      <p className="font-normal text-sm md:text-base lg:text-[14px] xl:text-[16px] leading-relaxed md:leading-[22px] text-white">
         {description}
       </p>
     </motion.div>
@@ -124,26 +124,29 @@ function AnimatedTimeline() {
   });
 
   // Animate the horizontal line length based on scroll
-  const lineLength = useTransform(scrollYProgress, [0, 1], [1, 1511]);
+  const lineLength = useTransform(scrollYProgress, [0, 1], [1, 1575]);
 
   // Fade in each step as user scrolls through the timeline
-  const step1Opacity = useTransform(scrollYProgress, [0, 0.15], [0.3, 1]);
-  const step2Opacity = useTransform(scrollYProgress, [0.2, 0.4], [0.3, 1]);
-  const step3Opacity = useTransform(scrollYProgress, [0.4, 0.6], [0.3, 1]);
-  const step4Opacity = useTransform(scrollYProgress, [0.6, 0.8], [0.3, 1]);
+  const step1Opacity = useTransform(scrollYProgress, [0, 0.15], [0.8, 1]);
+  const step2Opacity = useTransform(scrollYProgress, [0.15, 0.35], [0.8, 1]);
+  const step3Opacity = useTransform(scrollYProgress, [0.35, 0.55], [0.8, 1]);
+  const step4Opacity = useTransform(scrollYProgress, [0.5, 0.7], [0.8, 1]);
 
   return (
-    <div className="relative w-full max-w-[1512px] hidden lg:block">
-      {/* Timeline grid layout */}
-      <div ref={containerRef} className="grid grid-cols-1 grid-rows-1 relative">
+    <div className="relative w-full hidden lg:block px-4 xl:px-8">
+      {/* Timeline grid layout - horizontal for all lg+ screens */}
+      <div
+        ref={containerRef}
+        className="grid grid-cols-1 grid-rows-1 relative w-full min-h-[480px]"
+      >
         {/* Horizontal animated line */}
-        <div className="row-start-1 col-start-1 h-0 relative mt-[192px] w-full max-w-[1512px]">
+        <div className="row-start-1 col-start-1 h-0 relative mt-[192px] w-full">
           <div className="absolute bottom-0 left-0 right-0 top-[-2px]">
             <svg
-              className="block size-full"
+              className="block w-full h-[2px]"
               fill="none"
               preserveAspectRatio="none"
-              viewBox="0 0 1512 2"
+              viewBox="0 0 1576 2"
             >
               {/* Background line */}
               <line
@@ -151,7 +154,7 @@ function AnimatedTimeline() {
                 strokeLinecap="round"
                 strokeWidth="2"
                 x1="1"
-                x2="1511"
+                x2="1575"
                 y1="1"
                 y2="1"
               />
@@ -172,53 +175,53 @@ function AnimatedTimeline() {
         {/* Step 1: Connect (top-left) */}
         <TimelineNode
           position="top"
-          className="row-start-1 col-start-1 ml-[100px] mt-0"
+          className="row-start-1 col-start-1 left-[8%] mt-0 absolute"
         />
         <StepCard
           step={1}
           title={HOW_IT_WORKS_STEPS[0].title}
           description={HOW_IT_WORKS_STEPS[0].description}
           opacity={step1Opacity}
-          className="row-start-1 col-start-1 ml-[138px] mt-0"
+          className="row-start-1 col-start-1 left-[10%] mt-0 absolute"
         />
 
         {/* Step 2: Model (bottom-left) */}
         <TimelineNode
           position="bottom"
-          className="row-start-1 col-start-1 ml-[433px] mt-[184px]"
+          className="row-start-1 col-start-1 left-[26%] mt-[184px] absolute"
         />
         <StepCard
           step={2}
           title={HOW_IT_WORKS_STEPS[1].title}
           description={HOW_IT_WORKS_STEPS[1].description}
           opacity={step2Opacity}
-          className="row-start-1 col-start-1 ml-[471px] mt-[278px]"
+          className="row-start-1 col-start-1 left-[28%] mt-[278px] absolute"
         />
 
         {/* Step 3: Simulate (top-right) */}
         <TimelineNode
           position="top"
-          className="row-start-1 col-start-1 ml-[766px] mt-0"
+          className="row-start-1 col-start-1 left-[47%] mt-0 absolute"
         />
         <StepCard
           step={3}
           title={HOW_IT_WORKS_STEPS[2].title}
           description={HOW_IT_WORKS_STEPS[2].description}
           opacity={step3Opacity}
-          className="row-start-1 col-start-1 ml-[804px] mt-0"
+          className="row-start-1 col-start-1 left-[49%] mt-0 absolute"
         />
 
         {/* Step 4: Optimize (bottom-right) */}
         <TimelineNode
           position="bottom"
-          className="row-start-1 col-start-1 ml-[1098px] mt-[184px]"
+          className="row-start-1 col-start-1 left-[68%] lg:left-[72%] mt-[184px] absolute"
         />
         <StepCard
           step={4}
           title={HOW_IT_WORKS_STEPS[3].title}
           description={HOW_IT_WORKS_STEPS[3].description}
           opacity={step4Opacity}
-          className="row-start-1 col-start-1 ml-[1136px] mt-[278px]"
+          className="row-start-1 col-start-1 left-[70%] lg:left-[74%] mt-[278px] absolute"
         />
       </div>
     </div>
@@ -226,25 +229,197 @@ function AnimatedTimeline() {
 }
 
 /**
- * Mobile Timeline Component
- * Simplified vertical layout for mobile devices
+ * Vertical Timeline Node Component
+ * Displays a horizontal line with a dot indicator for vertical timeline
  */
-function MobileTimeline() {
+interface VerticalTimelineNodeProps {
+  position: "left" | "right";
+  className?: string;
+}
+
+function VerticalTimelineNode({ position, className = "" }: VerticalTimelineNodeProps) {
+  const isLeftPosition = position === "left";
+
   return (
-    <div className="flex flex-col gap-8 w-full lg:hidden px-4">
-      {HOW_IT_WORKS_STEPS.map((step) => (
-        <div
-          key={step.id}
-          className="flex flex-col gap-2 p-6 rounded-2xl bg-white/5 backdrop-blur-sm"
-        >
-          <h3 className="font-semibold text-xl md:text-2xl leading-8 text-[#2ac3ff]">
-            {step.step}. {step.title}
-          </h3>
-          <p className="font-normal text-sm md:text-base leading-relaxed text-white/90">
-            {step.description}
-          </p>
+    <div className={`w-[200px] h-[18px] ${className}`}>
+      <svg
+        className="block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 200 18"
+        aria-hidden="true"
+      >
+        <g>
+          {/* Horizontal line */}
+          <path
+            d="M0 9L200 9"
+            fill="none"
+            stroke="white"
+            strokeOpacity="0.36"
+            strokeWidth="2"
+          />
+          {/* Indicator dot */}
+          <circle
+            cx={isLeftPosition ? "191" : "9"}
+            cy="9"
+            fill="#2AC3FF"
+            r="9"
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Vertical Step Card Component
+ * Displays step info for vertical timeline
+ */
+interface VerticalStepCardProps {
+  step: number;
+  title: string;
+  description: string;
+  opacity: any;
+  className?: string;
+}
+
+function VerticalStepCard({
+  step,
+  title,
+  description,
+  opacity,
+  className = "",
+}: VerticalStepCardProps) {
+  return (
+    <motion.div
+      style={{ opacity }}
+      className={`flex flex-col gap-2 max-w-[340px] ${className}`}
+    >
+      <h3 className="font-semibold text-xl md:text-2xl leading-8 text-[#2ac3ff]">
+        {step}. {title}
+      </h3>
+      <p className="font-normal text-sm md:text-base leading-relaxed text-white">
+        {description}
+      </p>
+    </motion.div>
+  );
+}
+
+/**
+ * Vertical Animated Timeline Component
+ * Displays vertical timeline for screens below 1024px
+ * Animates based on scroll position
+ */
+function VerticalTimeline() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Track scroll progress through this component
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Animate the vertical line height based on scroll
+  const lineHeight = useTransform(scrollYProgress, [0, 1], [1, 1200]);
+
+  // Fade in each step as user scrolls through the timeline
+  const step1Opacity = useTransform(scrollYProgress, [0, 0.2], [0.6, 1]);
+  const step2Opacity = useTransform(scrollYProgress, [0.2, 0.4], [0.6, 1]);
+  const step3Opacity = useTransform(scrollYProgress, [0.4, 0.6], [0.6, 1]);
+  const step4Opacity = useTransform(scrollYProgress, [0.6, 0.85], [0.6, 1]);
+
+  return (
+    <div className="relative w-full lg:hidden px-4">
+      {/* Vertical timeline grid layout */}
+      <div
+        ref={containerRef}
+        className="grid grid-cols-1 grid-rows-1 relative min-h-[1200px]"
+      >
+        {/* Vertical animated line */}
+        <div className="row-start-1 col-start-1 w-0 relative ml-[100px] md:ml-[120px] h-full">
+          <div className="absolute left-[-2px] top-0 bottom-0 right-0">
+            <svg
+              className="block size-full"
+              fill="none"
+              preserveAspectRatio="none"
+              viewBox="0 0 2 1200"
+            >
+              {/* Background line */}
+              <line
+                stroke="#FFFFFF3D"
+                strokeLinecap="round"
+                strokeWidth="2"
+                x1="1"
+                x2="1"
+                y1="1"
+                y2="1200"
+              />
+              {/* Animated foreground line that fills on scroll */}
+              <motion.line
+                stroke="white"
+                strokeLinecap="round"
+                strokeWidth="2"
+                x1="1"
+                x2="1"
+                y1="1"
+                y2={lineHeight}
+              />
+            </svg>
+          </div>
         </div>
-      ))}
+
+        {/* Step 1: Connect (left) */}
+        <VerticalTimelineNode
+          position="left"
+          className="row-start-1 col-start-1 mt-[50px] ml-0 md:ml-[20px]"
+        />
+        <VerticalStepCard
+          step={1}
+          title={HOW_IT_WORKS_STEPS[0].title}
+          description={HOW_IT_WORKS_STEPS[0].description}
+          opacity={step1Opacity}
+          className="row-start-1 col-start-1 mt-[35px] ml-[220px] md:ml-[340px]"
+        />
+
+        {/* Step 2: Model (right) */}
+        <VerticalTimelineNode
+          position="right"
+          className="row-start-1 col-start-1 mt-[300px] ml-0 md:ml-[20px]"
+        />
+        <VerticalStepCard
+          step={2}
+          title={HOW_IT_WORKS_STEPS[1].title}
+          description={HOW_IT_WORKS_STEPS[1].description}
+          opacity={step2Opacity}
+          className="row-start-1 col-start-1 mt-[285px] ml-[220px] md:ml-[340px]"
+        />
+
+        {/* Step 3: Simulate (left) */}
+        <VerticalTimelineNode
+          position="left"
+          className="row-start-1 col-start-1 mt-[580px] ml-0 md:ml-[20px]"
+        />
+        <VerticalStepCard
+          step={3}
+          title={HOW_IT_WORKS_STEPS[2].title}
+          description={HOW_IT_WORKS_STEPS[2].description}
+          opacity={step3Opacity}
+          className="row-start-1 col-start-1 mt-[565px] ml-[220px] md:ml-[340px]"
+        />
+
+        {/* Step 4: Optimize (right) */}
+        <VerticalTimelineNode
+          position="right"
+          className="row-start-1 col-start-1 mt-[860px] ml-0 md:ml-[20px]"
+        />
+        <VerticalStepCard
+          step={4}
+          title={HOW_IT_WORKS_STEPS[3].title}
+          description={HOW_IT_WORKS_STEPS[3].description}
+          opacity={step4Opacity}
+          className="row-start-1 col-start-1 mt-[845px] ml-[220px] md:ml-[340px]"
+        />
+      </div>
     </div>
   );
 }
@@ -256,7 +431,7 @@ function MobileTimeline() {
 function HowItWorks() {
   return (
     <section
-      className="flex flex-col gap-12 md:gap-16 lg:gap-20 items-center overflow-clip py-12 md:py-16 lg:pb-[70px] lg:pt-[60px] px-4 md:px-8 lg:px-0 w-full max-w-[1512px] mx-auto"
+      className="flex flex-col gap-12 md:gap-16 lg:gap-8 xl:gap-20 items-center overflow-clip py-12 md:py-16 lg:pb-[20px] xl:pb-[40px] lg:pt-[60px] px-4 md:px-8 lg:px-0 w-full mx-auto"
       data-name="How it works"
       style={{
         background: "linear-gradient(257.57deg, #003D55 0%, #055778 100%)",
@@ -264,7 +439,7 @@ function HowItWorks() {
     >
       <SectionHeader />
       <AnimatedTimeline />
-      <MobileTimeline />
+      <VerticalTimeline />
     </section>
   );
 }
