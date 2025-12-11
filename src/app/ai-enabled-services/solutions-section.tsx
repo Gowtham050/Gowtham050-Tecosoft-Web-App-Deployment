@@ -1,9 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import {
   SOLUTIONS_SECTION,
   SOLUTIONS_DATA,
 } from "../../constants/ai-enabled-service/ai-enable-service.js";
 import svgPaths from "../../imports/svg-txc4khmm90";
+
+// ===========================
+// Constants
+// ===========================
+
+const CAROUSEL_INTERVAL_MS = 4000;
+const FEATURE_CARDS_PER_SOLUTION = 4;
+const CAROUSEL_INDICATOR_RADIUS = 5;
+const CAROUSEL_INDICATOR_SPACING = 15;
 
 // ===========================
 // TypeScript Interfaces
@@ -26,6 +36,7 @@ interface SolutionCardProps {
   features: FeatureCardProps[];
   images: string[];
   imagePosition?: "left" | "right";
+  routeName: string;
 }
 
 // ===========================
@@ -187,15 +198,24 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 
   return (
     <div
-      className="backdrop-blur-[10px] backdrop-filter basis-0 grow min-h-px min-w-px rounded-[12px] shrink-0"
+      className="backdrop-blur-[10px] backdrop-filter rounded-xl md:rounded-[12px] w-full transition-transform hover:scale-105"
       style={{ backgroundColor: bgColor }}
+      role="article"
+      aria-label={label}
     >
       <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="flex flex-col gap-[14px] items-start p-[14px] w-full">
-          <div className="shrink-0 size-[24px]">
-            {IconComponent && <IconComponent color={iconColor} />}
+        <div className="flex flex-col gap-3 md:gap-[14px] items-start p-3 sm:p-4 md:p-[14px] w-full">
+          <div
+            className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6"
+            aria-hidden="true"
+          >
+            {IconComponent ? (
+              <IconComponent color={iconColor} />
+            ) : (
+              <div className="w-full h-full bg-gray-300 rounded" />
+            )}
           </div>
-          <p className="font-medium leading-[20px] text-[#282828] text-[16px] whitespace-pre">
+          <p className="text-sm md:text-base font-medium leading-snug md:leading-[20px] text-[#282828]">
             {label}
           </p>
         </div>
@@ -208,51 +228,80 @@ const CarouselIndicator: React.FC<{
   total: number;
   activeIndex: number;
   onDotClick: (index: number) => void;
-}> = ({ total, activeIndex, onDotClick }) => (
-  <div className="absolute h-[20px] left-1/2 top-[calc(50%+196px)] translate-x-[-50%] translate-y-[-50%] w-[50px]">
-    <svg className="block size-full" fill="none" viewBox="0 0 50 20">
-      <rect fill="white" fillOpacity="0.24" height="20" rx="10" width="50" />
-      {Array.from({ length: total }).map((_, index) => (
-        <circle
-          key={index}
-          cx={10 + index * 15}
-          cy="10"
-          r="5"
-          fill={activeIndex === index ? "#00FF84" : "white"}
-          className="cursor-pointer transition-all"
-          onClick={() => onDotClick(index)}
-        />
-      ))}
-    </svg>
-  </div>
-);
+}> = ({ total, activeIndex, onDotClick }) => {
+  if (total <= 1) return null;
+
+  return (
+    <div
+      className="flex items-center justify-center gap-2 mt-3 md:mt-4"
+      role="tablist"
+      aria-label="Carousel navigation"
+    >
+      {Array.from({ length: total }).map((_, index) => {
+        const isActive = activeIndex === index;
+        return (
+          <button
+            key={index}
+            className={`rounded-full transition-all duration-300 ${
+              isActive
+                ? "bg-white w-2.5 h-2.5"
+                : "bg-white/50 w-2 h-2 hover:bg-white/75"
+            }`}
+            onClick={() => onDotClick(index)}
+            role="tab"
+            aria-selected={isActive}
+            aria-label={`Go to slide ${index + 1} of ${total}`}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onDotClick(index);
+              }
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
+    if (images.length <= 1) return;
+
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, CAROUSEL_INTERVAL_MS);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images.length, activeIndex]);
 
-  const handleDotClick = (index: number) => {
+  const handleDotClick = useCallback((index: number) => {
     setActiveIndex(index);
-  };
+  }, []);
+
+  if (images.length === 0) return null;
 
   return (
-    <div className="content-stretch flex gap-[16px] items-start relative shrink-0">
-      <div className="h-[460px] relative rounded-[16px] shrink-0 w-[632px] overflow-hidden">
+    <div
+      className="w-full "
+      role="region"
+      aria-label="Image carousel"
+      aria-live="polite"
+    >
+      <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] md:aspect-[16/10] lg:aspect-[3/2] rounded-2xl md:rounded-[16px] overflow-hidden">
         {images.map((img, index) => (
           <img
             key={index}
-            alt={`Solution slide ${index + 1}`}
-            className={`absolute inset-0 max-w-none object-cover rounded-[16px] size-full transition-opacity duration-500 ${
+            alt={`Solution slide ${index + 1} of ${images.length}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
               activeIndex === index ? "opacity-100" : "opacity-0"
             }`}
             src={img}
+            aria-hidden={activeIndex !== index}
+            loading={index === 0 ? "eager" : "lazy"}
           />
         ))}
       </div>
@@ -271,38 +320,34 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   features,
   images,
   imagePosition = "right",
+  routeName,
 }) => {
   const ContentSection = (
-    <div className="basis-0 bg-white grow min-h-px min-w-px rounded-[16px] self-stretch shrink-0">
-      <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="flex flex-col items-start justify-between p-[30px] size-full">
-          {/* Title and Description */}
-          <div className="flex flex-col gap-[16px] items-start w-full">
-            <div className="flex items-center justify-between w-full">
-              <h3 className="font-semibold leading-[34px] text-[#181818] text-[30px] whitespace-pre">
-                {title}
-              </h3>
-              <div className="flex items-center justify-center shrink-0 size-[28px] rotate-[270deg]">
-                <ArrowIcon />
-              </div>
-            </div>
-            <p className="font-medium leading-[22px] text-[#8e8e8e] text-[16px] w-full">
-              {description}
-            </p>
-          </div>
-
-          {/* Features Grid */}
-          <div className="flex flex-col gap-[20px] items-start w-full">
-            <div className="flex gap-[20px] items-center w-full">
-              <FeatureCard {...features[0]} />
-              <FeatureCard {...features[1]} />
-            </div>
-            <div className="flex gap-[20px] items-center w-full">
-              <FeatureCard {...features[2]} />
-              <FeatureCard {...features[3]} />
-            </div>
-          </div>
+    <div className="bg-white rounded-2xl md:rounded-[16px] p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-between h-full min-h-[400px] md:min-h-[450px]">
+      {/* Title and Description */}
+      <div className="flex flex-col gap-4 md:gap-5 items-start w-full">
+        <div className="flex items-start justify-between gap-4 w-full">
+          <h3 className="text-xl sm:text-2xl md:text-[26px] lg:text-[30px] font-semibold leading-tight text-[#181818]">
+            {title}
+          </h3>
+          <Link
+            href={routeName}
+            className="flex items-center justify-center flex-shrink-0 w-6 h-6 md:w-7 md:h-7 -rotate-90 transition-all hover:scale-110 hover:-translate-y-1"
+            aria-label={`Learn more about ${title}`}
+          >
+            <ArrowIcon />
+          </Link>
         </div>
+        <p className="text-sm sm:text-base font-medium leading-relaxed text-[#8e8e8e] w-full">
+          {description}
+        </p>
+      </div>
+
+      {/* Features Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mt-6 md:mt-8 w-full">
+        {features.slice(0, 4).map((feature, index) => (
+          <FeatureCard key={index} {...feature} />
+        ))}
       </div>
     </div>
   );
@@ -310,23 +355,23 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   const ImageSection = <ImageCarousel images={images} />;
 
   return (
-    <div className="bg-[rgba(255,255,255,0.24)] rounded-[24px] shrink-0 w-full">
+    <article className="bg-white/10 backdrop-blur-sm rounded-2xl md:rounded-3xl p-3 sm:p-4 md:p-5 lg:p-6 w-full border border-white/20 shadow-lg">
       <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="flex gap-[20px] items-start p-[20px] w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5 lg:gap-6 w-full">
           {imagePosition === "left" ? (
             <>
-              {ImageSection}
-              {ContentSection}
+              <div className="order-1 lg:order-1">{ImageSection}</div>
+              <div className="order-2 lg:order-2">{ContentSection}</div>
             </>
           ) : (
             <>
-              {ContentSection}
-              {ImageSection}
+              <div className="order-1 lg:order-1">{ContentSection}</div>
+              <div className="order-2 lg:order-2">{ImageSection}</div>
             </>
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
@@ -336,27 +381,34 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
 
 const Solutions: React.FC = () => {
   return (
-    <section className="relative shrink-0 w-full" data-name="Solutions">
+    <section
+      className="relative w-full"
+      data-name="Solutions"
+      aria-labelledby="solutions-title"
+    >
       <div className="overflow-clip rounded-[inherit] size-full">
         <div
-          className="flex flex-col gap-[60px] items-start px-[100px] py-[60px] w-full"
+          className="flex flex-col gap-8 md:gap-12 lg:gap-16 items-start px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 2xl:px-32 py-8 sm:py-12 md:py-16 lg:py-20 w-full"
           style={{
             background:
               "linear-gradient(242.47deg, #00BCEF 6.45%, #002363 95.13%)",
           }}
         >
           {/* Section Header */}
-          <div className="flex items-start justify-between text-white w-full">
-            <h2 className="font-semibold leading-[46px] text-[42px] whitespace-pre">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-6 md:gap-8 lg:gap-12 text-white w-full max-w-[1400px] mx-auto">
+            <h2
+              id="solutions-title"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[42px] font-semibold leading-tight"
+            >
               {SOLUTIONS_SECTION.title}
             </h2>
-            <p className="font-normal leading-[24px] text-[16px] w-[650px]">
+            <p className="text-sm sm:text-base font-normal leading-relaxed w-full lg:w-[650px]">
               {SOLUTIONS_SECTION.description}
             </p>
           </div>
 
           {/* Solution Cards */}
-          <div className="flex flex-col gap-[24px] items-start w-full">
+          <div className="flex flex-col gap-6 md:gap-8 lg:gap-10 items-start w-full max-w-[1400px] mx-auto">
             {SOLUTIONS_DATA.map((solution, index) => (
               <SolutionCard
                 key={solution.id}
@@ -365,6 +417,7 @@ const Solutions: React.FC = () => {
                 features={solution.features}
                 images={solution.images}
                 imagePosition={index % 2 === 0 ? "right" : "left"}
+                routeName={solution.routeName}
               />
             ))}
           </div>
