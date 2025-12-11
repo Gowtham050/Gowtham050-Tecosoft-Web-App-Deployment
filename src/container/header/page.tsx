@@ -600,11 +600,11 @@ const Navbar = () => {
             },
           ],
         },
-        { name: "Digital Twin Platform", href: "digital-twin-platform" },
+        { name: "Digital Twin Platform", href: "/digital-twin-platform" },
       ],
     },
     { name: "Company", href: "#", hasDropdown: true },
-    { name: "Why TecoSoft", hasDropdown: true, href: "#" },
+    { name: "Why TecoSoft", hasDropdown: false, href: "#" },
     { name: "Industries", href: "#" },
   ];
 

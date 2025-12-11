@@ -48,3 +48,48 @@ export const WHY_DIGITAL_TWIN_FEATURES = [
     iconColor: "#E53A3A",
   },
 ];
+
+// ===========================
+// How It Works Section
+// ===========================
+
+export const HOW_IT_WORKS_SECTION = {
+  title: "How it works",
+  description:
+    "Our system links physical operations to digital twins, enabling real-time control and optimization. This boosts efficiency, ensures adaptive responses, and maximizes performance.",
+};
+
+export const HOW_IT_WORKS_STEPS = [
+  {
+    id: "connect",
+    step: 1,
+    title: "Connect",
+    description:
+      "Edge gateways ingest OT, IoT, BMS, EMS, and IT systems into a time-aligned stream.",
+    position: "top",
+  },
+  {
+    id: "model",
+    step: 2,
+    title: "Model",
+    description:
+      "Map assets, processes, and KPIs into a semantic graph with versioned templates.",
+    position: "bottom",
+  },
+  {
+    id: "simulate",
+    step: 3,
+    title: "Simulate",
+    description:
+      "Run what-if scenarios using physics + ML models to test policies and designs.",
+    position: "top",
+  },
+  {
+    id: "optimize",
+    step: 4,
+    title: "Optimize",
+    description:
+      "Close the loop with set-points, schedules, and automated work orders.",
+    position: "bottom",
+  },
+];

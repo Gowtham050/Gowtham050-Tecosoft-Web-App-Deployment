@@ -79,7 +79,7 @@ function HeroSection() {
       />
 
       {/* Content Container */}
-      <div className="relative h-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-12 md:py-16 lg:py-0 w-[92%] mx-auto">
+      <div className="relative h-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-12 md:py-16 lg:py-0 w-[90%] mx-auto">
         {/* Hero Text Content */}
         <div className="flex items-center lg:items-start justify-center lg:justify-start w-full lg:w-auto lg:flex-1">
           <HeroContent />

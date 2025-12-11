@@ -1,44 +1,72 @@
 "use client";
-import svgPaths from "../../imports/svg-zvmjtzwbe4";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  HOW_IT_WORKS_SECTION,
+  HOW_IT_WORKS_STEPS,
+} from "../../constants/digial-twin-platform/digital-twin-platform.js";
 
-function Frame43() {
+// ===========================
+// Types
+// ===========================
+
+interface TimelineNodeProps {
+  position: "top" | "bottom";
+  className?: string;
+}
+
+// ===========================
+// Components
+// ===========================
+
+/**
+ * Section Header Component
+ * Displays the title and description for the "How it Works" section
+ */
+function SectionHeader() {
   return (
-    <div className="content-stretch flex flex-col gap-[20px] items-center not-italic relative shrink-0 w-[1312px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[46px] relative shrink-0 text-[42px] text-nowrap text-white whitespace-pre">
-        How it works
-      </p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[25px] relative shrink-0 text-[#e4e4e4] text-[18px] text-center w-[980px]">
-        Our system links physical operations to digital twins, enabling
-        real-time control and optimization. This boosts efficiency, ensures
-        adaptive responses, and maximizes performance.
+    <div className="flex flex-col gap-5 items-center text-center max-w-full px-4 md:px-8 lg:px-0 lg:max-w-[980px]">
+      <h2 className="font-semibold text-3xl md:text-4xl lg:text-[42px] leading-tight lg:leading-[46px] text-white">
+        {HOW_IT_WORKS_SECTION.title}
+      </h2>
+      <p className="font-normal text-base md:text-lg leading-relaxed lg:leading-[25px] text-[#e4e4e4] max-w-full lg:max-w-[980px]">
+        {HOW_IT_WORKS_SECTION.description}
       </p>
     </div>
   );
 }
 
-function Frame59() {
+/**
+ * Timeline Node Component
+ * Displays a vertical line with a dot indicator
+ * Position determines if dot is at top or bottom
+ */
+function TimelineNode({ position, className = "" }: TimelineNodeProps) {
+  const isTopPosition = position === "top";
+
   return (
-    <div className="[grid-area:1_/_1] h-[200px] ml-[100px] mt-0 relative w-[18px]">
+    <div className={`h-[200px] w-[18px] ${className}`}>
       <svg
         className="block size-full"
         fill="none"
         preserveAspectRatio="none"
         viewBox="0 0 18 200"
+        aria-hidden="true"
       >
-        <g id="Frame 1171278974">
+        <g>
+          {/* Vertical line */}
           <path
-            d={svgPaths.pb09d780}
-            fill="var(--fill-0, white)"
-            fillOpacity="0.36"
-            id="Vector 10 (Stroke)"
+            d="M9 0L9 200"
+            fill="none"
+            stroke="white"
+            strokeOpacity="0.36"
+            strokeWidth="2"
           />
+          {/* Indicator dot */}
           <circle
             cx="9"
-            cy="191"
-            fill="var(--fill-0, #2AC3FF)"
-            id="Ellipse 16"
+            cy={isTopPosition ? "191" : "9"}
+            fill="#2AC3FF"
             r="9"
           />
         </g>
@@ -47,233 +75,197 @@ function Frame59() {
   );
 }
 
-function Frame62() {
+/**
+ * Step Card Component
+ * Displays individual step information with number, title, and description
+ */
+interface StepCardProps {
+  step: number;
+  title: string;
+  description: string;
+  opacity: any; // framer-motion MotionValue
+  className?: string;
+}
+
+function StepCard({
+  step,
+  title,
+  description,
+  opacity,
+  className = "",
+}: StepCardProps) {
   return (
-    <div className="[grid-area:1_/_1] h-[200px] ml-[766px] mt-0 relative w-[18px]">
-      <svg
-        className="block size-full"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 18 200"
-      >
-        <g id="Frame 1171278974">
-          <path
-            d={svgPaths.pb09d780}
-            fill="var(--fill-0, white)"
-            fillOpacity="0.36"
-            id="Vector 10 (Stroke)"
-          />
-          <circle
-            cx="9"
-            cy="191"
-            fill="var(--fill-0, #2AC3FF)"
-            id="Ellipse 16"
-            r="9"
-          />
-        </g>
-      </svg>
-    </div>
+    <motion.div
+      style={{ opacity }}
+      className={`flex flex-col gap-2 max-w-[280px] ${className}`}
+    >
+      <h3 className="font-semibold text-2xl md:text-[28px] leading-8 text-[#2ac3ff]">
+        {step}. {title}
+      </h3>
+      <p className="font-normal text-sm md:text-base leading-relaxed md:leading-[22px] text-white">
+        {description}
+      </p>
+    </motion.div>
   );
 }
 
-function Frame61() {
-  return (
-    <div className="[grid-area:1_/_1] h-[200px] ml-[433px] mt-[184px] relative w-[18px]">
-      <svg
-        className="block size-full"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 18 200"
-      >
-        <g id="Frame 1171278976">
-          <circle
-            cx="9"
-            cy="9"
-            fill="var(--fill-0, #2AC3FF)"
-            id="Ellipse 16"
-            r="9"
-          />
-          <path
-            d={svgPaths.p1a78cb00}
-            fill="var(--fill-0, white)"
-            fillOpacity="0.36"
-            id="Vector 10 (Stroke)"
-          />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Frame63() {
-  return (
-    <div className="[grid-area:1_/_1] h-[200px] ml-[1098px] mt-[184px] relative w-[18px]">
-      <svg
-        className="block size-full"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 18 200"
-      >
-        <g id="Frame 1171278976">
-          <circle
-            cx="9"
-            cy="9"
-            fill="var(--fill-0, #2AC3FF)"
-            id="Ellipse 16"
-            r="9"
-          />
-          <path
-            d={svgPaths.p1a78cb00}
-            fill="var(--fill-0, white)"
-            fillOpacity="0.36"
-            id="Vector 10 (Stroke)"
-          />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Frame60() {
-  return (
-    <div className="[grid-area:1_/_1] content-stretch flex flex-col gap-[8px] items-start ml-[138px] mt-0 not-italic relative w-[280px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[32px] relative shrink-0 text-[#2ac3ff] text-[28px] text-nowrap whitespace-pre">
-        1. Connect
-      </p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[16px] text-white w-[min-content]">
-        Edge gateways ingest OT, IoT, BMS, EMS, and IT systems into a
-        time-aligned stream.
-      </p>
-    </div>
-  );
-}
-
-function Frame66() {
-  return (
-    <div className="[grid-area:1_/_1] content-stretch flex flex-col gap-[8px] items-start ml-[804px] mt-0 not-italic relative w-[280px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[32px] relative shrink-0 text-[#2ac3ff] text-[28px] text-nowrap whitespace-pre">
-        3. Simulate
-      </p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[16px] text-white w-[min-content]">
-        Run what-if scenarios using physics + ML models to test policies and
-        designs.
-      </p>
-    </div>
-  );
-}
-
-function Frame64() {
-  return (
-    <div className="[grid-area:1_/_1] content-stretch flex flex-col gap-[8px] items-start ml-[471px] mt-[278px] not-italic relative w-[280px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[32px] relative shrink-0 text-[#2ac3ff] text-[28px] text-nowrap whitespace-pre">
-        2. Model
-      </p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[16px] text-white w-[min-content]">
-        Map assets, processes, and KPIs into a semantic graph with versioned
-        templates.
-      </p>
-    </div>
-  );
-}
-
-function Frame65() {
-  return (
-    <div className="[grid-area:1_/_1] content-stretch flex flex-col gap-[8px] items-start ml-[1136px] mt-[278px] not-italic relative w-[276px]">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[32px] relative shrink-0 text-[#2ac3ff] text-[28px] text-nowrap whitespace-pre">
-        4. Optimize
-      </p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[16px] text-white w-[min-content]">
-        Close the loop with set-points, schedules, and automated work orders.
-      </p>
-    </div>
-  );
-}
-
-function Group2() {
+/**
+ * Animated Timeline Component
+ * Displays the horizontal timeline with animated line and step indicators
+ * Animates based on scroll position
+ */
+function AnimatedTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Track scroll progress through this component
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
+  // Animate the horizontal line length based on scroll
   const lineLength = useTransform(scrollYProgress, [0, 1], [1, 1511]);
 
-  // Opacity animations for each numbered section
-  // Each section fades in as it enters the viewport
-  const opacity1 = useTransform(scrollYProgress, [0, 0.15], [0.3, 1]);
-  const opacity2 = useTransform(scrollYProgress, [0.2, 0.4], [0.3, 1]);
-  const opacity3 = useTransform(scrollYProgress, [0.4, 0.6], [0.3, 1]);
-  const opacity4 = useTransform(scrollYProgress, [0.6, 0.8], [0.3, 1]);
+  // Fade in each step as user scrolls through the timeline
+  const step1Opacity = useTransform(scrollYProgress, [0, 0.15], [0.3, 1]);
+  const step2Opacity = useTransform(scrollYProgress, [0.2, 0.4], [0.3, 1]);
+  const step3Opacity = useTransform(scrollYProgress, [0.4, 0.6], [0.3, 1]);
+  const step4Opacity = useTransform(scrollYProgress, [0.6, 0.8], [0.3, 1]);
 
   return (
-    <div
-      ref={containerRef}
-      className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
-    >
-      <div className="[grid-area:1_/_1] h-0 ml-0 mt-[192px] relative w-[1512px]">
-        <div className="absolute bottom-0 left-0 right-0 top-[-2px]">
-          <svg
-            className="block size-full"
-            fill="none"
-            preserveAspectRatio="none"
-            viewBox="0 0 1512 2"
-          >
-            {/* Initial background line */}
-            <line
-              stroke="#FFFFFF3D"
-              strokeLinecap="round"
-              strokeWidth="2"
-              x1="1"
-              x2="1511"
-              y1="1"
-              y2="1"
-            />
-            {/* Animated white line that fills on scroll */}
-            <motion.line
-              id="Line 30"
-              stroke="white"
-              strokeLinecap="round"
-              strokeWidth="2"
-              x1="1"
-              x2={lineLength}
-              y1="1"
-              y2="1"
-            />
-          </svg>
+    <div className="relative w-full max-w-[1512px] hidden lg:block">
+      {/* Timeline grid layout */}
+      <div ref={containerRef} className="grid grid-cols-1 grid-rows-1 relative">
+        {/* Horizontal animated line */}
+        <div className="row-start-1 col-start-1 h-0 relative mt-[192px] w-full max-w-[1512px]">
+          <div className="absolute bottom-0 left-0 right-0 top-[-2px]">
+            <svg
+              className="block size-full"
+              fill="none"
+              preserveAspectRatio="none"
+              viewBox="0 0 1512 2"
+            >
+              {/* Background line */}
+              <line
+                stroke="#FFFFFF3D"
+                strokeLinecap="round"
+                strokeWidth="2"
+                x1="1"
+                x2="1511"
+                y1="1"
+                y2="1"
+              />
+              {/* Animated foreground line that fills on scroll */}
+              <motion.line
+                stroke="white"
+                strokeLinecap="round"
+                strokeWidth="2"
+                x1="1"
+                x2={lineLength}
+                y1="1"
+                y2="1"
+              />
+            </svg>
+          </div>
         </div>
+
+        {/* Step 1: Connect (top-left) */}
+        <TimelineNode
+          position="top"
+          className="row-start-1 col-start-1 ml-[100px] mt-0"
+        />
+        <StepCard
+          step={1}
+          title={HOW_IT_WORKS_STEPS[0].title}
+          description={HOW_IT_WORKS_STEPS[0].description}
+          opacity={step1Opacity}
+          className="row-start-1 col-start-1 ml-[138px] mt-0"
+        />
+
+        {/* Step 2: Model (bottom-left) */}
+        <TimelineNode
+          position="bottom"
+          className="row-start-1 col-start-1 ml-[433px] mt-[184px]"
+        />
+        <StepCard
+          step={2}
+          title={HOW_IT_WORKS_STEPS[1].title}
+          description={HOW_IT_WORKS_STEPS[1].description}
+          opacity={step2Opacity}
+          className="row-start-1 col-start-1 ml-[471px] mt-[278px]"
+        />
+
+        {/* Step 3: Simulate (top-right) */}
+        <TimelineNode
+          position="top"
+          className="row-start-1 col-start-1 ml-[766px] mt-0"
+        />
+        <StepCard
+          step={3}
+          title={HOW_IT_WORKS_STEPS[2].title}
+          description={HOW_IT_WORKS_STEPS[2].description}
+          opacity={step3Opacity}
+          className="row-start-1 col-start-1 ml-[804px] mt-0"
+        />
+
+        {/* Step 4: Optimize (bottom-right) */}
+        <TimelineNode
+          position="bottom"
+          className="row-start-1 col-start-1 ml-[1098px] mt-[184px]"
+        />
+        <StepCard
+          step={4}
+          title={HOW_IT_WORKS_STEPS[3].title}
+          description={HOW_IT_WORKS_STEPS[3].description}
+          opacity={step4Opacity}
+          className="row-start-1 col-start-1 ml-[1136px] mt-[278px]"
+        />
       </div>
-      <Frame59 />
-      <Frame62 />
-      <Frame61 />
-      <Frame63 />
-      <motion.div style={{ opacity: opacity1 }} className="[grid-area:1_/_1]">
-        <Frame60 />
-      </motion.div>
-      <motion.div style={{ opacity: opacity3 }} className="[grid-area:1_/_1]">
-        <Frame66 />
-      </motion.div>
-      <motion.div style={{ opacity: opacity2 }} className="[grid-area:1_/_1]">
-        <Frame64 />
-      </motion.div>
-      <motion.div style={{ opacity: opacity4 }} className="[grid-area:1_/_1]">
-        <Frame65 />
-      </motion.div>
     </div>
   );
 }
 
+/**
+ * Mobile Timeline Component
+ * Simplified vertical layout for mobile devices
+ */
+function MobileTimeline() {
+  return (
+    <div className="flex flex-col gap-8 w-full lg:hidden px-4">
+      {HOW_IT_WORKS_STEPS.map((step) => (
+        <div
+          key={step.id}
+          className="flex flex-col gap-2 p-6 rounded-2xl bg-white/5 backdrop-blur-sm"
+        >
+          <h3 className="font-semibold text-xl md:text-2xl leading-8 text-[#2ac3ff]">
+            {step.step}. {step.title}
+          </h3>
+          <p className="font-normal text-sm md:text-base leading-relaxed text-white/90">
+            {step.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/**
+ * Main How It Works Section
+ * Displays the complete "How it Works" section with header and timeline
+ */
 function HowItWorks() {
   return (
-    <div
-      className="content-stretch flex flex-col gap-[80px] items-center overflow-clip pb-[70px] pt-[60px] px-0 relative shrink-0 w-[1512px]"
+    <section
+      className="flex flex-col gap-12 md:gap-16 lg:gap-20 items-center overflow-clip py-12 md:py-16 lg:pb-[70px] lg:pt-[60px] px-4 md:px-8 lg:px-0 w-full max-w-[1512px] mx-auto"
       data-name="How it works"
       style={{
         background: "linear-gradient(257.57deg, #003D55 0%, #055778 100%)",
       }}
     >
-      <Frame43 />
-      <Group2 />
-    </div>
+      <SectionHeader />
+      <AnimatedTimeline />
+      <MobileTimeline />
+    </section>
   );
 }
 
