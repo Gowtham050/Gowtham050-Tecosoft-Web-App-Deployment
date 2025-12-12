@@ -2,7 +2,7 @@
 
 import { HeroSection } from "@/components/Solutions/BannerSection/HeroSection";
 import { FeaturesSection } from "@/components/Solutions/FeatureSection/FeaturesSection";
-import { AnalyticsSection } from "@/components/Solutions/AnalyticsSection/AnalyticsSection";
+import { AnalyticsSection } from "@/components/Solutions/AnalyticsSection/analyticsSection";
 import {
   heroContent,
   featuresContent,

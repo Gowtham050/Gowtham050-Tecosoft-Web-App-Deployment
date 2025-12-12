@@ -113,10 +113,10 @@ const industries = [
 function Frame42() {
   return (
     <div className="content-stretch flex items-center justify-between not-italic relative shrink-0 w-full">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[54px] relative shrink-0 text-[#0098d4] text-[42px] w-[411px]">
+      <p className=" font-semibold  leading-[54px] relative shrink-0 text-[#0098d4] text-[42px] w-[411px]">
         Digital Twins for Your Industry
       </p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[26px] relative shrink-0 text-[#636363] text-[18px] w-[648px]">
+      <p className=" font-normal  leading-[26px] relative shrink-0 text-[#636363] text-[18px] w-[648px]">
         Built to adapt across industries, our AI-driven platform reduces errors,
         strengthens decision-making, and streamlines execution for operations of
         every size and complexity.
@@ -199,10 +199,10 @@ const ExpandedCard = forwardRef<HTMLDivElement, ExpandedCardProps>(
           <div className="absolute bg-gradient-to-b from-[rgba(17,17,17,0)] inset-0 rounded-[12px] to-90% to-[#111111]" />
         </div>
         <div className="content-stretch flex flex-col gap-[14px] items-start not-italic relative shrink-0 w-full z-10">
-          <p className="font-['Gilroy:Semibold',sans-serif] leading-[36px] relative shrink-0 text-[#00ff84] text-[32px] text-nowrap whitespace-pre">
+          <p className=" font-semibold  leading-[36px] relative shrink-0 text-[#00ff84] text-[32px] text-nowrap whitespace-pre">
             {industry.title}
           </p>
-          <div className="font-['Gilroy:Medium',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[#d2d2d2] text-[16px] w-[min-content]">
+          <div className="font-medium leading-[22px] min-w-full relative shrink-0 text-[#d2d2d2] text-[16px] w-[min-content]">
             <p className="mb-0">{industry.description}</p>
           </div>
         </div>
@@ -211,7 +211,7 @@ const ExpandedCard = forwardRef<HTMLDivElement, ExpandedCardProps>(
             <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow min-h-px min-w-px relative rounded-[8px] shrink-0">
               <div className="flex flex-row items-center justify-center size-full">
                 <div className="content-stretch flex items-center justify-center px-[14px] py-[12px] relative w-full">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
+                  <p className="font-medium leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
                     {industry.tags[0]}
                   </p>
                 </div>
@@ -220,7 +220,7 @@ const ExpandedCard = forwardRef<HTMLDivElement, ExpandedCardProps>(
             <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow min-h-px min-w-px relative rounded-[8px] shrink-0">
               <div className="flex flex-row items-center justify-center size-full">
                 <div className="content-stretch flex items-center justify-center px-[14px] py-[12px] relative w-full">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
+                  <p className="font-medium leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
                     {industry.tags[1]}
                   </p>
                 </div>
@@ -231,7 +231,7 @@ const ExpandedCard = forwardRef<HTMLDivElement, ExpandedCardProps>(
             <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow min-h-px min-w-px relative rounded-[8px] shrink-0">
               <div className="flex flex-row items-center justify-center size-full">
                 <div className="content-stretch flex items-center justify-center px-[14px] py-[12px] relative w-full">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
+                  <p className="font-medium leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
                     {industry.tags[2]}
                   </p>
                 </div>
@@ -240,7 +240,7 @@ const ExpandedCard = forwardRef<HTMLDivElement, ExpandedCardProps>(
             <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow min-h-px min-w-px relative rounded-[8px] shrink-0">
               <div className="flex flex-row items-center justify-center size-full">
                 <div className="content-stretch flex items-center justify-center px-[14px] py-[12px] relative w-full">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
+                  <p className="font-medium leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white whitespace-pre">
                     {industry.tags[3]}
                   </p>
                 </div>
@@ -278,7 +278,7 @@ const CollapsedCard = forwardRef<HTMLDivElement, CollapsedCardProps>(
         <div className="absolute backdrop-blur-[1.5px] backdrop-filter bg-gradient-to-b from-[rgba(0,0,0,0)] h-[520px] left-0 rounded-[16px] to-[rgba(0,0,0,0.8)] top-0 w-[130px]" />
         <div className="absolute flex items-center justify-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[42px]">
           <div className="flex-none rotate-[270deg]">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[42px] not-italic relative text-[28px] text-nowrap text-white whitespace-pre">
+            <p className=" font-semibold  leading-[42px] not-italic relative text-[28px] text-nowrap text-white whitespace-pre">
               {industry.subtitle}
             </p>
           </div>

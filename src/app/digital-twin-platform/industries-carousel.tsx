@@ -58,7 +58,7 @@ const industries = [
     title: "Healthcare",
     subtitle: "Healthcare",
     description:
-      "Digital twins for hospital operations, patient flow, and medical equipment. Optimize resource allocation and improve patient outcomes.",
+      "Model hospitals, equipment, and patient flows to elevate outcomes, utilization, and compliance - securely and ethically.",
     image:
       "/assets/pages/digital-twin-platform/f6058f802ce72f17fabed2207bcc69a51d093449.png",
     tags: [
@@ -73,14 +73,14 @@ const industries = [
     title: "Logistics & Warehousing",
     subtitle: "Logistics & Warehousing",
     description:
-      "Optimize warehouse operations, inventory management, and supply chain logistics. Reduce costs and improve delivery times.",
+      "Simulate and control end-to-end flow - yards, docks, inventory, and fleets—for speed and cost efficiency.",
     image:
       "/assets/pages/digital-twin-platform/56ea414f0372a5f85e31c9ca107c2b1c3d5f9df3.png",
     tags: [
-      "Inventory Tracking",
-      "Route Optimization",
-      "Warehouse Layout",
-      "Fleet Management",
+      "Logistics & Warehousing",
+      "Yard & Dock",
+      "Fleet Health",
+      "ETA & SLA",
     ],
   },
   {
@@ -88,14 +88,14 @@ const industries = [
     title: "Smart Cities",
     subtitle: "Smart Cities",
     description:
-      "Create digital twins of urban infrastructure for traffic management, utilities, and public services. Build sustainable, efficient cities.",
+      "Urban-scale twins for mobility, utilities, resilience, and sustainability - built on open standards.",
     image:
       "/assets/pages/digital-twin-platform/27b1cb6fffa72b17039db1871a1f519745ca5b1f.png",
     tags: [
-      "Traffic Management",
-      "Infrastructure",
-      "Public Services",
-      "Sustainability",
+      "Mobility & Traffic",
+      "Energy & Water",
+      "Air & Emissions",
+      "Urban Resilience",
     ],
   },
 ];
@@ -103,10 +103,10 @@ const industries = [
 function Frame42() {
   return (
     <div className="content-stretch flex flex-col md:flex-row items-start md:items-center justify-between not-italic relative shrink-0 w-full gap-4 md:gap-6">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[38px] md:leading-[48px] lg:leading-[54px] text-[#0098d4] text-[28px] md:text-[36px] lg:text-[42px] w-full md:w-auto md:max-w-[411px] m-0">
+      <p className=" font-semibold  leading-[38px] md:leading-[48px] lg:leading-[54px] text-[#0098d4] text-[28px] md:text-[36px] lg:text-[42px] w-full md:w-auto md:max-w-[411px] m-0">
         Digital Twins for Your Industry
       </p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[22px] md:leading-[24px] lg:leading-[26px] text-[#636363] text-[14px] md:text-[16px] lg:text-[18px] w-full md:max-w-[648px] m-0">
+      <p className=" font-normal  leading-[22px] md:leading-[24px] lg:leading-[26px] text-[#636363] text-[14px] md:text-[16px] lg:text-[18px] w-full md:max-w-[648px] m-0">
         Built to adapt across industries, our AI-driven platform reduces errors,
         strengthens decision-making, and streamlines execution for operations of
         every size and complexity.
@@ -155,7 +155,7 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
   }, []);
 
   const getResponsiveWidth = () => {
-    if (typeof window === 'undefined') return isActive ? 582 : 130;
+    if (typeof window === "undefined") return isActive ? 582 : 130;
 
     const width = window.innerWidth;
     if (width < 576) {
@@ -237,8 +237,11 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
         !isActive ? "cursor-pointer hover:scale-105" : ""
       }`}
       style={{
-        width: isMounted ? getResponsiveWidth() : (isActive ? "100%" : "130px"),
-        minWidth: isMounted && typeof window !== 'undefined' && window.innerWidth < 576 ? "100%" : "auto"
+        width: isMounted ? getResponsiveWidth() : isActive ? "100%" : "130px",
+        minWidth:
+          isMounted && typeof window !== "undefined" && window.innerWidth < 576
+            ? "100%"
+            : "auto",
       }}
     >
       <div
@@ -263,10 +266,10 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
           className="absolute bottom-[20px] sm:bottom-[25px] lg:bottom-[30px] left-[20px] sm:left-[25px] lg:left-[30px] right-[20px] sm:right-[25px] lg:right-[30px] flex flex-col gap-[20px] sm:gap-[25px] lg:gap-[30px] z-10"
         >
           <div className="content-stretch flex flex-col gap-[10px] sm:gap-[12px] lg:gap-[14px] items-start not-italic">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[28px] sm:leading-[32px] lg:leading-[36px] text-[#00ff84] text-[24px] sm:text-[28px] lg:text-[32px] text-nowrap whitespace-pre m-0">
+            <p className=" font-semibold  leading-[28px] sm:leading-[32px] lg:leading-[36px] text-[#00ff84] text-[24px] sm:text-[28px] lg:text-[32px] text-nowrap whitespace-pre m-0">
               {industry.title}
             </p>
-            <div className="font-['Gilroy:Medium',sans-serif] leading-[18px] sm:leading-[20px] lg:leading-[22px] text-[#d2d2d2] text-[13px] sm:text-[14px] lg:text-[16px]">
+            <div className="font-medium leading-[18px] sm:leading-[20px] lg:leading-[22px] text-[#d2d2d2] text-[13px] sm:text-[14px] lg:text-[16px]">
               <p className="mb-0">{industry.description}</p>
             </div>
           </div>
@@ -274,14 +277,14 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
             <div className="content-stretch flex gap-[12px] sm:gap-[14px] lg:gap-[16px] items-center w-full">
               <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
                 <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
+                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
                     {industry.tags[0]}
                   </p>
                 </div>
               </div>
               <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
                 <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
+                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
                     {industry.tags[1]}
                   </p>
                 </div>
@@ -290,14 +293,14 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
             <div className="content-stretch flex gap-[12px] sm:gap-[14px] lg:gap-[16px] items-center w-full">
               <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
                 <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
+                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
                     {industry.tags[2]}
                   </p>
                 </div>
               </div>
               <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
                 <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
+                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
                     {industry.tags[3]}
                   </p>
                 </div>
@@ -308,7 +311,7 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
       ) : (
         <div className="absolute flex items-center justify-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[42px]">
           <div className="flex-none rotate-[270deg]">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[32px] sm:leading-[36px] lg:leading-[42px] not-italic text-[22px] sm:text-[24px] lg:text-[28px] text-nowrap text-white whitespace-pre m-0">
+            <p className=" font-semibold  leading-[32px] sm:leading-[36px] lg:leading-[42px] not-italic text-[22px] sm:text-[24px] lg:text-[28px] text-nowrap text-white whitespace-pre m-0">
               {industry.subtitle}
             </p>
           </div>
@@ -449,7 +452,8 @@ function IndustriesCarousel() {
     if (swiperRef.current && !isTransitioning) {
       programmaticSlide.current = true;
       setIsTransitioning(true);
-      const newIndex = activeSlide > 0 ? activeSlide - 1 : industries.length - 1;
+      const newIndex =
+        activeSlide > 0 ? activeSlide - 1 : industries.length - 1;
       setActiveSlide(newIndex);
       swiperRef.current.slideTo(newIndex);
       setTimeout(() => {
@@ -462,7 +466,8 @@ function IndustriesCarousel() {
     if (swiperRef.current && !isTransitioning) {
       programmaticSlide.current = true;
       setIsTransitioning(true);
-      const newIndex = activeSlide < industries.length - 1 ? activeSlide + 1 : 0;
+      const newIndex =
+        activeSlide < industries.length - 1 ? activeSlide + 1 : 0;
       setActiveSlide(newIndex);
       swiperRef.current.slideTo(newIndex);
       setTimeout(() => {

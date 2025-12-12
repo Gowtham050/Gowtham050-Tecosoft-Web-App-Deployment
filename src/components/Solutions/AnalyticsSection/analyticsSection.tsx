@@ -1525,6 +1525,7 @@ export function AnalyticsSection({ content }: AnalyticsSectionProps) {
     <>
       <style>{`
         .icon-wrapper:hover {
+          cursor: pointer;
           background: linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%) !important;
         }
       `}</style>

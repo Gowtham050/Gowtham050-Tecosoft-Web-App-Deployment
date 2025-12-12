@@ -1,4 +1,5 @@
-import svgPathsHero from "../../imports/svg-gesaxlp4ee";
+"use client";
+import React from "react";
 
 const HERO_IMAGE =
   "/assets/pages/digital-twin-platform/4c1dc57c1e7b64d3e936b9fbfff3dec05024ba0b.png";
@@ -16,8 +17,8 @@ function ArrowIcon() {
       >
         <g>
           <path
-            d={svgPathsHero.p1feb4d00}
-            stroke="currentColor"
+            d="M7 1.75V12.25M7 12.25L11.9583 7.29167M7 12.25L2.04167 7.29167"
+            stroke="white"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="1.35"

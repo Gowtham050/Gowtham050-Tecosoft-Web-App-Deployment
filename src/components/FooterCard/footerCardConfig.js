@@ -99,6 +99,15 @@ export const footerCardConfig = {
     description:
       "Bring EAGLE-enabled edge intelligence and machine-specific AI to your shopfloor — reduce downtime and plan maintenance with confidence.",
   },
+  "/digital-twin-platform": {
+    title: "Ready to build your",
+    highlightText: "living digital twin?",
+    title2: "",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Begin with a pilot project or single site, then scale across all operations as value increases.",
+  },
 };
 
 // Helper function to get config based on pathname

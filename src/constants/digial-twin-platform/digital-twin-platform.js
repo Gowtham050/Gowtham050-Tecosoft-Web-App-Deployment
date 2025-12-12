@@ -5,7 +5,7 @@
 export const WHY_DIGITAL_TWIN_SECTION = {
   title: "Why a Digital Twin Platform",
   description:
-    "A Digital Twin Platform gives you a real-time, living view of your operationshelping you predict issues, validate decisions, optimize performance, and continuously improve with AI-backed intelligence.",
+    "A Digital Twin Platform gives you a real-time, living view of your operations helping you predict issues, validate decisions, optimize performance, and continuously improve with AI-backed intelligence.",
 };
 
 export const WHY_DIGITAL_TWIN_FEATURES = [
