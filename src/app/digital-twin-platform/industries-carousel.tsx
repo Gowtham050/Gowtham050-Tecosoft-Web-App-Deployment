@@ -1,8 +1,9 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperClass } from "swiper";
+import type { SwiperOptions } from "swiper/types";
+import "swiper/css";
 import { gsap } from "gsap";
 import svgPaths from "../../imports/svg-zvmjtzwbe4";
 
@@ -101,11 +102,11 @@ const industries = [
 
 function Frame42() {
   return (
-    <div className="content-stretch flex items-center justify-between not-italic relative shrink-0 w-full">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[54px] relative shrink-0 text-[#0098d4] text-[42px] w-[411px]">
+    <div className="content-stretch flex flex-col md:flex-row items-start md:items-center justify-between not-italic relative shrink-0 w-full gap-4 md:gap-6">
+      <p className="font-['Gilroy:Semibold',sans-serif] leading-[38px] md:leading-[48px] lg:leading-[54px] text-[#0098d4] text-[28px] md:text-[36px] lg:text-[42px] w-full md:w-auto md:max-w-[411px] m-0">
         Digital Twins for Your Industry
       </p>
-      <p className="font-['Gilroy:Regular',sans-serif] leading-[26px] relative shrink-0 text-[#636363] text-[18px] w-[648px]">
+      <p className="font-['Gilroy:Regular',sans-serif] leading-[22px] md:leading-[24px] lg:leading-[26px] text-[#636363] text-[14px] md:text-[16px] lg:text-[18px] w-full md:max-w-[648px] m-0">
         Built to adapt across industries, our AI-driven platform reduces errors,
         strengthens decision-making, and streamlines execution for operations of
         every size and complexity.
@@ -147,12 +148,39 @@ interface IndustryCardProps {
 function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (cardRef.current) {
+    setIsMounted(true);
+  }, []);
+
+  const getResponsiveWidth = () => {
+    if (typeof window === 'undefined') return isActive ? 582 : 130;
+
+    const width = window.innerWidth;
+    if (width < 576) {
+      // Mobile: always full width
+      return "100%";
+    }
+
+    if (isActive) {
+      if (width < 768) return 400; // Small tablets
+      if (width < 992) return 450; // Tablets
+      if (width < 1200) return 500; // Small laptops
+      return 582; // Desktops
+    } else {
+      if (width < 768) return 100; // Small tablets
+      if (width < 992) return 110; // Tablets
+      if (width < 1200) return 120; // Small laptops
+      return 130; // Desktops
+    }
+  };
+
+  useEffect(() => {
+    if (cardRef.current && isMounted) {
       if (isActive) {
         gsap.to(cardRef.current, {
-          width: 582,
+          width: getResponsiveWidth(),
           duration: 0.8,
           ease: "power2.out",
         });
@@ -176,23 +204,42 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
         }
 
         gsap.to(cardRef.current, {
-          width: 130,
+          width: getResponsiveWidth(),
           duration: 0.8,
           ease: "power2.out",
           delay: 0.2,
         });
       }
     }
-  }, [isActive]);
+  }, [isActive, isMounted]);
+
+  // Handle window resize
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const handleResize = () => {
+      if (cardRef.current) {
+        gsap.set(cardRef.current, {
+          width: getResponsiveWidth(),
+        });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isActive, isMounted]);
 
   return (
     <div
       ref={cardRef}
       onClick={!isActive ? onClick : undefined}
-      className={`h-[520px] overflow-clip relative rounded-[12px] shrink-0 transition-all ${
+      className={`w-full sm:w-auto h-[420px] sm:h-[450px] md:h-[480px] lg:h-[520px] overflow-clip relative rounded-[12px] shrink-0 transition-all ${
         !isActive ? "cursor-pointer hover:scale-105" : ""
       }`}
-      style={{ width: isActive ? "582px" : "130px" }}
+      style={{
+        width: isMounted ? getResponsiveWidth() : (isActive ? "100%" : "130px"),
+        minWidth: isMounted && typeof window !== 'undefined' && window.innerWidth < 576 ? "100%" : "auto"
+      }}
     >
       <div
         aria-hidden="true"
@@ -213,44 +260,44 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
       {isActive ? (
         <div
           ref={contentRef}
-          className="absolute bottom-[30px] left-[30px] right-[30px] flex flex-col gap-[30px] z-10"
+          className="absolute bottom-[20px] sm:bottom-[25px] lg:bottom-[30px] left-[20px] sm:left-[25px] lg:left-[30px] right-[20px] sm:right-[25px] lg:right-[30px] flex flex-col gap-[20px] sm:gap-[25px] lg:gap-[30px] z-10"
         >
-          <div className="content-stretch flex flex-col gap-[14px] items-start not-italic">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[36px] text-[#00ff84] text-[32px] text-nowrap whitespace-pre">
+          <div className="content-stretch flex flex-col gap-[10px] sm:gap-[12px] lg:gap-[14px] items-start not-italic">
+            <p className="font-['Gilroy:Semibold',sans-serif] leading-[28px] sm:leading-[32px] lg:leading-[36px] text-[#00ff84] text-[24px] sm:text-[28px] lg:text-[32px] text-nowrap whitespace-pre m-0">
               {industry.title}
             </p>
-            <div className="font-['Gilroy:Medium',sans-serif] leading-[22px] text-[#d2d2d2] text-[16px]">
+            <div className="font-['Gilroy:Medium',sans-serif] leading-[18px] sm:leading-[20px] lg:leading-[22px] text-[#d2d2d2] text-[13px] sm:text-[14px] lg:text-[16px]">
               <p className="mb-0">{industry.description}</p>
             </div>
           </div>
-          <div className="content-stretch flex flex-col gap-[16px] items-start">
-            <div className="content-stretch flex gap-[16px] items-center w-full">
-              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[8px]">
-                <div className="flex items-center justify-center px-[14px] py-[12px]">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] text-[15px] text-nowrap text-white whitespace-pre">
+          <div className="content-stretch flex flex-col gap-[12px] sm:gap-[14px] lg:gap-[16px] items-start">
+            <div className="content-stretch flex gap-[12px] sm:gap-[14px] lg:gap-[16px] items-center w-full">
+              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
+                <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
+                  <p className="font-['Gilroy:Medium',sans-serif] leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
                     {industry.tags[0]}
                   </p>
                 </div>
               </div>
-              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[8px]">
-                <div className="flex items-center justify-center px-[14px] py-[12px]">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] text-[15px] text-nowrap text-white whitespace-pre">
+              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
+                <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
+                  <p className="font-['Gilroy:Medium',sans-serif] leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
                     {industry.tags[1]}
                   </p>
                 </div>
               </div>
             </div>
-            <div className="content-stretch flex gap-[16px] items-center w-full">
-              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[8px]">
-                <div className="flex items-center justify-center px-[14px] py-[12px]">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] text-[15px] text-nowrap text-white whitespace-pre">
+            <div className="content-stretch flex gap-[12px] sm:gap-[14px] lg:gap-[16px] items-center w-full">
+              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
+                <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
+                  <p className="font-['Gilroy:Medium',sans-serif] leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
                     {industry.tags[2]}
                   </p>
                 </div>
               </div>
-              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[8px]">
-                <div className="flex items-center justify-center px-[14px] py-[12px]">
-                  <p className="font-['Gilroy:Medium',sans-serif] leading-[20px] text-[15px] text-nowrap text-white whitespace-pre">
+              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
+                <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
+                  <p className="font-['Gilroy:Medium',sans-serif] leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
                     {industry.tags[3]}
                   </p>
                 </div>
@@ -261,7 +308,7 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
       ) : (
         <div className="absolute flex items-center justify-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[42px]">
           <div className="flex-none rotate-[270deg]">
-            <p className="font-['Gilroy:Semibold',sans-serif] leading-[42px] not-italic text-[28px] text-nowrap text-white whitespace-pre">
+            <p className="font-['Gilroy:Semibold',sans-serif] leading-[32px] sm:leading-[36px] lg:leading-[42px] not-italic text-[22px] sm:text-[24px] lg:text-[28px] text-nowrap text-white whitespace-pre m-0">
               {industry.subtitle}
             </p>
           </div>
@@ -280,12 +327,12 @@ function CustomArrow({ onClick, direction }: CustomArrowProps) {
   return (
     <button
       onClick={onClick}
-      className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[8px] shrink-0 hover:bg-gray-50 active:scale-95 transition-all hover:cursor-pointer"
+      className="bg-white content-stretch flex items-center justify-center p-[10px] sm:p-[12px] relative rounded-[6px] sm:rounded-[8px] shrink-0 hover:bg-gray-50 active:scale-95 transition-all hover:cursor-pointer"
       aria-label={direction === "prev" ? "Previous industry" : "Next industry"}
     >
       <div
         aria-hidden="true"
-        className="absolute border border-[#aae7ff] border-solid inset-0 pointer-events-none rounded-[8px]"
+        className="absolute border border-[#aae7ff] border-solid inset-0 pointer-events-none rounded-[6px] sm:rounded-[8px]"
       />
       <div className="flex items-center justify-center relative shrink-0">
         <div
@@ -305,135 +352,206 @@ function CustomArrow({ onClick, direction }: CustomArrowProps) {
 function IndustriesCarousel() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const sliderRef = useRef<Slider>(null);
+  const [isClient, setIsClient] = useState(false);
+  const swiperRef = useRef<SwiperClass | null>(null);
+  const programmaticSlide = useRef(false);
 
-  const settings = {
-    dots: false,
-    infinite: true,
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const swiperOptions: SwiperOptions = {
+    slidesPerView: 6,
+    spaceBetween: 16,
+    loop: false,
     speed: 600,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    centerMode: false,
-    focusOnSelect: false,
-    arrows: false,
-    swipe: true,
-    draggable: true,
-    variableWidth: true,
-    beforeChange: (current: number, next: number) => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setActiveSlide(next);
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, 400);
-      }, 100);
+    centeredSlides: false,
+    allowTouchMove: true,
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+    initialSlide: 0,
+    breakpoints: {
+      // Mobile (0-399px)
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        centeredSlides: false,
+      },
+      // Small mobile (400-499px)
+      400: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        centeredSlides: false,
+      },
+      // Mobile (500-767px)
+      500: {
+        slidesPerView: 2,
+        spaceBetween: 12,
+        centeredSlides: false,
+      },
+      // Tablets (768-1023px)
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 14,
+        centeredSlides: false,
+      },
+      // Small laptops (1024-1279px)
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 16,
+        centeredSlides: false,
+      },
+      // Laptops (1280-1399px)
+      1280: {
+        slidesPerView: 5,
+        spaceBetween: 16,
+        centeredSlides: false,
+      },
+      // Desktops (1400px+)
+      1400: {
+        slidesPerView: 6,
+        spaceBetween: 16,
+        centeredSlides: false,
+      },
     },
-    responsive: [
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 5,
-          variableWidth: true,
-        },
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 4,
-          variableWidth: true,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 3,
-          variableWidth: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          variableWidth: true,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1,
-          variableWidth: true,
-        },
-      },
-    ],
+  };
+
+  const handleSwiper = (swiper: SwiperClass) => {
+    swiperRef.current = swiper;
+  };
+
+  const handleSlideChange = (swiper: SwiperClass) => {
+    // Only update active slide for manual swipes (not programmatic slides)
+    if (!programmaticSlide.current && !isTransitioning) {
+      setIsTransitioning(true);
+      setActiveSlide(swiper.activeIndex);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 500);
+    }
+    programmaticSlide.current = false;
   };
 
   const handleCardClick = (index: number) => {
-    if (activeSlide !== index && !isTransitioning) {
+    if (activeSlide !== index && !isTransitioning && swiperRef.current) {
+      programmaticSlide.current = true;
       setIsTransitioning(true);
-      sliderRef.current?.slickGoTo(index);
+      setActiveSlide(index);
+      swiperRef.current.slideTo(index);
       setTimeout(() => {
-        setActiveSlide(index);
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, 400);
-      }, 100);
+        setIsTransitioning(false);
+      }, 500);
     }
   };
 
   const handlePrevious = () => {
-    sliderRef.current?.slickPrev();
+    if (swiperRef.current && !isTransitioning) {
+      programmaticSlide.current = true;
+      setIsTransitioning(true);
+      const newIndex = activeSlide > 0 ? activeSlide - 1 : industries.length - 1;
+      setActiveSlide(newIndex);
+      swiperRef.current.slideTo(newIndex);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 500);
+    }
   };
 
   const handleNext = () => {
-    sliderRef.current?.slickNext();
+    if (swiperRef.current && !isTransitioning) {
+      programmaticSlide.current = true;
+      setIsTransitioning(true);
+      const newIndex = activeSlide < industries.length - 1 ? activeSlide + 1 : 0;
+      setActiveSlide(newIndex);
+      swiperRef.current.slideTo(newIndex);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 500);
+    }
   };
+
+  // Update swiper when active slide changes (after GSAP animations)
+  useEffect(() => {
+    if (swiperRef.current) {
+      // Delay to allow GSAP animations to complete
+      const timer = setTimeout(() => {
+        swiperRef.current?.update();
+      }, 900); // 800ms GSAP animation + 100ms buffer
+
+      return () => clearTimeout(timer);
+    }
+  }, [activeSlide]);
+
+  // Handle resize to update swiper
+  useEffect(() => {
+    const onResize = () => {
+      if (swiperRef.current) {
+        swiperRef.current.update();
+      }
+    };
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
 
   return (
     <div
-      className="bg-[#e0f6fa] content-stretch flex flex-col gap-[50px] items-center overflow-clip px-[100px] py-[60px] relative shrink-0 w-[1512px]"
+      className="bg-[#e0f6fa] content-stretch flex flex-col gap-[30px] md:gap-[40px] lg:gap-[50px] items-center overflow-x-hidden px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[100px] py-[40px] md:py-[50px] lg:py-[60px] relative shrink-0 w-full max-w-[1512px] mx-auto"
       data-name="Industries"
     >
       <Frame42 />
 
-      <div className="content-stretch relative shrink-0 w-full">
+      <div className="content-stretch relative shrink-0 w-full overflow-visible min-h-[450px]">
         <style jsx global>{`
-          .industries-slider .slick-slide {
-            padding: 0 8px;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          .industries-slider {
+            overflow: visible !important;
           }
-          .industries-slider .slick-list {
-            margin: 0 -8px;
-            overflow: hidden;
-          }
-          .industries-slider .slick-track {
+          .industries-slider .swiper-wrapper {
             display: flex !important;
-            gap: 0;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
           }
-          .industries-slider .slick-slide > div {
-            display: flex;
-            justify-content: center;
-            width: 100%;
+          .industries-slider .swiper-slide {
+            width: auto !important;
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            height: auto !important;
           }
-          .industries-slider .slick-slide.slick-active {
+          @media (max-width: 575px) {
+            .industries-slider .swiper-slide {
+              width: 100% !important;
+            }
+          }
+          .industries-slider .swiper-slide-active {
             z-index: 10;
           }
         `}</style>
-        <Slider ref={sliderRef} {...settings} className="industries-slider">
-          {industries.map((industry, index) => (
-            <div key={industry.id}>
-              <IndustryCard
-                industry={industry}
-                isActive={index === activeSlide}
-                onClick={() => handleCardClick(index)}
-              />
-            </div>
-          ))}
-        </Slider>
+        {isClient ? (
+          <Swiper
+            {...swiperOptions}
+            onSwiper={handleSwiper}
+            onSlideChange={handleSlideChange}
+            className="industries-slider !overflow-visible"
+          >
+            {industries.map((industry, index) => (
+              <SwiperSlide key={industry.id}>
+                <IndustryCard
+                  industry={industry}
+                  isActive={index === activeSlide}
+                  onClick={() => handleCardClick(index)}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <div className="flex items-center justify-center w-full min-h-[450px]">
+            <div className="text-[#0098d4] text-lg">Loading...</div>
+          </div>
+        )}
       </div>
 
-      <div className="content-stretch flex gap-[10px] items-center relative shrink-0">
+      <div className="content-stretch flex gap-[8px] sm:gap-[10px] items-center justify-center relative shrink-0 w-full sm:w-auto">
         <CustomArrow onClick={handlePrevious} direction="prev" />
         <CustomArrow onClick={handleNext} direction="next" />
       </div>
