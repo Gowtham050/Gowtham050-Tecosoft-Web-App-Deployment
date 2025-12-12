@@ -1,166 +1,102 @@
 "use client";
+import React from "react";
 
-import Image from "next/image";
+const HERO_IMAGE =
+  "/assets/pages/digital-twin-platform/4c1dc57c1e7b64d3e936b9fbfff3dec05024ba0b.png";
+const AI_ENABLED_IMAGE = "/assets/pages/ai-enabled/banner-ai.gif";
 
-// -----------------------------
-// Reusable Components
-// -----------------------------
-function MetricCard({
-  bg,
-  valueColor,
-  value,
-  labelColor = "#282828",
-  label,
-}: any) {
+function ArrowIcon() {
   return (
-    <div
-      className={`rounded-2xl w-full aspect-[1.4] ${bg} flex flex-col justify-end p-5 sm:p-6 lg:p-7`}
-    >
-      <p
-        className="text-[34px] sm:text-[48px] lg:text-[60px] leading-tight tracking-tight"
-        style={{ color: valueColor }}
+    <div className="relative size-[14px]" aria-hidden="true">
+      <svg
+        className="block size-full"
+        fill="white"
+        preserveAspectRatio="none"
+        viewBox="0 0 14 14"
       >
-        {value}
-      </p>
-
-      <p
-        className="text-[13px] sm:text-[15px] lg:text-[16px] leading-[20px] mt-1 sm:mt-2 max-w-[220px]"
-        style={{ color: labelColor }}
-      >
-        {label}
-      </p>
-    </div>
-  );
-}
-
-function ImageCard({ src }: any) {
-  return (
-    <div className="rounded-2xl w-full  relative overflow-hidden shadow-lg">
-      <Image
-        src={src}
-        alt="AI Insight"
-        fill
-        quality={100}
-        className="object-cover"
-        priority
-      />
+        <g>
+          <path
+            d="M7 1.75V12.25M7 12.25L11.9583 7.29167M7 12.25L2.04167 7.29167"
+            stroke="white"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.35"
+          />
+        </g>
+      </svg>
     </div>
   );
 }
 
 function RequestDemoButton() {
   return (
-    <button className="bg-[#07af40] hover:bg-[#049836] transition-all duration-300 flex items-center gap-2 px-5 py-3 text-white font-semibold rounded-md w-fit shadow-lg active:scale-95">
-      Request Demo
-      <span className="block rotate-[270deg]">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path
-            d="M7 1.75V12.25M7 12.25L11.9583 7.29167M7 12.25L2.04167 7.29167"
-            stroke="white"
-            strokeWidth="1.3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+    <button
+      className="bg-[#07af40] hover:bg-[#06a038] transition-colors duration-200 flex gap-2 items-center justify-center px-4 py-2.5 rounded shadow-lg hover:shadow-xl"
+      aria-label="Request Demo"
+    >
+      <span className="font-semibold text-sm md:text-[15px] leading-5 text-white whitespace-nowrap">
+        Request Demo
       </span>
+      <div className="flex items-center justify-center size-[14px] -rotate-90">
+        <ArrowIcon />
+      </div>
     </button>
   );
 }
 
-// -----------------------------
-// Hero Text
-// -----------------------------
-function HeroText() {
+function HeroContent() {
   return (
-    <div className="absolute left-0 top-[18%] sm:top-[25%] lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-auto px-6 sm:px-10 lg:left-[8%] max-w-[650px] space-y-5 sm:space-y-7">
-      <h1 className="text-white font-semibold text-[34px] leading-[42px] sm:text-[48px] sm:leading-[56px] lg:text-[64px] lg:leading-[72px]">
+    <div className="flex flex-col gap-6 md:gap-8 lg:gap-9 items-start w-full max-w-full  px-4 md:px-8 lg:px-0">
+      <h1 className="font-semibold text-[24px] sm:text-[32px] md:text-[42px] lg:text-[56px] xl:text-[68px] leading-tight md:leading-[1.2] lg:leading-[80px] text-white">
         One platform. Two{" "}
-        <span className="text-[#00ff84]">Super power potentials.</span>
+        <span className="text-[#00FF84]">Super power potentials.</span>{" "}
       </h1>
-
-      <p className="text-white text-[14px] sm:text-[17px] leading-[22px] sm:leading-[26px] opacity-90 max-w-[520px]">
+      <p className="font-medium text-base md:text-lg leading-relaxed md:leading-[26px] text-white max-w-2xl">
         Unify energy and machine health under a single AI layer. Forecast
-        demand, prevent failures, and automate actions across your shop floor.
+        demand, prevent failures, and automate actions across your shopfloor.
       </p>
-
       <RequestDemoButton />
     </div>
   );
 }
 
-// -----------------------------
-// Metrics Section
-// -----------------------------
-function MetricsSection() {
+function HeroSection() {
   return (
-    <div className="absolute bottom-6 sm:bottom-10 lg:top-[150px] lg:right-[8%] left-0 px-6 sm:px-10 lg:px-0">
-      <div
-        className="
-          grid 
-          grid-cols-1 
-          sm:grid-cols-2 
-          gap-5 
-          sm:gap-6 
-          w-full 
-          max-w-[560px] 
-          ml-auto
-        "
-      >
-        <ImageCard src="/assets/pages/ai-enabled/67afda521ae6a78fba911782311713969b82ad14.png" />
-
-        <MetricCard
-          bg="bg-[#cdefd9]"
-          valueColor="#07af40"
-          value="15%+"
-          label="Carbon intensity improvement"
-        />
-
-        <MetricCard
-          bg="bg-[#ccf1ff]"
-          valueColor="#0098d4"
-          value="10–18%"
-          label="Typical energy cost reduction"
-        />
-
-        <MetricCard
-          bg="bg-[#003d55]"
-          valueColor="#55cfff"
-          labelColor="white"
-          value="<6 mo"
-          label="Median payback period"
-        />
-      </div>
-    </div>
-  );
-}
-
-// -----------------------------
-// HERO SECTION WRAPPER
-// -----------------------------
-export default function HeroSection() {
-  return (
-    <div className="relative w-full min-h-[90vh] lg:min-h-[750px] max-h-[1100px] overflow-hidden">
+    <section className="relative w-full min-h-[500px] md:min-h-[600px] lg:h-[700px] overflow-hidden pt-[40px] lg:pt-0">
       {/* Background Image */}
-      <Image
-        src="/assets/pages/ai-enabled/6be83863a5fa40ccefa1725cc8f430fd0def2e3a.png"
-        alt="Hero Background"
-        fill
-        quality={100}
-        className="object-cover"
-        priority
+      <img
+        alt="Digital Twin Platform Hero Background"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        src={HERO_IMAGE}
       />
 
-      {/* Overlay */}
+      {/* Gradient Overlay */}
       <div
         className="absolute inset-0 backdrop-blur-[10px]"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), linear-gradient(206deg, rgba(6,86,217,0.3), rgba(55,188,255,0.3))",
+            "linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), linear-gradient(202.813deg, rgba(6, 86, 217, 0.3) 0%, rgba(55, 188, 255, 0.3) 100%)",
         }}
       />
 
-      <HeroText />
-      <MetricsSection />
-    </div>
+      {/* Content Container */}
+      <div className="relative h-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-12 md:py-16 lg:py-0 w-[90%] mx-auto">
+        {/* Hero Text Content */}
+        <div className="flex items-center lg:items-start justify-center lg:justify-start   w-[95%] mx-auto lg:flex-1">
+          <HeroContent />
+        </div>
+
+        {/* Digital Twin Image */}
+        <div className="w-full max-w-[400px] sm:max-w-[450px] lg:max-w-[500px]  xl:max-w-[580px] aspect-[580/460] lg:flex-shrink-0">
+          <img
+            alt="Building Digital Twin Visualization"
+            className="w-full h-full object-contain object-center"
+            src={AI_ENABLED_IMAGE}
+          />
+        </div>
+      </div>
+    </section>
   );
 }
+
+export default HeroSection;

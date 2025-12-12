@@ -87,7 +87,7 @@ function HeroSection() {
         </div>
 
         {/* Digital Twin Image */}
-        <div className="w-full max-w-[400px] sm:max-w-[450px] lg:max-w-[500px] aspect-[580/460] lg:flex-shrink-0">
+        <div className="w-full max-w-[400px] sm:max-w-[450px] lg:max-w-[530px]  xl:max-w-[580px] aspect-[580/460] lg:flex-shrink-0">
           <img
             alt="Building Digital Twin Visualization"
             className="w-full h-full object-contain object-center"
