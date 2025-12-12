@@ -1,11 +1,18 @@
 "use client";
 
+import React, { useEffect, useRef } from "react";
 import svgPaths from "../../../imports/svg-plhzsxyavn";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperClass } from "swiper";
+import type { SwiperOptions } from "swiper/types";
+import "swiper/css";
+import "swiper/css/navigation";
 
-// Icon Components
+/* ---------------------------
+   Icon Components (unchanged visuals)
+   --------------------------- */
+
 function ChartRelationship() {
   return (
     <div
@@ -279,23 +286,23 @@ function Energy() {
             <path
               d="M30 21.7479C30 27.9623 24.6274 33 18 33C11.3726 33 6 27.9623 6 21.7479L6 21.4191C6 20.3177 6 19.767 6.38047 19.565C7.20509 19.1272 9 21 9 21"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M6 14.2521C6 8.03773 11.3726 3 18 3C24.6274 3 30 8.03773 30 14.2521V14.5809C30 15.6823 30 16.233 29.6195 16.435C28.7949 16.8728 27 15 27 15"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M17.9694 16.7407C16.8901 18.8761 16.1019 22.3392 17.3433 26.25M16.7146 22.5425C10.3459 18.0118 14.721 12.8006 18.8399 10.1703C19.337 9.85283 19.5855 9.69411 19.8748 9.76785C20.1642 9.84159 20.3032 10.1011 20.5813 10.6201C22.8935 14.9355 24.5501 21.7339 16.7146 22.5425Z"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>
@@ -303,6 +310,7 @@ function Energy() {
     </div>
   );
 }
+
 function Prediction() {
   return (
     <div
@@ -318,18 +326,18 @@ function Prediction() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="18" cy="27" r="4.5" stroke="white" stroke-width="2" />
+            <circle cx="18" cy="27" r="4.5" stroke="white" strokeWidth={2} />
             <path
               d="M18 22.5V15"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth={2}
+              strokeLinecap="round"
             />
             <path
               d="M33 19.5C33 11.2157 26.2843 4.5 18 4.5C9.71573 4.5 3 11.2157 3 19.5"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth={2}
+              strokeLinecap="round"
             />
           </svg>
         </div>
@@ -337,6 +345,7 @@ function Prediction() {
     </div>
   );
 }
+
 function Sun() {
   return (
     <div
@@ -355,13 +364,13 @@ function Sun() {
             <path
               d="M25.5 18C25.5 22.1421 22.1421 25.5 18 25.5C13.8579 25.5 10.5 22.1421 10.5 18C10.5 13.8579 13.8579 10.5 18 10.5C22.1421 10.5 25.5 13.8579 25.5 18Z"
               stroke="white"
-              stroke-width="2"
+              strokeWidth={2}
             />
             <path
               d="M18 3V5.25M18 30.75V33M28.6062 28.6069L27.0152 27.0159M8.98389 8.98389L7.3929 7.3929M33 18H30.75M5.25 18H3M28.6069 7.39307L27.0159 8.98406M8.98462 27.0161L7.39363 28.6071"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth={2}
+              strokeLinecap="round"
             />
           </svg>
         </div>
@@ -388,44 +397,44 @@ function Data() {
             <path
               d="M30 21C31.6569 21 33 19.6569 33 18C33 16.3431 31.6569 15 30 15C28.3431 15 27 16.3431 27 18C27 19.6569 28.3431 21 30 21Z"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M30 9C31.6569 9 33 7.65685 33 6C33 4.34315 31.6569 3 30 3C28.3431 3 27 4.34315 27 6C27 7.65685 28.3431 9 30 9Z"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M30 33C31.6569 33 33 31.6569 33 30C33 28.3431 31.6569 27 30 27C28.3431 27 27 28.3431 27 30C27 31.6569 28.3431 33 30 33Z"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M9 18H27"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M27 6H21C18 6 16.5 7.5 16.5 10.5V25.5C16.5 28.5 18 30 21 30H27"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>
@@ -433,7 +442,10 @@ function Data() {
     </div>
   );
 }
-// Feature Card Component
+
+/* ---------------------------
+   Core Feature Card
+   --------------------------- */
 function CoreFeatureCard({
   icon,
   title,
@@ -485,6 +497,10 @@ function CoreFeatureCard({
   );
 }
 
+/* ---------------------------
+   Frame35 (title + description)
+   --------------------------- */
+
 function Frame35({ content }: any) {
   return (
     <div className="flex flex-col md:flex-row items-start md:justify-between gap-6 md:gap-8 text-white w-full">
@@ -498,226 +514,162 @@ function Frame35({ content }: any) {
   );
 }
 
-// Custom Arrow Components for React Slick
-interface ArrowProps {
-  onClick?: () => void;
-}
-
-function CustomPrevArrow({ onClick }: ArrowProps) {
-  return (
-    <button
-      onClick={onClick}
-      className="slick-arrow slick-prev"
-      aria-label="Previous slide"
-    >
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M15 18L9 12L15 6"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </button>
-  );
-}
-
-function CustomNextArrow({ onClick }: ArrowProps) {
-  return (
-    <button
-      onClick={onClick}
-      className="slick-arrow slick-next"
-      aria-label="Next slide"
-    >
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M9 18L15 12L9 6"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </button>
-  );
-}
+/* ---------------------------
+   Frame40 (Swiper v12)
+   --------------------------- */
 
 function Frame40({ content }: any) {
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4.25,
-    slidesToScroll: 4,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
-    responsive: [
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 3.5,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2.5,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 850,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
+  const swiperRef = useRef<SwiperClass | null>(null);
 
-      {
-        breakpoint: 750,
-        settings: {
-          slidesToShow: 1.5,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1.2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+  // central place for breakpoints — ensure slidesPerGroup <= slidesPerView
+  const breakpoints: SwiperOptions["breakpoints"] = {
+    1400: { slidesPerView: 4, slidesPerGroup: 3 },
+    1280: { slidesPerView: 3, slidesPerGroup: 3 },
+    1024: { slidesPerView: 2, slidesPerGroup: 2 },
+    850: { slidesPerView: 2, slidesPerGroup: 2 },
+    750: { slidesPerView: 1, slidesPerGroup: 1 },
+    640: { slidesPerView: 1, slidesPerGroup: 1 },
+    0: { slidesPerView: 1, slidesPerGroup: 1 },
   };
 
-  return (
-    <div className="core-features-slider w-full max-w-full">
-      <style jsx>{`
-        .core-features-slider :global(.slick-slide) {
-          padding: 0 10px;
-        }
-        .core-features-slider :global(.slick-list) {
-          margin: 0 -10px;
-          overflow: visible;
-        }
-        .core-features-slider :global(.slick-track) {
-          display: flex !important;
-          align-items: stretch;
-        }
-        .core-features-slider :global(.slick-slide) {
-          height: inherit !important;
-        }
-        .core-features-slider :global(.slick-slide > div) {
-          height: 100%;
-          min-width: 280px;
-          max-width: 340px;
-        }
-        .core-features-slider :global(.slick-arrow) {
-          display: flex !important;
-          align-items: center;
-          justify-content: center;
-          width: 44px;
-          height: 44px;
-          border-radius: 8px;
-          background: rgba(255, 255, 255, 0.16);
-          backdrop-filter: blur(10px);
-          transition: all 0.3s ease;
-          border: none;
-          cursor: pointer;
-          z-index: 10;
-          position: absolute;
-        }
-        .core-features-slider :global(.slick-arrow:hover:not(.slick-disabled)) {
-          background: rgba(255, 255, 255, 0.25);
-          transform: scale(1.08);
-        }
-        .core-features-slider :global(.slick-arrow.slick-disabled) {
-          opacity: 0.4;
-          cursor: not-allowed;
-        }
-        .core-features-slider :global(.slick-arrow::before) {
-          display: none;
-        }
-        .core-features-slider :global(.slick-prev) {
-          left: 50%;
-          transform: translateX(-58px);
-          bottom: -85px;
-          top: auto;
-        }
-        .core-features-slider :global(.slick-next) {
-          right: 50%;
-          transform: translateX(58px);
-          bottom: -85px;
-          top: auto;
-        }
-        .core-features-slider :global(.slick-prev:hover:not(.slick-disabled)) {
-          transform: translateX(-58px) scale(1.08);
-        }
-        .core-features-slider :global(.slick-next:hover:not(.slick-disabled)) {
-          transform: translateX(58px) scale(1.08);
-        }
+  const swiperOptions: SwiperOptions = {
+    modules: [Navigation],
+    slidesPerView: 4.25,
+    slidesPerGroup: 5,
+    spaceBetween: 15,
+    // allowSlideNext: false,
+    // allowSlidePrev: false,
+    navigation: {
+      prevEl: '.core-features-prev',
+      nextEl: '.core-features-next',
+    },
+    autoHeight: true,
+    breakpoints,
+    observer: true,
+    observeParents: true,
+  };
 
-        @media (max-width: 768px) {
-          .core-features-slider :global(.slick-prev) {
-            bottom: -75px;
+  // store swiper instance when it's created
+  const handleSwiper = (swiper: SwiperClass) => {
+    swiperRef.current = swiper;
+    // debug
+    // eslint-disable-next-line no-console
+    console.debug("Swiper instance set", swiper);
+  };
+
+  // Handle resize to update swiper
+  useEffect(() => {
+    const onResize = () => {
+      if (swiperRef.current) {
+        swiperRef.current.update();
+      }
+    };
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  return (
+    <div className="core-features-slider w-full max-w-full relative">
+      {/* Prev */}
+      <button
+        type="button"
+        ref={prevRef}
+        aria-label="Previous slide"
+        className="core-features-prev slick-arrow slick-prev absolute top-1/2 -translate-y-1/2 left-0 z-50"
+        onClick={() => {
+          // fallback ensures button always does something
+          if (swiperRef.current) {
+            swiperRef.current.slidePrev();
+          } else {
+            // eslint-disable-next-line no-console
+            console.warn("swiperRef not ready for slidePrev()");
           }
-          .core-features-slider :global(.slick-next) {
-            bottom: -75px;
+        }}
+        style={{
+          pointerEvents: "auto", // ensure clickable
+        }}
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18.6992 11H3.29922M3.29922 11L10.5714 3.29995M3.29922 11L10.5714 18.7"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      {/* Next */}
+      <button
+        type="button"
+        ref={nextRef}
+        aria-label="Next slide"
+        className="core-features-next slick-arrow slick-next absolute top-1/2 -translate-y-1/2 right-0 z-50"
+        onClick={() => {
+          if (swiperRef.current) {
+            swiperRef.current.slideNext();
+          } else {
+            // eslint-disable-next-line no-console
+            console.warn("swiperRef not ready for slideNext()");
           }
-          .core-features-slider :global(.slick-arrow) {
-            width: 40px;
-            height: 40px;
-          }
-        }
-      `}</style>
-      <Slider {...settings}>
-        {content?.features?.length
-          ? content.features.map((feature: any, index: number) => (
-              <div key={index} className="h-full">
-                <CoreFeatureCard
-                  icon={feature.icon}
-                  title={feature.title}
-                  description={feature.description}
-                  // bgColor={feature.bgColor}
-                />
-              </div>
-            ))
-          : null}
-      </Slider>
+        }}
+        style={{
+          pointerEvents: "auto",
+        }}
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.30078 11H18.7008M18.7008 11L11.4286 3.29995M18.7008 11L11.4286 18.7"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      <Swiper
+        {...swiperOptions}
+        onSwiper={handleSwiper}
+        className="!overflow-visible"
+      >
+        {content?.features?.map((feature: any, index: number) => (
+          <SwiperSlide key={index} className="h-full">
+            <CoreFeatureCard
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }
 
-export default function CoreFeatures({ content }: any) {
+/* ---------------------------
+   Export default component
+   --------------------------- */
 
+export default function CoreFeatures({ content }: any) {
   return (
     <div
       className="box-border flex flex-col gap-[50px] md:gap-[60px] items-start px-6 md:px-16 lg:px-[100px] pt-[50px] md:pt-[60px] pb-[130px] md:pb-[150px] w-full overflow-hidden"

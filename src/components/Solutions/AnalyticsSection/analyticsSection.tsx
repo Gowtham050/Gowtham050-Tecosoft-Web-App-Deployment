@@ -1521,8 +1521,6 @@ function AnalyticsGrid({ features }: { features: Feature[] }) {
 
 // Main Component
 export function AnalyticsSection({ content }: AnalyticsSectionProps) {
-  console.log(content, "452343242");
-
   return (
     <>
       <style>{`
