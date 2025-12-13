@@ -165,20 +165,32 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
     }
 
     if (isActive) {
-      // 425px - 1023px range: optimized for 1576px UI
-      if (width < 576) return 340; // Small mobile (425-575px)
-      if (width < 768) return 400; // Large mobile (576-767px)
-      if (width < 992) return 450; // Small tablets (768-991px)
+      // Below 600px: single active card display (full width)
+      if (width < 450) return width - 40; // Small mobile (425-449px) - full width minus padding
+      if (width < 500) return width - 40; // Small mobile (450-499px) - full width minus padding
+      if (width < 576) return width - 40; // Small mobile (500-575px) - full width minus padding
+      if (width < 600) return width - 40; // Medium mobile (576-599px) - full width minus padding
+      // 600px+: multi-card display
+      if (width < 650) return 360; // Medium mobile (600-649px)
+      if (width < 768) return 380; // Large mobile (650-767px)
+      if (width < 800) return 430; // Small tablets (768-799px) - optimized for better fit
+      if (width < 992) return 450; // Small tablets (800-991px)
       if (width < 1024) return 480; // Tablets (992-1023px)
       // 1024px+ range: already optimized
       if (width < 1200) return 500; // Small laptops (1024-1199px)
       if (width < 1400) return 550; // Medium desktops (1200-1399px)
       return 582; // Large desktops (1400px+, optimized for 1576px)
     } else {
-      // 425px - 1023px range: inactive cards
-      if (width < 576) return 80;  // Small mobile (425-575px)
-      if (width < 768) return 90;  // Large mobile (576-767px)
-      if (width < 992) return 100; // Small tablets (768-991px)
+      // Below 600px: hide inactive cards (single active card display)
+      if (width < 450) return 0;  // Hidden - single card view
+      if (width < 500) return 0;  // Hidden - single card view
+      if (width < 576) return 0;  // Hidden - single card view
+      if (width < 600) return 0;  // Hidden - single card view
+      // 600px+: multi-card display
+      if (width < 650) return 80;  // Medium mobile (600-649px)
+      if (width < 768) return 85;  // Large mobile (650-767px)
+      if (width < 800) return 85; // Small tablets (768-799px) - optimized for better fit
+      if (width < 992) return 100; // Small tablets (800-991px)
       if (width < 1024) return 110; // Tablets (992-1023px)
       // 1024px+ range: inactive cards
       if (width < 1200) return 120; // Small laptops (1024-1199px)
@@ -192,7 +204,7 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
       if (isActive) {
         gsap.to(cardRef.current, {
           width: getResponsiveWidth(),
-          duration: 0.8,
+          duration: 0.2,
           ease: "power2.out",
         });
 
@@ -201,7 +213,7 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
           gsap.fromTo(
             contentRef.current,
             { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.6, delay: 0.3, ease: "power2.out" }
+            { opacity: 1, y: 0, duration: 0.2, delay: 0, ease: "power2.out" }
           );
         }
       } else {
@@ -209,16 +221,16 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
         if (contentRef.current) {
           gsap.to(contentRef.current, {
             opacity: 0,
-            duration: 0.3,
+            duration: 0.2,
             ease: "power2.in",
           });
         }
 
         gsap.to(cardRef.current, {
           width: getResponsiveWidth(),
-          duration: 0.8,
+          duration: 0.2,
           ease: "power2.out",
-          delay: 0.2,
+          delay: 0,
         });
       }
     }
@@ -257,10 +269,16 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
           typeof window !== "undefined"
             ? window.innerWidth < 425
               ? "420px"
-              : window.innerWidth < 576
-              ? "440px"
+              : window.innerWidth < 500
+              ? "435px"
+              : window.innerWidth < 600
+              ? "445px"
+              : window.innerWidth < 650
+              ? "450px"
               : window.innerWidth < 768
               ? "460px"
+              : window.innerWidth < 800
+              ? "475px"
               : window.innerWidth < 992
               ? "480px"
               : window.innerWidth < 1024
@@ -409,22 +427,40 @@ function IndustriesCarousel() {
         spaceBetween: 10,
         centeredSlides: false,
       },
-      // Small mobile (425-575px): optimized for 1576px UI
+      // Small mobile (425-599px): single active card display
       425: {
-        slidesPerView: "auto",
+        slidesPerView: 1,
         spaceBetween: 10,
-        centeredSlides: false,
+        centeredSlides: true,
+        slidesOffsetBefore: 0,
+        slidesOffsetAfter: 0,
       },
-      // Large mobile (576-767px): optimized for 1576px UI
-      576: {
+      // Medium mobile (600-649px): multi-card display
+      600: {
         slidesPerView: "auto",
         spaceBetween: 12,
         centeredSlides: false,
+        slidesOffsetBefore: 0,
+        slidesOffsetAfter: 0,
       },
-      // Small tablets (768-991px): optimized for 1576px UI
+      // Large mobile (650-767px): multi-card display
+      650: {
+        slidesPerView: "auto",
+        spaceBetween: 12,
+        centeredSlides: false,
+        slidesOffsetBefore: 0,
+        slidesOffsetAfter: 0,
+      },
+      // Small tablets (768-799px): optimized for 1576px UI
       768: {
         slidesPerView: "auto",
-        spaceBetween: 14,
+        spaceBetween: 13,
+        centeredSlides: false,
+      },
+      // Small tablets (800-991px): optimized for 1576px UI
+      800: {
+        slidesPerView: "auto",
+        spaceBetween: 13,
         centeredSlides: false,
       },
       // Tablets (992-1023px): optimized for 1576px UI
@@ -463,9 +499,7 @@ function IndustriesCarousel() {
     if (!programmaticSlide.current && !isTransitioning) {
       setIsTransitioning(true);
       setActiveSlide(swiper.activeIndex);
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 500);
+      setIsTransitioning(false);
     }
     programmaticSlide.current = false;
   };
@@ -487,19 +521,41 @@ function IndustriesCarousel() {
     let inactiveWidth = 130;
     let spaceBetween = 16;
 
-    // 425px - 1023px range: optimized for 1576px UI
-    if (width < 576) {
-      slideWidth = 340;
-      inactiveWidth = 80;
+    // Below 600px: single active card display (match getResponsiveWidth exactly)
+    if (width < 450) {
+      slideWidth = width - 40;
+      inactiveWidth = 0;
       spaceBetween = 10;
-    } else if (width < 768) {
-      slideWidth = 400;
-      inactiveWidth = 90;
+    } else if (width < 500) {
+      slideWidth = width - 40;
+      inactiveWidth = 0;
+      spaceBetween = 10;
+    } else if (width < 576) {
+      slideWidth = width - 40;
+      inactiveWidth = 0;
+      spaceBetween = 10;
+    } else if (width < 600) {
+      slideWidth = width - 40;
+      inactiveWidth = 0;
+      spaceBetween = 10;
+    }
+    // 600px+: multi-card display (match getResponsiveWidth exactly)
+    else if (width < 650) {
+      slideWidth = 360;
+      inactiveWidth = 80;
       spaceBetween = 12;
+    } else if (width < 768) {
+      slideWidth = 380;
+      inactiveWidth = 85;
+      spaceBetween = 12;
+    } else if (width < 800) {
+      slideWidth = 430;
+      inactiveWidth = 85;
+      spaceBetween = 13;
     } else if (width < 992) {
       slideWidth = 450;
       inactiveWidth = 100;
-      spaceBetween = 14;
+      spaceBetween = 13;
     } else if (width < 1024) {
       slideWidth = 480;
       inactiveWidth = 110;
@@ -518,17 +574,52 @@ function IndustriesCarousel() {
 
     const containerWidth = swiper.width;
 
-    // For 425px+: calculate optimal position to prevent cropping
-    if (width >= 425) {
+    // Below 600px: single card view - just slide to the index
+    if (width < 600) {
+      swiper.slideTo(index);
+      return;
+    }
+
+    // 600px+: calculate optimal position to prevent cropping
+    if (width >= 600) {
       // Calculate total width of cards before the active one
       const widthBeforeActive = index * (inactiveWidth + spaceBetween);
 
+      // Add margin buffer (optimized for different screen sizes)
+      const marginBuffer =
+        width >= 600 && width < 650
+          ? 15
+          : width >= 650 && width < 768
+          ? 18
+          : width >= 768 && width < 800
+          ? 25
+          : width >= 800 && width < 992
+          ? 35
+          : 30;
+
       // If the active card would be cropped, adjust the slide position
-      if (widthBeforeActive + slideWidth > containerWidth) {
+      if (widthBeforeActive + slideWidth + marginBuffer > containerWidth) {
         // Calculate how many inactive cards can fit before the active card
-        const availableWidth = containerWidth - slideWidth - 20; // 20px margin
-        const cardsBeforeThatFit = Math.max(0, Math.floor(availableWidth / (inactiveWidth + spaceBetween)));
-        const slidePosition = Math.max(0, index - cardsBeforeThatFit);
+        const availableWidth = containerWidth - slideWidth - marginBuffer;
+        const singleCardWidth = inactiveWidth + spaceBetween;
+        const cardsBeforeThatFit = Math.max(
+          0,
+          Math.floor(availableWidth / singleCardWidth)
+        );
+
+        // Calculate optimal slide position
+        let slidePosition = Math.max(0, index - cardsBeforeThatFit);
+
+        // Ensure we're not overshooting - for smaller screens, be more aggressive
+        if (width >= 600 && width < 768) {
+          // For 600-767px range, ensure active card is always fully visible
+          const estimatedTotalWidth = widthBeforeActive + slideWidth + marginBuffer;
+          if (estimatedTotalWidth > containerWidth && slidePosition === 0 && index > 0) {
+            // Force slide to at least position 1 if card 2+ is active
+            slidePosition = Math.min(index, Math.max(1, index - 1));
+          }
+        }
+
         swiper.slideTo(slidePosition);
       } else {
         swiper.slideTo(0); // If everything fits, stay at the beginning
@@ -542,9 +633,7 @@ function IndustriesCarousel() {
       setIsTransitioning(true);
       setActiveSlide(index);
       slideToIndex(index);
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 500);
+      setIsTransitioning(false);
     }
   };
 
@@ -556,9 +645,7 @@ function IndustriesCarousel() {
         activeSlide > 0 ? activeSlide - 1 : industries.length - 1;
       setActiveSlide(newIndex);
       slideToIndex(newIndex);
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 500);
+      setIsTransitioning(false);
     }
   };
 
@@ -570,21 +657,14 @@ function IndustriesCarousel() {
         activeSlide < industries.length - 1 ? activeSlide + 1 : 0;
       setActiveSlide(newIndex);
       slideToIndex(newIndex);
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 500);
+      setIsTransitioning(false);
     }
   };
 
-  // Update swiper when active slide changes (after GSAP animations)
+  // Update swiper when active slide changes
   useEffect(() => {
     if (swiperRef.current) {
-      // Delay to allow GSAP animations to complete
-      const timer = setTimeout(() => {
-        swiperRef.current?.update();
-      }, 900); // 800ms GSAP animation + 100ms buffer
-
-      return () => clearTimeout(timer);
+      swiperRef.current.update();
     }
   }, [activeSlide]);
 
@@ -603,83 +683,103 @@ function IndustriesCarousel() {
   }, []);
 
   return (
-    <div
-      className="bg-[#e0f6fa] content-stretch flex flex-col gap-[30px] md:gap-[40px] lg:gap-[50px] items-center overflow-x-hidden px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[80px] 2xl:px-[100px] py-[40px] md:py-[50px] lg:py-[60px] relative shrink-0 w-full max-w-[1576px] mx-auto"
-      data-name="Industries"
-    >
-      <Frame42 />
+    <div className="w-full bg-[#e0f6fa]">
+      <div
+        className=" content-stretch flex flex-col gap-[30px] md:gap-[40px] lg:gap-[50px] items-center overflow-x-hidden px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[80px] 2xl:px-[100px] py-[40px] md:py-[50px] lg:py-[60px] relative shrink-0 w-full max-w-[1576px] mx-auto"
+        data-name="Industries"
+      >
+        <Frame42 />
 
-      <div className="content-stretch relative shrink-0 w-full min-h-[420px] sm:min-h-[440px] md:min-h-[480px] lg:min-h-[500px] xl:min-h-[520px]">
-        <style jsx global>{`
-          .industries-slider {
-            overflow: visible !important;
-          }
-          .industries-slider .swiper-wrapper {
-            display: flex !important;
-            align-items: center !important;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
-          }
-          .industries-slider .swiper-slide {
-            width: auto !important;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            height: auto !important;
-            flex-shrink: 0 !important;
-          }
-          /* Below 425px: single card view */
-          @media (max-width: 424px) {
+        <div className="content-stretch relative shrink-0 w-full min-h-[420px] min-[500px]:min-h-[435px] min-[600px]:min-h-[445px] min-[650px]:min-h-[450px] md:min-h-[475px] lg:min-h-[500px] xl:min-h-[520px]">
+          <style jsx global>{`
+            .industries-slider {
+              overflow: visible !important;
+            }
+            .industries-slider .swiper-wrapper {
+              display: flex !important;
+              align-items: center !important;
+              transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            }
             .industries-slider .swiper-slide {
-              width: 100% !important;
+              width: auto !important;
+              transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+              height: auto !important;
+              flex-shrink: 0 !important;
             }
-          }
-          /* 425px - 575px: optimized for 1576px UI */
-          @media (min-width: 425px) {
-            .industries-slider {
-              padding: 0 5px;
+            .industries-slider .swiper-slide > div {
+              pointer-events: auto;
             }
-          }
-          /* 576px - 1023px: optimized for 1576px UI */
-          @media (min-width: 576px) and (max-width: 1023px) {
-            .industries-slider {
-              padding: 0 8px;
+            /* Below 600px: single active card display */
+            @media (max-width: 599px) {
+              .industries-slider .swiper-slide {
+                width: 100% !important;
+              }
+              .industries-slider {
+                padding: 0 20px;
+              }
             }
-          }
-          /* 1024px+: optimized for no cropping */
-          @media (min-width: 1024px) {
-            .industries-slider {
-              padding: 0 10px;
+            /* 600px - 649px: multi-card display */
+            @media (min-width: 600px) and (max-width: 649px) {
+              .industries-slider {
+                padding: 0 12px;
+              }
             }
-          }
-          .industries-slider .swiper-slide-active {
-            z-index: 10;
-          }
-        `}</style>
-        {isClient ? (
-          <Swiper
-            {...swiperOptions}
-            onSwiper={handleSwiper}
-            onSlideChange={handleSlideChange}
-            className="industries-slider !overflow-visible"
-          >
-            {industries.map((industry, index) => (
-              <SwiperSlide key={industry.id}>
-                <IndustryCard
-                  industry={industry}
-                  isActive={index === activeSlide}
-                  onClick={() => handleCardClick(index)}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <div className="flex items-center justify-center w-full min-h-[420px] sm:min-h-[440px] md:min-h-[480px] lg:min-h-[500px] xl:min-h-[520px]">
-            <div className="text-[#0098d4] text-lg">Loading...</div>
-          </div>
-        )}
-      </div>
+            /* 650px - 767px: multi-card display */
+            @media (min-width: 650px) and (max-width: 767px) {
+              .industries-slider {
+                padding: 0 12px;
+              }
+            }
+            /* 768px - 799px: optimized for better fit */
+            @media (min-width: 768px) and (max-width: 799px) {
+              .industries-slider {
+                padding: 0 10px;
+              }
+            }
+            /* 800px - 1023px: optimized for 1576px UI */
+            @media (min-width: 800px) and (max-width: 1023px) {
+              .industries-slider {
+                padding: 0 8px;
+              }
+            }
+            /* 1024px+: optimized for no cropping */
+            @media (min-width: 1024px) {
+              .industries-slider {
+                padding: 0 10px;
+              }
+            }
+            .industries-slider .swiper-slide-active {
+              z-index: 10;
+            }
+          `}</style>
+          {isClient ? (
+            <Swiper
+              {...swiperOptions}
+              onSwiper={handleSwiper}
+              onSlideChange={handleSlideChange}
+              className="industries-slider !overflow-visible"
+            >
+              {industries.map((industry, index) => (
+                <SwiperSlide key={industry.id}>
+                  <IndustryCard
+                    industry={industry}
+                    isActive={index === activeSlide}
+                    onClick={() => handleCardClick(index)}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            <div className="flex items-center justify-center w-full min-h-[420px] min-[500px]:min-h-[435px] min-[600px]:min-h-[445px] min-[650px]:min-h-[450px] md:min-h-[475px] lg:min-h-[500px] xl:min-h-[520px]">
+              <div className="text-[#0098d4] text-lg">Loading...</div>
+            </div>
+          )}
+        </div>
 
-      <div className="content-stretch flex gap-[8px] sm:gap-[10px] items-center justify-center relative shrink-0 w-full sm:w-auto">
-        <CustomArrow onClick={handlePrevious} direction="prev" />
-        <CustomArrow onClick={handleNext} direction="next" />
+        <div className="content-stretch flex gap-[8px] sm:gap-[10px] items-center justify-center relative shrink-0 w-full sm:w-auto">
+          <CustomArrow onClick={handlePrevious} direction="prev" />
+          <CustomArrow onClick={handleNext} direction="next" />
+        </div>
       </div>
     </div>
   );
