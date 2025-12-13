@@ -158,21 +158,32 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
     if (typeof window === "undefined") return isActive ? 582 : 130;
 
     const width = window.innerWidth;
-    if (width < 576) {
-      // Mobile: always full width
+
+    // Below 425px: single card view
+    if (width < 425) {
       return "100%";
     }
 
     if (isActive) {
-      if (width < 768) return 400; // Small tablets
-      if (width < 992) return 450; // Tablets
-      if (width < 1200) return 500; // Small laptops
-      return 582; // Desktops
+      // 425px - 1023px range: optimized for 1576px UI
+      if (width < 576) return 340; // Small mobile (425-575px)
+      if (width < 768) return 400; // Large mobile (576-767px)
+      if (width < 992) return 450; // Small tablets (768-991px)
+      if (width < 1024) return 480; // Tablets (992-1023px)
+      // 1024px+ range: already optimized
+      if (width < 1200) return 500; // Small laptops (1024-1199px)
+      if (width < 1400) return 550; // Medium desktops (1200-1399px)
+      return 582; // Large desktops (1400px+, optimized for 1576px)
     } else {
-      if (width < 768) return 100; // Small tablets
-      if (width < 992) return 110; // Tablets
-      if (width < 1200) return 120; // Small laptops
-      return 130; // Desktops
+      // 425px - 1023px range: inactive cards
+      if (width < 576) return 80;  // Small mobile (425-575px)
+      if (width < 768) return 90;  // Large mobile (576-767px)
+      if (width < 992) return 100; // Small tablets (768-991px)
+      if (width < 1024) return 110; // Tablets (992-1023px)
+      // 1024px+ range: inactive cards
+      if (width < 1200) return 120; // Small laptops (1024-1199px)
+      if (width < 1400) return 125; // Medium desktops (1200-1399px)
+      return 130; // Large desktops (1400px+, optimized for 1576px)
     }
   };
 
@@ -233,15 +244,31 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
     <div
       ref={cardRef}
       onClick={!isActive ? onClick : undefined}
-      className={`w-full sm:w-auto h-[420px] sm:h-[450px] md:h-[480px] lg:h-[520px] overflow-clip relative rounded-[12px] shrink-0 transition-all ${
+      className={`w-full sm:w-auto overflow-clip relative rounded-[12px] shrink-0 transition-all ${
         !isActive ? "cursor-pointer hover:scale-105" : ""
       }`}
       style={{
         width: isMounted ? getResponsiveWidth() : isActive ? "100%" : "130px",
         minWidth:
-          isMounted && typeof window !== "undefined" && window.innerWidth < 576
+          isMounted && typeof window !== "undefined" && window.innerWidth < 425
             ? "100%"
             : "auto",
+        height:
+          typeof window !== "undefined"
+            ? window.innerWidth < 425
+              ? "420px"
+              : window.innerWidth < 576
+              ? "440px"
+              : window.innerWidth < 768
+              ? "460px"
+              : window.innerWidth < 992
+              ? "480px"
+              : window.innerWidth < 1024
+              ? "500px"
+              : window.innerWidth < 1200
+              ? "510px"
+              : "520px"
+            : "520px",
       }}
     >
       <div
@@ -364,7 +391,7 @@ function IndustriesCarousel() {
   }, []);
 
   const swiperOptions: SwiperOptions = {
-    slidesPerView: 6,
+    slidesPerView: "auto",
     spaceBetween: 16,
     loop: false,
     speed: 600,
@@ -374,46 +401,53 @@ function IndustriesCarousel() {
     observeParents: true,
     watchSlidesProgress: true,
     initialSlide: 0,
+    centerInsufficientSlides: true,
     breakpoints: {
-      // Mobile (0-399px)
+      // Below 425px: single card view
       0: {
         slidesPerView: 1,
         spaceBetween: 10,
         centeredSlides: false,
       },
-      // Small mobile (400-499px)
-      400: {
-        slidesPerView: 1,
+      // Small mobile (425-575px): optimized for 1576px UI
+      425: {
+        slidesPerView: "auto",
         spaceBetween: 10,
         centeredSlides: false,
       },
-      // Mobile (500-767px)
-      500: {
-        slidesPerView: 2,
+      // Large mobile (576-767px): optimized for 1576px UI
+      576: {
+        slidesPerView: "auto",
         spaceBetween: 12,
         centeredSlides: false,
       },
-      // Tablets (768-1023px)
+      // Small tablets (768-991px): optimized for 1576px UI
       768: {
-        slidesPerView: 3,
+        slidesPerView: "auto",
         spaceBetween: 14,
         centeredSlides: false,
       },
-      // Small laptops (1024-1279px)
+      // Tablets (992-1023px): optimized for 1576px UI
+      992: {
+        slidesPerView: "auto",
+        spaceBetween: 14,
+        centeredSlides: false,
+      },
+      // Small laptops (1024-1199px): optimized for no cropping
       1024: {
-        slidesPerView: 4,
+        slidesPerView: "auto",
         spaceBetween: 16,
         centeredSlides: false,
       },
-      // Laptops (1280-1399px)
-      1280: {
-        slidesPerView: 5,
+      // Medium desktops (1200-1399px): optimized for no cropping
+      1200: {
+        slidesPerView: "auto",
         spaceBetween: 16,
         centeredSlides: false,
       },
-      // Desktops (1400px+)
+      // Large desktops (1400px+): optimized for 1576px UI
       1400: {
-        slidesPerView: 6,
+        slidesPerView: "auto",
         spaceBetween: 16,
         centeredSlides: false,
       },
@@ -436,12 +470,78 @@ function IndustriesCarousel() {
     programmaticSlide.current = false;
   };
 
+  const slideToIndex = (index: number) => {
+    if (!swiperRef.current) return;
+
+    const swiper = swiperRef.current;
+    const width = window.innerWidth;
+
+    // Below 425px: single card view - simple slide to index
+    if (width < 425) {
+      swiper.slideTo(index);
+      return;
+    }
+
+    // Get responsive widths based on breakpoint (425px - 1576px UI optimized)
+    let slideWidth = 582;
+    let inactiveWidth = 130;
+    let spaceBetween = 16;
+
+    // 425px - 1023px range: optimized for 1576px UI
+    if (width < 576) {
+      slideWidth = 340;
+      inactiveWidth = 80;
+      spaceBetween = 10;
+    } else if (width < 768) {
+      slideWidth = 400;
+      inactiveWidth = 90;
+      spaceBetween = 12;
+    } else if (width < 992) {
+      slideWidth = 450;
+      inactiveWidth = 100;
+      spaceBetween = 14;
+    } else if (width < 1024) {
+      slideWidth = 480;
+      inactiveWidth = 110;
+      spaceBetween = 14;
+    }
+    // 1024px+ range: already optimized
+    else if (width < 1200) {
+      slideWidth = 500;
+      inactiveWidth = 120;
+      spaceBetween = 16;
+    } else if (width < 1400) {
+      slideWidth = 550;
+      inactiveWidth = 125;
+      spaceBetween = 16;
+    }
+
+    const containerWidth = swiper.width;
+
+    // For 425px+: calculate optimal position to prevent cropping
+    if (width >= 425) {
+      // Calculate total width of cards before the active one
+      const widthBeforeActive = index * (inactiveWidth + spaceBetween);
+
+      // If the active card would be cropped, adjust the slide position
+      if (widthBeforeActive + slideWidth > containerWidth) {
+        // Calculate how many inactive cards can fit before the active card
+        const availableWidth = containerWidth - slideWidth - 20; // 20px margin
+        const cardsBeforeThatFit = Math.max(0, Math.floor(availableWidth / (inactiveWidth + spaceBetween)));
+        const slidePosition = Math.max(0, index - cardsBeforeThatFit);
+        swiper.slideTo(slidePosition);
+      } else {
+        swiper.slideTo(0); // If everything fits, stay at the beginning
+      }
+    }
+  };
+
   const handleCardClick = (index: number) => {
     if (activeSlide !== index && !isTransitioning && swiperRef.current) {
       programmaticSlide.current = true;
       setIsTransitioning(true);
       setActiveSlide(index);
-      swiperRef.current.slideTo(index);
+      slideToIndex(index);
       setTimeout(() => {
         setIsTransitioning(false);
       }, 500);
@@ -455,7 +555,7 @@ function IndustriesCarousel() {
       const newIndex =
         activeSlide > 0 ? activeSlide - 1 : industries.length - 1;
       setActiveSlide(newIndex);
-      swiperRef.current.slideTo(newIndex);
+      slideToIndex(newIndex);
       setTimeout(() => {
         setIsTransitioning(false);
       }, 500);
@@ -469,7 +569,7 @@ function IndustriesCarousel() {
       const newIndex =
         activeSlide < industries.length - 1 ? activeSlide + 1 : 0;
       setActiveSlide(newIndex);
-      swiperRef.current.slideTo(newIndex);
+      slideToIndex(newIndex);
       setTimeout(() => {
         setIsTransitioning(false);
       }, 500);
@@ -504,28 +604,49 @@ function IndustriesCarousel() {
 
   return (
     <div
-      className="bg-[#e0f6fa] content-stretch flex flex-col gap-[30px] md:gap-[40px] lg:gap-[50px] items-center overflow-x-hidden px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[100px] py-[40px] md:py-[50px] lg:py-[60px] relative shrink-0 w-full max-w-[1512px] mx-auto"
+      className="bg-[#e0f6fa] content-stretch flex flex-col gap-[30px] md:gap-[40px] lg:gap-[50px] items-center overflow-x-hidden px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[80px] 2xl:px-[100px] py-[40px] md:py-[50px] lg:py-[60px] relative shrink-0 w-full max-w-[1576px] mx-auto"
       data-name="Industries"
     >
       <Frame42 />
 
-      <div className="content-stretch relative shrink-0 w-full overflow-visible min-h-[450px]">
+      <div className="content-stretch relative shrink-0 w-full min-h-[420px] sm:min-h-[440px] md:min-h-[480px] lg:min-h-[500px] xl:min-h-[520px]">
         <style jsx global>{`
           .industries-slider {
             overflow: visible !important;
           }
           .industries-slider .swiper-wrapper {
             display: flex !important;
+            align-items: center !important;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
           }
           .industries-slider .swiper-slide {
             width: auto !important;
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             height: auto !important;
+            flex-shrink: 0 !important;
           }
-          @media (max-width: 575px) {
+          /* Below 425px: single card view */
+          @media (max-width: 424px) {
             .industries-slider .swiper-slide {
               width: 100% !important;
+            }
+          }
+          /* 425px - 575px: optimized for 1576px UI */
+          @media (min-width: 425px) {
+            .industries-slider {
+              padding: 0 5px;
+            }
+          }
+          /* 576px - 1023px: optimized for 1576px UI */
+          @media (min-width: 576px) and (max-width: 1023px) {
+            .industries-slider {
+              padding: 0 8px;
+            }
+          }
+          /* 1024px+: optimized for no cropping */
+          @media (min-width: 1024px) {
+            .industries-slider {
+              padding: 0 10px;
             }
           }
           .industries-slider .swiper-slide-active {
@@ -550,7 +671,7 @@ function IndustriesCarousel() {
             ))}
           </Swiper>
         ) : (
-          <div className="flex items-center justify-center w-full min-h-[450px]">
+          <div className="flex items-center justify-center w-full min-h-[420px] sm:min-h-[440px] md:min-h-[480px] lg:min-h-[500px] xl:min-h-[520px]">
             <div className="text-[#0098d4] text-lg">Loading...</div>
           </div>
         )}
