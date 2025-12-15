@@ -2,6 +2,7 @@
 "use client";
 import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   SOLUTIONS_SECTION,
   SOLUTIONS_DATA,
@@ -293,15 +294,17 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
       aria-live="polite"
     >
       {images.map((img, index) => (
-        <img
+        <Image
           key={index}
           alt={`Solution slide ${index + 1} of ${images.length}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+          className={`object-cover transition-opacity duration-700 ${
             activeIndex === index ? "opacity-100" : "opacity-0"
           }`}
           src={img}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
           aria-hidden={activeIndex !== index}
-          loading={index === 0 ? "eager" : "lazy"}
+          priority={index === 0}
         />
       ))}
       <CarouselIndicator
