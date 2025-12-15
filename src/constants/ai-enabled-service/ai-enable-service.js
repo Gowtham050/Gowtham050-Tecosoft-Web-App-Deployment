@@ -1,4 +1,52 @@
 // ===========================
+// Banner Section
+// ===========================
+
+export const BANNER_SECTION = {
+  title: "One platform. Two ",
+  highlightText: "Super power potentials.",
+  description:
+    "Unify energy and machine health under a single AI layer. Forecast demand, prevent failures, and automate actions across your shopfloor.",
+  buttonText: "Request Demo",
+  heroImage:
+    "/assets/pages/digital-twin-platform/4c1dc57c1e7b64d3e936b9fbfff3dec05024ba0b.png",
+  aiEnabledImage: "/assets/pages/ai-enabled/banner-ai.gif",
+  gradientStyle:
+    "linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), linear-gradient(202.813deg, rgba(6, 86, 217, 0.3) 0%, rgba(55, 188, 255, 0.3) 100%)",
+};
+
+// ===========================
+// How It Works Section
+// ===========================
+
+export const HOW_IT_WORKS_DATA = [
+  {
+    id: 1,
+    title: "Connect",
+    description:
+      "Easily integrate meters, sensors, PLC/SCADA systems, and historians with the EAGLE Edge platform to improve data collection and analysis.",
+  },
+  {
+    id: 2,
+    title: "Ingest",
+    description:
+      "Stream data easily to your on-premises setup or a cloud data lake, featuring time-series indexing for improved management and analysis.",
+  },
+  {
+    id: 3,
+    title: "Analyze",
+    description:
+      "Use AI to boost forecasting accuracy, spot anomalies, predict Remaining Useful Life (RUL), and optimize processes for better efficiency.",
+  },
+  {
+    id: 4,
+    title: "Act",
+    description:
+      "Align all elements by effectively integrating schedules, set points, and work orders. This approach will help close the loop and boost operational efficiency.",
+  },
+];
+
+// ===========================
 // Why AI-Enabled Services Section
 // ===========================
 

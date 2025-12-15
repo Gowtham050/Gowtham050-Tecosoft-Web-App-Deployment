@@ -11,9 +11,6 @@ import svgPaths from "../../imports/svg-txc4khmm90";
 // ===========================
 
 const CAROUSEL_INTERVAL_MS = 4000;
-const FEATURE_CARDS_PER_SOLUTION = 4;
-const CAROUSEL_INDICATOR_RADIUS = 5;
-const CAROUSEL_INDICATOR_SPACING = 15;
 
 // ===========================
 // TypeScript Interfaces

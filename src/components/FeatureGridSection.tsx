@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Feature {
   id: string;
   title: string;
@@ -40,10 +42,11 @@ function FeatureCard({
           {/* Icon Container */}
           <div className="bg-white flex items-center justify-center p-3 md:p-4 lg:p-5 rounded-lg md:rounded-xl shrink-0">
             <div className="relative shrink-0 size-6 md:size-7 lg:size-8">
-              <img
+              <Image
                 src={iconPath}
                 alt={title}
-                className="size-full object-contain"
+                className="object-contain"
+                fill
               />
             </div>
           </div>

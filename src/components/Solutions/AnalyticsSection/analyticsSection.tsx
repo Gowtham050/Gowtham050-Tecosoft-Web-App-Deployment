@@ -1523,12 +1523,14 @@ function AnalyticsGrid({ features }: { features: Feature[] }) {
 export function AnalyticsSection({ content }: AnalyticsSectionProps) {
   return (
     <>
-      <style>{`
+      <style>
+        {`
         .icon-wrapper:hover {
           cursor: pointer;
           background: linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%) !important;
         }
-      `}</style>
+      `}
+      </style>
       <div
         className="bg-white box-border content-stretch flex flex-col xl:flex-row items-start sm:items-center xl:items-start justify-between overflow-clip px-5 sm:px-10 lg:px-16 xl:px-[100px] py-8 sm:py-12 lg:py-[60px] relative shrink-0 w-full max-w-[1512px] mx-auto gap-10 xl:gap-0"
         data-name="Analytics - Features"

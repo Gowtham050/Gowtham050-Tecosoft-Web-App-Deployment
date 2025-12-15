@@ -5,6 +5,7 @@ import type { Swiper as SwiperClass } from "swiper";
 import type { SwiperOptions } from "swiper/types";
 import "swiper/css";
 import { gsap } from "gsap";
+import Image from "next/image";
 import svgPaths from "../../imports/svg-zvmjtzwbe4";
 
 const industries = [
@@ -293,10 +294,11 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none rounded-[12px] overflow-hidden"
       >
-        <img
-          alt=""
-          className="absolute max-w-none object-cover rounded-[12px] size-full object-center"
+        <Image
+          alt={`${industry.title} background`}
+          className="object-cover object-center rounded-[12px]"
           src={industry.image}
+          fill
         />
         {isActive ? (
           <div className="absolute bg-gradient-to-b from-[rgba(17,17,17,0)] inset-0 rounded-[12px] to-90% to-[#111111]" />

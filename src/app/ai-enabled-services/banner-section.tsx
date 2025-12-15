@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-
-const HERO_IMAGE =
-  "/assets/pages/digital-twin-platform/4c1dc57c1e7b64d3e936b9fbfff3dec05024ba0b.png";
-const AI_ENABLED_IMAGE = "/assets/pages/ai-enabled/banner-ai.gif";
+import Image from "next/image";
+import { BANNER_SECTION } from "@/constants/ai-enabled-service/ai-enable-service";
 
 function ArrowIcon() {
   return (
@@ -35,7 +33,7 @@ function RequestDemoButton() {
       aria-label="Request Demo"
     >
       <span className="font-semibold text-sm md:text-[15px] leading-5 text-white whitespace-nowrap">
-        Request Demo
+        {BANNER_SECTION.buttonText}
       </span>
       <div className="flex items-center justify-center size-[14px] -rotate-90">
         <ArrowIcon />
@@ -48,12 +46,11 @@ function HeroContent() {
   return (
     <div className="flex flex-col gap-6 md:gap-8 lg:gap-9 items-start w-full max-w-full  px-4 md:px-8 lg:px-0">
       <h1 className="font-semibold text-[24px] sm:text-[32px] md:text-[42px] lg:text-[56px] xl:text-[68px] leading-tight md:leading-[1.2] lg:leading-[80px] text-white">
-        One platform. Two{" "}
-        <span className="text-[#00FF84]">Super power potentials.</span>{" "}
+        {BANNER_SECTION.title}
+        <span className="text-[#00FF84]">{BANNER_SECTION.highlightText}</span>{" "}
       </h1>
       <p className="font-medium text-base md:text-lg leading-relaxed md:leading-[26px] text-white max-w-2xl">
-        Unify energy and machine health under a single AI layer. Forecast
-        demand, prevent failures, and automate actions across your shopfloor.
+        {BANNER_SECTION.description}
       </p>
       <RequestDemoButton />
     </div>
@@ -64,18 +61,19 @@ function HeroSection() {
   return (
     <section className="relative w-full min-h-[500px] md:min-h-[600px] lg:h-[700px] overflow-hidden pt-[40px] lg:pt-0">
       {/* Background Image */}
-      <img
+      <Image
         alt="Digital Twin Platform Hero Background"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        src={HERO_IMAGE}
+        className="object-cover object-center"
+        src={BANNER_SECTION.heroImage}
+        fill
+        priority
       />
 
       {/* Gradient Overlay */}
       <div
         className="absolute inset-0 backdrop-blur-[10px]"
         style={{
-          backgroundImage:
-            "linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), linear-gradient(202.813deg, rgba(6, 86, 217, 0.3) 0%, rgba(55, 188, 255, 0.3) 100%)",
+          backgroundImage: BANNER_SECTION.gradientStyle,
         }}
       />
 
@@ -87,11 +85,13 @@ function HeroSection() {
         </div>
 
         {/* Digital Twin Image */}
-        <div className="w-full max-w-[400px] sm:max-w-[450px] lg:max-w-[500px]  xl:max-w-[580px] aspect-[580/460] lg:flex-shrink-0">
-          <img
+        <div className="relative w-full max-w-[400px] sm:max-w-[450px] lg:max-w-[500px]  xl:max-w-[580px] aspect-[580/460] lg:flex-shrink-0">
+          <Image
             alt="Building Digital Twin Visualization"
-            className="w-full h-full object-contain object-center"
-            src={AI_ENABLED_IMAGE}
+            className="object-contain object-center"
+            src={BANNER_SECTION.aiEnabledImage}
+            fill
+            unoptimized
           />
         </div>
       </div>

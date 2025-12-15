@@ -1,5 +1,7 @@
 // src/components/HowItWorks.tsx
 import React from "react";
+import Image from "next/image";
+import { HOW_IT_WORKS_DATA } from "@/constants/ai-enabled-service/ai-enable-service";
 
 // ===========================
 // TypeScript Interfaces
@@ -24,33 +26,6 @@ interface SectionHeaderProps {
 // ===========================
 // Constants & Data
 // ===========================
-
-const HOW_IT_WORKS_DATA: Step[] = [
-  {
-    id: 1,
-    title: "Connect",
-    description:
-      "Easily integrate meters, sensors, PLC/SCADA systems, and historians with the EAGLE Edge platform to improve data collection and analysis.",
-  },
-  {
-    id: 2,
-    title: "Ingest",
-    description:
-      "Stream data easily to your on-premises setup or a cloud data lake, featuring time-series indexing for improved management and analysis.",
-  },
-  {
-    id: 3,
-    title: "Analyze",
-    description:
-      "Use AI to boost forecasting accuracy, spot anomalies, predict Remaining Useful Life (RUL), and optimize processes for better efficiency.",
-  },
-  {
-    id: 4,
-    title: "Act",
-    description:
-      "Align all elements by effectively integrating schedules, set points, and work orders. This approach will help close the loop and boost operational efficiency.",
-  },
-];
 
 const HERO_IMAGE =
   "/assets/pages/ai-enabled/f3618873d8cb715764fc03e465951335b8a8705c.png";
@@ -164,13 +139,14 @@ const StepCard: React.FC<StepCardProps> = ({ step, index }) => {
 const HeroImage: React.FC = () => {
   return (
     <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[660px] rounded-[12px] sm:rounded-[14px] md:rounded-[16px] shrink-0 w-full lg:w-[320px] xl:w-[392px] overflow-hidden shadow-lg group">
-      <img
+      <Image
         alt="How it works visualization"
-        className="absolute inset-0 size-full object-cover rounded-[inherit] transition-transform duration-500 group-hover:scale-105"
+        className="object-cover rounded-[inherit] transition-transform duration-500 group-hover:scale-105"
         src={HERO_IMAGE}
-        loading="lazy"
+        fill
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className=
+      "absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </div>
   );
 };

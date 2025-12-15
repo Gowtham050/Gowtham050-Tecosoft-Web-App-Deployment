@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 const HERO_IMAGE =
   "/assets/pages/digital-twin-platform/4c1dc57c1e7b64d3e936b9fbfff3dec05024ba0b.png";
@@ -64,10 +65,12 @@ function HeroSection() {
   return (
     <section className="relative w-full min-h-[500px] md:min-h-[600px] lg:h-[700px] overflow-hidden pt-[40px] lg:pt-0">
       {/* Background Image */}
-      <img
+      <Image
         alt="Digital Twin Platform Hero Background"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="object-cover object-center"
         src={HERO_IMAGE}
+        fill
+        priority
       />
 
       {/* Gradient Overlay */}
@@ -87,11 +90,12 @@ function HeroSection() {
         </div>
 
         {/* Digital Twin Image */}
-        <div className="w-full max-w-[400px] sm:max-w-[450px] lg:max-w-[530px]  xl:max-w-[580px] aspect-[580/460] lg:flex-shrink-0">
-          <img
+        <div className="relative w-full max-w-[400px] sm:max-w-[450px] lg:max-w-[530px]  xl:max-w-[580px] aspect-[580/460] lg:flex-shrink-0">
+          <Image
             alt="Building Digital Twin Visualization"
-            className="w-full h-full object-contain object-center"
+            className="object-contain object-center"
             src={DIGITAL_TWIN_IMAGE}
+            fill
           />
         </div>
       </div>
