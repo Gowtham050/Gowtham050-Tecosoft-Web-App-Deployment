@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import svgPaths from "../../../imports/svg-plhzsxyavn";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperClass } from "swiper";
 import type { SwiperOptions } from "swiper/types";
 import "swiper/css";
-import "swiper/css/navigation";
 
 /* ---------------------------
    Icon Components (unchanged visuals)
@@ -522,41 +520,51 @@ function Frame40({ content }: any) {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
   const swiperRef = useRef<SwiperClass | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // central place for breakpoints — ensure slidesPerGroup <= slidesPerView
+  // central place for breakpoints
   const breakpoints: SwiperOptions["breakpoints"] = {
-    1400: { slidesPerView: 4, slidesPerGroup: 3 },
-    1280: { slidesPerView: 3, slidesPerGroup: 3 },
-    1024: { slidesPerView: 2, slidesPerGroup: 2 },
-    850: { slidesPerView: 2, slidesPerGroup: 2 },
-    750: { slidesPerView: 1, slidesPerGroup: 1 },
-    640: { slidesPerView: 1, slidesPerGroup: 1 },
-    0: { slidesPerView: 1, slidesPerGroup: 1 },
+    1400: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 15 },
+    1280: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 15 },
+    1024: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 15 },
+    768: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 15 },
+    0: { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 20 },
   };
 
   const swiperOptions: SwiperOptions = {
-    modules: [Navigation],
-    slidesPerView: 4.25,
-    slidesPerGroup: 5,
+    modules: [],
+    slidesPerView: 1,
     spaceBetween: 15,
-    // allowSlideNext: false,
-    // allowSlidePrev: false,
-    navigation: {
-      prevEl: '.core-features-prev',
-      nextEl: '.core-features-next',
-    },
+    centeredSlides: false,
+    allowTouchMove: true,
     autoHeight: true,
     breakpoints,
     observer: true,
     observeParents: true,
+    watchSlidesProgress: true,
   };
 
   // store swiper instance when it's created
   const handleSwiper = (swiper: SwiperClass) => {
     swiperRef.current = swiper;
-    // debug
-    // eslint-disable-next-line no-console
-    console.debug("Swiper instance set", swiper);
+  };
+
+  // Handle slide change
+  const handleSlideChange = (swiper: SwiperClass) => {
+    setCurrentIndex(swiper.activeIndex);
+  };
+
+  // Custom navigation handlers
+  const handlePrev = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
   };
 
   // Handle resize to update swiper
@@ -581,17 +589,9 @@ function Frame40({ content }: any) {
         ref={prevRef}
         aria-label="Previous slide"
         className="core-features-prev slick-arrow slick-prev absolute top-1/2 -translate-y-1/2 left-0 z-50"
-        onClick={() => {
-          // fallback ensures button always does something
-          if (swiperRef.current) {
-            swiperRef.current.slidePrev();
-          } else {
-            // eslint-disable-next-line no-console
-            console.warn("swiperRef not ready for slidePrev()");
-          }
-        }}
+        onClick={handlePrev}
         style={{
-          pointerEvents: "auto", // ensure clickable
+          pointerEvents: "auto",
         }}
       >
         <svg
@@ -617,14 +617,7 @@ function Frame40({ content }: any) {
         ref={nextRef}
         aria-label="Next slide"
         className="core-features-next slick-arrow slick-next absolute top-1/2 -translate-y-1/2 right-0 z-50"
-        onClick={() => {
-          if (swiperRef.current) {
-            swiperRef.current.slideNext();
-          } else {
-            // eslint-disable-next-line no-console
-            console.warn("swiperRef not ready for slideNext()");
-          }
-        }}
+        onClick={handleNext}
         style={{
           pointerEvents: "auto",
         }}
@@ -649,6 +642,7 @@ function Frame40({ content }: any) {
       <Swiper
         {...swiperOptions}
         onSwiper={handleSwiper}
+        onSlideChange={handleSlideChange}
         className="!overflow-visible"
       >
         {content?.features?.map((feature: any, index: number) => (

@@ -1,3 +1,6 @@
+
+"use client";
+import React from "react";
 import FeatureGridSection from "../../components/FeatureGridSection";
 import {
   WHY_AI_SECTION,

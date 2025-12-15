@@ -313,41 +313,41 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
           className="absolute bottom-[20px] sm:bottom-[25px] lg:bottom-[30px] left-[20px] sm:left-[25px] lg:left-[30px] right-[20px] sm:right-[25px] lg:right-[30px] flex flex-col gap-[20px] sm:gap-[25px] lg:gap-[30px] z-10"
         >
           <div className="content-stretch flex flex-col gap-[10px] sm:gap-[12px] lg:gap-[14px] items-start not-italic">
-            <p className=" font-semibold  leading-[28px] sm:leading-[32px] lg:leading-[36px] text-[#00ff84] text-[24px] sm:text-[28px] lg:text-[32px] text-nowrap whitespace-pre m-0">
+            <p className="font-semibold leading-[28px] sm:leading-[32px] lg:leading-[36px] text-[#00ff84] text-[24px] sm:text-[28px] lg:text-[32px] m-0 break-words">
               {industry.title}
             </p>
             <div className="font-medium leading-[18px] sm:leading-[20px] lg:leading-[22px] text-[#d2d2d2] text-[13px] sm:text-[14px] lg:text-[16px]">
               <p className="mb-0">{industry.description}</p>
             </div>
           </div>
-          <div className="content-stretch flex flex-col gap-[12px] sm:gap-[14px] lg:gap-[16px] items-start">
-            <div className="content-stretch flex gap-[12px] sm:gap-[14px] lg:gap-[16px] items-center w-full">
-              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
-                <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
-                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
+          <div className="content-stretch flex flex-col gap-[12px] sm:gap-[14px] lg:gap-[16px] items-start w-full">
+            <div className="flex gap-[12px] sm:gap-[14px] lg:gap-[16px] items-stretch w-full">
+              <div className="backdrop-blur-[10px] backdrop-filter flex-1 bg-[rgba(255,255,255,0.24)] rounded-[6px] sm:rounded-[7px] lg:rounded-[8px] min-w-0">
+                <div className="flex items-center justify-center px-[8px] sm:px-[10px] lg:px-[12px] py-[8px] sm:py-[10px] lg:py-[12px] h-full">
+                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[11px] sm:text-[12px] lg:text-[14px] text-center text-white m-0 break-words">
                     {industry.tags[0]}
                   </p>
                 </div>
               </div>
-              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
-                <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
-                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
+              <div className="backdrop-blur-[10px] backdrop-filter flex-1 bg-[rgba(255,255,255,0.24)] rounded-[6px] sm:rounded-[7px] lg:rounded-[8px] min-w-0">
+                <div className="flex items-center justify-center px-[8px] sm:px-[10px] lg:px-[12px] py-[8px] sm:py-[10px] lg:py-[12px] h-full">
+                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[11px] sm:text-[12px] lg:text-[14px] text-center text-white m-0 break-words">
                     {industry.tags[1]}
                   </p>
                 </div>
               </div>
             </div>
-            <div className="content-stretch flex gap-[12px] sm:gap-[14px] lg:gap-[16px] items-center w-full">
-              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
-                <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
-                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
+            <div className="flex gap-[12px] sm:gap-[14px] lg:gap-[16px] items-stretch w-full">
+              <div className="backdrop-blur-[10px] backdrop-filter flex-1 bg-[rgba(255,255,255,0.24)] rounded-[6px] sm:rounded-[7px] lg:rounded-[8px] min-w-0">
+                <div className="flex items-center justify-center px-[8px] sm:px-[10px] lg:px-[12px] py-[8px] sm:py-[10px] lg:py-[12px] h-full">
+                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[11px] sm:text-[12px] lg:text-[14px] text-center text-white m-0 break-words">
                     {industry.tags[2]}
                   </p>
                 </div>
               </div>
-              <div className="backdrop-blur-[10px] backdrop-filter basis-0 bg-[rgba(255,255,255,0.24)] grow rounded-[6px] sm:rounded-[7px] lg:rounded-[8px]">
-                <div className="flex items-center justify-center px-[10px] sm:px-[12px] lg:px-[14px] py-[8px] sm:py-[10px] lg:py-[12px]">
-                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[12px] sm:text-[13px] lg:text-[15px] text-center text-white m-0">
+              <div className="backdrop-blur-[10px] backdrop-filter flex-1 bg-[rgba(255,255,255,0.24)] rounded-[6px] sm:rounded-[7px] lg:rounded-[8px] min-w-0">
+                <div className="flex items-center justify-center px-[8px] sm:px-[10px] lg:px-[12px] py-[8px] sm:py-[10px] lg:py-[12px] h-full">
+                  <p className="font-medium leading-[16px] sm:leading-[18px] lg:leading-[20px] text-[11px] sm:text-[12px] lg:text-[14px] text-center text-white m-0 break-words">
                     {industry.tags[3]}
                   </p>
                 </div>
