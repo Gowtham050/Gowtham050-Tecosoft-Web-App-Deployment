@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
@@ -178,12 +177,36 @@ const iconComponents: Record<string, React.FC<{ color: string }>> = {
 
 const ArrowIcon: React.FC = () => (
   <svg className="size-full" fill="none" viewBox="0 0 28 28">
+    <defs>
+      <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="21.48%" stopColor="#00B7FF" />
+        <stop offset="76.42%" stopColor="#0EB05C" />
+      </linearGradient>
+    </defs>
+
+    <path
+      d={svgPaths.p22ee4d80}
+      stroke="url(#arrowGradient)"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.25"
+      className="
+        transition-opacity duration-300
+        opacity-0 group-hover:opacity-100
+      "
+    />
+
+    {/* Default arrow (normal state) */}
     <path
       d={svgPaths.p22ee4d80}
       stroke="#181818"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2.25"
+      className="
+        transition-opacity duration-300
+        opacity-100 group-hover:opacity-0
+      "
     />
   </svg>
 );
@@ -325,27 +348,53 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   routeName,
 }) => {
   const ContentSection = (
-    <div className="bg-white rounded-2xl md:rounded-[16px] p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-between h-full min-h-[400px] md:min-h-[450px]">
-      {/* Title and Description */}
+    <div
+      className="
+      group bg-white rounded-2xl md:rounded-[16px]
+      p-5 sm:p-6 md:p-8 lg:p-10
+      flex flex-col justify-between h-full
+      min-h-[400px] md:min-h-[450px]
+    "
+    >
+      {/* Title and Arrow */}
       <div className="flex flex-col gap-4 md:gap-5 items-start w-full">
         <div className="flex items-start justify-between gap-4 w-full">
-          <h3 className="text-xl sm:text-2xl md:text-[26px] lg:text-[30px] font-semibold leading-tight text-[#181818]">
+          <h3
+            className="
+    text-xl sm:text-2xl md:text-[26px] lg:text-[30px]
+    font-semibold leading-tight
+    text-[#181818]
+    transition-all duration-300
+
+    group-hover:text-transparent
+    group-hover:bg-[linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)]
+    bg-clip-text
+  "
+          >
             {title}
           </h3>
+
           <Link
             href={routeName}
-            className="flex items-center justify-center flex-shrink-0 w-6 h-6 md:w-7 md:h-7 -rotate-90 transition-all hover:scale-110 hover:-translate-y-1"
+            className="
+            flex items-center justify-center flex-shrink-0
+            w-6 h-6 md:w-7 md:h-7
+            -rotate-90
+            transition-transform duration-300
+            group-hover:scale-110
+          "
             aria-label={`Learn more about ${title}`}
           >
             <ArrowIcon />
           </Link>
         </div>
-        <p className="text-sm sm:text-base font-medium leading-relaxed text-[#8e8e8e] w-full">
+
+        <p className="text-sm sm:text-base font-medium leading-relaxed text-[#8e8e8e]">
           {description}
         </p>
       </div>
 
-      {/* Features Grid */}
+      {/* Features */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mt-6 md:mt-8 w-full">
         {features.slice(0, 4).map((feature, index) => (
           <FeatureCard key={index} {...feature} />
@@ -367,8 +416,8 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
             </>
           ) : (
             <>
-              <div className="order-1 lg:order-1 h-full">{ContentSection}</div>
-              <div className="order-2 lg:order-2 h-full">{ImageSection}</div>
+              <div className="order-2 lg:order-1 h-full">{ContentSection}</div>
+              <div className="order-1 lg:order-2 h-full">{ImageSection}</div>
             </>
           )}
         </div>
