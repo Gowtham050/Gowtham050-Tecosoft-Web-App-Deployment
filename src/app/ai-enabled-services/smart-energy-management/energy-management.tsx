@@ -7,7 +7,7 @@ import {
   heroContent,
   featuresContent,
   analyticsContent,
-  CoreFeaturesContent
+  CoreFeaturesContent,
 } from "@/constants/ai-enabled-service/smart-energy-management";
 import React from "react";
 import CoreFeatures from "@/components/Solutions/CoreFeatures/CoreFeaturesSection";

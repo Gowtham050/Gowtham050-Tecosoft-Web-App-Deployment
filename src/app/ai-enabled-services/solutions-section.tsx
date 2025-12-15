@@ -175,7 +175,7 @@ const iconComponents: Record<string, React.FC<{ color: string }>> = {
 // Reusable Components
 // ===========================
 
-const ArrowIcon: React.FC = () => (
+const ArrowIcon: React.FC<{ isInView?: boolean }> = ({ isInView = false }) => (
   <svg className="size-full" fill="none" viewBox="0 0 28 28">
     <defs>
       <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -190,10 +190,11 @@ const ArrowIcon: React.FC = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2.25"
-      className="
+      className={`
         transition-opacity duration-300
         opacity-0 group-hover:opacity-100
-      "
+        ${isInView ? "max-lg:opacity-100" : ""}
+      `}
     />
 
     {/* Default arrow (normal state) */}
@@ -203,10 +204,11 @@ const ArrowIcon: React.FC = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2.25"
-      className="
+      className={`
         transition-opacity duration-300
         opacity-100 group-hover:opacity-0
-      "
+        ${isInView ? "max-lg:opacity-0" : ""}
+      `}
     />
   </svg>
 );
@@ -347,20 +349,51 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   imagePosition = "right",
   routeName,
 }) => {
+  const [isInView, setIsInView] = useState(false);
+  const cardRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+        }
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "-50px",
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   const ContentSection = (
     <div
-      className="
+      className={`
       group bg-white rounded-2xl md:rounded-[16px]
       p-5 sm:p-6 md:p-8 lg:p-10
       flex flex-col justify-between h-full
       min-h-[400px] md:min-h-[450px]
-    "
+      transition-transform duration-700 ease-out
+      ${isInView ? "max-lg:scale-101" : "max-lg:scale-98"}
+    `}
     >
       {/* Title and Arrow */}
       <div className="flex flex-col gap-4 md:gap-5 items-start w-full">
         <div className="flex items-start justify-between gap-4 w-full">
           <h3
-            className="
+            className={`
     text-xl sm:text-2xl md:text-[26px] lg:text-[30px]
     font-semibold leading-tight
     text-[#181818]
@@ -369,23 +402,30 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
     group-hover:text-transparent
     group-hover:bg-[linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)]
     bg-clip-text
-  "
+
+    ${
+      isInView
+        ? "max-lg:text-transparent max-lg:bg-[linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)]"
+        : ""
+    }
+  `}
           >
             {title}
           </h3>
 
           <Link
             href={routeName}
-            className="
+            className={`
             flex items-center justify-center flex-shrink-0
             w-6 h-6 md:w-7 md:h-7
             -rotate-90
             transition-transform duration-300
-            group-hover:scale-110
-          "
+            group-hover:scale-105
+            ${isInView ? "max-lg:scale-105" : ""}
+          `}
             aria-label={`Learn more about ${title}`}
           >
-            <ArrowIcon />
+            <ArrowIcon isInView={isInView} />
           </Link>
         </div>
 
@@ -406,8 +446,11 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   const ImageSection = <ImageCarousel images={images} />;
 
   return (
-    <article className="bg-white/10 backdrop-blur-sm rounded-2xl md:rounded-3xl p-3 sm:p-4 md:p-5 lg:p-6 w-full border border-white/20 shadow-lg">
-      <div className="overflow-clip rounded-[inherit] size-full">
+    <article
+      ref={cardRef}
+      className="bg-white/10 backdrop-blur-sm rounded-2xl md:rounded-3xl p-3 sm:p-4 md:p-5 lg:p-6 w-full border border-white/20 shadow-lg"
+    >
+      <div className="rounded-[inherit] size-full max-lg:overflow-visible lg:overflow-clip">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5 lg:gap-6 w-full items-stretch">
           {imagePosition === "left" ? (
             <>
