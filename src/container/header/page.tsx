@@ -554,8 +554,8 @@ const Navbar = () => {
       href: "#",
       hasDropdown: true,
       dropdownItems: [
-        { name: "Eagle", href: "/eagle" },
-        { name: "Tecosoft Analytics", href: "/analytics" },
+        { name: " The Eagle", href: "/eagle" },
+        { name: " The Tecosoft Analytics", href: "/analytics" },
       ],
     },
     {
@@ -564,7 +564,7 @@ const Navbar = () => {
       hasDropdown: true,
       dropdownItems: [
         {
-          name: "Connected Factories",
+          name: "Connected Factories Solutions",
           href: "/connected-factories",
           insideDropdown: [
             {
@@ -587,7 +587,7 @@ const Navbar = () => {
         },
 
         {
-          name: "AI-Enabled",
+          name: "AI-Enabled Solutions",
           href: "/ai-enabled-services",
           insideDropdown: [
             {
@@ -600,7 +600,7 @@ const Navbar = () => {
             },
           ],
         },
-        { name: "Digital Twin Platform", href: "/digital-twin-platform" },
+        { name: "Digital Twin Solutions", href: "/digital-twin-platform" },
       ],
     },
     { name: "Company", href: "#", hasDropdown: false },

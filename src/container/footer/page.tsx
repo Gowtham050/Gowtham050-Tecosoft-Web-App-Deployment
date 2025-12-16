@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import FooterCard from "@/components/FooterCard";
 import { getFooterCardConfig } from "@/components/FooterCard/footerCardConfig";
+import { FooterLinks } from "@/constants/footer/footer";
 
 const FooterSection = () => {
   const pathname = usePathname();
@@ -105,145 +106,26 @@ Tecosoft Digital Solutions Pvt Ltd<br />
           </div>
 
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-              {/* Navigate */}
-              <div>
-                <h3 className="text-white font-bold mb-4 text-xl md:text-[22px]">
-                  Navigate
-                </h3>
-                <ul className="space-y-2.5">
-                  <li>
-                    <a
-                      href="#platform"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Platform
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#solutions"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Solutions
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#industries"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Industries
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#company"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Company
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#why-tecosoft"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Why Tecosoft?
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#resources"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Resources
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Industries */}
-              <div>
-                <h3 className="text-white font-bold mb-4 text-xl md:text-[22px]">
-                  Industries
-                </h3>
-                <ul className="space-y-2.5">
-                  <li>
-                    <a
-                      href="#manufacturing"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Manufacturing
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#energy"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Energy & Utilities
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#oil-gas"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Oil & Gas
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#healthcare"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Healthcare
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#logistics"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Logistics & Warehousing
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#smart-city"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Smart City
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Legal */}
-              <div>
-                <h3 className="text-white font-bold mb-4 text-xl md:text-[22px]">
-                  Legal
-                </h3>
-                <ul className="space-y-2.5">
-                  <li>
-                    <a
-                      href="#terms"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Terms of Use
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#privacy"
-                      className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      Privacy Policy
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+              {Object.values(FooterLinks).map((section, index) => (
+                <div key={index}>
+                  <h3 className="text-white font-bold mb-4 text-xl md:text-[22px]">
+                    {section.title}
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {section.links.map((link, linkIndex) => (
+                      <li key={linkIndex}>
+                        <a
+                          href={link.href}
+                          className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
+                        >
+                          {link.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </div>
