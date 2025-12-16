@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import svgPaths from "../../imports/svg-0dlgmqgi5c";
-import { url } from "inspector";
 
 // Types
 interface StatCardProps {
