@@ -9,8 +9,8 @@ export const FooterLinks = {
   platform: {
     title: "Platform",
     links: [
-      { name: "The Eagle", href: "/platform/eagle" },
-      { name: "The Tecosoft Analytics", href: "/platform/analytics" },
+      { name: "The Eagle", href: "/eagle" },
+      { name: "The Tecosoft Analytics", href: "/analytics" },
     ],
   },
   solutions: {
@@ -18,10 +18,10 @@ export const FooterLinks = {
     links: [
       {
         name: "Connected Factory Solutions",
-        href: "/solutions/connected-factory",
+        href: "/connected-factories",
       },
-      { name: "AI Enabled Solutions", href: "/solutions/ai-enabled" },
-      { name: "Digital Twin Solutions", href: "/solutions/digital-twin" },
+      { name: "AI Enabled Solutions", href: "/ai-enabled-services" },
+      { name: "Digital Twin Solutions", href: "/digital-twin-platform" },
     ],
   },
   navigate: {

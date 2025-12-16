@@ -106,7 +106,7 @@ Tecosoft Digital Solutions Pvt Ltd<br />
           </div>
 
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols- gap-8">
               {Object.values(FooterLinks).map((section, index) => (
                 <div key={index}>
                   <h3 className="text-white font-bold mb-4 text-xl md:text-[22px]">
