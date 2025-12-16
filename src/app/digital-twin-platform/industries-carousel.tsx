@@ -717,7 +717,7 @@ function IndustriesCarousel() {
                 width: 100% !important;
               }
               .industries-slider {
-                padding: 0 20px;
+                padding: 0 0;
               }
             }
             /* 600px - 649px: multi-card display */

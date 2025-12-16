@@ -603,7 +603,7 @@ const Navbar = () => {
         { name: "Digital Twin Platform", href: "/digital-twin-platform" },
       ],
     },
-    { name: "Company", href: "#", hasDropdown: true },
+    { name: "Company", href: "#", hasDropdown: false },
     { name: "Why TecoSoft", hasDropdown: false, href: "#" },
     { name: "Industries", href: "#" },
   ];
