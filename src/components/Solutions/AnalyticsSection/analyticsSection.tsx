@@ -1,7 +1,7 @@
 "use client";
 
 import svgPaths from "../../../imports/svg-plhzsxyavn";
-import { ComponentType } from "react";
+import { ComponentType, useEffect, useRef, useState } from "react";
 
 // Types
 interface Feature {
@@ -1454,15 +1454,23 @@ const ICON_WRAPPER_DEFAULT_CLASS = `${ICON_WRAPPER_BASE_CLASS} justify-center p-
 interface AnalyticsFeatureItemProps {
   icon: string;
   title: string;
+  index: number;
+  activeIndex: number | null;
 }
 
-function AnalyticsFeatureItem({ icon, title }: AnalyticsFeatureItemProps) {
+function AnalyticsFeatureItem({ icon, title, index, activeIndex }: AnalyticsFeatureItemProps) {
   const IconComponent = ICON_COMPONENTS[icon];
-  const iconWrapperClass = ICON_WRAPPER_DEFAULT_CLASS;
+  const isActive = activeIndex === index;
 
   return (
-    <div className="content-stretch flex gap-5 sm:gap-[24px] items-center relative shrink-0 w-[90%] sm:w-[calc(50%-24px)] sm:max-w-[320px] lg:max-w-[360px] xl:w-[311px] xl:max-w-none ">
-      <div className={`${iconWrapperClass} icon-wrapper`}>
+    <div
+      data-analytics-card
+      className="content-stretch flex gap-5 sm:gap-[24px] items-center relative shrink-0 w-[90%] sm:w-[calc(50%-24px)] sm:max-w-[320px] lg:max-w-[360px] xl:w-[311px] xl:max-w-none "
+    >
+      <div
+        className={`${ICON_WRAPPER_DEFAULT_CLASS} icon-wrapper ${isActive ? 'active' : ''}`}
+        data-active={isActive}
+      >
         <IconComponent />
       </div>
       <p className="basis-0 font-medium grow leading-[22px] sm:leading-[26px] min-h-px min-w-px not-italic relative shrink-0 text-[#282828] text-[18px] sm:text-[20px]">
@@ -1492,7 +1500,7 @@ function AnalyticsHeader({
 }
 
 // Features Grid Component
-function AnalyticsGrid({ features }: { features: Feature[] }) {
+function AnalyticsGrid({ features, activeIndex }: { features: Feature[]; activeIndex: number | null }) {
   // Group features into rows of 2
   const featureRows: Feature[][] = [];
   for (let i = 0; i < features.length; i += 2) {
@@ -1506,13 +1514,18 @@ function AnalyticsGrid({ features }: { features: Feature[] }) {
           key={rowIndex}
           className="content-stretch flex flex-col sm:flex-row sm:flex-wrap gap-8 sm:gap-x-12 sm:gap-y-8 xl:gap-[90px] xl:flex-nowrap items-center sm:items-start relative shrink-0 w-full sm:justify-start lg:justify-center"
         >
-          {row.map((feature, featureIndex) => (
-            <AnalyticsFeatureItem
-              key={`${rowIndex}-${featureIndex}`}
-              icon={feature.icon}
-              title={feature.title}
-            />
-          ))}
+          {row.map((feature, featureIndex) => {
+            const absoluteIndex = rowIndex * 2 + featureIndex;
+            return (
+              <AnalyticsFeatureItem
+                key={`${rowIndex}-${featureIndex}`}
+                icon={feature.icon}
+                title={feature.title}
+                index={absoluteIndex}
+                activeIndex={activeIndex}
+              />
+            );
+          })}
         </div>
       ))}
     </div>
@@ -1521,23 +1534,67 @@ function AnalyticsGrid({ features }: { features: Feature[] }) {
 
 // Main Component
 export function AnalyticsSection({ content }: AnalyticsSectionProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.innerWidth >= 1024) return; // ❌ disable scroll logic on desktop
+
+    const onScroll = () => {
+      const cards = containerRef.current?.querySelectorAll("[data-analytics-card]");
+      if (!cards) return;
+
+      const viewportCenter = window.innerHeight / 2;
+
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        // Check if card intersects the vertical center of viewport
+        if (rect.top < viewportCenter && rect.bottom > viewportCenter) {
+          setActiveIndex(index);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       <style>
         {`
         @media (min-width: 1024px) {
-        .icon-wrapper:hover {
-          cursor: pointer;
-          background: linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%) !important;
+          .icon-wrapper:hover {
+            cursor: pointer;
+            background: linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%) !important;
+          }
+        }
+        @media (max-width: 1023px) {
+          .icon-wrapper.active {
+            cursor: pointer;
+            background: linear-gradient(226.55deg, #00B7FF 21.48%, #0EB05C 76.42%) !important;
+          }
+          .icon-wrapper.active svg path {
+            stroke: white !important;
+          }
+          .icon-wrapper.active svg ellipse {
+            stroke: white !important;
+          }
+          .icon-wrapper.active svg circle {
+            stroke: white !important;
+          }
         }
       `}
       </style>
       <div
+        ref={containerRef}
         className="bg-white box-border content-stretch flex flex-col xl:flex-row items-start sm:items-center xl:items-start justify-between overflow-clip px-5 sm:px-10 lg:px-16 xl:px-[100px] py-8 sm:py-12 lg:py-[60px] relative shrink-0 w-full max-w-[1512px] mx-auto gap-10 xl:gap-0"
         data-name="Analytics - Features"
       >
         <AnalyticsHeader content={content} />
-        <AnalyticsGrid features={content.features} />
+        <AnalyticsGrid features={content.features} activeIndex={activeIndex} />
       </div>
     </>
   );

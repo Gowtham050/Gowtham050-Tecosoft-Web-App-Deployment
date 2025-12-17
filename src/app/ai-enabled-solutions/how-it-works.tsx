@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { HOW_IT_WORKS_DATA } from "@/constants/ai-enabled-service/ai-enable-service";
 
@@ -16,7 +16,6 @@ interface Step {
 interface StepCardProps {
   step: Step;
   index: number;
-  isActive: boolean;
 }
 
 interface SectionHeaderProps {
@@ -57,13 +56,9 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
  * - Uses two stacked number layers (top + bottom).
  * - Container has fixed width & height so there is NO layout shift.
  * - A `perspective` wrapper gives a cube-like rotateX effect.
- * - Animations rely on `isActive` for scroll-based activation on mobile/tablet (< 1024px).
- * - On desktop (>= 1024px), animations rely on `group-hover:` from the parent StepCard.
+ * - Animations rely on `group-hover:` from the parent StepCard (which has `group`).
  */
-const StepNumber: React.FC<{ number: number; isActive: boolean }> = ({
-  number,
-  isActive,
-}) => {
+const StepNumber: React.FC<{ number: number }> = ({ number }) => {
   const gradientStyle = "bg-gradient-to-br from-[#00B7FF] to-[#0EB05C]";
 
   return (
@@ -74,7 +69,7 @@ const StepNumber: React.FC<{ number: number; isActive: boolean }> = ({
     >
       {/* Perspective wrapper for 3D cube rotate */}
       <div className="perspective-3d relative w-full h-full">
-        {/* Top number — visible by default, slides up & rotates out on scroll/hover */}
+        {/* Top number — visible by default, slides up & rotates out on hover */}
         <div
           className={`
             absolute inset-0 flex justify-center items-center
@@ -82,19 +77,14 @@ const StepNumber: React.FC<{ number: number; isActive: boolean }> = ({
             ${gradientStyle} bg-clip-text text-transparent font-medium leading-none
             transform transition-all duration-700
             [transition-timing-function:cubic-bezier(0.65,0,-0.15,1.5)]
-            ${
-              isActive
-                ? "max-lg:-translate-y-full max-lg:opacity-0 max-lg:rotate-x-90"
-                : "max-lg:-translate-y-0 max-lg:opacity-100 max-lg:rotate-x-0"
-            }
-            lg:-translate-y-0 lg:opacity-100 lg:rotate-x-0
-            lg:group-hover:-translate-y-full lg:group-hover:opacity-0 lg:group-hover:rotate-x-90
+            -translate-y-0 opacity-100 rotate-x-0
+            group-hover:-translate-y-full group-hover:opacity-0 group-hover:rotate-x-90
           `}
         >
           {number}
         </div>
 
-        {/* Bottom number — positioned below, slides up & rotates in on scroll/hover */}
+        {/* Bottom number — positioned below, slides up & rotates in on hover */}
         <div
           className={`
             absolute inset-0 flex justify-center items-center
@@ -102,13 +92,8 @@ const StepNumber: React.FC<{ number: number; isActive: boolean }> = ({
             ${gradientStyle} bg-clip-text text-transparent font-medium leading-none
             transform transition-all duration-700
             [transition-timing-function:cubic-bezier(0.65,0,-0.15,1.5)]
-            ${
-              isActive
-                ? "max-lg:translate-y-0 max-lg:opacity-100 max-lg:rotate-x-0"
-                : "max-lg:translate-y-full max-lg:opacity-0 max-lg:rotate-x-90"
-            }
-            lg:translate-y-full lg:opacity-0 lg:rotate-x-90
-            lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-hover:rotate-x-0
+            translate-y-full opacity-0 rotate-x-90
+            group-hover:translate-y-0 group-hover:opacity-100 group-hover:rotate-x-0
           `}
         >
           {number}
@@ -118,31 +103,30 @@ const StepNumber: React.FC<{ number: number; isActive: boolean }> = ({
   );
 };
 
-const StepCard: React.FC<StepCardProps> = ({ step, index, isActive }) => {
+const StepCard: React.FC<StepCardProps> = ({ step, index }) => {
   return (
     // `group` enables child group-hover states.
     <div
-      data-step-card
       className="relative bg-[rgba(204,241,255,0.36)] backdrop-blur-sm rounded-[14px] sm:rounded-[15px] md:rounded-[16px] w-full border border-[#55cfff] transition-all duration-300 hover:shadow-lg hover:bg-[rgba(204,241,255,0.45)] group hover:cursor-pointer"
       role="article"
       tabIndex={index}
       aria-labelledby={`step-title-${step.id}`}
     >
       <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="relative min-h-[120px] sm:h-[140px] md:h-[150px] lg:h-[160px] w-full px-[15px]  sm:px-[25px] md:px-[25px] py-[20px] sm:py-[25px] md:py-[25px]">
+        <div className="relative h-[145px] sm:h-[140px] md:h-[150px] w-full px-[18px] sm:px-[25px] md:px-[32px] py-[20px] sm:py-[25px] md:py-[30px]">
           {/* Positioning the number with absolute so text area flow is unaffected */}
-          <div className="absolute left-[40px] sm:left-[55px] md:left-[75px] top-5/7 lg:top-2/3 -translate-y-1/2 -translate-x-1/2">
-            <StepNumber number={step.id} isActive={isActive} />
+          <div className="absolute left-[45px] sm:left-[55px] md:left-[75px] top-2/3 -translate-y-1/2 -translate-x-1/2">
+            <StepNumber number={step.id} />
           </div>
 
-          <div className="ml-[75px] sm:ml-[140px] md:ml-[160px] flex flex-col gap-[10px] sm:gap-[12px]">
+          <div className="ml-[100px] sm:ml-[140px] md:ml-[160px] flex flex-col gap-[10px] sm:gap-[12px]">
             <h3
               id={`step-title-${step.id}`}
-              className="font-semibold leading-[24px] sm:leading-[26px] md:leading-[28px]  lg:leading-[26px] text-[#282828] text-[20px] sm:text-[22px] md:text-[24px]"
+              className="font-semibold leading-[24px] sm:leading-[26px] md:leading-[28px] text-[#282828] text-[20px] sm:text-[22px] md:text-[24px]"
             >
               {step.title}
             </h3>
-            <p className="font-normal leading-[18px] sm:leading-[23px] md:leading-[24px] lg:leading-[22px] text-[#8e8e8e] text-[12px] sm:text-[16px] md:text-[16px]  lg:text-[15px]">
+            <p className="font-normal leading-[18px] sm:leading-[23px] md:leading-[24px] text-[#8e8e8e] text-[12px] sm:text-[16px] md:text-[16px]">
               {step.description}
             </p>
           </div>
@@ -167,44 +151,10 @@ const HeroImage: React.FC = () => {
 };
 
 const StepsList: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (window.innerWidth >= 1024) return; // Disable scroll logic on desktop
-
-    const onScroll = () => {
-      const cards = ref.current?.querySelectorAll("[data-step-card]");
-      if (!cards) return;
-
-      const center = window.innerHeight / 2;
-
-      cards.forEach((card, index) => {
-        const rect = card.getBoundingClientRect();
-        if (rect.top < center && rect.bottom > center) {
-          setActiveIndex(index);
-        }
-      });
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <div
-      ref={ref}
-      className="flex-1 flex flex-col gap-[16px] sm:gap-[18px] md:gap-[20px] w-full"
-    >
+    <div className="flex-1 flex flex-col gap-[16px] sm:gap-[18px] md:gap-[20px] w-full">
       {HOW_IT_WORKS_DATA.map((step, index) => (
-        <StepCard
-          key={step.id}
-          step={step}
-          index={index}
-          isActive={activeIndex === index}
-        />
+        <StepCard key={step.id} step={step} index={index} />
       ))}
     </div>
   );

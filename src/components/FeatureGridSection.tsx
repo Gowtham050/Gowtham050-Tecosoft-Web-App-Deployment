@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface Feature {
@@ -26,6 +26,8 @@ interface FeatureCardProps {
   iconPath: string;
   bgColor: string;
   iconColor: string;
+  index: number;
+  activeIndex: number | null;
 }
 
 function FeatureCard({
@@ -33,13 +35,25 @@ function FeatureCard({
   description,
   iconPath,
   bgColor,
+  index,
+  activeIndex,
 }: FeatureCardProps) {
+  const isActive = activeIndex === index;
+
   return (
     <div
-      className="w-full h-full min-h-[200px] relative rounded-2xl md:rounded-[20px] transition-transform duration-300 ease-in-out hover:scale-[1.03] cursor-pointer"
+      data-card
+      className={`
+        w-full
+        h-full min-h-[200px] relative rounded-2xl md:rounded-[20px] overflow-hidden
+        transition-all duration-300 ease-in-out
+        cursor-pointer
+        lg:hover:scale-[1.05]
+        ${isActive ? "scale-[1.02] lg:scale-100" : "scale-96"}
+      `}
       style={{ backgroundColor: bgColor }}
     >
-      <div className="size-full">
+      <div className="size-full rounded-[inherit]">
         <div className="flex flex-col items-start justify-between p-4 md:p-5 lg:p-6 size-full gap-8 md:gap-20">
           {/* Icon Container */}
           <div className="bg-white flex items-center justify-center p-3 md:p-4 lg:p-5 rounded-lg md:rounded-xl shrink-0">
@@ -76,6 +90,33 @@ export default function FeatureGridSection({
   containerClassName = "",
   gridClassName = "",
 }: FeatureGridSectionProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.innerWidth >= 1024) return; // ❌ disable scroll logic on desktop
+
+    const onScroll = () => {
+      const cards = containerRef.current?.querySelectorAll("[data-card]");
+      if (!cards) return;
+
+      const viewportCenter = window.innerHeight / 2;
+
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        // Check if card intersects the vertical center of viewport
+        if (rect.top < viewportCenter && rect.bottom > viewportCenter) {
+          setActiveIndex(index);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section
       className={`bg-white relative w-full ${containerClassName}`}
@@ -95,9 +136,15 @@ export default function FeatureGridSection({
 
           {/* Feature Cards Grid */}
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-7 xl:gap-8 w-full auto-rows-fr ${gridClassName}`}
+            ref={containerRef}
+            className={`
+              grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+              gap-4 md:gap-6 lg:gap-7 xl:gap-8
+              w-full auto-rows-fr
+              ${gridClassName}
+            `}
           >
-            {features.map((feature) => (
+            {features.map((feature, index) => (
               <FeatureCard
                 key={feature.id}
                 title={feature.title}
@@ -105,6 +152,8 @@ export default function FeatureGridSection({
                 iconPath={feature.iconPath}
                 bgColor={feature.bgColor}
                 iconColor={feature.iconColor}
+                index={index}
+                activeIndex={activeIndex}
               />
             ))}
           </div>
