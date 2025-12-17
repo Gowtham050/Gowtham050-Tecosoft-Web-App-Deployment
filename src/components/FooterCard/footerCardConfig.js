@@ -1,5 +1,3 @@
-import { title } from "process";
-
 // Footer card configuration based on route paths
 export const footerCardConfig = {
   "/": {

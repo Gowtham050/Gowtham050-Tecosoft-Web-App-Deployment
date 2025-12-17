@@ -1,3 +1,5 @@
+"use client";
+import React from "react";
 import svgPaths from "../../imports/svg-6sw94kd16o";
 
 interface IconProps {

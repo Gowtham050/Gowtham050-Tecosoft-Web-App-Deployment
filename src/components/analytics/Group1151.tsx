@@ -1,8 +1,11 @@
-// import imgDashboardDrawio213 from "figma:asset/1ae33b1441a77bdf1e366d60901c43de63161240.png";
+// import imgDashboardDrawio213 from "figma:asset/1ae33b1441a77bdf1e366d60901c43de63161240.png"// ;
+"use client";
+import React from "react";
 import { imgDashboardDrawio212 } from "../../imports/svg-e8co2";
 import Group1152 from "./Group1152";
 import { MotionValue } from "framer-motion";
-const imgDashboardDrawio213 = "/assets/platform/analytics/1ae33b1441a77bdf1e366d60901c43de63161240.png";
+const imgDashboardDrawio213 =
+  "/assets/platform/analytics/1ae33b1441a77bdf1e366d60901c43de63161240.png";
 function MaskGroup() {
   return (
     <div
@@ -74,10 +77,7 @@ function MaskGroup2() {
 
 function MaskGroup3() {
   return (
-    <div
-      className="absolute contents left-0 top-0"
-      data-name="Mask group"
-    >
+    <div className="absolute contents left-0 top-0" data-name="Mask group">
       <div
         className="absolute h-[212.866px] left-[-34.52px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[34.519px_64.928px] mask-size-[162.731px_129.856px] top-[-64.93px] w-[969.813px]"
         data-name="dashboard.drawio 2 1 1"
@@ -125,11 +125,7 @@ function MaskGroup4({
   );
 }
 
-function Group({
-  scrollYProgress,
-}: {
-  scrollYProgress: MotionValue<number>;
-}) {
+function Group({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   return (
     <div className="absolute contents left-0 top-0">
       <MaskGroup3 />

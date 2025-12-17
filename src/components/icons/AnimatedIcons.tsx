@@ -1,3 +1,5 @@
+"use client";
+import React from "react";
 import svgPaths from "../../imports/svg-6sw94kd16o";
 import svgPaths2 from "../../imports/svg-qz3jjgq236";
 import svgPaths3 from "../../imports/svg-lhtxf25f0z";
