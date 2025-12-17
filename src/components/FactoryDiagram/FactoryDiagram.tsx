@@ -1,3 +1,5 @@
+"use client";
+import React from "react";
 export function FactoryDiagram() {
   return (
     <svg
@@ -65,7 +67,7 @@ export function FactoryDiagram() {
           rx="3.875"
           fill="url(#pattern0_891_2235)"
           stroke="#007AAA"
-          stroke-width="0.25"
+          strokeWidth="0.25"
         />
         <rect
           x="1060.12"
@@ -75,7 +77,7 @@ export function FactoryDiagram() {
           rx="3.875"
           fill="url(#pattern1_891_2235)"
           stroke="#007AAA"
-          stroke-width="0.25"
+          strokeWidth="0.25"
         />
         <rect
           x="1244.12"
@@ -85,7 +87,7 @@ export function FactoryDiagram() {
           rx="3.875"
           fill="url(#pattern2_891_2235)"
           stroke="#007AAA"
-          stroke-width="0.25"
+          strokeWidth="0.25"
         />
         {/* <path
           d="M1136 508L1144.75 513.052V502.948L1136 508ZM1216 508L1207.25 502.948V513.052L1216 508ZM1143.88 508V508.875H1208.12V508V507.125H1143.88V508Z"
@@ -558,8 +560,8 @@ export function FactoryDiagram() {
           y2="789.828"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00B7FF" />
-          <stop offset="1" stop-color="#0EB05C" />
+          <stop stopColor="#00B7FF" />
+          <stop offset="1" stopColor="#0EB05C" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_891_2235"
@@ -569,8 +571,8 @@ export function FactoryDiagram() {
           y2="350"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.1" stop-color="white" stop-opacity="0.85" />
-          <stop offset="1" stop-color="white" stop-opacity="0.85" />
+          <stop offset="0.1" stopColor="white" stopOpacity="0.85" />
+          <stop offset="1" stopColor="white" stopOpacity="0.85" />
         </linearGradient>
         <clipPath id="clip0_891_2235">
           <rect width="1512" height="700" fill="white" />

@@ -1,5 +1,5 @@
+"use client"; 
 // ***************************** Import packages ***********************************************
-
 import React from "react";
 import Image from "next/image";
 import ClientSlider from "@/components/client";
@@ -23,7 +23,7 @@ const BannerSection = () => {
         loop
         playsInline
         preload="auto"
-        poster="/assets/images/banner-poster.jpg"
+        poster="/assets/images/banner-poster.png"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: Z_INDEX.VIDEO_LAYER }}
         onError={(e) => {

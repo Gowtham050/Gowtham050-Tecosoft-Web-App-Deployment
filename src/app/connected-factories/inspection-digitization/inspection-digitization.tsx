@@ -22,8 +22,7 @@ const InspectionDigitizationHomePage = () => {
       <FeaturesSection content={featuresContent} />
       <WorkflowSection content={workflowContent} />
       <WhyUsSection content={whyDigitizeContent} />
-            <StatsSection content={statsContent} />
-      
+      <StatsSection content={statsContent} />
     </div>
   );
 };

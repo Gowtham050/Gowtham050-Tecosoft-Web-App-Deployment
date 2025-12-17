@@ -4,6 +4,7 @@ export const heroContent = {
   description:
     "Digitize inspections across operator, line, and final packing stages - integrate gauges, control plans, and closed-loop actions for reliable quality.",
   video: "/assets/video/inspection-digitization.mp4",
+  imagepath:"",
   image:
     "/assets/pages/solutions/production-digitization/722868975ad87bdad1f880aefbc37c33e60f610d.png",
   imageAlt: "EAGLE Edge inspection Digitization",

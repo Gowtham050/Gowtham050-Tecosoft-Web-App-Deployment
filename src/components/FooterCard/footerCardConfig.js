@@ -72,6 +72,40 @@ export const footerCardConfig = {
     description:
       "Eliminate paperwork, improve accountability, and make audits effortless with digital records.",
   },
+  "/ai-enabled-services": {
+    title: "Ready to ",
+    highlightText: "power the future",
+    title2: " of your factory?",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Start with Energy Intelligence or Predictive Maintenance - or deploy both for compounding gains.",
+  },
+  "/ai-enabled-services/smart-energy-management": {
+    title: "Ready to Power the ",
+    highlightText: "Future with AI?",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Deploy AI‑enabled energy intelligence with EAGLE to forecast, optimize, and sustain - turning every kilowatt into a strategic advantage.",
+  },
+  "/ai-enabled-services/predictive-maintenance": {
+    title: "Ready to ",
+    highlightText: "Predict?",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Bring EAGLE-enabled edge intelligence and machine-specific AI to your shopfloor — reduce downtime and plan maintenance with confidence.",
+  },
+  "/digital-twin-platform": {
+    title: "Ready to build your",
+    highlightText: "living digital twin?",
+    title2: "",
+    buttonText: "Request a Demo",
+    buttonHref: "#contact",
+    description:
+      "Begin with a pilot project or single site, then scale across all operations as value increases.",
+  },
 };
 
 // Helper function to get config based on pathname

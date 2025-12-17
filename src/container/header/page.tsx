@@ -520,11 +520,14 @@ const Navbar = () => {
 
     const homePages = [
       "/",
-      "/production-digitization",
       "/connected-factories/production-digitization",
       "/connected-factories/tool-life-monitoring-digitization",
       "/connected-factories/maintenance-digitization",
       "/connected-factories/inspection-digitization",
+      "/ai-enabled-services",
+      "/ai-enabled-services/predictive-maintenance",
+      "/ai-enabled-services/smart-energy-management",
+      "/digital-twin-platform",
     ];
 
     const isHomePage = homePages.includes(sanitizedPathname);
@@ -551,8 +554,8 @@ const Navbar = () => {
       href: "#",
       hasDropdown: true,
       dropdownItems: [
-        { name: "Eagle", href: "/eagle" },
-        { name: "Tecosoft Analytics", href: "/analytics" },
+        { name: " The Eagle", href: "/eagle" },
+        { name: " The Tecosoft Analytics", href: "/analytics" },
       ],
     },
     {
@@ -561,7 +564,7 @@ const Navbar = () => {
       hasDropdown: true,
       dropdownItems: [
         {
-          name: "Connected Factories",
+          name: "Connected Factories Solutions",
           href: "/connected-factories",
           insideDropdown: [
             {
@@ -583,12 +586,25 @@ const Navbar = () => {
           ],
         },
 
-        { name: "AI-Enabled", href: "#AI-Enabled" },
-        { name: "Digital Twin", href: "#Digital-Twin" },
+        {
+          name: "AI-Enabled Solutions",
+          href: "/ai-enabled-services",
+          insideDropdown: [
+            {
+              name: "Smart Energy Management",
+              href: "/ai-enabled-services/smart-energy-management",
+            },
+            {
+              name: "Predictive Maintenance",
+              href: "/ai-enabled-services/predictive-maintenance",
+            },
+          ],
+        },
+        { name: "Digital Twin Solutions", href: "/digital-twin-platform" },
       ],
     },
-    { name: "Company", href: "#", hasDropdown: true },
-    { name: "Why TecoSoft", hasDropdown: true, href: "#" },
+    { name: "Company", href: "#", hasDropdown: false },
+    { name: "Why TecoSoft", hasDropdown: false, href: "#" },
     { name: "Industries", href: "#" },
   ];
 

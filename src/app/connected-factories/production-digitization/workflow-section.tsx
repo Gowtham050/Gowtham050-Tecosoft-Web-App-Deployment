@@ -1,9 +1,8 @@
+"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import svgPathsSettings from "../../../imports/svg-9h0ezj771j";
-
-
 
 function IconoirArrowDown() {
   return (

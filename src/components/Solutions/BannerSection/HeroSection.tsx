@@ -1,3 +1,5 @@
+
+"use client";
 import React from "react";
 import Image from "next/image";
 
@@ -6,9 +8,10 @@ interface HeroContentProps {
   title: string;
   highlight: string;
   description: string;
-  video: string;
+  video?: string;
   image: string;
   imageAlt: string;
+  imagepath: string;
 }
 
 // Constants
@@ -35,6 +38,27 @@ function BackgroundVideo({ videoPath }: BackgroundVideoProps) {
       <source src={videoPath} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
+  );
+}
+
+interface BackgroundImageProps {
+  imagePath: string ;
+  imageAlt: string;
+}
+
+function BackgroundImage({ imagePath, imageAlt }: BackgroundImageProps) {
+  return (
+    <div className="absolute inset-0 w-full h-full">
+      <Image
+        alt={imageAlt}
+        className="w-full h-full object-cover"
+        src={imagePath}
+        fill
+        sizes="100vw"
+        priority
+        style={{ objectFit: "cover" }}
+      />
+    </div>
   );
 }
 
@@ -80,31 +104,6 @@ function TextContent({ title, highlight, description }: TextContentProps) {
   );
 }
 
-interface DeviceImageProps {
-  imagePath: string;
-  imageAlt: string;
-}
-
-function DeviceImage({ imagePath, imageAlt }: DeviceImageProps) {
-  return (
-    <div
-      className="absolute right-0 top-1/2 -translate-y-1/2 w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] xl:w-[400px] h-auto opacity-70 lg:opacity-80 hidden md:block"
-      data-name="Eagle Device"
-    >
-      <div className="relative w-full h-full">
-        <Image
-          alt={imageAlt}
-          className="w-full h-full object-contain"
-          src={imagePath}
-          fill
-          sizes="(max-width: 768px) 250px, (max-width: 1024px) 300px, (max-width: 1280px) 350px, 400px"
-          style={{ objectFit: "contain" }}
-        />
-      </div>
-    </div>
-  );
-}
-
 interface HeroContentComponentProps extends HeroContentProps {}
 
 function HeroContent({
@@ -113,6 +112,7 @@ function HeroContent({
   description,
   image,
   imageAlt,
+  imagepath,
 }: HeroContentComponentProps) {
   return (
     <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-16 md:py-20 lg:py-24">
@@ -141,7 +141,14 @@ export function HeroSection({ content }: HeroSectionProps) {
       data-name="Hero section"
       aria-label="Production Digitization Hero Section"
     >
-      <BackgroundVideo videoPath={content.video} />
+      {content?.video ? (
+        <BackgroundVideo videoPath={content.video} />
+      ) : (
+        <BackgroundImage
+          imagePath={content.imagepath}
+          imageAlt={content.imageAlt}
+        />
+      )}
       <GradientOverlay />
       <HeroContent {...content} />
     </section>

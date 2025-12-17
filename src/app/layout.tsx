@@ -6,6 +6,9 @@ import HeaderSection from "@/container/header/page";
 import FooterSection from "@/container/footer/page";
 import ClientLayout from "@/app/ClientLayout";
 import ScrollWrapperSection from "@/components/scrollwrapper";
+// _app.tsx or layout.tsx
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const gilroy = localFont({
   src: [
@@ -30,8 +33,8 @@ const gilroy = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-gilroy",
-  display: "swap",
+  // variable: "--font-gilroy",
+  // display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -47,11 +50,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-
   return (
     <html lang="en">
-      <body className={gilroy.variable}>
+      <body className={gilroy.className}>
         <ClientLayout>
           <ScrollWrapperSection>
             <HeaderSection />

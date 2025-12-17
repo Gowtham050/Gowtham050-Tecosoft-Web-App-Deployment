@@ -4,6 +4,8 @@ export const heroContent = {
   description:
     "A centralized, web-based platform for tool tracking, analytics, and real-time machine integration - empowering the Tool Management Team with total control and visibility.",
   video: "/assets/video/tool-life-monitoring-digitization.mp4",
+  imagepath: "",
+
   image:
     "/assets/pages/solutions/production-digitization/722868975ad87bdad1f880aefbc37c33e60f610d.png",
   imageAlt: "EAGLE Edge Gateway Device",
