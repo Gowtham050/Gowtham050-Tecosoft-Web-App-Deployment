@@ -107,7 +107,7 @@ export const SOLUTIONS_DATA = [
   {
     id: "smart-energy-management",
     title: "Smart Energy Management",
-    routeName: "/ai-enabled-services/smart-energy-management",
+    routeName: "/ai-enabled-solutions/smart-energy-management",
     description:
       "Forecast, optimize, and automate energy efficiency across utilities and lines. Build a digital energy twin and let AI reduce cost, peaks, and carbon.",
     features: [
@@ -145,7 +145,7 @@ export const SOLUTIONS_DATA = [
   {
     id: "predictive-maintenance",
     title: "Predictive Maintenance",
-    routeName: "/ai-enabled-services/predictive-maintenance",
+    routeName: "/ai-enabled-solutions/predictive-maintenance",
     description:
       "Move from reactive to proactive maintenance. Predict failures, schedule service automatically, and sustain peak performance across assets and shifts.",
     features: [
