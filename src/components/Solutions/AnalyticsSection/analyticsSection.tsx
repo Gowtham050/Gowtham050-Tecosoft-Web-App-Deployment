@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import svgPaths from "../../../imports/svg-plhzsxyavn";
 import { ComponentType, useEffect, useRef, useState } from "react";
 
@@ -13,6 +14,9 @@ interface AnalyticsSectionProps {
   content: {
     title: string;
     titleHighlight: string;
+    img: string;
+    imgWidth: number;
+    imgHeight: number;
     description: string;
     features: Feature[];
   };
@@ -1458,22 +1462,29 @@ interface AnalyticsFeatureItemProps {
   activeIndex: number | null;
 }
 
-function AnalyticsFeatureItem({ icon, title, index, activeIndex }: AnalyticsFeatureItemProps) {
+function AnalyticsFeatureItem({
+  icon,
+  title,
+  index,
+  activeIndex,
+}: AnalyticsFeatureItemProps) {
   const IconComponent = ICON_COMPONENTS[icon];
   const isActive = activeIndex === index;
 
   return (
     <div
       data-analytics-card
-      className="content-stretch flex gap-5 sm:gap-[24px] items-center relative shrink-0 w-[90%] sm:w-[calc(50%-24px)] sm:max-w-[320px] lg:max-w-[360px] xl:w-[311px] xl:max-w-none "
+      className="flex gap-4 sm:gap-5 items-center w-full"
     >
       <div
-        className={`${ICON_WRAPPER_DEFAULT_CLASS} icon-wrapper ${isActive ? 'active' : ''}`}
+        className={`${ICON_WRAPPER_DEFAULT_CLASS} icon-wrapper ${
+          isActive ? "active" : ""
+        }`}
         data-active={isActive}
       >
         <IconComponent />
       </div>
-      <p className="basis-0 font-medium grow leading-[22px] sm:leading-[26px] min-h-px min-w-px not-italic relative shrink-0 text-[#282828] text-[18px] sm:text-[20px]">
+      <p className="font-medium leading-[22px] sm:leading-[26px] text-[#282828] text-[16px] sm:text-[18px] xl:text-[20px] flex-1">
         {title}
       </p>
     </div>
@@ -1487,12 +1498,21 @@ function AnalyticsHeader({
   content: AnalyticsSectionProps["content"];
 }) {
   return (
-    <div className="content-stretch flex flex-col items-start sm:items-center xl:items-start justify-between not-italic relative self-stretch shrink-0 w-full xl:w-[450px] sm:text-center xl:text-left">
-      <p className="font-semibold leading-[32px] sm:leading-[40px] xl:leading-[45px] relative shrink-0 text-[#282828] text-[28px] sm:text-[32px] xl:text-[36px] w-full mb-4">
+    <div className="content-stretch flex flex-col items-center sm:items-center xl:items-start justify-start not-italic relative self-stretch shrink-0 w-full xl:w-[500px] xl:max-w-[500px] sm:text-center gap-5 sm:gap-6">
+      <div className="flex justify-center  w-full">
+        <Image
+          src={content.img}
+          alt="Analytics"
+          className="object-contain"
+          width={content.imgWidth}
+          height={content.imgHeight}
+        />
+      </div>
+      <p className="font-semibold leading-[32px] sm:leading-[40px] xl:leading-[45px] relative shrink-0 text-[#282828] text-[26px] sm:text-[30px] xl:text-[34px] w-full">
         <span>{content.title}</span>
         <span className="text-[#0098d4]">{content.titleHighlight}</span>
       </p>
-      <p className="font-medium leading-[22px] sm:leading-[24px] relative shrink-0 text-[#8e8e8e] text-[14px] sm:text-[16px] w-full sm:max-w-[700px] xl:max-w-none">
+      <p className="font-medium leading-[20px] sm:leading-[22px] relative shrink-0 text-[#8e8e8e] text-[13px] sm:text-[14px] xl:text-[15px] w-full sm:max-w-[600px] xl:max-w-none">
         {content.description}
       </p>
     </div>
@@ -1500,33 +1520,23 @@ function AnalyticsHeader({
 }
 
 // Features Grid Component
-function AnalyticsGrid({ features, activeIndex }: { features: Feature[]; activeIndex: number | null }) {
-  // Group features into rows of 2
-  const featureRows: Feature[][] = [];
-  for (let i = 0; i < features.length; i += 2) {
-    featureRows.push(features.slice(i, i + 2));
-  }
-
+function AnalyticsGrid({
+  features,
+  activeIndex,
+}: {
+  features: Feature[];
+  activeIndex: number | null;
+}) {
   return (
-    <div className="content-stretch flex flex-col gap-10 sm:gap-16 xl:gap-[80px] items-start sm:items-center    xl:items-start relative shrink-0 w-full xl:w-auto">
-      {featureRows.map((row, rowIndex) => (
-        <div
-          key={rowIndex}
-          className="content-stretch flex flex-col sm:flex-row sm:flex-wrap gap-8 sm:gap-x-12 sm:gap-y-8 xl:gap-[90px] xl:flex-nowrap items-center sm:items-start relative shrink-0 w-full sm:justify-start lg:justify-center"
-        >
-          {row.map((feature, featureIndex) => {
-            const absoluteIndex = rowIndex * 2 + featureIndex;
-            return (
-              <AnalyticsFeatureItem
-                key={`${rowIndex}-${featureIndex}`}
-                icon={feature.icon}
-                title={feature.title}
-                index={absoluteIndex}
-                activeIndex={activeIndex}
-              />
-            );
-          })}
-        </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 xl:gap-12 w-full xl:w-auto">
+      {features.map((feature, index) => (
+        <AnalyticsFeatureItem
+          key={index}
+          icon={feature.icon}
+          title={feature.title}
+          index={index}
+          activeIndex={activeIndex}
+        />
       ))}
     </div>
   );
@@ -1538,10 +1548,12 @@ export function AnalyticsSection({ content }: AnalyticsSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (window.innerWidth >= 1024) return; // ❌ disable scroll logic on desktop
+    if (window.innerWidth >= 640) return; // ❌ disable scroll logic on desktop
 
     const onScroll = () => {
-      const cards = containerRef.current?.querySelectorAll("[data-analytics-card]");
+      const cards = containerRef.current?.querySelectorAll(
+        "[data-analytics-card]"
+      );
       if (!cards) return;
 
       const viewportCenter = window.innerHeight / 2;
@@ -1590,7 +1602,7 @@ export function AnalyticsSection({ content }: AnalyticsSectionProps) {
       </style>
       <div
         ref={containerRef}
-        className="bg-white box-border content-stretch flex flex-col xl:flex-row items-start sm:items-center xl:items-start justify-between overflow-clip px-5 sm:px-10 lg:px-16 xl:px-[100px] py-8 sm:py-12 lg:py-[60px] relative shrink-0 w-full max-w-[1512px] mx-auto gap-10 xl:gap-0"
+        className="bg-white box-border content-stretch flex flex-col xl:flex-row items-center xl:items-start justify-between overflow-clip px-5 sm:px-10 lg:px-16 xl:px-[100px] py-8 sm:py-12 lg:py-[60px] relative shrink-0 w-full max-w-[1512px] mx-auto gap-10 sm:gap-12 xl:gap-16"
         data-name="Analytics - Features"
       >
         <AnalyticsHeader content={content} />

@@ -49,6 +49,9 @@ export const featuresContent = {
 export const analyticsContent = {
   title: "Analytics View - ",
   titleHighlight: "Turning Data into Decisions",
+  img: "/assets/pages/ai-enabled/predictive-maintenance/predictive-analytics.svg",
+  imgHeight: 130,
+  imgWidth: 130,
   description:
     "The predictive maintenance dashboard translates complex machine data into simple, actionable visuals for faster decision-making and smarter planning.",
   features: [
