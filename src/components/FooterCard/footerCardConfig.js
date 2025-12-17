@@ -38,7 +38,7 @@ export const footerCardConfig = {
     buttonText: "Talk to an Expert",
     buttonHref: "#demo",
   },
-  "/connected-factories/production-digitization": {
+  "/connected-factories-solutions/production-digitization": {
     title: "Achieve 360° Production Visibility with  ",
     highlightText: "EAGLE",
     buttonText: "Request a Demo",
@@ -46,7 +46,7 @@ export const footerCardConfig = {
     description:
       "Empower your manufacturing operations with real-time OEE tracking, closed-loop feedback, and performance-driven insights.",
   },
-  "/connected-factories/inspection-digitization": {
+  "/connected-factories-solutions/inspection-digitization": {
     title: "Bring ",
     highlightText: "Inspection Digitization ",
     title2: "to Your Floor",
@@ -55,7 +55,7 @@ export const footerCardConfig = {
     description:
       "Reduce escapes, improve traceability, and enable intelligent process correction with Tecosoft's Inspection Digitization suite.",
   },
-  "/connected-factories/tool-life-monitoring-digitization": {
+  "/connected-factories-solutions/tool-life-monitoring-digitization": {
     title: "Digitize Your",
     highlightText: " Tool Management",
     title2: " Today",
@@ -64,7 +64,7 @@ export const footerCardConfig = {
     description:
       "Transform tool management with Tecosoft's Tool Life Monitoring - enabling precision, accountability, and operational excellence.",
   },
-  "/connected-factories/maintenance-digitization": {
+  "/connected-factories-solutions/maintenance-digitization": {
     title: "From Paper to ",
     highlightText: "Performance",
     buttonText: "Request a Demo",
@@ -72,7 +72,7 @@ export const footerCardConfig = {
     description:
       "Eliminate paperwork, improve accountability, and make audits effortless with digital records.",
   },
-  "/ai-enabled-services": {
+  "/ai-enabled-solutions": {
     title: "Ready to ",
     highlightText: "power the future",
     title2: " of your factory?",
@@ -81,7 +81,7 @@ export const footerCardConfig = {
     description:
       "Start with Energy Intelligence or Predictive Maintenance - or deploy both for compounding gains.",
   },
-  "/ai-enabled-services/smart-energy-management": {
+  "/ai-enabled-solutions/smart-energy-management": {
     title: "Ready to Power the ",
     highlightText: "Future with AI?",
     buttonText: "Request a Demo",
@@ -89,7 +89,7 @@ export const footerCardConfig = {
     description:
       "Deploy AI‑enabled energy intelligence with EAGLE to forecast, optimize, and sustain - turning every kilowatt into a strategic advantage.",
   },
-  "/ai-enabled-services/predictive-maintenance": {
+  "/ai-enabled-solutions/predictive-maintenance": {
     title: "Ready to ",
     highlightText: "Predict?",
     buttonText: "Request a Demo",
@@ -97,7 +97,7 @@ export const footerCardConfig = {
     description:
       "Bring EAGLE-enabled edge intelligence and machine-specific AI to your shopfloor — reduce downtime and plan maintenance with confidence.",
   },
-  "/digital-twin-platform": {
+  "/digital-twin-solutions": {
     title: "Ready to build your",
     highlightText: "living digital twin?",
     title2: "",

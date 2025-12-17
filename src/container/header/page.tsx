@@ -520,14 +520,14 @@ const Navbar = () => {
 
     const homePages = [
       "/",
-      "/connected-factories/production-digitization",
-      "/connected-factories/tool-life-monitoring-digitization",
-      "/connected-factories/maintenance-digitization",
-      "/connected-factories/inspection-digitization",
-      "/ai-enabled-services",
-      "/ai-enabled-services/predictive-maintenance",
-      "/ai-enabled-services/smart-energy-management",
-      "/digital-twin-platform",
+      "/connected-factories-solutions/production-digitization",
+      "/connected-factories-solutions/tool-life-monitoring-digitization",
+      "/connected-factories-solutions/maintenance-digitization",
+      "/connected-factories-solutions/inspection-digitization",
+      "/ai-enabled-solutions",
+      "/ai-enabled-solutions/predictive-maintenance",
+      "/ai-enabled-solutions/smart-energy-management",
+      "/digital-twin-solutions",
     ];
 
     const isHomePage = homePages.includes(sanitizedPathname);
@@ -565,42 +565,42 @@ const Navbar = () => {
       dropdownItems: [
         {
           name: "Connected Factories Solutions",
-          href: "/connected-factories",
+          href: "/connected-factories-solutions",
           insideDropdown: [
             {
               name: "Production Digitization",
-              href: "/connected-factories/production-digitization",
+              href: "/connected-factories-solutions/production-digitization",
             },
             {
               name: "Tool Life Monitoring",
-              href: "/connected-factories/tool-life-monitoring-digitization",
+              href: "/connected-factories-solutions/tool-life-monitoring-digitization",
             },
             {
               name: "Maintenance Digitization",
-              href: "/connected-factories/maintenance-digitization",
+              href: "/connected-factories-solutions/maintenance-digitization",
             },
             {
               name: "Inspection Digitization",
-              href: "/connected-factories/inspection-digitization",
+              href: "/connected-factories-solutions/inspection-digitization",
             },
           ],
         },
 
         {
           name: "AI-Enabled Solutions",
-          href: "/ai-enabled-services",
+          href: "/ai-enabled-solutions",
           insideDropdown: [
             {
               name: "Smart Energy Management",
-              href: "/ai-enabled-services/smart-energy-management",
+              href: "/ai-enabled-solutions/smart-energy-management",
             },
             {
               name: "Predictive Maintenance",
-              href: "/ai-enabled-services/predictive-maintenance",
+              href: "/ai-enabled-solutions/predictive-maintenance",
             },
           ],
         },
-        { name: "Digital Twin Solutions", href: "/digital-twin-platform" },
+        { name: "Digital Twin Solutions", href: "/digital-twin-solutions" },
       ],
     },
     { name: "Company", href: "#", hasDropdown: false },

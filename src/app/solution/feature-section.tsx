@@ -26,7 +26,7 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "setting",
     title: "Production Digitization",
-    routeName: "/connected-factories/production-digitization",
+    routeName: "/connected-factories-solutions/production-digitization",
     description:
       "Digitize your production floor with real-time monitoring, smart job tracking, and automated data insights to optimize performance.",
     bullets: [
@@ -39,7 +39,7 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "tools",
     title: "Tool Life Monitoring",
-    routeName: "/connected-factories/tool-life-monitoring-digitization",
+    routeName: "/connected-factories-solutions/tool-life-monitoring-digitization",
     description:
       "Keep tools healthy and efficient using predictive insights and real-time alerts that prevent breakdowns and optimize usage.",
     bullets: [
@@ -52,7 +52,7 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "tick-circle",
     title: "Quality Inspection",
-    routeName: "/connected-factories/inspection-digitization",
+    routeName: "/connected-factories-solutions/inspection-digitization",
     description:
       "Ensure consistent quality with digital inspection workflows, AI-driven checks, and instant analytics for defect prevention.",
     bullets: [
@@ -65,7 +65,7 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "document",
     title: "Maintenance Digitization",
-    routeName: "/connected-factories/maintenance-digitization",
+    routeName: "/connected-factories-solutions/maintenance-digitization",
     description:
       "Shift from reactive to predictive maintenance with digital checklists, IoT-based alerts, and condition monitoring systems.",
     bullets: [
