@@ -18,10 +18,10 @@ export const FooterLinks = {
     links: [
       {
         name: "Connected Factory Solutions",
-        href: "/connected-factories",
+        href: "/connected-factories-solutions",
       },
-      { name: "AI Enabled Solutions", href: "/ai-enabled-services" },
-      { name: "Digital Twin Solutions", href: "/digital-twin-platform" },
+      { name: "AI Enabled Solutions", href: "/ai-enabled-solutions" },
+      { name: "Digital Twin Solutions", href: "/digital-twin-solutions" },
     ],
   },
   navigate: {
