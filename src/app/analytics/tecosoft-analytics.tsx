@@ -1,3 +1,5 @@
+"use client";
+import React from "react";
 import HeroSection from "./hero-section";
 import Features from "./features";
 import TechnologyCardsSlider from "../../components/analytics/TechnologyCardsSlider";

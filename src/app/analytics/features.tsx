@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import svgPathsRoleBasedViews from "../../imports/svg-bqhd1c0n89";
 import svgPaths from "../../imports/svg-xkva4n8i2f";

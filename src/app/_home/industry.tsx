@@ -48,7 +48,7 @@ const Industry = () => {
         width: "lg:w-[280px] xl:w-[320px] 2xl:w-[360px]",
         border: false,
         animationDelay: "0s",
-        routeName: "/connected-factories",
+        routeName: "/connected-factories-solutions",
       },
       {
         id: 2,
@@ -61,7 +61,7 @@ const Industry = () => {
         width: "lg:w-[280px] xl:w-[320px] 2xl:w-[360px]",
         border: false,
         animationDelay: "1s",
-        routeName: "#ai-enabled-solutions",
+        routeName: "/ai-enabled-solutions",
       },
       {
         id: 3,
@@ -74,7 +74,7 @@ const Industry = () => {
         width: "lg:w-[280px] xl:w-[320px] 2xl:w-[360px]",
         border: false,
         animationDelay: "2s",
-        routeName: "#digital-twin-solutions",
+        routeName: "/digital-twin-solutions",
       },
     ],
     arrowIcon: "/assets/icons/solutions/right-arrow.svg",
