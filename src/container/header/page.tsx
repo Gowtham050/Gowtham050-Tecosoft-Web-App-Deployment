@@ -524,6 +524,7 @@ const Navbar = () => {
       "/connected-factories-solutions/tool-life-monitoring-digitization",
       "/connected-factories-solutions/maintenance-digitization",
       "/connected-factories-solutions/inspection-digitization",
+      "/connected-factories-solutions/manufacturing-condition-monitoring",
       "/ai-enabled-solutions",
       "/ai-enabled-solutions/predictive-maintenance",
       "/ai-enabled-solutions/smart-energy-management",
@@ -582,6 +583,10 @@ const Navbar = () => {
             {
               name: "Inspection Digitization",
               href: "/connected-factories-solutions/inspection-digitization",
+            },
+            {
+              name: "Manufacturing Condition Monitoring",
+              href: "/connected-factories-solutions/manufacturing-condition-monitoring",
             },
           ],
         },

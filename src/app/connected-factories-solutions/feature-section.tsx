@@ -33,9 +33,9 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "tools",
     title: "Tool Life Monitoring",
-    routeName: "/connected-factories-solutions/tool-life-monitoring-digitization",
-    description:
-      "Predict tool wear and prevent unexpected breakdowns.",
+    routeName:
+      "/connected-factories-solutions/tool-life-monitoring-digitization",
+    description: "Predict tool wear and prevent unexpected breakdowns.",
     bullets: [
       { text: "Wear alerts" },
       { text: "Predictive replacement" },
@@ -46,8 +46,7 @@ const FEATURES_DATA: FeatureCardData[] = [
     icon: "tick-circle",
     title: "Quality Inspection",
     routeName: "/connected-factories-solutions/inspection-digitization",
-    description:
-      "AI-powered inspections and instant defect analysis.",
+    description: "AI-powered inspections and instant defect analysis.",
     bullets: [
       { text: "Digital inspections" },
       { text: "OK / NC classification" },
@@ -58,12 +57,23 @@ const FEATURES_DATA: FeatureCardData[] = [
     icon: "document",
     title: "Maintenance Digitization",
     routeName: "/connected-factories-solutions/maintenance-digitization",
-    description:
-      "Move from reactive to predictive maintenance.",
+    description: "Move from reactive to predictive maintenance.",
     bullets: [
       { text: "Preventive scheduling" },
       { text: "Health monitoring" },
       { text: "Technician workflows" },
+    ],
+  },
+  {
+    icon: "tick-circle",
+    title: "Manufacturing Condition Monitoring",
+    routeName:
+      "/connected-factories-solutions/manufacturing-condition-monitoring",
+    description: "AI-powered inspections and instant defect analysis.",
+    bullets: [
+      { text: "Digital inspections" },
+      { text: "OK / NC classification" },
+      { text: "Defect trends" },
     ],
   },
 ];
@@ -244,13 +254,10 @@ export default function FeatureSection() {
     <section
       className="w-full px-6 lg:px-24 py-16"
       style={{
-        background:
-          "linear-gradient(242.47deg, #00BCEF 6.45%, #002363 95.13%)",
+        background: "linear-gradient(242.47deg, #00BCEF 6.45%, #002363 95.13%)",
       }}
     >
-      <h2 className="text-white text-3xl font-semibold mb-10">
-        Key Use Cases
-      </h2>
+      <h2 className="text-white text-3xl font-semibold mb-10">Key Use Cases</h2>
       <FeaturesGrid />
     </section>
   );
