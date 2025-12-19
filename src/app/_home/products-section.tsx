@@ -29,11 +29,19 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
+    // Disable click event for screen sizes below 1024px
+    if (window.innerWidth < 1024) {
+      return;
+    }
     setIsHovered(true);
     onHoverChange?.(true);
   };
 
   const handleMouseLeave = () => {
+    // Disable click event for screen sizes below 1024px
+    if (window.innerWidth < 1024) {
+      return;
+    }
     setIsHovered(false);
     onHoverChange?.(false);
   };
