@@ -39,7 +39,7 @@ export default function PageLoader({
             resolve();
           };
           img.onerror = () => {
-            console.warn(`Failed to load asset: ${src}`);
+            console.warn(`Failed to load asset : ${src}`);
             resolve(); // Continue even if asset fails
           };
           img.src = src;

@@ -27,7 +27,7 @@ const BannerSection = () => {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: Z_INDEX.VIDEO_LAYER }}
         onError={(e) => {
-          console.error("Banner video failed to load:", e);
+          console.error("Banner video failed to load :", e);
           // Fallback: hide video and show static background
           e.currentTarget.style.display = "none";
         }}

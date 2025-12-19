@@ -78,7 +78,7 @@ const preloadAssets = () => {
         resolve();
       })
       .catch((error) => {
-        console.error("Error loading some assets:", error);
+        console.error("Error loading some assets: ", error);
         resolve(); // Resolve even if some assets fail to load
       })
       .finally(() => {
