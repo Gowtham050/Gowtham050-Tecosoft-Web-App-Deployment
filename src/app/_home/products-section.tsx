@@ -11,11 +11,14 @@ interface ProductCardProps {
   delay?: number;
   route?: string;
   gifPath?: string;
+  videoPath?: string;
   onHoverChange?: (isHovered: boolean) => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
   image,
+  gifPath,
+  videoPath,
   title,
   subtitle,
   description,
@@ -70,20 +73,38 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       {/* Product Image */}
       <div
-        className="w-full h-40 md:h-48 lg:h-44 flex items-center justify-center mb-6 md:mb-8 relative overflow-visible cursor-pointer"
+        className="w-full h-40 md:h-48 lg:h-48 flex items-center justify-center mb-6 md:mb-8 relative overflow-visible cursor-pointer"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <Image
-          src={image}
-          alt={title}
-          width={400}
-          height={192}
-          className="max-w-full max-h-full object-contain transition-transform duration-500 rounded-[10px]"
-          style={{
-            transform: isHovered ? "scale(1.1)" : "scale(1)",
-          }}
-        />
+        {isHovered && videoPath ? (
+          <div className="w-full max-w-[400px] h-48 rounded-[10px] flex items-center justify-center">
+            <video
+              src={videoPath}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-contain transition-transform duration-500 rounded-[10px]"
+              style={{
+                transform: isHovered ? "scale(1.3)" : "scale(1)",
+              }}
+            />
+          </div>
+        ) : (
+          <div className="w-full max-w-[400px] h-48 rounded-[10px] flex items-center justify-center">
+            <Image
+              src={isHovered && gifPath ? gifPath : image}
+              alt={title}
+              width={400}
+              height={192}
+              className="w-full h-full object-contain transition-transform duration-500 rounded-[10px]"
+              style={{
+                transform: isHovered ? "scale(1.3)" : "scale(1)",
+              }}
+            />
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -225,6 +246,7 @@ const Products = ({ products, hoveredProduct, setHoveredProduct }: any) => {
                 delay={product.delay}
                 route={product.route}
                 gifPath={product.gifPath}
+                videoPath={product.videoPath}
                 onHoverChange={(isHovered: any) => {
                   setHoveredProduct(isHovered ? product.title : null);
                 }}

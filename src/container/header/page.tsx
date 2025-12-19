@@ -39,10 +39,34 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
     null
   );
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleDropdownClick = (itemName: string) => {
+    // Clear any pending close timeout
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
     setOpenDropdown(openDropdown === itemName ? null : itemName);
     setOpenNestedDropdown(null);
+  };
+
+  const handleDropdownOpen = (itemName: string) => {
+    // Clear any pending close timeout
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setOpenDropdown(itemName);
+    setOpenNestedDropdown(null);
+  };
+
+  const handleDropdownClose = () => {
+    // Add delay before closing
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+      setOpenNestedDropdown(null);
+    }, 400); // 400ms delay
   };
 
   const handleDropdownItemClick = (href: string) => {
@@ -54,6 +78,31 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
   const handleNestedDropdownToggle = (itemName: string) => {
     setOpenNestedDropdown(openNestedDropdown === itemName ? null : itemName);
   };
+
+  const handleNestedDropdownOpen = (itemName: string) => {
+    // Clear any pending close timeout
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setOpenNestedDropdown(itemName);
+  };
+
+  const handleNestedDropdownClose = () => {
+    // Add delay before closing nested dropdown
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenNestedDropdown(null);
+    }, 400); // 400ms delay
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const isActivePage = (href: string) => {
     if (href === "#") return false;
@@ -104,8 +153,8 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                       ? dropdownRef
                       : null
                   }
-                  onMouseEnter={() => handleDropdownClick(item.name)}
-                  onMouseLeave={() => handleDropdownClick("")}
+                  onMouseEnter={() => handleDropdownOpen(item.name)}
+                  onMouseLeave={handleDropdownClose}
                 >
                   <button
                     onClick={() => handleDropdownClick(item.name)}
@@ -125,8 +174,8 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                   </button>
                   {openDropdown === item.name && item.dropdownItems && (
                     <div
-                      className="absolute top-full mt-0 bg-white rounded-lg shadow-lg py-2 min-w-[220px] border border-gray-100 hover:cursor-pointer"
-                      style={{ zIndex: Z_INDEX.DROPDOWN }}
+                      className="absolute top-full bg-white rounded-lg shadow-lg py-2 min-w-[220px] border border-gray-100 hover:cursor-pointer"
+                      style={{ zIndex: Z_INDEX.DROPDOWN, marginTop: '4px' }}
                     >
                       {item.dropdownItems.map((dropdownItem) => (
                         <div key={dropdownItem.name} className="relative">
@@ -134,11 +183,9 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                             <div
                               className="relative"
                               onMouseEnter={() =>
-                                handleNestedDropdownToggle(dropdownItem.name)
+                                handleNestedDropdownOpen(dropdownItem.name)
                               }
-                              onMouseLeave={() =>
-                                handleNestedDropdownToggle("")
-                              }
+                              onMouseLeave={handleNestedDropdownClose}
                             >
                               <div
                                 className={`w-full px-4 py-3 text-[15px] font-medium transition-colors hover:cursor-pointer flex items-center justify-between group ${
@@ -608,6 +655,7 @@ const Navbar = () => {
         { name: "Digital Twin Solutions", href: "/digital-twin-solutions" },
       ],
     },
+    { name: "Services", href: "#", hasDropdown: false },
     { name: "Company", href: "#", hasDropdown: false },
     { name: "Why TecoSoft", hasDropdown: false, href: "#" },
     { name: "Industries", href: "#" },
