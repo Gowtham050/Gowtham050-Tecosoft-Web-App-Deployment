@@ -213,7 +213,7 @@ const Industry = () => {
                 {/* Initial BLACK arrow */}
                 <path
                   d="M1 6.99984L13 6.99984M13 6.99984L7.33333 1.33317M13 6.99984L7.33333 12.6665"
-                  stroke="#000000"
+                  stroke="#222222"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"

@@ -229,19 +229,23 @@ function FeaturesGrid() {
       className="
         grid
         grid-cols-1
-        lg:grid-cols-2
+        lg:grid-cols-4
         gap-6
         snap-y snap-mandatory
         lg:snap-none
       "
     >
       {FEATURES_DATA.map((item, index) => (
-        <FeatureCard
+        <div
           key={index}
-          data={item}
-          index={index}
-          activeIndex={activeIndex}
-        />
+          className={`${
+            index === FEATURES_DATA.length - 1
+              ? "  lg:col-start-2  lg:col-end-4 "
+              : "lg:col-span-2"
+          }`}
+        >
+          <FeatureCard data={item} index={index} activeIndex={activeIndex} />
+        </div>
       ))}
     </div>
   );
