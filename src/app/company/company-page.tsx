@@ -13,7 +13,7 @@ export default function CompanyInfo() {
       <MissionSection />
       <TeamSection />
       <CareersSection />
-      {/* <EventsSection /> */}
+      <EventsSection />
     </div>
   );
 }

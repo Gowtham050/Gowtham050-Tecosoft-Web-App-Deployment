@@ -112,3 +112,51 @@ export const CAREER_JOBS = [
     tags: ["Remote", "Full time"],
   },
 ];
+
+export const EVENTS_SECTION = {
+  heading: "Where Ideas Meet Action",
+  description:
+    "From team meetups and workshops to industry events and internal celebrations, we believe good work happens when people connect. Our events are about sharing knowledge, building culture, and occasionally stepping away from screens.",
+};
+
+export const EVENTS_LIST = [
+  {
+    id: 1,
+    title: "Tech Innovation Summit",
+    description:
+      "A future-focused gathering exploring AI, cloud, and modern software practices through expert talks, live demos, and real-world case studies designed for teams building scalable digital products.",
+    date: {
+      day: "12",
+      month: "March",
+      year: "2025",
+    },
+    image: "/assets/pages/company/events/abfa687f142cc5e3fd08acc7b4c32f822bbc24bd.png",
+    status: null,
+  },
+  {
+    id: 2,
+    title: "Cybersecurity Workshop",
+    description:
+      "An in-depth session covering threat detection, data protection, and secure development practices, helping teams understand real cyber risks and apply preventive strategies across systems and workflows.",
+    date: {
+      day: "08",
+      month: "Jan",
+      year: "2026",
+    },
+    image: "/assets/pages/company/events/d23b728e7fc907c12df4fbf50c417ef159965f3c.png",
+    status: "Upcoming",
+  },
+  {
+    id: 3,
+    title: "Developer Hackathon 2026",
+    description:
+      "A high-energy 48-hour coding challenge where developers collaborate, innovate, and build functional solutions, pushing technical creativity, teamwork, and problem-solving under real-time constraints.",
+    date: {
+      day: "20",
+      month: "May",
+      year: "2026",
+    },
+    image: "/assets/pages/company/events/f5c647afeff36760e69c064b45463a2a96f292b5.png",
+    status: "Upcoming",
+  },
+];
