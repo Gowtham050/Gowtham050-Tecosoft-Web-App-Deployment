@@ -10,10 +10,10 @@ export default function CompanyInfo() {
   return (
     <div>
       <HeroSection />
-      <MissionSection />
+      {/* <MissionSection />
       <TeamSection />
       <CareersSection />
-      <EventsSection />
+      <EventsSection /> */}
     </div>
   );
 }

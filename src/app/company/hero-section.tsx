@@ -1,6 +1,7 @@
 "use client";
 // ***************************** Import packages ***********************************************
 import React from "react";
+import Image from "next/image";
 // import imgRectangle64 from "figma:asset/e2644f0647e90369f388b877893beba3726480ec.png";
 
 const imgRectangle64 =
@@ -17,7 +18,7 @@ function BackgroundImageAndText({ text }: BackgroundImageAndTextProps) {
         aria-hidden="true"
         className="absolute border border-[#07af40] border-solid inset-0 pointer-events-none rounded-[60px]"
       />
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[18px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px] text-nowrap">
+      <p className="font-semibold  leading-[18px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px] text-nowrap">
         {text}
       </p>
     </div>
@@ -27,22 +28,22 @@ function BackgroundImageAndText({ text }: BackgroundImageAndTextProps) {
 export default function HeroSection() {
   return (
     <div
-      className="content-stretch flex gap-[10px] h-[768px] items-start overflow-clip relative shrink-0 w-full"
+      className="content-stretch flex gap-[10px] min-h-[500px] md:min-h-[600px] lg:h-[768px] items-start overflow-clip relative shrink-0 w-full"
       data-name="Hero section"
       style={{
         backgroundImage:
           "linear-gradient(208.198deg, rgb(0, 183, 255) 21.481%, rgb(14, 176, 92) 76.423%)",
       }}
     >
-      <div className="basis-0 bg-gradient-to-l from-10% from-[rgba(255,255,255,0.85)] grow h-[768px] min-h-px min-w-px shrink-0 to-[rgba(255,255,255,0.4)]" />
-      <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[100px] top-[140px] w-[1312px]">
+      <div className="basis-0 bg-gradient-to-l from-10% from-[rgba(255,255,255,0.85)] grow min-h-[500px] md:min-h-[600px] lg:h-[768px] min-h-px min-w-px shrink-0 to-[rgba(255,255,255,0.4)]" />
+      <div className="absolute content-stretch flex flex-col gap-4 md:gap-6 items-start left-3 right-3 sm:left-8 sm:right-8 md:left-12 md:right-12 lg:left-[90px] lg:right-[90px] top-16 sm:top-24 md:top-32 lg:top-[140px] max-w-[1312px] mx-auto">
         <BackgroundImageAndText text="Our Company" />
-        <div className="content-stretch flex items-start justify-between relative shrink-0 w-full">
-          <p className="font-['Gilroy:Semibold',sans-serif] leading-[75px] not-italic relative shrink-0 text-[#282828] text-[64px] w-[800px]">
+        <div className="content-stretch flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative shrink-0 w-full">
+          <p className="font-semibold leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-3xl sm:text-4xl md:text-5xl lg:text-[64px] lg:leading-[75px] w-full md:max-w-[65%] lg:max-w-[800px]">
             We Build Products People Actually Use
           </p>
           <div
-            className="h-[120px] relative shrink-0 w-[115px]"
+            className=" hidden lg:block h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-[120px] lg:w-[110px] relative shrink-0"
             data-name="Path 0"
           >
             <svg
@@ -66,11 +67,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-[60px] h-[320px] left-[100px] rounded-[16px] w-[1312px]">
-        <img
-          alt=""
-          className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none rounded-[16px] size-full"
+      <div className="absolute bottom-8 sm:bottom-10 md:bottom-12 lg:bottom-[60px] h-56 md:h-60 lg:h-[320px] left-4 right-4 sm:left-8 sm:right-8 md:left-12 md:right-12 lg:left-[100px] lg:right-[100px] rounded-[16px] max-w-[1312px] mx-auto">
+        <Image
+          alt="Company banner"
           src={imgRectangle64}
+          fill
+          className="object-center object-cover pointer-events-none rounded-[16px]"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 85vw, 1312px"
         />
       </div>
     </div>
