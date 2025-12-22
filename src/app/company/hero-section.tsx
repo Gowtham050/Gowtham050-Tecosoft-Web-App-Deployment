@@ -36,7 +36,7 @@ export default function HeroSection() {
       }}
     >
       <div className="basis-0 bg-gradient-to-l from-10% from-[rgba(255,255,255,0.85)] grow min-h-[500px] md:min-h-[600px] lg:h-[768px] min-h-px min-w-px shrink-0 to-[rgba(255,255,255,0.4)]" />
-      <div className="absolute content-stretch flex flex-col gap-4 md:gap-6 items-start left-3 right-3 sm:left-8 sm:right-8 md:left-12 md:right-12 lg:left-[90px] lg:right-[90px] top-16 sm:top-24 md:top-32 lg:top-[140px] max-w-[1312px] mx-auto">
+      <div className="absolute content-stretch flex flex-col gap-4 md:gap-6 items-start left-3 right-3 sm:left-8 sm:right-8 md:left-12 md:right-12 lg:left-[90px] lg:right-[90px] top-23 sm:top-24 md:top-32 lg:top-[140px] max-w-[1312px] mx-auto">
         <BackgroundImageAndText text="Our Company" />
         <div className="content-stretch flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative shrink-0 w-full">
           <p className="font-semibold leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-3xl sm:text-4xl md:text-5xl lg:text-[64px] lg:leading-[75px] w-full md:max-w-[65%] lg:max-w-[800px]">

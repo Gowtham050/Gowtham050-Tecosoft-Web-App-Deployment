@@ -12,11 +12,21 @@ function ArrowIcon({ className = "" }: ArrowIconProps) {
   return (
     <div
       className={clsx("flex items-center justify-center shrink-0", className)}
-      style={{ "--transform-inner-width": "0", "--transform-inner-height": "0" } as React.CSSProperties}
+      style={
+        {
+          "--transform-inner-width": "0",
+          "--transform-inner-height": "0",
+        } as React.CSSProperties
+      }
     >
       <div className="flex-none rotate-[270deg]">
         <div className="relative size-3.5">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14 14">
+          <svg
+            className="block size-full"
+            fill="none"
+            preserveAspectRatio="none"
+            viewBox="0 0 14 14"
+          >
             <g>
               <path
                 d={svgPaths.p1feb4d00}
@@ -55,10 +65,13 @@ function StatusBadge({ status }: StatusBadgeProps) {
     <div
       className="absolute flex items-center justify-center px-3 py-1.5 right-4 sm:right-5 rounded-full top-4 sm:top-5 z-10"
       style={{
-        backgroundImage: "linear-gradient(198.224deg, rgb(0, 183, 255) 21.481%, rgb(14, 176, 92) 76.423%)",
+        backgroundImage:
+          "linear-gradient(198.224deg, rgb(0, 183, 255) 21.481%, rgb(14, 176, 92) 76.423%)",
       }}
     >
-      <p className="font-semibold text-base sm:text-lg text-white whitespace-nowrap">{status}</p>
+      <p className="font-semibold text-base sm:text-lg text-white whitespace-nowrap">
+        {status}
+      </p>
     </div>
   );
 }
@@ -78,7 +91,8 @@ function ViewMoreButton({ onClick }: ViewMoreButtonProps) {
         className="bg-clip-text font-medium text-base sm:text-lg whitespace-nowrap"
         style={{
           WebkitTextFillColor: "transparent",
-          backgroundImage: "linear-gradient(206.144deg, rgb(0, 188, 239) 6.4454%, rgb(0, 35, 99) 95.133%)",
+          backgroundImage:
+            "linear-gradient(206.144deg, rgb(0, 188, 239) 6.4454%, rgb(0, 35, 99) 95.133%)",
         }}
       >
         View more
@@ -100,7 +114,13 @@ type EventCardProps = {
   status?: string | null;
 };
 
-function EventCard({ title, description, date, image, status }: EventCardProps) {
+function EventCard({
+  title,
+  description,
+  date,
+  image,
+  status,
+}: EventCardProps) {
   return (
     <div className="flex flex-col overflow-hidden rounded-xl w-full hover:shadow-xl transition-shadow">
       {/* Image Section */}
@@ -125,8 +145,8 @@ function EventCard({ title, description, date, image, status }: EventCardProps) 
         </div>
 
         <div className="flex items-end justify-between">
-          <div className="flex font-medium gap-2 items-baseline">
-            <p className="text-5xl sm:text-6xl lg:text-[66px] text-[#282828] leading-tight">
+          <div className="flex font-medium gap-1 lg:gap-2 items-baseline">
+            <p className="text-4xl sm:text-6xl lg:text-[60px] text-[#282828] leading-tight">
               {date.day}
             </p>
             <p className="text-base sm:text-lg text-[#636363] whitespace-nowrap">
@@ -160,7 +180,7 @@ export default function EventsSection() {
       </div>
 
       {/* Events Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full">
         {EVENTS_LIST.map((event) => (
           <EventCard
             key={event.id}
