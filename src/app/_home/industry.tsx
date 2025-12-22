@@ -23,6 +23,7 @@ interface IndustryContent {
   centerImage: string;
   cards: IndustryCard[];
   arrowIcon: string;
+  hoverArrowIcon: string;
 }
 
 const Industry = () => {
@@ -78,6 +79,7 @@ const Industry = () => {
       },
     ],
     arrowIcon: "/assets/icons/solutions/right-arrow.svg",
+    hoverArrowIcon: "/assets/icons/solutions/green-right-arrow.svg",
   };
 
   return (
@@ -200,15 +202,48 @@ const Industry = () => {
               animationDelay: card.animationDelay,
             }}
           >
-            {/* Arrow Icon - Hidden by default, visible on hover (desktop only) */}
-            <div className="absolute top-3 right-3 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
-              <Image
-                src={industryContent.arrowIcon}
-                alt="Arrow"
-                width={24}
-                height={24}
-                className="w-4 h-4 lg:w-6 lg:h-6"
-              />
+            {/* Arrow icon */}
+            <div className="absolute top-3 right-3 w-4 h-4 lg:w-5 lg:h-5">
+              <svg
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full h-full"
+              >
+                {/* Initial BLACK arrow */}
+                <path
+                  d="M1 6.99984L13 6.99984M13 6.99984L7.33333 1.33317M13 6.99984L7.33333 12.6665"
+                  stroke="#222222"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+                />
+
+                {/* Hover GRADIENT arrow */}
+                <path
+                  d="M1 6.99984L13 6.99984M13 6.99984L7.33333 1.33317M13 6.99984L7.33333 12.6665"
+                  stroke="url(#arrowGradient)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+
+                <defs>
+                  <linearGradient
+                    id="arrowGradient"
+                    x1="3.6"
+                    y1="3.74766"
+                    x2="9.62576"
+                    y2="10.4822"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#00B7FF" />
+                    <stop offset="1" stopColor="#0EB05C" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </div>
 
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex-shrink-0">

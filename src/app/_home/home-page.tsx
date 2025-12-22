@@ -29,10 +29,10 @@ const HomePage = () => {
       subtitle: "IOT Cloud Platform",
       description:
         "Tecosoft Analytics is an intelligent enterprise analytics platform that transforms operational data into actionable insights. With embedded AI and Digital Twin capabilities, it delivers dashboards, reports, and predictive intelligence to enable smarter decisions and connected operations.",
-      delay: 200,
+      delay: 0,
       route: "/analytics",
       type: "video",
-      gifPath: "/assets/video/analytics.mp4",
+      videoPath: "/assets/video/analytics.mp4",
     },
   ];
 
@@ -48,10 +48,10 @@ const HomePage = () => {
         setHoveredProduct={setHoveredProduct}
       />
       <IndustriesSection />
-      <ModelGif
+      {/* <ModelGif
         currentProduct={currentProduct}
         hoveredProduct={hoveredProduct}
-      />
+      /> */}
     </>
   );
 };
