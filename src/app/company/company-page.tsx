@@ -12,8 +12,8 @@ export default function CompanyInfo() {
       <HeroSection />
       <MissionSection />
       <TeamSection />
-      {/* <CareersSection />
-      <EventsSection /> */}
+      <CareersSection />
+      {/* <EventsSection /> */}
     </div>
   );
 }

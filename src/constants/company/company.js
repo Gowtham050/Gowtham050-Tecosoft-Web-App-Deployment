@@ -62,3 +62,53 @@ export const TEAM_MEMBERS = [
       "Drives brand, growth, and campaign strategy with a strong focus on data-driven marketing and measurable outcomes.",
   },
 ];
+
+
+export const CAREER_CATEGORIES = [
+  "View all",
+  "Development",
+  "Design",
+  "Marketing",
+  "Operations",
+  "Finance",
+  "Management",
+  "Customer services",
+];
+
+export const CAREER_JOBS = [
+  {
+    id: 1,
+    title: "Product Designer",
+    description:
+      "We're seeking a passionate product designer to help shape the future of our user experience.",
+    tags: ["Remote", "Full time"],
+  },
+  {
+    id: 2,
+    title: "Engineering Manager",
+    description:
+      "We're seeking an experienced engineering manager to guide our talented team.",
+    tags: ["Remote", "Full time"],
+  },
+  {
+    id: 3,
+    title: "Customer Success Manager",
+    description:
+      "We're seeking a customer success manager to ensure client satisfaction.",
+    tags: ["Remote", "Full time"],
+  },
+  {
+    id: 4,
+    title: "Account Executive",
+    description:
+      "We're seeking an account executive to drive growth and build relationships.",
+    tags: ["Remote", "Full time"],
+  },
+  {
+    id: 5,
+    title: "SEO Marketing Manager",
+    description:
+      "We're seeking an experienced SEO marketing manager to elevate our online presence.",
+    tags: ["Remote", "Full time"],
+  },
+];
