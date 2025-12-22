@@ -55,7 +55,7 @@ export default function RootLayout({
       <body className={gilroy.className}>
         <ClientLayout>
           <ScrollWrapperSection>
-            <HeaderSection />
+            {/* <HeaderSection /> */}
             {children}
             <FooterSection />
           </ScrollWrapperSection>

@@ -175,7 +175,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                   {openDropdown === item.name && item.dropdownItems && (
                     <div
                       className="absolute top-full bg-white rounded-lg shadow-lg py-2 min-w-[220px] border border-gray-100 hover:cursor-pointer"
-                      style={{ zIndex: Z_INDEX.DROPDOWN, marginTop: '4px' }}
+                      style={{ zIndex: Z_INDEX.DROPDOWN, marginTop: "4px" }}
                     >
                       {item.dropdownItems.map((dropdownItem) => (
                         <div key={dropdownItem.name} className="relative">
@@ -656,8 +656,8 @@ const Navbar = () => {
       ],
     },
     { name: "Services", href: "#", hasDropdown: false },
-    { name: "Company", href: "#", hasDropdown: false },
-    { name: "Why TecoSoft", hasDropdown: false, href: "#" },
+    { name: "Company", href: "/company", hasDropdown: false },
+    { name: "Why TecoSoft", href: "#", hasDropdown: false },
     { name: "Industries", href: "#" },
   ];
 
