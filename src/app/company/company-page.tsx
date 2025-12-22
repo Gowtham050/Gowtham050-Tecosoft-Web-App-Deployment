@@ -10,8 +10,8 @@ export default function CompanyInfo() {
   return (
     <div>
       <HeroSection />
-      {/* <MissionSection />
-      <TeamSection />
+      <MissionSection />
+      {/* <TeamSection />
       <CareersSection />
       <EventsSection /> */}
     </div>

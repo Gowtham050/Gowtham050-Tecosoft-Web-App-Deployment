@@ -1,106 +1,70 @@
 "use client";
 // ***************************** Import packages ***********************************************
 import React from "react";
-import clsx from "clsx";
+import { companyMissionSection } from "@/constants/company/company";
 
-function BackgroundImage6({ children }: React.PropsWithChildren<{}>) {
+function ArrowDownIcon() {
   return (
-    <div className="relative size-[14px]">
+    <div className="size-[14px]">
       <svg
         className="block size-full"
         fill="none"
-        preserveAspectRatio="none"
         viewBox="0 0 14 14"
+        aria-hidden="true"
       >
-        {children}
+        <path
+          d="M7 1.75V12.25M7 12.25L11.9583 7.29167M7 12.25L2.04167 7.29167"
+          stroke="white"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.35"
+        />
       </svg>
     </div>
   );
 }
 
-type BackgroundImage4Props = {
-  additionalClassNames?: string;
-};
-
-function BackgroundImage4({
-  children,
-  additionalClassNames = "",
-}: React.PropsWithChildren<BackgroundImage4Props>) {
-  return (
-    <div
-      style={
-        {
-          "--transform-inner-width": "0",
-          "--transform-inner-height": "0",
-        } as React.CSSProperties
-      }
-      className={clsx(
-        "flex items-center justify-center relative shrink-0",
-        additionalClassNames
-      )}
-    >
-      <div className="flex-none rotate-[270deg]">{children}</div>
-    </div>
-  );
-}
-
-type BackgroundImageAndText1Props = {
+type CTAButtonProps = {
   text: string;
 };
 
-function BackgroundImageAndText1({ text }: BackgroundImageAndText1Props) {
+function CTAButton({ text }: CTAButtonProps) {
   return (
-    <div className="bg-[#07af40] content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0">
-      <p className="font-['Gilroy:Semibold',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-nowrap text-white">
+    <button className="bg-[#07af40] hover:bg-[#06993a] transition-colors flex gap-2 items-center justify-center px-3.5 py-2.5 rounded-sm">
+      <span className="font-semibold leading-5 text-[15px] text-white whitespace-nowrap">
         {text}
-      </p>
-      <BackgroundImage4 additionalClassNames="size-[14px]">
-        <BackgroundImage6>
-          <g id="iconoir:arrow-down">
-            <path
-              d="M7 1.75V12.25M7 12.25L11.9583 7.29167M7 12.25L2.04167 7.29167"
-              id="Vector"
-              stroke="var(--stroke-0, white)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.35"
-            />
-          </g>
-        </BackgroundImage6>
-      </BackgroundImage4>
-    </div>
+      </span>
+      <div className="flex items-center justify-center rotate-[270deg]">
+        <ArrowDownIcon />
+      </div>
+    </button>
   );
 }
 
 export default function MissionSection() {
   return (
-    <div
-      className="relative shrink-0 w-full"
-      data-name="Banner Intro"
-      style={{
-        backgroundImage:
-          "linear-gradient(90deg, rgb(224, 246, 250) 0%, rgb(224, 246, 250) 100%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)",
-      }}
-    >
-      <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex gap-[150px] items-start px-[100px] py-[60px] relative w-full">
-          <div className="font-['Gilroy:Semibold',sans-serif] leading-[44px] not-italic relative shrink-0 text-[#282828] text-[0px] text-[40px] w-[320px]">
-            <p className="mb-0">Build, Learn and</p>
-            <p className="text-[#0098d4]">Grow with us.</p>
+    <section className="w-full bg-[#e0f6fa]">
+      <div className="w-full overflow-clip">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-[150px] items-start px-4 sm:px-8 md:px-12 lg:px-[100px] py-8 sm:py-10 md:py-12 lg:py-[60px] w-full">
+          {/* Heading Section */}
+          <div className="w-full lg:w-[320px] lg:shrink-0">
+            <h2 className="font-semibold leading-tight text-3xl sm:text-4xl lg:text-[40px] lg:leading-[44px] text-[#282828]">
+              <span className="block">{companyMissionSection.heading.line1}</span>
+              <span className="block text-[#0098d4]">
+                {companyMissionSection.heading.line2}
+              </span>
+            </h2>
           </div>
-          <div className="basis-0 content-stretch flex flex-col gap-[46px] grow items-start min-h-px min-w-px relative shrink-0">
-            <p className="font-['Gilroy:Regular',sans-serif] leading-[29px] min-w-full not-italic relative shrink-0 text-[#4f4f4f] text-[20px] w-[min-content]">
-              We empower organizations to transform intricate processes into
-              transparent, data-informed strategies. Through the fusion of
-              intelligent software and user-centric design, we equip teams to
-              enhance productivity, accelerate responsiveness, and achieve
-              scalable growth. Our solutions drive efficiency and clarity,
-              ensuring every decision is grounded in actionable insights.
+
+          {/* Description and CTA Section */}
+          <div className="flex-1 flex flex-col gap-8 md:gap-10 lg:gap-[46px] items-start w-full">
+            <p className="font-normal leading-relaxed text-base sm:text-lg lg:text-[20px] lg:leading-[29px] text-[#4f4f4f] w-full">
+              {companyMissionSection.description}
             </p>
-            <BackgroundImageAndText1 text="Join our team" />
+            <CTAButton text={companyMissionSection.ctaButton.text} />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
