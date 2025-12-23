@@ -191,21 +191,91 @@ function CategoryFilter({
   activeCategory = "View all",
   onCategoryChange,
 }: CategoryFilterProps) {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleOptionClick = (category: string) => {
+    onCategoryChange?.(category);
+    setIsOpen(false);
+  };
+
   return (
-    <div className="flex flex-wrap gap-2 sm:gap-3.5 w-full">
-      {categories.map((category, index) => (
+    <>
+      {/* Mobile/Tablet: Custom Dropdown (< 1024px) */}
+      <div className="lg:hidden w-full relative" ref={dropdownRef}>
+        {/* Dropdown Button */}
         <button
-          key={index}
-          onClick={() => onCategoryChange?.(category)}
-          className="transition-transform hover:scale-105  w-full sm:w-auto"
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-full px-4 py-3 rounded-lg bg-white text-[#282828] font-medium text-base border-2 border-white hover:border-[#00B7FF] focus:border-[#00B7FF] focus:outline-none transition-all flex items-center justify-between"
         >
-          <Badge
-            text={category}
-            variant={category === activeCategory ? "primary" : "secondary"}
-          />
+          <span>{activeCategory}</span>
+          <svg
+            className={`w-5 h-5 transition-transform duration-200 ${
+              isOpen ? "rotate-180" : ""
+            }`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
         </button>
-      ))}
-    </div>
+
+        {/* Dropdown Options */}
+        {isOpen && (
+          <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="max-h-[300px] overflow-y-auto">
+              {categories.map((category, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleOptionClick(category)}
+                  className={`w-full px-4 py-3 text-left font-medium text-base transition-all ${
+                    category === activeCategory
+                      ? "bg-gradient-to-br from-[#00B7FF] to-[#0EB05C] text-white"
+                      : "text-[#282828] hover:bg-gray-50 active:bg-gray-100"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Desktop: Badge Buttons (≥ 1024px) */}
+      <div className="hidden lg:flex flex-wrap gap-3.5 w-full">
+        {categories.map((category, index) => (
+          <button
+            key={index}
+            onClick={() => onCategoryChange?.(category)}
+            className="transition-transform hover:scale-105"
+          >
+            <Badge
+              text={category}
+              variant={category === activeCategory ? "primary" : "secondary"}
+            />
+          </button>
+        ))}
+      </div>
+    </>
   );
 }
 
