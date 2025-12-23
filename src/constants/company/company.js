@@ -48,7 +48,7 @@ export const TEAM_MEMBERS = [
     id: 5,
     name: "Vikram Singh",
     role: "Lead UX/UI Designer",
-    image: "/assets/pages/company/team/vikram-singh.png",
+    image: "/assets/pages/company/team/vikramsingh.png",
     description:
       "Leads user-centered design across products, turning complex ideas into intuitive and visually clean experiences.",
   },
@@ -56,7 +56,7 @@ export const TEAM_MEMBERS = [
     id: 6,
     name: "Karan Kapoor",
     role: "Head of Marketing",
-    image: "/assets/pages/company/team/karan-kapoor.png",
+    image: "/assets/pages/company/team/karankapoor.png",
     description:
       "Drives brand, growth, and campaign strategy with a strong focus on data-driven marketing and measurable outcomes.",
   },
@@ -80,6 +80,7 @@ export const CAREER_JOBS = [
     description:
       "We're seeking a passionate product designer to help shape the future of our user experience.",
     tags: ["Remote", "Full time"],
+    category: "Design",
   },
   {
     id: 2,
@@ -87,6 +88,7 @@ export const CAREER_JOBS = [
     description:
       "We're seeking an experienced engineering manager to guide our talented team.",
     tags: ["Remote", "Full time"],
+    category: "Management",
   },
   {
     id: 3,
@@ -94,6 +96,7 @@ export const CAREER_JOBS = [
     description:
       "We're seeking a customer success manager to ensure client satisfaction.",
     tags: ["Remote", "Full time"],
+    category: "Customer services",
   },
   {
     id: 4,
@@ -101,6 +104,7 @@ export const CAREER_JOBS = [
     description:
       "We're seeking an account executive to drive growth and build relationships.",
     tags: ["Remote", "Full time"],
+    category: "Operations",
   },
   {
     id: 5,
@@ -108,6 +112,7 @@ export const CAREER_JOBS = [
     description:
       "We're seeking an experienced SEO marketing manager to elevate our online presence.",
     tags: ["Remote", "Full time"],
+    category: "Marketing",
   },
   {
     id: 6,
@@ -115,6 +120,7 @@ export const CAREER_JOBS = [
     description:
       "We're seeking a business analyst to help us make data-driven decisions.",
     tags: ["Remote", "Full time"],
+    category: "Operations",
   },
   {
     id: 7,
@@ -122,6 +128,7 @@ export const CAREER_JOBS = [
     description:
       "We're seeking a talented full stack developer to join our team.",
     tags: ["Remote", "Full time"],
+    category: "Development",
   },
 ];
 
