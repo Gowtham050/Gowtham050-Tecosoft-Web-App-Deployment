@@ -197,7 +197,10 @@ function CategoryFilter({
   // Close dropdown when clicking outside
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -266,7 +269,7 @@ function CategoryFilter({
           <button
             key={index}
             onClick={() => onCategoryChange?.(category)}
-            className="transition-transform hover:scale-105"
+            className="transition-transform hover:scale-105 cursor-pointer"
           >
             <Badge
               text={category}
@@ -312,7 +315,11 @@ function SeeLessButton({ onClick }: SeeLessButtonProps) {
       <span className=" font-semibold   text-sm sm:text-base text-[#07af40] whitespace-nowrap">
         See less
       </span>
-      <ArrowIcon className="size-3.5 rotate-180" strokeColor="#07af40" size={14} />
+      <ArrowIcon
+        className="size-3.5 rotate-180"
+        strokeColor="#07af40"
+        size={14}
+      />
     </button>
   );
 }
@@ -320,6 +327,11 @@ function SeeLessButton({ onClick }: SeeLessButtonProps) {
 export default function CareersSection() {
   const [activeCategory, setActiveCategory] = React.useState("View all");
   const [visibleJobs, setVisibleJobs] = React.useState(5);
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    setVisibleJobs(5); // Reset to show first 5 jobs when category changes
+  };
 
   const handleLoadMore = () => {
     setVisibleJobs((prev) => prev + 5);
@@ -329,8 +341,14 @@ export default function CareersSection() {
     setVisibleJobs(5);
   };
 
-  const jobsToDisplay = CAREER_JOBS.slice(0, visibleJobs);
-  const hasMoreJobs = visibleJobs < CAREER_JOBS.length;
+  // Filter jobs based on active category
+  const filteredJobs =
+    activeCategory === "View all"
+      ? CAREER_JOBS
+      : CAREER_JOBS.filter((job) => job.category === activeCategory);
+
+  const jobsToDisplay = filteredJobs.slice(0, visibleJobs);
+  const hasMoreJobs = visibleJobs < filteredJobs.length;
   const canSeeLess = visibleJobs > 5;
 
   return (
@@ -365,7 +383,7 @@ export default function CareersSection() {
       <CategoryFilter
         categories={CAREER_CATEGORIES}
         activeCategory={activeCategory}
-        onCategoryChange={setActiveCategory}
+        onCategoryChange={handleCategoryChange}
       />
 
       {/* Job Listings */}
