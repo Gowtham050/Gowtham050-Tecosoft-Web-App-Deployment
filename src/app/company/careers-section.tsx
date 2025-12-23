@@ -228,8 +228,40 @@ function LoadMoreButton({ onClick }: LoadMoreButtonProps) {
   );
 }
 
+type SeeLessButtonProps = {
+  onClick?: () => void;
+};
+
+function SeeLessButton({ onClick }: SeeLessButtonProps) {
+  return (
+    <button
+      onClick={onClick}
+      className="bg-white flex gap-2 items-center justify-center px-4 py-2.5 hover:bg-gray-100 transition-colors rounded-md border border-[#07af40]"
+      aria-label="See less jobs"
+    >
+      <span className=" font-semibold   text-sm sm:text-base text-[#07af40] whitespace-nowrap">
+        See less
+      </span>
+      <ArrowIcon className="size-3.5 rotate-180" strokeColor="#07af40" size={14} />
+    </button>
+  );
+}
+
 export default function CareersSection() {
   const [activeCategory, setActiveCategory] = React.useState("View all");
+  const [visibleJobs, setVisibleJobs] = React.useState(5);
+
+  const handleLoadMore = () => {
+    setVisibleJobs((prev) => prev + 5);
+  };
+
+  const handleSeeLess = () => {
+    setVisibleJobs(5);
+  };
+
+  const jobsToDisplay = CAREER_JOBS.slice(0, visibleJobs);
+  const hasMoreJobs = visibleJobs < CAREER_JOBS.length;
+  const canSeeLess = visibleJobs > 5;
 
   return (
     <section
@@ -268,7 +300,7 @@ export default function CareersSection() {
 
       {/* Job Listings */}
       <div className="flex flex-col gap-4 sm:gap-5 w-full">
-        {CAREER_JOBS.map((job) => (
+        {jobsToDisplay.map((job) => (
           <JobCard
             key={job.id}
             title={job.title}
@@ -278,10 +310,13 @@ export default function CareersSection() {
         ))}
       </div>
 
-      {/* Load More Button */}
-      <div className="flex justify-center w-full">
-        <LoadMoreButton />
-      </div>
+      {/* Action Buttons */}
+      {(hasMoreJobs || canSeeLess) && (
+        <div className="flex justify-center gap-3 w-full">
+          {hasMoreJobs && <LoadMoreButton onClick={handleLoadMore} />}
+          {canSeeLess && <SeeLessButton onClick={handleSeeLess} />}
+        </div>
+      )}
     </section>
   );
 }
