@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import svgPaths from "../../imports/svg-wnzeyhu3eg";
 import clsx from "clsx";
 import { EVENTS_SECTION, EVENTS_LIST } from "../../constants/company/company";
@@ -125,10 +126,12 @@ function EventCard({
     <div className="flex flex-col overflow-hidden rounded-xl w-full hover:shadow-xl transition-shadow">
       {/* Image Section */}
       <div className="relative h-44 sm:h-52 w-full overflow-hidden">
-        <img
+        <Image
           alt={title}
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          className="object-cover pointer-events-none"
           src={image}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         {status && <StatusBadge status={status} />}
       </div>

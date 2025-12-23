@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 interface TeamCardProps {
   name: string;
@@ -26,12 +27,14 @@ const TeamCard: React.FC<TeamCardProps> = ({
       }`}
     >
       {/* IMAGE */}
-      <img
+      <Image
         src={image}
         alt={name}
-        className={`absolute inset-0 h-full w-full object-cover grayscale transition-all duration-400 ease-out group-hover:scale-100 group-hover:grayscale-100 ${
+        className={`object-cover grayscale transition-all duration-400 ease-out group-hover:scale-100 group-hover:grayscale-100 ${
           shouldShowContent ? "scale-100 grayscale-100" : ""
         }`}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
 
       {/* BLACK GRADIENT (DEFAULT) - Only at bottom */}
