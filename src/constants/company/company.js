@@ -11,7 +11,6 @@ export const companyMissionSection = {
   },
 };
 
-
 export const TEAM_MEMBERS = [
   {
     id: 1,
@@ -63,7 +62,6 @@ export const TEAM_MEMBERS = [
   },
 ];
 
-
 export const CAREER_CATEGORIES = [
   "View all",
   "Development",
@@ -111,6 +109,20 @@ export const CAREER_JOBS = [
       "We're seeking an experienced SEO marketing manager to elevate our online presence.",
     tags: ["Remote", "Full time"],
   },
+  {
+    id: 6,
+    title: "Business Analyst",
+    description:
+      "We're seeking a business analyst to help us make data-driven decisions.",
+    tags: ["Remote", "Full time"],
+  },
+  {
+    id: 7,
+    title: "Full Stack Developer",
+    description:
+      "We're seeking a talented full stack developer to join our team.",
+    tags: ["Remote", "Full time"],
+  },
 ];
 
 export const EVENTS_SECTION = {
@@ -130,7 +142,8 @@ export const EVENTS_LIST = [
       month: "March",
       year: "2025",
     },
-    image: "/assets/pages/company/events/abfa687f142cc5e3fd08acc7b4c32f822bbc24bd.png",
+    image:
+      "/assets/pages/company/events/abfa687f142cc5e3fd08acc7b4c32f822bbc24bd.png",
     status: null,
   },
   {
@@ -143,7 +156,8 @@ export const EVENTS_LIST = [
       month: "Jan",
       year: "2026",
     },
-    image: "/assets/pages/company/events/d23b728e7fc907c12df4fbf50c417ef159965f3c.png",
+    image:
+      "/assets/pages/company/events/d23b728e7fc907c12df4fbf50c417ef159965f3c.png",
     status: "Upcoming",
   },
   {
@@ -156,7 +170,8 @@ export const EVENTS_LIST = [
       month: "May",
       year: "2026",
     },
-    image: "/assets/pages/company/events/f5c647afeff36760e69c064b45463a2a96f292b5.png",
+    image:
+      "/assets/pages/company/events/f5c647afeff36760e69c064b45463a2a96f292b5.png",
     status: "Upcoming",
   },
 ];
