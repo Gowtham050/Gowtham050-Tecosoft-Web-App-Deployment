@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import svgPaths from "../../imports/svg-wnzeyhu3eg";
 import clsx from "clsx";
@@ -113,6 +113,7 @@ type EventCardProps = {
   };
   image: string;
   status?: string | null;
+  isActive?: boolean;
 };
 
 function EventCard({
@@ -121,9 +122,18 @@ function EventCard({
   date,
   image,
   status,
+  isActive = false,
 }: EventCardProps) {
   return (
-    <div className="flex flex-col overflow-hidden rounded-xl w-full hover:shadow-xl transition-shadow">
+    <div
+      className={clsx(
+        "flex flex-col overflow-hidden rounded-xl w-full transition-all duration-300",
+        "md:hover:shadow-xl",
+        isActive
+          ? "shadow-2xl scale-[1.02] md:scale-100"
+          : "shadow-md md:shadow-none scale-100"
+      )}
+    >
       {/* Image Section */}
       <div className="relative h-44 sm:h-52 w-full overflow-hidden">
         <Image
@@ -164,6 +174,33 @@ function EventCard({
 }
 
 export default function EventsSection() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.innerWidth >= 768) return; // Disable scroll tracking on desktop
+
+    const onScroll = () => {
+      const cards = scrollRef.current?.querySelectorAll("[data-event-card]");
+      if (!cards) return;
+
+      const viewportCenter = window.innerHeight / 2;
+
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        // Check if card is centered in viewport
+        if (rect.top < viewportCenter && rect.bottom > viewportCenter) {
+          setActiveIndex(index);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section
       className="bg-white flex flex-col gap-12 sm:gap-16 lg:gap-20 overflow-hidden px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-28 py-12 sm:py-16 lg:py-20 w-full max-w-[1600px] mx-auto"
@@ -183,16 +220,21 @@ export default function EventsSection() {
       </div>
 
       {/* Events Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full">
-        {EVENTS_LIST.map((event) => (
-          <EventCard
-            key={event.id}
-            title={event.title}
-            description={event.description}
-            date={event.date}
-            image={event.image}
-            status={event.status}
-          />
+      <div
+        ref={scrollRef}
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full snap-y snap-mandatory md:snap-none"
+      >
+        {EVENTS_LIST.map((event, index) => (
+          <div key={event.id} data-event-card className="snap-center">
+            <EventCard
+              title={event.title}
+              description={event.description}
+              date={event.date}
+              image={event.image}
+              status={event.status}
+              isActive={activeIndex === index}
+            />
+          </div>
         ))}
       </div>
     </section>

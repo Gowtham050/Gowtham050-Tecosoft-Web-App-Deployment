@@ -22,7 +22,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
 
   return (
     <div
-      className={`group relative h-[320px] w-full overflow-hidden rounded-2xl cursor-pointer transition-all duration-300 ${
+      className={`group relative h-[320px] w-full overflow-hidden rounded-2xl lg:cursor-pointer cursor-default transition-all duration-300 pointer-events-none lg:pointer-events-auto ${
         shouldShowContent ? "scale-[1.02]" : ""
       }`}
     >
