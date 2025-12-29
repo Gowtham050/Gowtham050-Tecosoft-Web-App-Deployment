@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface BenefitCardProps {
@@ -7,6 +7,7 @@ interface BenefitCardProps {
   title: string;
   description: string;
   bgColor: string;
+  isActive?: boolean;
 }
 
 function BenefitCard({
@@ -14,10 +15,13 @@ function BenefitCard({
   title,
   description,
   bgColor,
+  isActive = false,
 }: BenefitCardProps) {
   return (
     <div
-      className="w-full h-full relative rounded-[20px] transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer"
+      className={`w-full h-full relative rounded-[20px] transition-transform duration-300 ease-in-out sm:hover:scale-105 cursor-pointer ${
+        isActive ? "scale-[1.05]" : ""
+      }`}
       style={{ backgroundColor: bgColor }}
     >
       <div className="flex flex-col h-full">
@@ -57,6 +61,33 @@ export function WhyUsSection({
 }: {
   content?: any;
 }) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.innerWidth >= 640) return; // Disable scroll tracking on desktop
+
+    const onScroll = () => {
+      const cards = scrollRef.current?.querySelectorAll("[data-benefit-card]");
+      if (!cards) return;
+
+      const viewportCenter = window.innerHeight / 2;
+
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        // Check if card is centered in viewport
+        if (rect.top < viewportCenter && rect.bottom > viewportCenter) {
+          setActiveIndex(index);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="bg-white relative w-full">
       <div className="flex flex-col items-center w-full">
@@ -91,27 +122,35 @@ export function WhyUsSection({
             {/* Benefits Grid */}
 
             {whyDigitizeContent.benefits.length === 6 ? (
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-[20px] lg:gap-[24px] 2xl:gap-[36px] w-full lg:flex-1 auto-rows-fr">
-                {whyDigitizeContent.benefits?.map((item: any) => (
-                  <div key={item.id} className="h-full">
+              <div
+                ref={scrollRef}
+                className="grid grid-cols-1 lg:grid-cols-3 gap-[20px] lg:gap-[24px] 2xl:gap-[36px] w-full lg:flex-1 auto-rows-fr snap-y snap-mandatory sm:snap-none"
+              >
+                {whyDigitizeContent.benefits?.map((item: any, index: number) => (
+                  <div key={item.id} data-benefit-card className="h-full snap-center">
                     <BenefitCard
                       iconPath={item.icon}
                       title={item.title}
                       description={item.description}
                       bgColor={item.bgColor}
+                      isActive={activeIndex === index}
                     />
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-[20px] lg:gap-[24px] 2xl:gap-[36px] w-full lg:flex-1 auto-rows-fr">
-                {whyDigitizeContent.benefits?.map((item: any) => (
-                  <div key={item.id} className="h-full">
+              <div
+                ref={scrollRef}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-[20px] lg:gap-[24px] 2xl:gap-[36px] w-full lg:flex-1 auto-rows-fr snap-y snap-mandatory sm:snap-none"
+              >
+                {whyDigitizeContent.benefits?.map((item: any, index: number) => (
+                  <div key={item.id} data-benefit-card className="h-full snap-center">
                     <BenefitCard
                       iconPath={item.icon}
                       title={item.title}
                       description={item.description}
                       bgColor={item.bgColor}
+                      isActive={activeIndex === index}
                     />
                   </div>
                 ))}

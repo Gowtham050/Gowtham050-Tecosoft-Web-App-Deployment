@@ -32,7 +32,7 @@ const HomePage = () => {
       delay: 0,
       route: "/analytics",
       type: "video",
-      videoPath: "/assets/video/analytics.mp4",
+      videoPath: "/assets/video/analytics-compress.mp4",
     },
   ];
 
