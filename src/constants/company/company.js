@@ -1,10 +1,10 @@
 export const companyMissionSection = {
   heading: {
-    line1: "Build, Learn and",
+    line1: "Build What Matters.",
     line2: "Grow with us.",
   },
   description:
-    "We empower organizations to transform intricate processes into transparent, data-informed strategies. Through the fusion of intelligent software and user-centric design, we equip teams to enhance productivity, accelerate responsiveness, and achieve scalable growth. Our solutions drive efficiency and clarity, ensuring every decision is grounded in actionable insights.",
+    "At Tecosoft Digital Solutions, we build intelligent digital platforms and end-to-end solutions that help organizations simplify complex processes and gain clear, data-driven visibility. By combining robust platforms with user-centric design, we enable teams to work efficiently, respond faster, and scale with confidence. Our solutions bring clarity, control, and actionable insights—ensuring every decision is informed and impactful. ",
   ctaButton: {
     text: "Join our team",
     link: "/careers",
@@ -78,22 +78,6 @@ export const CAREER_CATEGORIES = [
 export const CAREER_JOBS = [
   {
     id: 1,
-    title: "Product Designer",
-    description:
-      "We're seeking a passionate product designer to help shape the future of our user experience.",
-    tags: ["Remote", "Full time"],
-    category: "Design",
-  },
-  {
-    id: 2,
-    title: "Engineering Manager",
-    description:
-      "We're seeking an experienced engineering manager to guide our talented team.",
-    tags: ["Remote", "Full time"],
-    category: "Management",
-  },
-  {
-    id: 3,
     title: "Customer Success Manager",
     description:
       "We're seeking a customer success manager to ensure client satisfaction.",
@@ -101,54 +85,96 @@ export const CAREER_JOBS = [
     category: "Customer services",
   },
   {
-    id: 4,
-    title: "Account Executive",
+    id: 2,
+    title: "Pre-Sales Executive",
     description:
-      "We're seeking an account executive to drive growth and build relationships.",
+      "We're seeking a pre sales executive to ensure client satisfaction.",
     tags: ["Remote", "Full time"],
     category: "Operations",
   },
-  {
-    id: 5,
-    title: "SEO Marketing Manager",
-    description:
-      "We're seeking an experienced SEO marketing manager to elevate our online presence.",
-    tags: ["Remote", "Full time"],
-    category: "Marketing",
-  },
-  {
-    id: 6,
-    title: "Business Analyst",
-    description:
-      "We're seeking a business analyst to help us make data-driven decisions.",
-    tags: ["Remote", "Full time"],
-    category: "Operations",
-  },
-  {
-    id: 7,
-    title: "Full Stack Developer",
-    description:
-      "We're seeking a talented full stack developer to join our team.",
-    tags: ["Remote", "Full time"],
-    category: "Development",
-  },
+
+  // {
+  //   id: 2,
+  //   title: "Engineering Manager",
+  //   description:
+  //     "We're seeking an experienced engineering manager to guide our talented team.",
+  //   tags: ["Remote", "Full time"],
+  //   category: "Management",
+  // },
+
+  // {
+  //   id: 3,
+  //   title: "Product Designer",
+  //   description:
+  //     "We're seeking a passionate product designer to help shape the future of our user experience.",
+  //   tags: ["Remote", "Full time"],
+  //   category: "Design",
+  // },
+  // {
+  //   id: 3,
+  //   title: "Customer Success Manager",
+  //   description:
+  //     "We're seeking a customer success manager to ensure client satisfaction.",
+  //   tags: ["Remote", "Full time"],
+  //   category: "Customer services",
+  // },
+  // {
+  //   id: 3,
+  //   title: "Customer Success Manager",
+  //   description:
+  //     "We're seeking a customer success manager to ensure client satisfaction.",
+  //   tags: ["Remote", "Full time"],
+  //   category: "Customer services",
+  // },
+  // {
+  //   id: 4,
+  //   title: "Account Executive",
+  //   description:
+  //     "We're seeking an account executive to drive growth and build relationships.",
+  //   tags: ["Remote", "Full time"],
+  //   category: "Operations",
+  // },
+  // {
+  //   id: 5,
+  //   title: "SEO Marketing Manager",
+  //   description:
+  //     "We're seeking an experienced SEO marketing manager to elevate our online presence.",
+  //   tags: ["Remote", "Full time"],
+  //   category: "Marketing",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Business Analyst",
+  //   description:
+  //     "We're seeking a business analyst to help us make data-driven decisions.",
+  //   tags: ["Remote", "Full time"],
+  //   category: "Operations",
+  // },
+  // {
+  //   id: 7,
+  //   title: "Full Stack Developer",
+  //   description:
+  //     "We're seeking a talented full stack developer to join our team.",
+  //   tags: ["Remote", "Full time"],
+  //   category: "Development",
+  // },
 ];
 
 export const EVENTS_SECTION = {
-  heading: "Where Ideas Meet Action",
+  heading: "From Conversations to Collaboration",
   description:
-    "From team meetups and workshops to industry events and internal celebrations, we believe good work happens when people connect. Our events are about sharing knowledge, building culture, and occasionally stepping away from screens.",
+    "From major industry exhibitions to focused technology forums, we engage where ideas are tested and solutions are evaluated. These events help us connect with the ecosystem, gather insights, and present our platforms in environments that reflect real operational needs.",
 };
 
 export const EVENTS_LIST = [
   {
     id: 1,
-    title: "Tech Innovation Summit",
+    title: "IMTEX 2025",
     description:
-      "A future-focused gathering exploring AI, cloud, and modern software practices through expert talks, live demos, and real-world case studies designed for teams building scalable digital products.",
+      "A future-focused manufacturing gathering that brings together machine tool builders, technology providers, and industry leaders to explore smart manufacturing, automation, and digital transformation. Through live machine demonstrations, real-world use cases, and expert-led discussions, IMTEX showcases how modern production practices, connected systems, and data-driven decision-making are shaping the next generation of factories.",
     date: {
-      day: "12",
-      month: "March",
+      day: "23",
+      month: "Jan",
       year: "2025",
     },
     image:
@@ -157,26 +183,26 @@ export const EVENTS_LIST = [
   },
   {
     id: 2,
-    title: "Cybersecurity Workshop",
+    title: "BENGALURU TECH SUMMIT 2025",
     description:
-      "An in-depth session covering threat detection, data protection, and secure development practices, helping teams understand real cyber risks and apply preventive strategies across systems and workflows.",
+      "A large-scale technology gathering designed to showcase ideas, innovations, and practical applications across AI, cloud, deep tech, and modern software practices. Through keynote sessions, expert panels, startup showcases, and live demonstrations, the summit highlights how technology is being applied to solve real-world challenges and create new business opportunities.",
     date: {
-      day: "08",
-      month: "Jan",
-      year: "2026",
+      day: "09",
+      month: "Nov",
+      year: "2025",
     },
     image:
       "/assets/pages/company/events/d23b728e7fc907c12df4fbf50c417ef159965f3c.png",
-    status: "Upcoming",
+    status: null,
   },
   {
     id: 3,
-    title: "Developer Hackathon 2026",
+    title: "IMTOF 2026",
     description:
-      "A high-energy 48-hour coding challenge where developers collaborate, innovate, and build functional solutions, pushing technical creativity, teamwork, and problem-solving under real-time constraints.",
+      "A forward-looking industry platform where manufacturing technology, innovation, and real-world applications converge—and Tecosoft Digital Solutions is proud to be an exhibitor. ",
     date: {
-      day: "20",
-      month: "May",
+      day: "02",
+      month: "Apr",
       year: "2026",
     },
     image:

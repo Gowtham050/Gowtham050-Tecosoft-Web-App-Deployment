@@ -4,8 +4,8 @@ import React from "react";
 import ManufacturingConditionMonitoring  from "./manufacturing-condition-monitoring";
 
 export const metadata: Metadata = {
-  title: "home page tech soft",
-  description: "home page tech soft",
+  title: "Tech Soft - Manufacturing Condition Monitoring",
+  description: "Tech Soft Manufacturing Condition Monitoring Solution Page",
 };
 
 export default function page() {

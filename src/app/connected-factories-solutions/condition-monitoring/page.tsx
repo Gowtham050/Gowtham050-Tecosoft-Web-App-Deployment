@@ -1,17 +1,17 @@
 // ***************************** Import packages ***********************************************
 import type { Metadata } from "next";
 import React from "react";
-import ProductionDigitization from "./maintenance-digitization";
+import ManufacturingConditionMonitoring  from "./condition-monitoring";
 
 export const metadata: Metadata = {
-  title: "Tech Soft - Maintenance Digitization",
-  description: "Tech Soft Maintenance Digitization Solution Page",
+  title: "Tech Soft - Condition Monitoring",
+  description: "Tech Soft Condition Monitoring Solution Page",
 };
 
 export default function page() {
   return (
     <>
-      <ProductionDigitization />
+      <ManufacturingConditionMonitoring />
     </>
   );
 }

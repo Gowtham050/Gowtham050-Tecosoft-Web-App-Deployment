@@ -148,7 +148,7 @@ export function WorkflowSection({ content }: any) {
       <div className="absolute content-stretch flex flex-col gap-[10px] lg:gap-[16px] items-center left-1/2 -translate-x-1/2 not-italic text-white top-[22px] lg:top-[30px] px-5 w-full max-w-[95%] lg:max-w-none">
         <p className=" font-semibold  leading-[1.3] lg:leading-normal relative shrink-0 text-[22px] sm:text-[26px] md:text-[32px] lg:text-[42px] text-center">
           {/* <span className="not-italic text-white">Workflow:</span> */}
-          <span className="block sm:inline">{` Workflow: A Connected Inspection Journey`}</span>
+          <span className="block sm:inline">{content.sectionTitle}</span>
         </p>
         <p className=" font-normal leading-[1.4] lg:leading-[24px] relative shrink-0 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] text-center w-full max-w-[90%] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[500px]">
           A simple, connected flow from setup to continuous improvement - short,

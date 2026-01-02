@@ -66,7 +66,7 @@ const Industry = () => {
       },
       {
         id: 3,
-        title: "Digital Twin Solution",
+        title: "Digital Twin Solutions",
         description:
           "A real-time virtual replica that simulates, monitors, and analyzes your operations—delivering insights to optimize performance, boost efficiency, and drive continuous improvement.",
         normalIcon: "/assets/icons/solutions/digital-twin.svg",

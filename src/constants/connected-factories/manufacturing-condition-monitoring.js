@@ -66,7 +66,7 @@ export const featuresContent = {
 };
 
 export const whyDigitizeContent = {
-  sectionTitle: "Why Manufacturing Condition Monitoring?",
+  sectionTitle: "Why  Condition Monitoring?",
   sectionDescription:
     "Manufacturing assets operate under varying loads and conditions. Manufacturing-focused condition monitoring provides early visibility into abnormal behaviour, enabling plants to prevent breakdowns, reduce energy losses, improve reliability and extend equipment life.",
   image:
@@ -109,6 +109,7 @@ export const whyDigitizeContent = {
 };
 
 export const workflowContent = {
+  sectionTitle: "Workflow : A Connected Health Check Journey",
   steps: [
     {
       id: 0,
@@ -140,7 +141,7 @@ export const workflowContent = {
       description:
         "Dashboards visualize live health status and generate alerts for abnormal conditions.",
       iconPath:
-        "/assets/pages/solutions/manufacturing-condition-monitoring/workflow/alert.svg",
+        "/assets/pages/solutions/condition-monitoring/workflow/alert.svg",
     },
     {
       id: 4,

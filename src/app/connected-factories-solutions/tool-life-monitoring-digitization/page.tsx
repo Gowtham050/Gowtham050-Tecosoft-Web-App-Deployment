@@ -4,8 +4,8 @@ import React from "react";
 import ProductionDigitization from "./tool-life-monitoring-digitization";
 
 export const metadata: Metadata = {
-  title: "home page tech soft",
-  description: "home page tech soft",
+  title: "Tech Soft - Tool Life Monitoring Digitization",
+  description: "Tech Soft Tool Life Monitoring Digitization Solution Page",
 };
 
 export default function page() {

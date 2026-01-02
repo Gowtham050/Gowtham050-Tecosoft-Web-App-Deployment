@@ -1,5 +1,5 @@
 export const heroContent = {
-  title: "Tool Life Monitoring ",
+  title: "Tool Life Monitoring & ",
   highlight: "Digitization",
   description:
     "A centralized, web-based platform for tool tracking, analytics, and real-time machine integration - empowering the Tool Management Team with total control and visibility.",
@@ -116,6 +116,7 @@ export const whyDigitizeContent = {
 };
 
 export const workflowContent = {
+  sectionTitle: "Workflow : A Connected Tool Life Journey",
   steps: [
     {
       id: 0,

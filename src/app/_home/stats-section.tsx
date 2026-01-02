@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { useInView, animate } from "framer-motion";
 import Image from "next/image";
+import { statsSection, stats } from "@/constants/home/banner";
 
 interface AnimatedStatProps {
   to: string;
@@ -49,54 +50,6 @@ const StatsSection = () => {
 
     return <span ref={ref}>0{suffix}</span>;
   };
-  const titleFirstLine = "Turning Operational Data into";
-  const titleSecondLine = "Actionable Intelligence";
-  const subtitle =
-    "Tecosoft turns operational and asset data into actionable intelligence with AI and Digital Twin technology - enabling predictive insights, optimized workflows, and reliable, efficient, data-driven decision making";
-
-  const stats = [
-    {
-      icon: "./assets/icons/stats/machine.svg",
-      alt: "Ix machine a filled",
-      number: "500+",
-      description: "Machines/Assets Connected",
-    },
-    {
-      icon: "./assets/icons/stats/redo-alt.svg",
-      alt: "Solid redo alt",
-      number: "5,00,000+",
-      unit: "Cycles",
-      description: "Production Cycles Tracked",
-    },
-    {
-      icon: "./assets/icons/stats/time-fill.svg",
-      alt: "Mingcute time fill",
-      number: "20,000+",
-      unit: "Hours",
-      description: "Downtime Monitored",
-    },
-    {
-      icon: "./assets/icons/stats/bxs-data.svg",
-      alt: "Bxs data",
-      number: "2,00,000+",
-      unit: "Daily",
-      description: "Data Points Analyzed",
-    },
-    {
-      icon: "./assets/icons/stats/mdi-report-box.svg",
-      alt: "Mdi report box",
-      number: "50+",
-      unit: "Daily",
-      description: "Digital Reports Generated",
-    },
-    {
-      icon: "./assets/icons/stats/settings-rounded.svg",
-      alt: "Material symbols",
-      number: "5000+",
-      unit: "Daily",
-      description: "Tools Monitored",
-    },
-  ];
 
   const StatCard: React.FC<StatCardProps> = ({
     icon,
@@ -152,14 +105,14 @@ const StatsSection = () => {
       <div className="flex flex-col w-full max-w-[90%] items-center gap-4 md:gap-6 relative z-10">
         <div className="inline-flex flex-col items-center gap-1.5 relative">
           <div className="relative w-full text-center px-2 font-medium text-[#333333] text-3xl sm:text-3xl md:text-4xl lg:text-[48px] tracking-[0] leading-tight lg:leading-[48px]">
-            {titleFirstLine}
+            {statsSection.titleFirstLine}
           </div>
           <div className="relative w-full text-center px-2 bg-[linear-gradient(227deg,rgba(0,183,255,1)_0%,rgba(14,176,92,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] font-semibold text-3xl sm:text-3xl md:text-4xl lg:text-[48px] tracking-[0] leading-tight lg:leading-[48px]">
-            {titleSecondLine}
+            {statsSection.titleSecondLine}
           </div>
         </div>
         <p className="relative w-full font-normal text-[#333333] text-sm sm:text-base md:text-lg text-center tracking-[0] leading-6 md:leading-7 px-2">
-          {subtitle}
+          {statsSection.subtitle}
         </p>
       </div>
       <div className="w-full sm:max-w-[90%] relative z-10">

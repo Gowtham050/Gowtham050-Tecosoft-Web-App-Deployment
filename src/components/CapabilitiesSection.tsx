@@ -44,7 +44,7 @@ export default function CapabilitiesSection() {
             </p>
             <p className="font-medium leading-[18px] text-[14px] w-full">
               Seamlessly connect, monitor, and manage CNC, VMC, HMC, Molding,
-              and laser systems in real time.
+              and various type of machines in real time.
             </p>
           </div>
 

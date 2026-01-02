@@ -149,10 +149,10 @@ function EventCard({
       {/* Content Section */}
       <div className="bg-[#f5f5f5] flex flex-col gap-5 sm:gap-6 p-5 sm:p-6 w-full">
         <div className="flex flex-col gap-3">
-          <h3 className="font-semibold text-lg sm:text-xl lg:text-[22px] text-[#282828] leading-snug">
+          <h3 className="font-semibold text-lg sm:text-xl lg:text-[20px] text-[#282828] leading-snug">
             {title}
           </h3>
-          <p className="font-normal text-sm sm:text-base text-[#8e8e8e] leading-relaxed line-clamp-3">
+          <p className="font-normal text-sm sm:text-base text-[#8e8e8e] leading-relaxed line-clamp-4">
             {description}
           </p>
         </div>

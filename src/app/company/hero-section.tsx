@@ -39,9 +39,14 @@ export default function HeroSection() {
       <div className="absolute content-stretch flex flex-col gap-4 md:gap-6 items-start left-3 right-3 sm:left-8 sm:right-8 md:left-12 md:right-12 lg:left-[90px] lg:right-[90px] top-23 sm:top-24 md:top-32 lg:top-[140px] max-w-[1312px] mx-auto">
         <BackgroundImageAndText text="Our Company" />
         <div className="content-stretch flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative shrink-0 w-full">
-          <p className="font-semibold leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-3xl sm:text-4xl md:text-5xl lg:text-[64px] lg:leading-[75px] w-full md:max-w-[65%] lg:max-w-[800px]">
-            We Build Products People Actually Use
-          </p>
+          <div>
+            <h1 className="font-semibold leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-3xl  lg:text-[36px] lg:leading-[50px] w-full lg:max-w-[800px]">
+              Engineering Intelligent Digital Solution
+            </h1>
+            <h4 className="font-medium leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-xl  lg:text-[18px] lg:leading-[42px] w-full md:max-w-[65%] lg:max-w-[800px]">
+              platforms and services built for real-world use
+            </h4>
+          </div>
           <div
             className=" hidden lg:block h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-[120px] lg:w-[110px] relative shrink-0"
             data-name="Path 0"

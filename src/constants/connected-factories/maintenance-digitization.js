@@ -108,6 +108,7 @@ export const whyDigitizeContent = {
 };
 
 export const workflowContent = {
+  sectionTitle: "Workflow : A Connected Maintenance Journey",
   steps: [
     {
       id: 0,
@@ -127,9 +128,9 @@ export const workflowContent = {
     },
     {
       id: 2,
-      title: "EAGLE ↔ Inspection Sync",
+      title: "EAGLE  ↔ Maintenance Sync",
       description:
-        "EAGLE and the Inspection Digitization module synchronize through the centralized server in real-time.",
+        "EAGLE and the Maintenance Digitization module synchronize through the centralized server in real time.",
       iconPath:
         "/assets/pages/solutions/maintenance-digitization/workflow/link-square.svg",
     },

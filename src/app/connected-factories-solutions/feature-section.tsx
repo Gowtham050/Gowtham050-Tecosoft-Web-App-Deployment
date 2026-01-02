@@ -66,14 +66,13 @@ const FEATURES_DATA: FeatureCardData[] = [
   },
   {
     icon: "tick-circle",
-    title: "Manufacturing Condition Monitoring",
-    routeName:
-      "/connected-factories-solutions/manufacturing-condition-monitoring",
-    description: "AI-powered inspections and instant defect analysis.",
+    title: "Condition Monitoring",
+    routeName: "/connected-factories-solutions/condition-monitoring",
+    description: "Real-time machine health. Zero surprises.",
     bullets: [
-      { text: "Digital inspections" },
-      { text: "OK / NC classification" },
-      { text: "Defect trends" },
+      { text: "Sensor Integration" },
+      { text: "Automated Interlocks" },
+      { text: "Condition Based Maintenance" },
     ],
   },
 ];

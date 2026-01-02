@@ -382,11 +382,11 @@ export default function CareersSection() {
         </div>
 
         {/* Category Filter */}
-        <CategoryFilter
+        {/* <CategoryFilter
           categories={CAREER_CATEGORIES}
           activeCategory={activeCategory}
           onCategoryChange={handleCategoryChange}
-        />
+        /> */}
 
         {/* Job Listings */}
         <div className="flex flex-col gap-4 sm:gap-5 w-full">

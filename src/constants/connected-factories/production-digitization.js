@@ -12,10 +12,9 @@ export const heroContent = {
 };
 
 export const featuresContent = {
-  sectionTitle: "Your All-in-One Intelligence Platform",
+  sectionTitle: "Your All-in-One Production Digitization Platform",
   sectionDescription:
-    "Tecosoft Analytics unifies data across manufacturing, energy, logistics, and healthcare, turning complex information into real-time insights that power smarter decisions and greater operational efficiency.",
-
+    "Tecosoft digitizes shopfloor operations by connecting machines, production data, and workflows into a single real-time view—enabling better visibility, improved productivity, and informed decision-making across manufacturing operations.",
   backgroundImage:
     "/assets/pages/solutions/production-digitization/3a380a8126032af34701f98b609fdbd9e932781c.png",
   features: [
@@ -157,6 +156,7 @@ export const benefitsContent = {
 };
 
 export const workflowContent = {
+  sectionTitle: "Workflow : A Connected Production Journey",
   steps: [
     {
       id: 0,
