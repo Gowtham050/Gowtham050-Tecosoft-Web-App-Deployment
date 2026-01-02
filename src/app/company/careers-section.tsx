@@ -352,59 +352,62 @@ export default function CareersSection() {
   const canSeeLess = visibleJobs > 5;
 
   return (
-    <section
-      className="flex flex-col gap-8 sm:gap-10 overflow-hidden py-12 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-28 w-full max-w-[1600px] mx-auto"
+    <div
       style={{
         backgroundImage:
           "linear-gradient(236.839deg, rgb(0, 188, 239) 6.4454%, rgb(0, 35, 99) 95.133%)",
       }}
-      aria-labelledby="careers-heading"
     >
-      {/* Header Section */}
-      <div className="flex flex-col gap-6 w-full">
-        <Badge text="We're Hiring!" variant="outline" width="w-[130px]" />
-        <div className="flex flex-col gap-2 sm:gap-3">
-          <h1
-            id="careers-heading"
-            className=" font-semibold   text-3xl sm:text-4xl lg:text-5xl xl:text-[56px] text-[#00ff84] leading-tight"
-          >
-            Be part of our missions
-          </h1>
-          <p className=" font-normal   text-base sm:text-lg lg:text-xl text-[#e4e4e4] leading-relaxed w-full">
-            We're always looking for people who care about craft, ask smart
-            questions, and enjoy solving meaningful problems. If you like
-            building things that make sense and actually ship, you'll fit right
-            in.
-          </p>
+      <section
+        className="flex flex-col gap-8 sm:gap-10 overflow-hidden py-12 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-28 w-full max-w-[1600px] mx-auto"
+        aria-labelledby="careers-heading"
+      >
+        {/* Header Section */}
+        <div className="flex flex-col gap-6 w-full">
+          <Badge text="We're Hiring!" variant="outline" width="w-[130px]" />
+          <div className="flex flex-col gap-2 sm:gap-3">
+            <h1
+              id="careers-heading"
+              className=" font-semibold   text-3xl sm:text-4xl lg:text-5xl xl:text-[56px] text-[#00ff84] leading-tight"
+            >
+              Be part of our missions
+            </h1>
+            <p className=" font-normal   text-base sm:text-lg lg:text-xl text-[#e4e4e4] leading-relaxed w-full">
+              We're always looking for people who care about craft, ask smart
+              questions, and enjoy solving meaningful problems. If you like
+              building things that make sense and actually ship, you'll fit
+              right in.
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* Category Filter */}
-      <CategoryFilter
-        categories={CAREER_CATEGORIES}
-        activeCategory={activeCategory}
-        onCategoryChange={handleCategoryChange}
-      />
+        {/* Category Filter */}
+        <CategoryFilter
+          categories={CAREER_CATEGORIES}
+          activeCategory={activeCategory}
+          onCategoryChange={handleCategoryChange}
+        />
 
-      {/* Job Listings */}
-      <div className="flex flex-col gap-4 sm:gap-5 w-full">
-        {jobsToDisplay.map((job) => (
-          <JobCard
-            key={job.id}
-            title={job.title}
-            description={job.description}
-            tags={job.tags}
-          />
-        ))}
-      </div>
-
-      {/* Action Buttons */}
-      {(hasMoreJobs || canSeeLess) && (
-        <div className="flex justify-center gap-3 w-full">
-          {hasMoreJobs && <LoadMoreButton onClick={handleLoadMore} />}
-          {canSeeLess && <SeeLessButton onClick={handleSeeLess} />}
+        {/* Job Listings */}
+        <div className="flex flex-col gap-4 sm:gap-5 w-full">
+          {jobsToDisplay.map((job) => (
+            <JobCard
+              key={job.id}
+              title={job.title}
+              description={job.description}
+              tags={job.tags}
+            />
+          ))}
         </div>
-      )}
-    </section>
+
+        {/* Action Buttons */}
+        {(hasMoreJobs || canSeeLess) && (
+          <div className="flex justify-center gap-3 w-full">
+            {hasMoreJobs && <LoadMoreButton onClick={handleLoadMore} />}
+            {canSeeLess && <SeeLessButton onClick={handleSeeLess} />}
+          </div>
+        )}
+      </section>
+    </div>
   );
 }

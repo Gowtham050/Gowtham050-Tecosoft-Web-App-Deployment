@@ -44,12 +44,14 @@ function CTAButton({ text }: CTAButtonProps) {
 export default function MissionSection() {
   return (
     <section className="w-full bg-[#e0f6fa]">
-      <div className="w-full overflow-clip">
+      <div className="w-full overflow-clip max-w-[1600px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-[150px] items-start px-4 sm:px-8 md:px-12 lg:px-[100px] py-8 sm:py-10 md:py-12 lg:py-[60px] w-full">
           {/* Heading Section */}
           <div className="w-full lg:w-[320px] lg:shrink-0">
             <h2 className="font-semibold leading-tight text-3xl sm:text-4xl lg:text-[40px] lg:leading-[44px] text-[#282828]">
-              <span className="block">{companyMissionSection.heading.line1}</span>
+              <span className="block">
+                {companyMissionSection.heading.line1}
+              </span>
               <span className="block text-[#0098d4]">
                 {companyMissionSection.heading.line2}
               </span>

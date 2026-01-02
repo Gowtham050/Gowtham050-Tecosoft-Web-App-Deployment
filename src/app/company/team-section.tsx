@@ -39,30 +39,53 @@ export default function TeamSection() {
           Meet our team
         </h2>
         <p className="mt-4 text-base text-[#8e8e8e]">
-          We're designers, developers, strategists, and problem-solvers who
-          believe good products come from clear thinking and strong
-          collaboration.
+          We bring together design, engineering, and strategy to build
+          intelligent digital platforms and solutions through collaboration and
+          clear, outcome-focused thinking.
         </p>
       </div>
 
       {/* Snap Scroll Container (Mobile/Tablet) / Grid (Desktop) */}
-      <div className="mx-auto mt-14 max-w-7xl">
+      <div ref={scrollRef} className="mx-auto mt-14 max-w-7xl space-y-8">
+        {/* ROW 1 → 3 cards */}
         <div
-          ref={scrollRef}
           className="
-            grid grid-cols-1 sm:grid-cols-2 gap-8
-            snap-y snap-mandatory
-            lg:grid-cols-3 sm:snap-none
-          "
+      grid grid-cols-1  lg:grid-cols-3
+      gap-8
+      snap-y snap-mandatory sm:snap-none
+    "
         >
-          {TEAM_MEMBERS.map((member, index) => (
+          {TEAM_MEMBERS.slice(0, 3).map((member, index) => (
             <div key={member.id} data-team-card className="snap-center">
               <TeamCard
                 name={member.name}
                 role={member.role}
-                image={member.image}
                 description={member.description}
                 isActive={activeIndex === index}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* ROW 2 → 2 centered cards */}
+        <div
+          className="
+       grid grid-cols-1  
+      gap-8 lg:flex lg:justify-center lg:gap-8
+      snap-y snap-mandatory sm:snap-none
+    "
+        >
+          {TEAM_MEMBERS.slice(3, 5).map((member, index) => (
+            <div
+              key={member.id}
+              data-team-card
+              className="snap-center  lg:w-full lg:max-w-[360px] "
+            >
+              <TeamCard
+                name={member.name}
+                role={member.role}
+                description={member.description}
+                isActive={activeIndex === index + 3}
               />
             </div>
           ))}

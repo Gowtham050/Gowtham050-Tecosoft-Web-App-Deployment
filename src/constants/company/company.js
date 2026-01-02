@@ -14,52 +14,54 @@ export const companyMissionSection = {
 export const TEAM_MEMBERS = [
   {
     id: 1,
-    name: "Arjun Mehta",
-    role: "Chief Technology Officer",
-    image: "/assets/pages/company/team/arjun-mehta.png",
+    name: "S Pillai",
+    role: "Executive Advisor",
+    // image: "/assets/pages/company/team/arjun-mehta.png",
     description:
-      "Leads the company's technology vision, architecture, and engineering teams. Focused on building scalable, secure, and high-performance systems while turning business goals into practical, reliable tech solutions.",
+      "Offers strategic direction and mentorship to leadership, helping align Tecosoft’s platforms and solutions with long-term business objectives. ",
   },
   {
     id: 2,
-    name: "Ananya Verma",
-    role: "Data Scientist",
-    image: "/assets/pages/company/team/ananya-verma.png",
+    name: "P Thejesh",
+    role: "CEO",
+    // image: "/assets/pages/company/team/ananya-verma.png",
     description:
-      "Transforms raw data into clear insights using analytics and models. Helps teams make smarter decisions by spotting patterns and predicting trends.",
+      "Provides strategic direction and leadership, driving Tecosoft’s vision of building intelligent digital platforms and scalable solutions while fostering long-term growth and strong customer partnerships ",
   },
   {
     id: 3,
-    name: "Priya Nair",
-    role: "Content Strategist",
-    image: "/assets/pages/company/team/priya-nair.png",
+    name: "B Vivek",
+    role: "CTO",
+    // image: "/assets/pages/company/team/priya-nair.png",
     description:
-      "Shapes compelling content aligned with brand goals and user intent. Drives engagement through clarity, consistency, and storytelling.",
+      "Leads technology strategy and platform architecture, ensuring the delivery of secure, scalable, and high-performance digital platforms and solutions. ",
   },
   {
     id: 4,
-    name: "Riya Malhotra",
-    role: "HR Manager",
-    image: "/assets/pages/company/team/riya-malhotra.png",
+    // name: "PANISH DUDDA",
+    name: "Panish Dudda",
+    role: "Director – Business Development",
+    // image: "/assets/pages/company/team/riya-malhotra.png",
     description:
-      "Oversees hiring, culture, and people operations. Focused on growth, compliance, and building a healthy workplace.",
+      "Drives business growth by building strategic partnerships, understanding customer needs, and aligning Tecosoft’s platforms and solutions with real-world business challenges. ",
   },
   {
     id: 5,
-    name: "Vikram Singh",
-    role: "Lead UX/UI Designer",
-    image: "/assets/pages/company/team/vikramsingh.png",
+    // name: "VISHWANATH RAMANAKOPPA",
+    name: "Vikramsingh Ramanakoppa",
+    role: "Director – Product Devlivery",
+    // image: "/assets/pages/company/team/vikramsingh.png",
     description:
-      "Leads user-centered design across products, turning complex ideas into intuitive and visually clean experiences.",
+      "Oversees end-to-end product and solution delivery, ensuring timely execution, quality outcomes, and seamless coordination between technology, operations, and customers. ",
   },
-  {
-    id: 6,
-    name: "Karan Kapoor",
-    role: "Head of Marketing",
-    image: "/assets/pages/company/team/karankapoor.png",
-    description:
-      "Drives brand, growth, and campaign strategy with a strong focus on data-driven marketing and measurable outcomes.",
-  },
+  // {
+  //   id: 6,
+  //   name: "Karan Kapoor",
+  //   role: "Head of Marketing",
+  //   image: "/assets/pages/company/team/karankapoor.png",
+  //   description:
+  //     "Drives brand, growth, and campaign strategy with a strong focus on data-driven marketing and measurable outcomes.",
+  // },
 ];
 
 export const CAREER_CATEGORIES = [
