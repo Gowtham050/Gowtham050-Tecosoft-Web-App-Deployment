@@ -4,8 +4,8 @@ import React from "react";
 import InspectionDigitizationHomePage from "./inspection-digitization";
 
 export const metadata: Metadata = {
-  title: "Tech Soft - Inspection Digitization",
-  description: "Tech Soft Inspection Digitization Solution Page",
+  title: "Tecosoft - Inspection Digitization",
+  description: "Tecosoft Inspection Digitization Solution Page",
 };
 
 export default function page() {

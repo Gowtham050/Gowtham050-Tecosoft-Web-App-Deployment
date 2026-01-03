@@ -11,17 +11,17 @@ import svgPaths from "../../imports/svg-zvmjtzwbe4";
 const industries = [
   {
     id: 0,
-    title: "Smart Energy Management",
+    title: "Manufacturing Digital Twin",
     subtitle: "Smart Energy Management",
     description:
-      "Forecast, optimize, and automate energy efficiency across utilities and lines. Build a digital energy twin and let AI reduce cost, peaks, and carbon.",
+      "Mirror your shop floor real-time from machines and tools to lines and utilities to predict ,simulate and optimize production.",
     image:
       "/assets/pages/digital-twin-platform/5d4f19825559777cc57fee70478564d07d866ce7.png",
     tags: [
-      "Line & Cell Modeling",
-      "Condition & Process Twin",
-      "Anomaly & RUL",
-      "Scenario Simulation",
+      "OEE",
+      "ThroughputQuality",
+      "TraceabilityEnergy",
+      "UtilitiesWhat-If Simulation",
     ],
   },
   {
@@ -183,13 +183,13 @@ function IndustryCard({ industry, isActive, onClick }: IndustryCardProps) {
       return 582; // Large desktops (1400px+, optimized for 1576px)
     } else {
       // Below 600px: hide inactive cards (single active card display)
-      if (width < 450) return 0;  // Hidden - single card view
-      if (width < 500) return 0;  // Hidden - single card view
-      if (width < 576) return 0;  // Hidden - single card view
-      if (width < 600) return 0;  // Hidden - single card view
+      if (width < 450) return 0; // Hidden - single card view
+      if (width < 500) return 0; // Hidden - single card view
+      if (width < 576) return 0; // Hidden - single card view
+      if (width < 600) return 0; // Hidden - single card view
       // 600px+: multi-card display
-      if (width < 650) return 80;  // Medium mobile (600-649px)
-      if (width < 768) return 85;  // Large mobile (650-767px)
+      if (width < 650) return 80; // Medium mobile (600-649px)
+      if (width < 768) return 85; // Large mobile (650-767px)
       if (width < 800) return 85; // Small tablets (768-799px) - optimized for better fit
       if (width < 992) return 100; // Small tablets (800-991px)
       if (width < 1024) return 110; // Tablets (992-1023px)
@@ -615,8 +615,13 @@ function IndustriesCarousel() {
         // Ensure we're not overshooting - for smaller screens, be more aggressive
         if (width >= 600 && width < 768) {
           // For 600-767px range, ensure active card is always fully visible
-          const estimatedTotalWidth = widthBeforeActive + slideWidth + marginBuffer;
-          if (estimatedTotalWidth > containerWidth && slidePosition === 0 && index > 0) {
+          const estimatedTotalWidth =
+            widthBeforeActive + slideWidth + marginBuffer;
+          if (
+            estimatedTotalWidth > containerWidth &&
+            slidePosition === 0 &&
+            index > 0
+          ) {
             // Force slide to at least position 1 if card 2+ is active
             slidePosition = Math.min(index, Math.max(1, index - 1));
           }

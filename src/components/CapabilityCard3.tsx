@@ -9,7 +9,7 @@ export default function CapabilityCard3() {
       logo: "/assets/platform/eagle/capability/ethernet.png",
     },
     { name: "wifi", logo: "/assets/platform/eagle/capability/wifi.png" },
-    { name: "GSM", logo: "/assets/platform/eagle/capability/gsm-module.png" },
+    { name: "GSM", logo: "/assets/platform/eagle/capability/gsm.png" },
   ];
 
   return (
@@ -17,7 +17,10 @@ export default function CapabilityCard3() {
       <p className="font-semibold leading-tight sm:leading-snug md:leading-normal lg:leading-[36px] xl:leading-[40px] not-italic relative shrink-0 text-white text-base sm:text-lg md:text-xl lg:text-[31px] xl:text-[34px]">{`Internet & Network Connectivity`}</p>
 
       <div className="relative overflow-hidden w-full">
-        <div className="flex animate-scroll gap-6 sm:gap-8 md:gap-10 lg:gap-[60px] xl:gap-[70px]" style={{ width: 'max-content' }}>
+        <div
+          className="flex animate-scroll gap-6 sm:gap-8 md:gap-10 lg:gap-[60px] xl:gap-[70px]"
+          style={{ width: "max-content" }}
+        >
           {/* Duplicate multiple times for seamless loop */}
           {[...protocols, ...protocols, ...protocols].map((protocol, index) => (
             <div

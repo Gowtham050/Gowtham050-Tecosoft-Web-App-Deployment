@@ -135,10 +135,10 @@ function EventCard({
       )}
     >
       {/* Image Section */}
-      <div className="relative h-44 sm:h-52 w-full overflow-hidden">
+      <div className="relative h-44 sm:h-52  overflow-hidden">
         <Image
           alt={title}
-          className="object-cover pointer-events-none"
+          className=" pointer-events-none"
           src={image}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

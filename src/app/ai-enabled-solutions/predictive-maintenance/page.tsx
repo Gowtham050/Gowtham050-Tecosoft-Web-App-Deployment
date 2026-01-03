@@ -2,8 +2,8 @@
 import type { Metadata } from "next";
 import Aienabled from "./predictive-maintenance";
 export const metadata: Metadata = {
-  title: "Tecosoft - AI Enabled Services",
-  description: "Tecosoft AI Enabled Services",
+  title: "Tecosoft - Predictive Maintenance",
+  description: "Tecosoft Predictive Maintenance Solutions",
 };
 
 export default function Home() {

@@ -177,8 +177,7 @@ export const EVENTS_LIST = [
       month: "Jan",
       year: "2025",
     },
-    image:
-      "/assets/pages/company/events/abfa687f142cc5e3fd08acc7b4c32f822bbc24bd.png",
+    image: "/assets/pages/company/events/imtex-2025.png",
     status: null,
   },
   {
@@ -191,8 +190,7 @@ export const EVENTS_LIST = [
       month: "Nov",
       year: "2025",
     },
-    image:
-      "/assets/pages/company/events/d23b728e7fc907c12df4fbf50c417ef159965f3c.png",
+    image: "/assets/pages/company/events/bts.png",
     status: null,
   },
   {
@@ -206,7 +204,7 @@ export const EVENTS_LIST = [
       year: "2026",
     },
     image:
-      "/assets/pages/company/events/f5c647afeff36760e69c064b45463a2a96f292b5.png",
+      "/assets/pages/company/events/imtof-2026.jpg",
     status: "Upcoming",
   },
 ];

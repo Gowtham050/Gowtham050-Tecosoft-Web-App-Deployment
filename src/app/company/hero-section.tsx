@@ -5,7 +5,7 @@ import Image from "next/image";
 // import imgRectangle64 from "figma:asset/e2644f0647e90369f388b877893beba3726480ec.png";
 
 const imgRectangle64 =
-  "/assets/pages/company/e2644f0647e90369f388b877893beba3726480ec.png";
+  "/assets/pages/company/banner.jpeg";
 
 type BackgroundImageAndTextProps = {
   text: string;

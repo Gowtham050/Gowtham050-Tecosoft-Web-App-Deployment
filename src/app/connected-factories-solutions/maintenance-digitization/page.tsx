@@ -4,8 +4,8 @@ import React from "react";
 import ProductionDigitization from "./maintenance-digitization";
 
 export const metadata: Metadata = {
-  title: "Tech Soft - Maintenance Digitization",
-  description: "Tech Soft Maintenance Digitization Solution Page",
+  title: "Tecosoft - Maintenance Digitization",
+  description: "Tecosoft Maintenance Digitization Solution Page",
 };
 
 export default function page() {
