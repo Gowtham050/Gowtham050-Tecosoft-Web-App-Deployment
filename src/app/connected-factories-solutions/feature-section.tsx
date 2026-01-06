@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import svgPaths from "../../imports/svg-0dlgmqgi5c";
 
 /* ===================== TYPES ===================== */
 
@@ -7,12 +8,216 @@ interface BulletPoint {
   text: string;
 }
 
+// Constants
+const GRADIENT_COLORS = {
+  from: "#00B7FF",
+  to: "#0EB05C",
+} as const;
+
 interface FeatureCardData {
   icon: "setting" | "tools" | "tick-circle" | "document";
   title: string;
   description: string;
   bullets: BulletPoint[];
   routeName: string;
+  variant: "gradient-first" | "white-first";
+}
+
+// Icon Components
+function SettingIcon({ isActive }: { isActive?: boolean }) {
+  return (
+    <svg
+      className="block size-full"
+      fill="none"
+      preserveAspectRatio="none"
+      viewBox="0 0 27 27"
+    >
+      <defs>
+        <linearGradient
+          id="settingGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="21.48%" stopColor={GRADIENT_COLORS.from} />
+          <stop offset="76.42%" stopColor={GRADIENT_COLORS.to} />
+        </linearGradient>
+      </defs>
+      <g
+        className={`[&>path]:transition-all [&>path]:duration-300 ${
+          isActive
+            ? "[&>path]:stroke-[url(#settingGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#settingGradient)]"
+            : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#settingGradient)]"
+        }`}
+      >
+        <path d={svgPaths.p3fcd8970} strokeLinecap="round" strokeWidth="2" />
+        <path d={svgPaths.p112e5b80} strokeWidth="2" />
+      </g>
+    </svg>
+  );
+}
+
+function ToolsIcon({ isActive }: { isActive?: boolean }) {
+  return (
+    <svg
+      className="block size-full"
+      fill="none"
+      preserveAspectRatio="none"
+      viewBox="0 0 25 25"
+    >
+      <defs>
+        <linearGradient id="toolsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="21.48%" stopColor={GRADIENT_COLORS.from} />
+          <stop offset="76.42%" stopColor={GRADIENT_COLORS.to} />
+        </linearGradient>
+      </defs>
+      <g
+        className={`[&>path]:transition-all [&>path]:duration-300 ${
+          isActive
+            ? "[&>path]:stroke-[url(#toolsGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#toolsGradient)]"
+            : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#toolsGradient)]"
+        }`}
+      >
+        <path d={svgPaths.p297286c0} strokeWidth="2" />
+        <path d={svgPaths.p1562d00} strokeLinejoin="round" strokeWidth="2" />
+        <path d={svgPaths.p304bc400} strokeLinejoin="round" strokeWidth="2" />
+      </g>
+    </svg>
+  );
+}
+
+function TickCircleIcon({ isActive }: { isActive?: boolean }) {
+  return (
+    <svg
+      className="block size-full"
+      fill="none"
+      preserveAspectRatio="none"
+      viewBox="0 0 30 30"
+    >
+      <defs>
+        <linearGradient
+          id="tickCircleGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="21.48%" stopColor={GRADIENT_COLORS.from} />
+          <stop offset="76.42%" stopColor={GRADIENT_COLORS.to} />
+        </linearGradient>
+      </defs>
+      <g
+        className={`[&>path]:transition-all [&>path]:duration-300 ${
+          isActive
+            ? "[&>path]:stroke-[url(#tickCircleGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#tickCircleGradient)]"
+            : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#tickCircleGradient)]"
+        }`}
+      >
+        <path
+          d={svgPaths.p1d400b00}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+        <path
+          d={svgPaths.p3ef5d96}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+      </g>
+    </svg>
+  );
+}
+
+function DocumentIcon({ isActive }: { isActive?: boolean }) {
+  return (
+    <svg
+      className="block size-full"
+      fill="none"
+      preserveAspectRatio="none"
+      viewBox="0 0 30 30"
+    >
+      <defs>
+        <linearGradient
+          id="documentGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="21.48%" stopColor={GRADIENT_COLORS.from} />
+          <stop offset="76.42%" stopColor={GRADIENT_COLORS.to} />
+        </linearGradient>
+      </defs>
+      <g
+        className={`[&>path]:transition-all [&>path]:duration-300 ${
+          isActive
+            ? "[&>path]:stroke-[url(#documentGradient)] lg:[&>path]:stroke-white lg:group-hover:[&>path]:stroke-[url(#documentGradient)]"
+            : "[&>path]:stroke-white group-hover:[&>path]:stroke-[url(#documentGradient)]"
+        }`}
+      >
+        <path
+          d={svgPaths.p23d97900}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+        <path
+          d={svgPaths.p1fb79c90}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+        <path
+          d={svgPaths.p2a1b3c40}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+        <path
+          d={svgPaths.p2a1b3c50}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+      </g>
+    </svg>
+  );
+}
+
+function IconBox({
+  icon,
+  variant,
+  isActive,
+}: {
+  icon: FeatureCardData["icon"];
+  variant: FeatureCardData["variant"];
+  isActive?: boolean;
+}) {
+  const iconMap = {
+    setting: <SettingIcon isActive={isActive} />,
+    tools: <ToolsIcon isActive={isActive} />,
+    "tick-circle": <TickCircleIcon isActive={isActive} />,
+    document: <DocumentIcon isActive={isActive} />,
+  };
+
+  return (
+    <div
+      className={`flex items-center justify-center rounded-lg p-3 lg:p-5 size-[50px] lg:size-[70px] shrink-0 [background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] group-hover:[background:white] transition-all duration-300 ${
+        isActive
+          ? "lg:[background:linear-gradient(226.55deg,#00B7FF_21.48%,#0EB05C_76.42%)] [background:white]"
+          : ""
+      }`}
+    >
+      <div className="size-[25px] lg:size-[30px]">{iconMap[icon]}</div>
+    </div>
+  );
 }
 
 /* ===================== DATA ===================== */
@@ -21,6 +226,8 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "setting",
     title: "Production Digitization",
+    variant: "white-first",
+
     routeName: "/connected-factories-solutions/production-digitization",
     description:
       "Digitize your production floor with real-time monitoring and analytics.",
@@ -33,6 +240,8 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "tools",
     title: "Tool Life Monitoring",
+    variant: "white-first",
+
     routeName:
       "/connected-factories-solutions/tool-life-monitoring-digitization",
     description: "Predict tool wear and prevent unexpected breakdowns.",
@@ -45,6 +254,8 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "tick-circle",
     title: "Quality Inspection",
+    variant: "white-first",
+
     routeName: "/connected-factories-solutions/inspection-digitization",
     description: "AI-powered inspections and instant defect analysis.",
     bullets: [
@@ -56,6 +267,8 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "document",
     title: "Maintenance Digitization",
+    variant: "white-first",
+
     routeName: "/connected-factories-solutions/maintenance-digitization",
     description: "Move from reactive to predictive maintenance.",
     bullets: [
@@ -67,6 +280,8 @@ const FEATURES_DATA: FeatureCardData[] = [
   {
     icon: "tick-circle",
     title: "Condition Monitoring",
+    variant: "white-first",
+
     routeName: "/connected-factories-solutions/condition-monitoring",
     description: "Real-time machine health. Zero surprises.",
     bullets: [
@@ -118,6 +333,8 @@ function FeatureCard({
   index: number;
   activeIndex: number | null;
 }) {
+  const { icon, title, description, bullets, variant, routeName } = data;
+
   const [isHovered, setIsHovered] = useState(false);
   const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
 
@@ -147,9 +364,12 @@ function FeatureCard({
         }
       `}
     >
-      <div className="p-6 flex flex-col gap-6">
+      <div className="p-6 flex flex-col gap-6 relative">
         {/* Header */}
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center  gap-4">
+          {/* Icon + Title + Description */}
+          <IconBox icon={icon} variant={variant} isActive={isActive} />
+
           <div>
             <h3
               className={`text-lg font-semibold ${
@@ -167,10 +387,10 @@ function FeatureCard({
             </p>
           </div>
 
-          <div className="hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity absolute top-6 right-6">
             <ArrowDesktop />
           </div>
-          <div className="lg:hidden">
+          <div className="lg:hidden absolute top-6 right-6">
             <ArrowMobile active={isActive} />
           </div>
         </div>

@@ -606,7 +606,7 @@ function FeatureSection() {
 
         {/* Card 5: Closed-loop System */}
         <motion.div
-          className="group lg:absolute bg-white box-border content-stretch cursor-pointer flex gap-[14px] xl:gap-[16px] lg:h-[11.67%] items-center lg:left-[11.9%] p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[73.21%] lg:w-[29.1%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-[1.02] transition-transform duration-500 ease-out"
+          className="group lg:absolute bg-white box-border content-stretch cursor-pointer flex gap-[14px] xl:gap-[16px] lg:h-[12.67%] items-center lg:left-[11.9%] p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[73.21%] lg:w-[29.1%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-[1.02] transition-transform duration-500 ease-out"
           custom={isMobile ? undefined : 4}
           initial={isMobile ? "visible" : "hidden"}
           whileInView={isMobile ? undefined : "visible"}
@@ -727,10 +727,10 @@ function FeatureSection() {
             </div>
           </div>
           <div className="basis-0 content-stretch flex flex-col gap-[4px] xl:gap-[6px] grow items-start min-h-px min-w-px not-italic relative shrink-0">
-            <p className="font-semibold leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
+            <p className="font-semibold leading-[18px] xl:leading-[22px] relative text-[#282828] text-[15px] xl:text-[18px]">
               Closed-loop System
             </p>
-            <p className="font-normal leading-[18px] xl:leading-[18px] relative text-[#8e8e8e] text-[12px] xl:text-[14px] line-clamp-2">
+            <p className="font-normal leading-[18px] xl:leading-[18px] relative text-[#8e8e8e] text-[12px] xl:text-[14px] line-clamp-3">
               Machine feedback enables safe, automated control and real-time
               edge response.
             </p>
@@ -739,7 +739,7 @@ function FeatureSection() {
 
         {/* Card 6: Connect • Collect • Control */}
         <motion.div
-          className="group lg:absolute bg-white box-border content-stretch cursor-pointer flex gap-[14px] xl:gap-[16px] lg:h-[13.29%] items-center lg:left-[42.6%] p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[44.17%] lg:w-[26.5%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-[1.02] transition-transform duration-500 ease-out"
+          className="group lg:absolute bg-white box-border content-stretch cursor-pointer flex gap-[14px] xl:gap-[16px] lg:h-[14.29%] items-center lg:left-[42.6%] p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[44.17%] lg:w-[26.5%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-[1.02] transition-transform duration-500 ease-out"
           custom={isMobile ? undefined : 5}
           initial={isMobile ? "visible" : "hidden"}
           whileInView={isMobile ? undefined : "visible"}
@@ -812,10 +812,10 @@ function FeatureSection() {
             </div>
           </div>
           <div className="basis-0 content-stretch flex flex-col gap-[4px] xl:gap-[6px] grow items-start min-h-px min-w-px not-italic relative shrink-0">
-            <p className="font-semibold leading-[20px] xl:leading-[22px] relative text-[#282828] text-[16px] xl:text-[18px]">
+            <p className="font-semibold leading-[18px] xl:leading-[22px] relative text-[#282828] text-[15px] xl:text-[18px]">
               Connect • Collect • Control
             </p>
-            <p className="font-normal leading-[16px] xl:leading-[18px] relative text-[#8e8e8e] text-[12px] xl:text-[14px] line-clamp-2">
+            <p className="font-normal leading-[16px] xl:leading-[18px] relative text-[#8e8e8e] text-[12px] xl:text-[14px] line-clamp-3">
               Connect devices, gather telemetry, and control machines from the
               edge platform.
             </p>
@@ -1016,7 +1016,7 @@ function FeatureSection() {
 
         {/* Card 9: Store & Forward */}
         <motion.div
-          className="group lg:absolute bg-white box-border content-stretch cursor-pointer flex flex-col gap-[10px] xl:gap-[12px] h-[180px] xl:h-[198px] items-start lg:left-[70.63%] p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[61.31%] lg:w-[17.46%] lg:h-[23.57%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-[1.03] transition-transform duration-500 ease-out"
+          className="group lg:absolute bg-white box-border content-stretch cursor-pointer flex flex-col gap-[10px] xl:gap-[12px] h-[185px] xl:h-[198px] items-start lg:left-[70.63%] p-[14px] xl:p-[16px] rounded-[10px] xl:rounded-[12px] lg:top-[61.31%] lg:w-[17.46%] lg:h-[23.57%] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 max-lg:!opacity-100 hover:scale-[1.03] transition-transform duration-500 ease-out"
           custom={isMobile ? undefined : 8}
           initial={isMobile ? "visible" : "hidden"}
           whileInView={isMobile ? undefined : "visible"}
@@ -1037,7 +1037,7 @@ function FeatureSection() {
             className=" absolute border-[#dddddd] border-[0.5px] border-solid inset-0 pointer-events-none rounded-[12px]"
           />
           <div
-            className="box-border content-stretch flex flex-col gap-[10px] items-center justify-center overflow-clip px-[28px] py-[29px] relative rounded-[12px] shrink-0 size-[60px] lg:size-[55px] xl:size-[70px]"
+            className="box-border content-stretch flex flex-col gap-[10px] items-center justify-center overflow-clip px-[18px] py-[18px] relative rounded-[12px] shrink-0 size-[60px] lg:size-[55px] xl:size-[70px]"
             style={{
               background:
                 "linear-gradient(227deg, #85868B 21.48%, #444 76.42%)",
@@ -1137,7 +1137,7 @@ function FeatureSection() {
             </div>
           </div>
           <div className="content-stretch flex flex-col gap-[4px] xl:gap-[6px] items-start not-italic relative shrink-0 w-full">
-            <p className="font-semibold leading-[20px] xl:leading-[22px] relative shrink-0 text-[#282828] text-[16px] xl:text-[18px] text-nowrap whitespace-pre">{`Store & Forward`}</p>
+            <p className="font-semibold leading-[18px] xl:leading-[22px] relative shrink-0 text-[#282828] text-[15px] xl:text-[18px] text-nowrap whitespace-pre">{`Store & Forward`}</p>
             <p className="font-normal leading-[18px] xl:leading-[20px] min-w-full relative shrink-0 text-[#8e8e8e] text-[13px] xl:text-[15px] w-[min-content] line-clamp-3">
               Local buffering prevents data loss and ensures delivery after
               reconnection.

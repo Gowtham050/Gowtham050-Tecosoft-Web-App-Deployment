@@ -136,7 +136,7 @@ function Frame24() {
       items-center relative shrink-0"
     >
       <Frame2 />
-      <Frame23 />
+      {/* <Frame23 /> */}
     </div>
   );
 }

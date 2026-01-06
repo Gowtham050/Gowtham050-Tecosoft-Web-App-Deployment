@@ -5,7 +5,8 @@ import Image from "next/image";
 // import imgRectangle64 from "figma:asset/e2644f0647e90369f388b877893beba3726480ec.png";
 
 const imgRectangle64 =
-  "/assets/pages/company/banner.jpeg";
+  "/assets/pages/company/e2644f0647e90369f388b877893beba3726480ec.png";
+  // "/assets/pages/company/banner.jpeg";
 
 type BackgroundImageAndTextProps = {
   text: string;
@@ -41,10 +42,10 @@ export default function HeroSection() {
         <div className="content-stretch flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative shrink-0 w-full">
           <div>
             <h1 className="font-semibold leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-3xl  lg:text-[36px] lg:leading-[50px] w-full lg:max-w-[800px]">
-              Engineering Intelligent Digital Solution
+              Engineering Intelligent Digital Solutions
             </h1>
             <h4 className="font-medium leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-xl  lg:text-[18px] lg:leading-[42px] w-full md:max-w-[65%] lg:max-w-[800px]">
-              platforms and services built for real-world use
+              Connected platforms and services built for real-world use
             </h4>
           </div>
           <div

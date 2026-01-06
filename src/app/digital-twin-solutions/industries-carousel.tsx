@@ -18,10 +18,10 @@ const industries = [
     image:
       "/assets/pages/digital-twin-platform/5d4f19825559777cc57fee70478564d07d866ce7.png",
     tags: [
-      "OEE",
-      "ThroughputQuality",
-      "TraceabilityEnergy",
-      "UtilitiesWhat-If Simulation",
+      "OEE & Throughput",
+      "Quality & Traceability",
+      "Energy & Utilities",
+      "What-If Simulation",
     ],
   },
   {

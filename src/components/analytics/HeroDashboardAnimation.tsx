@@ -27,7 +27,7 @@ export default function HeroDashboardAnimation({
   return (
     <div
       ref={containerRef}
-      className="absolute h-[734px] left-1/2 rounded-[16px] top-[506px] translate-x-[-50%] w-[1052px]"
+      className="absolute h-[734px] left-1/2 rounded-[16px] top-[560px] translate-x-[-50%] w-[1052px]"
       data-name="Group 1171277043 1"
     >
       {/* Base image - always visible */}
@@ -43,7 +43,7 @@ export default function HeroDashboardAnimation({
           src={baseImgSrc}
           fill
           sizes="1052px"
-          style={{ objectPosition: '50% 50%' }}
+          style={{ objectPosition: "50% 50%" }}
           unoptimized
         />
       </motion.div>

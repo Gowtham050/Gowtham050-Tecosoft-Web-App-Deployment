@@ -6,7 +6,7 @@ import CapabilityCard1 from "./CapabilityCard1";
 import CapabilityCard2 from "./CapabilityCard2";
 import CapabilityCard3 from "./CapabilityCard3";
 
-export default function CapabilitiesSection() {
+export default function CapabilitiesSection({ moveToNextSection }: { moveToNextSection: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -33,8 +33,15 @@ export default function CapabilitiesSection() {
   const card3Blur = useTransform(scrollYProgress, [0, 0.66], [2, 0]);
 
   return (
-    <div className="relative w-full bg-gradient-to-b from-[#005b80] via-[#006b99] to-[#007bb3] py-[100px_15px] sm:py-[90px_40px] md:py-[100px] lg:py-[120px] xl:py-[150px]">
-      <div className="relative w-full" data-name="Capabilities">
+    <div
+      className="relative w-full bg-gradient-to-b from-[#005b80] via-[#006b99] to-[#007bb3] py-[100px_15px] sm:py-[90px_40px] md:py-[100px] lg:py-[120px] xl:py-[150px]"
+      ref={moveToNextSection}
+    >
+      <div
+        className="relative w-full"
+        data-name="Capabilities"
+        id="capabilities"
+      >
         {/* Mobile Layout (300px - 767.5px) - Cards listed one by one without animations */}
         <div className="block md:hidden px-4">
           {/* Header */}

@@ -73,15 +73,6 @@ function Frame24() {
   );
 }
 
-function Frame25() {
-  return (
-    <div className="content-stretch flex gap-[16px] max-[767px]:gap-[12px] items-center relative shrink-0">
-      <Frame3 />
-      <Frame24 />
-    </div>
-  );
-}
-
 function Frame27() {
   return (
     <div className="bg-white box-border content-stretch flex gap-[10px] max-[767px]:gap-[8px] items-center justify-center px-[12px] max-[767px]:px-[10px] py-[6px] max-[767px]:py-[5px] relative rounded-[60px] shrink-0">
@@ -96,10 +87,12 @@ function Frame27() {
   );
 }
 
-function Frame40() {
+function Frame40({ handleScroll }: { handleScroll: () => void }) {
   return (
     <div className="absolute min-[1024px]:left-1/2 min-[1024px]:top-[140px] min-[1024px]:translate-x-[-50%] min-[1024px]:w-[950px] max-[1023px]:static  pt-[85px] min-[768px]:max-[1023px]:pt-[100px] max-[1023px]:mx-auto max-[1023px]:w-[95%] max-[1023px]:px-4 content-stretch flex flex-col gap-[16px] max-[767px]:gap-[12px] items-center">
-      <Frame27 />
+      <div onClick={handleScroll} className="cursor-pointer">
+        <Frame27 />
+      </div>
       <p className="font-semibold leading-[76px] min-[768px]:max-[1023px]:leading-[52px] max-[767px]:leading-[40px] min-w-full not-italic relative shrink-0 text-[#07af40] text-[60px] min-[768px]:max-[1023px]:text-[40px] max-[767px]:text-[28px] text-center tracking-[-0.9px] min-[768px]:max-[1023px]:tracking-[-0.6px] max-[767px]:tracking-[-0.4px] w-[min-content]">
         <span>{`Tecosoft Analytics - `}</span>
         <span className="text-[#282828]">The Software Intelligence Hub</span>
@@ -110,12 +103,21 @@ function Frame40() {
         place. Empower teams across any industry to monitor, analyze, and act on
         data in real time.
       </p>
-      <Frame25 />
+      <div className="content-stretch flex gap-[16px] max-[767px]:gap-[12px] items-center relative shrink-0">
+        <Frame3 />
+        <button onClick={handleScroll} className="cursor-pointer">
+          <Frame24 />
+        </button>
+      </div>
     </div>
   );
 }
 
-export default function HeroSection() {
+export default function HeroSection({
+  handleScroll,
+}: {
+  handleScroll: () => void;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -199,7 +201,7 @@ export default function HeroSection() {
           y: isSmallScreen ? 0 : tabCardsY,
         }}
       >
-        <Frame40 />
+        <Frame40 handleScroll={handleScroll} />
       </motion.div>
       {/* Conditional rendering based on screen size */}
       {isSmallScreen ? (

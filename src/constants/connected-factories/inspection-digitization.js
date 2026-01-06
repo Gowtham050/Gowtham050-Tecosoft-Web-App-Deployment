@@ -99,6 +99,8 @@ export const whyDigitizeContent = {
 };
 
 export const workflowContent = {
+  sectionTitle: "Workflow : A Connected Inspection Journey",
+
   steps: [
     {
       id: 0,

@@ -252,7 +252,7 @@ function Frame3() {
   );
 }
 
-function Frame24() {
+function Frame24({ onboardClick }: { onboardClick: () => void }) {
   const responsiveScale = useResponsiveValues();
   const isMobile = useIsMobile();
 
@@ -265,6 +265,7 @@ function Frame24() {
 
   return (
     <motion.div
+      onClick={onboardClick}
       className="box-border content-stretch flex items-center justify-center relative shrink-0 cursor-pointer transition-all duration-300 ease-out rounded-sm
         lg:px-0 lg:py-0 lg:w-auto
         max-lg:px-[14px] max-lg:py-[9px] max-lg:w-auto
@@ -309,7 +310,7 @@ function Frame24() {
   );
 }
 
-function Frame25() {
+function Frame25({ onboardClick }: { onboardClick: () => void }) {
   const responsiveScale = useResponsiveValues();
   const isMobile = useIsMobile();
   const buttonGroupGap = !isMobile ? 16 * responsiveScale : undefined;
@@ -329,12 +330,12 @@ function Frame25() {
       variants={fadeInUp}
     >
       <Frame3 />
-      <Frame24 />
+      <Frame24 onboardClick={onboardClick} />
     </motion.div>
   );
 }
 
-function Frame40() {
+function Frame40({ onboardClick }: { onboardClick: () => void }) {
   const responsiveScale = useResponsiveValues();
   const isMobile = useIsMobile();
 
@@ -434,12 +435,12 @@ function Frame40() {
         EAGLE transforms disconnected machines and assets into a connected
         ecosystem, enabling real-time insights and smarter, faster operations.
       </motion.p>
-      <Frame25 />
+      <Frame25 onboardClick={onboardClick} />
     </motion.div>
   );
 }
 
-function HeroSection() {
+function HeroSection({ onboardClick }: { onboardClick: () => void }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const productContainerRef = useRef<HTMLDivElement>(null);
   const responsiveScale = useResponsiveValues();
@@ -732,7 +733,7 @@ function HeroSection() {
             : undefined
         }
       >
-        <Frame40 />
+        <Frame40 onboardClick={onboardClick} />
       </div>
 
       {/* Sticky product section - pins while animation plays */}
