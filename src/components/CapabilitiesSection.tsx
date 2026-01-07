@@ -6,7 +6,11 @@ import CapabilityCard1 from "./CapabilityCard1";
 import CapabilityCard2 from "./CapabilityCard2";
 import CapabilityCard3 from "./CapabilityCard3";
 
-export default function CapabilitiesSection({ moveToNextSection }: { moveToNextSection: any }) {
+export default function CapabilitiesSection({
+  moveToNextSection,
+}: {
+  moveToNextSection: any;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -51,7 +55,7 @@ export default function CapabilitiesSection({ moveToNextSection }: { moveToNextS
             </p>
             <p className="font-medium leading-[18px] text-[14px] w-full">
               Seamlessly connect, monitor, and manage CNC, VMC, HMC, Molding,
-              and various type of machines in real time.
+              and various types of machines in real time.
             </p>
           </div>
 
@@ -89,7 +93,7 @@ export default function CapabilitiesSection({ moveToNextSection }: { moveToNextS
               </p>
               <p className="font-medium leading-[20px] lg:leading-[22px] xl:leading-[23px] relative shrink-0 text-[16px] lg:text-[17px] xl:text-[18px] w-full lg:w-[420px] xl:w-[500px]">
                 Seamlessly connect, monitor, and manage CNC, VMC, HMC, Molding,
-                and laser systems in real time.
+                and various types of machines in real time.
               </p>
             </motion.div>
 

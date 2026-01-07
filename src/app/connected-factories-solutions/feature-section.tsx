@@ -479,9 +479,9 @@ function FeatureCard({
             isHovered={isHovered}
           />
 
-          <div>
+          <div className="">
             <h3
-              className={`text-lg font-semibold ${
+              className={`text-lg font-semibold  w-[90%]  ${
                 isActive ? "text-white" : "text-[#282828]"
               }`}
             >
@@ -496,10 +496,10 @@ function FeatureCard({
             </p>
           </div>
 
-          <div className="hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity absolute top-6 right-6">
+          <div className="hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity absolute top-3 lg:top-6 right-3 lg:right-6">
             <ArrowDesktop />
           </div>
-          <div className="lg:hidden absolute top-6 right-6">
+          <div className="lg:hidden absolute  top-3 lg:top-6 right-3 lg:right-6">
             <ArrowMobile active={isActive} />
           </div>
         </div>
