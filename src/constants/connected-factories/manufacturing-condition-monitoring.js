@@ -70,7 +70,7 @@ export const whyDigitizeContent = {
   sectionDescription:
     "Manufacturing assets operate under varying loads and conditions. Manufacturing-focused condition monitoring provides early visibility into abnormal behaviour, enabling plants to prevent breakdowns, reduce energy losses, improve reliability and extend equipment life.",
   image:
-    "/assets/pages/solutions/maintenance-digitization/why-us-maintenance.png",
+    "/assets/pages/solutions/manufacturing-condition-monitoring/why-monitoring.jpg",
   imageAlt: "Digital Maintenance Tools",
   benefits: [
     {

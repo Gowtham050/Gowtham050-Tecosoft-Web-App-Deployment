@@ -107,7 +107,8 @@ type EventCardProps = {
   title: string;
   description: string;
   date: {
-    day: string;
+    startDate: string;
+    endDate: string;
     month: string;
     year: string;
   };
@@ -159,8 +160,8 @@ function EventCard({
 
         <div className="flex items-end justify-between">
           <div className="flex font-medium gap-1 lg:gap-2 items-baseline">
-            <p className="text-4xl sm:text-6xl lg:text-[60px] text-[#282828] leading-tight">
-              {date.day}
+            <p className="text-[18px] sm:text-[24px] lg:text-[28px] text-[#282828] leading-4">
+              {date.startDate} - {date.endDate}
             </p>
             <p className="text-base sm:text-lg text-[#636363] whitespace-nowrap">
               {date.month}, {date.year}

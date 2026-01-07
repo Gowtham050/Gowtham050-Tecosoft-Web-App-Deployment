@@ -136,10 +136,15 @@ export const SOLUTIONS_DATA = [
         iconColor: "#0098D4",
       },
     ],
+    // images: [
+    //   "/assets/pages/ai-enabled/cbd07f254dfbf3ad759e853c6d966c3252b8ad07.png",
+    //   "/assets/pages/ai-enabled/f01f07ceb8ba38fc08ca15a17209afd0ee47f318.png",
+    //   "/assets/pages/ai-enabled/f3618873d8cb715764fc03e465951335b8a8705c.png",
+    // ],
     images: [
-      "/assets/pages/ai-enabled/cbd07f254dfbf3ad759e853c6d966c3252b8ad07.png",
-      "/assets/pages/ai-enabled/f01f07ceb8ba38fc08ca15a17209afd0ee47f318.png",
-      "/assets/pages/ai-enabled/f3618873d8cb715764fc03e465951335b8a8705c.png",
+      "/assets/pages/ai-enabled/step-1.jpg",
+      "/assets/pages/ai-enabled/step-2.jpg",
+      "/assets/pages/ai-enabled/step-3.jpg",
     ],
   },
   {
@@ -174,10 +179,15 @@ export const SOLUTIONS_DATA = [
         iconColor: "#069235",
       },
     ],
+    // images: [
+    //   "/assets/pages/ai-enabled/f01f07ceb8ba38fc08ca15a17209afd0ee47f318.png",
+    //   "/assets/pages/ai-enabled/cbd07f254dfbf3ad759e853c6d966c3252b8ad07.png",
+    //   "/assets/pages/ai-enabled/f3618873d8cb715764fc03e465951335b8a8705c.png",
+    // ],
     images: [
-      "/assets/pages/ai-enabled/f01f07ceb8ba38fc08ca15a17209afd0ee47f318.png",
-      "/assets/pages/ai-enabled/cbd07f254dfbf3ad759e853c6d966c3252b8ad07.png",
-      "/assets/pages/ai-enabled/f3618873d8cb715764fc03e465951335b8a8705c.png",
+      "/assets/pages/ai-enabled/card-1.jpg",
+      "/assets/pages/ai-enabled/card-2.jpg",
+      "/assets/pages/ai-enabled/card-3.jpg",
     ],
   },
 ];

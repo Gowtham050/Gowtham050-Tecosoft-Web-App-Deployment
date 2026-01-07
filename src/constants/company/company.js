@@ -1,3 +1,4 @@
+
 export const companyMissionSection = {
   heading: {
     line1: "Build What Matters.",
@@ -173,7 +174,8 @@ export const EVENTS_LIST = [
     description:
       "A future-focused manufacturing gathering that brings together machine tool builders, technology providers, and industry leaders to explore smart manufacturing, automation, and digital transformation. Through live machine demonstrations, real-world use cases, and expert-led discussions, IMTEX showcases how modern production practices, connected systems, and data-driven decision-making are shaping the next generation of factories.",
     date: {
-      day: "23",
+      startDate: "23",
+      endDate: "29",
       month: "Jan",
       year: "2025",
     },
@@ -186,7 +188,8 @@ export const EVENTS_LIST = [
     description:
       "A large-scale technology gathering designed to showcase ideas, innovations, and practical applications across AI, cloud, deep tech, and modern software practices. Through keynote sessions, expert panels, startup showcases, and live demonstrations, the summit highlights how technology is being applied to solve real-world challenges and create new business opportunities.",
     date: {
-      day: "09",
+      startDate: "12",
+      endDate: "19",
       month: "Nov",
       year: "2025",
     },
@@ -199,12 +202,12 @@ export const EVENTS_LIST = [
     description:
       "A forward-looking industry platform where manufacturing technology, innovation, and real-world applications converge—and Tecosoft Digital Solutions is proud to be an exhibitor. ",
     date: {
-      day: "02",
+      startDate: "02",
+      endDate: "06",
       month: "Apr",
       year: "2026",
     },
-    image:
-      "/assets/pages/company/events/imtof-2026.jpg",
+    image: "/assets/pages/company/events/imtof-2026.jpg",
     status: "Upcoming",
   },
 ];
