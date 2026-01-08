@@ -141,7 +141,7 @@ export const workflowContent = {
       description:
         "Dashboards visualize live health status and generate alerts for abnormal conditions.",
       iconPath:
-        "/assets/pages/solutions/condition-monitoring/workflow/alert.svg",
+        "/assets/pages/solutions/manufacturing-condition-monitoring/workflow/alert.svg",
     },
     {
       id: 4,

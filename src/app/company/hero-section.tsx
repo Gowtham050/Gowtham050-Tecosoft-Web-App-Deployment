@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const imgRectangle64 =
   "/assets/pages/company/e2644f0647e90369f388b877893beba3726480ec.png";
-  // "/assets/pages/company/banner.jpeg";
+// "/assets/pages/company/banner.jpeg";
 
 type BackgroundImageAndTextProps = {
   text: string;
@@ -29,7 +29,7 @@ function BackgroundImageAndText({ text }: BackgroundImageAndTextProps) {
 export default function HeroSection() {
   return (
     <div
-      className="content-stretch flex gap-[10px] min-h-[500px] md:min-h-[600px] lg:h-[768px] items-start overflow-clip relative shrink-0 w-full"
+      className="content-stretch flex gap-[10px] min-h-[520px] md:min-h-[600px] lg:h-[768px] items-start overflow-clip relative shrink-0 w-full"
       data-name="Hero section"
       style={{
         backgroundImage:
@@ -41,10 +41,10 @@ export default function HeroSection() {
         <BackgroundImageAndText text="Our Company" />
         <div className="content-stretch flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative shrink-0 w-full">
           <div>
-            <h1 className="font-semibold leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-3xl  lg:text-[36px] lg:leading-[50px] w-full lg:max-w-[800px]">
+            <h1 className="font-semibold leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-[24px] sm:text-[28px]  lg:text-[36px] lg:leading-[50px] w-full lg:max-w-[800px]">
               Engineering Intelligent Digital Solutions
             </h1>
-            <h4 className="font-medium leading-tight md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-xl  lg:text-[18px] lg:leading-[42px] w-full md:max-w-[65%] lg:max-w-[800px]">
+            <h4 className="font-medium  md:leading-[1.2] not-italic relative shrink-0 text-[#282828] text-[14px]  lg:text-[18px] lg:leading-[42px] w-full md:max-w-[65%] lg:max-w-[800px] mt-2 sm:mt-3">
               Connected platforms and services built for real-world use
             </h4>
           </div>
