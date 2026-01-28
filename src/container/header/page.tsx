@@ -36,7 +36,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [openNestedDropdown, setOpenNestedDropdown] = useState<string | null>(
-    null
+    null,
   );
   const dropdownRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -211,7 +211,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     handleNestedDropdownToggle(
-                                      dropdownItem.name
+                                      dropdownItem.name,
                                     );
                                   }}
                                   className={`transition-transform cursor-pointer ${
@@ -232,7 +232,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                                         key={nestedItem.name}
                                         onClick={() =>
                                           handleDropdownItemClick(
-                                            nestedItem.href
+                                            nestedItem.href,
                                           )
                                         }
                                         className={`w-full text-left px-4 py-3 text-[14px] font-medium transition-colors hover:cursor-pointer hover:underline underline-offset-2 ${
@@ -243,7 +243,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                                       >
                                         {nestedItem.name}
                                       </button>
-                                    )
+                                    ),
                                   )}
                                 </div>
                               )}
@@ -304,7 +304,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
   const [expandedNestedItem, setExpandedNestedItem] = useState<string | null>(
-    null
+    null,
   );
 
   const handleNavigation = (href: string) => {
@@ -335,8 +335,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
   const logoSrc = isOpen
     ? "/assets/tecosoft-logo.svg"
     : isScrolled
-    ? "/assets/tecosoft-black.svg"
-    : "/assets/tecosoft-logo.svg";
+      ? "/assets/tecosoft-black.svg"
+      : "/assets/tecosoft-logo.svg";
 
   const hamburgerColor = isScrolled
     ? "text-black hover:bg-black/10"
@@ -345,8 +345,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
   const navBg = isOpen
     ? "bg-[#1a4d8f]" // When menu is open, always blue to match menu
     : isScrolled
-    ? "bg-white shadow-md" // When closed and scrolled, white with shadow
-    : "bg-transparent"; // When closed and not scrolled, transparent
+      ? "bg-white shadow-md" // When closed and scrolled, white with shadow
+      : "bg-transparent"; // When closed and not scrolled, transparent
 
   return (
     <>
@@ -489,7 +489,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
                                             <button
                                               onClick={() =>
                                                 handleNavigation(
-                                                  nestedItem.href
+                                                  nestedItem.href,
                                                 )
                                               }
                                               className={`text-base font-light block py-1 hover:text-[#0eb05c] transition-colors ${
@@ -501,7 +501,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
                                               {nestedItem.name}
                                             </button>
                                           </li>
-                                        )
+                                        ),
                                       )}
                                     </ul>
                                   )}
@@ -576,6 +576,7 @@ const Navbar = () => {
       "/ai-enabled-solutions/predictive-maintenance",
       "/ai-enabled-solutions/smart-energy-management",
       "/digital-twin-solutions",
+      "/why-tecosoft",
     ];
 
     const isHomePage = homePages.includes(sanitizedPathname);
@@ -657,7 +658,7 @@ const Navbar = () => {
     },
     { name: "Services", href: "#", hasDropdown: false },
     { name: "Company", href: "/company", hasDropdown: false },
-    { name: "Why TecoSoft", href: "#", hasDropdown: false },
+    { name: "Why TecoSoft", href: "/why-tecosoft", hasDropdown: false },
     { name: "Industries", href: "#" },
   ];
 
