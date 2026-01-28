@@ -1,12 +1,9 @@
 "use client";
 
-import React from "react";
-
 // =============================================================================
-// CONSTANTS & CONFIGURATION
+// CONSTANTS
 // =============================================================================
 
-/** Banner content */
 const BANNER_CONTENT = {
   title: "The result?",
   description:
@@ -14,105 +11,124 @@ const BANNER_CONTENT = {
   ctaText: "See it in action",
 } as const;
 
-/** SVG path data */
 const SVG_PATHS = {
   arrowDown: "M7 1.75V12.25M7 12.25L11.9583 7.29167M7 12.25L2.04167 7.29167",
 } as const;
 
-/** Style constants */
-const STYLES = {
-  ctaButton: "bg-[#07af40]",
-} as const;
-
 // =============================================================================
-// ICON COMPONENTS
+// ICON
 // =============================================================================
 
-/** Arrow icon pointing right (rotated from down arrow) */
 function ArrowRightIcon() {
   return (
-    <div className="relative size-[14px]">
-      <svg
-        className="block size-full"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 14 14"
-        aria-hidden="true"
-      >
-        <path
-          d={SVG_PATHS.arrowDown}
-          stroke="var(--stroke-0, white)"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="1.35"
-        />
-      </svg>
-    </div>
+    <svg
+      className="size-[14px]"
+      fill="none"
+      viewBox="0 0 14 14"
+      aria-hidden="true"
+    >
+      <path
+        d={SVG_PATHS.arrowDown}
+        stroke="white"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.35"
+      />
+    </svg>
   );
 }
 
 // =============================================================================
-// UI COMPONENTS
+// CTA BUTTON
 // =============================================================================
 
-/** Call-to-action button with arrow icon */
 function CTAButton() {
   return (
     <button
-      className={`${STYLES.ctaButton} content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0 cursor-pointer hover:opacity-90 transition-opacity`}
       type="button"
+      className="
+        bg-[#07af40]
+        flex items-center gap-2
+        px-4 py-2.5
+        rounded-md
+        text-white font-semibold text-[15px]
+        hover:opacity-90 transition
+        whitespace-nowrap
+        max-w-[180px]
+      "
     >
-      <span className="font-semibold leading-[20px] not-italic relative shrink-0 text-[15px] text-white">
-        {BANNER_CONTENT.ctaText}
+      {BANNER_CONTENT.ctaText}
+      <span className="rotate-[-90deg]">
+        <ArrowRightIcon />
       </span>
-      <div
-        className="flex items-center justify-center relative shrink-0 size-[14px]"
-        style={
-          {
-            "--transform-inner-width": "0",
-            "--transform-inner-height": "345.59375",
-          } as React.CSSProperties
-        }
-      >
-        <div className="flex-none rotate-[-90deg]">
-          <ArrowRightIcon />
-        </div>
-      </div>
     </button>
   );
 }
 
-/** Content row with description and CTA */
+// =============================================================================
+// CONTENT ROW
+// =============================================================================
+
 function ContentRow() {
   return (
-    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
-      <p className="font-normal leading-[26px] not-italic relative shrink-0 text-[#4f4f4f] text-[18px] w-[842px]">
+    <div
+      className="
+        flex flex-col gap-6
+        lg:flex-row lg:items-center lg:justify-between
+        w-full
+      "
+    >
+      <p
+        className="
+          text-[#4f4f4f]
+          text-[16px] leading-[26px]
+          md:text-[17px]
+          lg:text-[18px]
+          max-w-full
+          lg:max-w-[840px]
+        "
+      >
         {BANNER_CONTENT.description}
       </p>
+
       <CTAButton />
     </div>
   );
 }
 
 // =============================================================================
-// MAIN EXPORT
+// MAIN
 // =============================================================================
 
 export function BannerIntro() {
   return (
-    <section
-      className="bg-gradient-to-r from-white relative shrink-0 to-white w-full"
-      aria-label="Banner introduction"
-    >
-      <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col gap-[12px] items-start px-[100px] py-[60px] relative w-full">
-          <h2 className="font-semibold leading-[44px] not-italic relative shrink-0 text-[#282828] text-[40px]">
+    <section aria-label="Banner introduction" className="w-full bg-white">
+      <div
+        className="
+          mx-auto
+          max-w-[1536px]
+          px-4 sm:px-6 md:px-10 lg:px-20
+          py-10 sm:py-12 md:py-14 lg:py-[60px]
+        "
+      >
+        <div className="flex flex-col gap-4">
+          <h2
+            className="
+              text-[#282828]
+              font-semibold
+              text-[28px]
+              sm:text-[32px]
+              md:text-[36px]
+              lg:text-[40px]
+              leading-tight
+            "
+          >
             {BANNER_CONTENT.title}
           </h2>
+
           <ContentRow />
         </div>
       </div>
     </section>
   );
 }
-

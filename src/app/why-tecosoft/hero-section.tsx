@@ -488,6 +488,7 @@ export function HeroSection() {
     >
       <HeroBackground />
       <GradientOverlay />
+
       <HeroContent />
       <FloatingCardsSection />
     </section>

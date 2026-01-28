@@ -79,16 +79,16 @@ function ArrowIcon({ color = "white" }: { color?: string }) {
 /** CTA Button component */
 function CTAButton({
   text,
-  variant = "primary"
+  variant = "primary",
 }: {
   text: string;
-  variant?: "primary" | "secondary"
+  variant?: "primary" | "secondary";
 }) {
   const isPrimary = variant === "primary";
 
   return (
     <button
-      className={`${isPrimary ? "bg-[#07af40] text-white" : "bg-white text-[#07af40]"} content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0 w-[172px] cursor-pointer hover:opacity-90 transition-opacity`}
+      className={`${isPrimary ? "bg-[#07af40] text-white" : "bg-white text-[#07af40]"} content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0 w-full sm:w-[172px] cursor-pointer hover:opacity-90 transition-opacity`}
       type="button"
     >
       <span className="font-semibold leading-[20px] not-italic relative shrink-0 text-[15px]">
@@ -96,7 +96,12 @@ function CTAButton({
       </span>
       <div
         className="flex items-center justify-center relative shrink-0 size-[14px]"
-        style={{ "--transform-inner-width": "0", "--transform-inner-height": "2196" } as React.CSSProperties}
+        style={
+          {
+            "--transform-inner-width": "0",
+            "--transform-inner-height": "2196",
+          } as React.CSSProperties
+        }
       >
         <div className="flex-none rotate-[-90deg]">
           <ArrowIcon color={isPrimary ? "white" : "#07AF40"} />
@@ -109,9 +114,12 @@ function CTAButton({
 /** CTA Buttons Row */
 function CTAButtonsRow() {
   return (
-    <div className="content-stretch flex gap-[16px] items-start relative shrink-0">
+    <div className="content-stretch flex flex-col sm:flex-row gap-[12px] sm:gap-[16px] items-stretch sm:items-start relative shrink-0 w-full sm:w-auto">
       <CTAButton text={OUTCOMES_DATA.hero.buttons[0].text} variant="primary" />
-      <CTAButton text={OUTCOMES_DATA.hero.buttons[1].text} variant="secondary" />
+      <CTAButton
+        text={OUTCOMES_DATA.hero.buttons[1].text}
+        variant="secondary"
+      />
     </div>
   );
 }
@@ -119,11 +127,11 @@ function CTAButtonsRow() {
 /** Hero section with title, description, and CTA buttons */
 function HeroSection() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[800px]">
-      <h2 className="font-semibold leading-[44px] not-italic relative shrink-0 text-[36px] text-center text-white">
+    <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-full max-w-[800px] px-4">
+      <h2 className="font-semibold leading-[32px] sm:leading-[44px] not-italic relative shrink-0 text-[28px] sm:text-[36px] text-center text-white">
         {OUTCOMES_DATA.hero.title}
       </h2>
-      <p className="font-medium leading-[23px] min-w-full not-italic relative shrink-0 text-[#e4e4e4] text-[16px] text-center w-[min-content]">
+      <p className="font-medium leading-[21px] sm:leading-[23px] not-italic relative shrink-0 text-[#e4e4e4] text-[14px] sm:text-[16px] text-center w-full">
         {OUTCOMES_DATA.hero.description}
       </p>
       <CTAButtonsRow />
@@ -136,10 +144,10 @@ function CardContent1() {
   const card = OUTCOMES_DATA.cards[0];
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center not-italic relative shrink-0 w-full">
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px]">
+      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
         {card.title}
       </p>
-      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[#777] text-[15px] text-center w-[min-content]">
+      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
         {card.description}
       </p>
     </div>
@@ -149,7 +157,7 @@ function CardContent1() {
 function Background() {
   return (
     <div
-      className="h-[100px] relative shrink-0 w-[91.464px]"
+      className="h-[80px] sm:h-[100px] relative shrink-0 w-[73.17px] sm:w-[91.464px]"
       data-name="Background"
     >
       <svg
@@ -207,7 +215,7 @@ function Background() {
 function ReliabilityCard() {
   return (
     <div
-      className="bg-white content-stretch flex flex-col gap-[46px] items-center p-[36px] relative rounded-[12px] shrink-0 w-[310px] group cursor-pointer transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C]"
+      className="bg-white content-stretch flex flex-col gap-[30px] sm:gap-[46px] items-center p-[24px] sm:p-[36px] relative rounded-[12px] shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[310px] group cursor-pointer transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C]"
       style={{ backgroundImage: "none" }}
     >
       <CardContent1 />
@@ -221,10 +229,10 @@ function CardContent2() {
   const card = OUTCOMES_DATA.cards[1];
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center not-italic relative shrink-0 w-full">
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px]">
+      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
         {card.title}
       </p>
-      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[#777] text-[15px] text-center w-[min-content]">
+      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
         {card.description}
       </p>
     </div>
@@ -233,7 +241,7 @@ function CardContent2() {
 
 function Group4() {
   return (
-    <div className="h-[100px] relative shrink-0 w-[99.729px]">
+    <div className="h-[80px] sm:h-[100px] relative shrink-0 w-[79.78px] sm:w-[99.729px]">
       <svg
         className="block size-full"
         fill="none"
@@ -306,7 +314,7 @@ function Group4() {
 function ResourceCard() {
   return (
     <div
-      className="bg-white content-stretch flex flex-col gap-[46px] items-center p-[36px] relative rounded-[12px] shrink-0 w-[310px] group cursor-pointer transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C]"
+      className="bg-white content-stretch flex flex-col gap-[30px] sm:gap-[46px] items-center p-[24px] sm:p-[36px] relative rounded-[12px] shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[310px] group cursor-pointer transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C]"
       style={{ backgroundImage: "none" }}
     >
       <CardContent2 />
@@ -320,10 +328,10 @@ function CardContent3() {
   const card = OUTCOMES_DATA.cards[2];
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center not-italic relative shrink-0 w-full">
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px]">
+      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
         {card.title}
       </p>
-      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[#777] text-[15px] text-center w-[min-content]">
+      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
         {card.description}
       </p>
     </div>
@@ -332,7 +340,7 @@ function CardContent3() {
 
 function Group5() {
   return (
-    <div className="h-[100px] relative shrink-0 w-[118.958px]">
+    <div className="h-[80px] sm:h-[100px] relative shrink-0 w-[95.17px] sm:w-[118.958px]">
       <svg
         className="block size-full"
         fill="none"
@@ -381,7 +389,7 @@ function Group5() {
 function DecisionsCard() {
   return (
     <div
-      className="bg-white content-stretch flex flex-col gap-[46px] items-center p-[36px] relative rounded-[12px] shrink-0 w-[310px] group cursor-pointer transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C]"
+      className="bg-white content-stretch flex flex-col gap-[30px] sm:gap-[46px] items-center p-[24px] sm:p-[36px] relative rounded-[12px] shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[310px] group cursor-pointer transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C]"
       style={{ backgroundImage: "none" }}
     >
       <CardContent3 />
@@ -395,10 +403,10 @@ function CardContent4() {
   const card = OUTCOMES_DATA.cards[3];
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center not-italic relative shrink-0 w-full">
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px]">
+      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
         {card.title}
       </p>
-      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] min-w-full relative shrink-0 text-[#777] text-[15px] text-center w-[min-content]">
+      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
         {card.description}
       </p>
     </div>
@@ -409,11 +417,11 @@ function CardContent4() {
 function ScaleCard() {
   return (
     <div
-      className="bg-white content-stretch flex flex-col gap-[46px] items-center p-[36px] relative rounded-[12px] shrink-0 w-[310px] group cursor-pointer transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C]"
+      className="bg-white content-stretch flex flex-col gap-[30px] sm:gap-[46px] items-center p-[24px] sm:p-[36px] relative rounded-[12px] shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[310px] group cursor-pointer transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-[#00B7FF] hover:to-[#0EB05C]"
       style={{ backgroundImage: "none" }}
     >
       <CardContent4 />
-      <div className="h-[100px] relative shrink-0 w-[95px]">
+      <div className="h-[80px] sm:h-[100px] relative shrink-0 w-[76px] sm:w-[95px]">
         <svg
           className="block size-full"
           fill="none"
@@ -452,7 +460,7 @@ function ScaleCard() {
 /** Row of outcome cards */
 function OutcomeCardsRow() {
   return (
-    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-wrap gap-[24px] items-center justify-center relative shrink-0 w-full">
       <ReliabilityCard />
       <ResourceCard />
       <DecisionsCard />
@@ -465,7 +473,7 @@ function OutcomeCardsRow() {
 export function OutcomesThatMatter() {
   return (
     <section
-      className="content-stretch flex flex-col gap-[50px] items-center overflow-clip px-[100px] py-[60px] relative shrink-0 w-[1512px]"
+      className="content-stretch flex flex-col gap-[40px] sm:gap-[50px] items-center overflow-clip px-[20px] sm:px-[40px] lg:px-[100px] py-[40px] sm:py-[60px] relative shrink-0 w-full max-w-[1567px] mx-auto"
       aria-label="Outcomes that matter"
       style={{
         backgroundImage:

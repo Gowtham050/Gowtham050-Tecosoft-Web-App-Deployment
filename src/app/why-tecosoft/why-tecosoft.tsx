@@ -16,7 +16,7 @@ export default function WhyTecosoft() {
       <WhyUs />
       <BannerIntro />
       <OutcomesThatMatter />
-      {/* <Banner /> */}
+      <Banner />
     </div>
   );
 }
