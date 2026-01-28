@@ -8,10 +8,7 @@ import { Banner } from "./banner-section";
 
 export default function WhyTecosoft() {
   return (
-    <div
-      className="content-stretch flex flex-col items-start relative size-full"
-      data-name="Why Tecosoft"
-    >
+    <div className="w-full" data-name="Why Tecosoft">
       <HeroSection />
       <WhyUs />
       <BannerIntro />

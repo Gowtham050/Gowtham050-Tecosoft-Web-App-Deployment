@@ -262,13 +262,15 @@ function TaglineBadge() {
 /** Hero headline component */
 function HeroHeadline() {
   return (
-    <div className="content-stretch flex flex-col gap-[38px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-6 md:gap-8 lg:gap-[38px] items-start relative shrink-0 w-full">
       <TaglineBadge />
       <h1
-        className={`css-4hzbpn font-semibold leading-[0] min-w-full not-italic relative shrink-0 text-[80px] text-white w-[min-content]`}
+        className={`css-4hzbpn font-semibold leading-[0] min-w-full not-italic relative shrink-0 text-4xl md:text-5xl lg:text-6xl xl:text-[80px] text-white w-[min-content]`}
       >
-        <span className="leading-[94px]">{HERO_CONTENT.headline.main}</span>
-        <span className="leading-[94px] text-[#00ff84]">
+        <span className="leading-tight md:leading-snug lg:leading-[70px] xl:leading-[94px]">
+          {HERO_CONTENT.headline.main}
+        </span>
+        <span className="leading-tight md:leading-snug lg:leading-[70px] xl:leading-[94px] text-[#00ff84]">
           {HERO_CONTENT.headline.highlight}
         </span>
       </h1>
@@ -279,7 +281,7 @@ function HeroHeadline() {
 /** Demo CTA button */
 function DemoButton() {
   return (
-    <button className="bg-[#07af40] content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0 border-none cursor-pointer">
+    <button className="bg-[#07af40] content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0 border-none cursor-pointer max-w-[180px]">
       <span
         className={`css-ew64yg font-semibold leading-[20px] not-italic relative shrink-0 text-[15px] text-white`}
       >
@@ -297,10 +299,10 @@ function DemoButton() {
 /** Hero content section with headline, description, and CTA */
 function HeroContent() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[36px] items-start left-[calc(50%-281px)] top-[172px] translate-x-[-50%] w-[750px]">
+    <div className="absolute content-stretch flex flex-col gap-6 md:gap-9 items-start left-4 md:left-8 lg:left-[10%] xl:left-[calc(50%-375px)] top-24 md:top-32 lg:top-[172px] w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[700px] xl:w-[750px] max-w-[750px]">
       <HeroHeadline />
       <p
-        className={`css-4hzbpn  font-medium leading-[29px] min-w-full not-italic relative shrink-0 text-[21px] text-white w-[min-content]`}
+        className={`css-4hzbpn font-medium leading-6 md:leading-7 lg:leading-[29px] min-w-full not-italic relative shrink-0 text-base md:text-lg lg:text-[21px] text-white w-[min-content]`}
       >
         {HERO_CONTENT.description}
       </p>
@@ -414,6 +416,19 @@ function LogoSection() {
 /** Reusable floating card component */
 function FloatingCard({ data }: { data: FloatingCardData }) {
   const IconComponent = data.icon;
+  const [isLargeScreen, setIsLargeScreen] = React.useState(false);
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    setIsLargeScreen(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsLargeScreen(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   return (
     <motion.div
@@ -421,7 +436,7 @@ function FloatingCard({ data }: { data: FloatingCardData }) {
       style={{ left: data.position.left, top: data.position.top }}
       data-name={data.id}
       variants={floatingCardAnimation}
-      animate="animate"
+      animate={isLargeScreen ? "animate" : undefined}
       transition={floatingCardTransition}
     >
       <IconComponent />
@@ -433,7 +448,7 @@ function FloatingCard({ data }: { data: FloatingCardData }) {
 /** Container for all floating cards and decorative elements */
 function FloatingCardsSection() {
   return (
-    <div className="absolute h-[450px] left-[937px] top-[160px] w-[500px]">
+    <div className="absolute h-[450px] right-4 lg:right-8 xl:right-[10%] 2xl:left-[937px] top-[160px] w-[500px] hidden xl:block">
       <LogoSection />
       {FLOATING_CARDS_DATA.map((cardData) => (
         <FloatingCard key={cardData.id} data={cardData} />
@@ -462,10 +477,10 @@ function HeroBackground() {
 /** Gradient overlay */
 function GradientOverlay() {
   return (
-    <div className="absolute flex h-[692px] items-center justify-center left-0 top-0 w-[1512px]">
-      <div className="flex-none rotate-[180deg] scale-y-[-100%]">
+    <div className="absolute flex h-full items-center justify-center left-0 top-0 w-full">
+      <div className="flex-none rotate-[180deg] scale-y-[-100%] w-full h-full">
         <div
-          className="h-[692px] w-[1512px]"
+          className="h-full w-full"
           style={{
             backgroundImage:
               "linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), linear-gradient(204.592deg, rgba(6, 86, 217, 0.3) 0%, rgba(55, 188, 255, 0.3) 100%)",
@@ -483,14 +498,35 @@ function GradientOverlay() {
 export function HeroSection() {
   return (
     <section
-      className="h-[692px] overflow-clip relative shrink-0 w-full"
+      className="min-h-[600px] md:min-h-[650px] lg:min-h-[700px] xl:h-[692px] overflow-visible relative shrink-0 w-full pt-8 lg:pt-0"
       aria-label="Hero section"
     >
       <HeroBackground />
       <GradientOverlay />
 
-      <HeroContent />
-      <FloatingCardsSection />
+      {/* Grid container for content */}
+      <div className="relative h-full w-full max-w-[1576px] mx-auto px-4 md:px-8 lg:px-16  ">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 h-full items-center py-12 md:py-16 lg:py-20 ">
+          {/* Left column - Content */}
+          <div className="flex flex-col gap-6 md:gap-9 z-10">
+            <HeroHeadline />
+            <p
+              className={`css-4hzbpn font-medium leading-6 md:leading-7 lg:leading-[29px] not-italic text-base md:text-lg lg:text-[21px] text-white max-w-[750px]`}
+            >
+              {HERO_CONTENT.description}
+            </p>
+            <DemoButton />
+          </div>
+
+          {/* Right column - Floating Cards Section */}
+          <div className="relative h-[450px] lg:h-[550px] w-full max-w-[500px] mx-auto xl:mx-0 xl:ml-auto overflow-visible mt-5 xl:mt-20 ">
+            <LogoSection />
+            {FLOATING_CARDS_DATA.map((cardData) => (
+              <FloatingCard key={cardData.id} data={cardData} />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
