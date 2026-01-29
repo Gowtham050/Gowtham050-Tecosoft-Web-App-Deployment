@@ -24,28 +24,137 @@ function Group2() {
     <div className="h-[316px] relative shrink-0 w-[198px]">
       <div className="absolute inset-[-1.37%_0]">
         <svg
-          className="block size-full"
+          width="199"
+          height="325"
+          viewBox="0 0 199 325"
           fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 198 324.66"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <g id="Group 1171277050">
-            <path
-              d={svgPaths.p228cf400}
-              fill="var(--stroke-0, #282828)"
-              id="Line 16"
-            />
-            <path
-              d={svgPaths.p24ca1000}
-              fill="var(--stroke-0, #0098D4)"
-              id="Line 17"
-            />
-            <path
-              d={svgPaths.p3c0164f0}
-              fill="var(--stroke-0, #0098D4)"
-              id="Vector 11"
-            />
-          </g>
+          <style>{`
+         @keyframes dashMove {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.dash-move {
+  animation: dashMove 1.2s linear infinite;
+}
+@keyframes dashMoveBlue {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.dash-move-blue {
+  animation: dashMoveBlue 1.2s linear infinite;
+}
+@keyframes dashVerticalDown {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes dashVerticalUp {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 24;
+  }
+}
+
+.dash-vertical-down {
+  animation: dashVerticalDown 1.4s linear infinite;
+}
+
+.dash-vertical-up {
+  animation: dashVerticalUp 1.4s linear infinite;
+}
+
+
+          
+        `}</style>
+          {/* black stoke path hirzontal movement  left  to right*/}
+          <path d="M0 162.33L7.5 166.66V158L0 162.33Z" fill="#282828" />
+          <path
+            d="M7.5 162.33H110"
+            fill="none"
+            stroke="#282828"
+            strokeWidth="1.5"
+            strokeDasharray="6 6"
+            className="dash-move"
+          />
+          {/* blue stoke path hirzontal movement left  to right */}
+          <path
+            d="M198.031 162.33L190.531 166.66V158L198.031 162.33Z"
+            fill="#0098D4"
+          />
+          <path
+            d="M110 162.33H190.531"
+            fill="none"
+            stroke="#0098D4"
+            strokeWidth="1.5"
+            strokeDasharray="6 6"
+            className="dash-move-blue"
+          />
+          {/* blue stoke path hirzontal movement  left  to right */}
+          {/* <path
+            d="M198.031 320.33L190.531 324.66V316L198.031 320.33ZM192.953 320.33V321.08H189.567V320.33V319.58H192.953V320.33ZM186.181 320.33V321.08H182.796V320.33V319.58H186.181V320.33ZM179.41 320.33V321.08H176.024V320.33V319.58H179.41V320.33ZM172.639 320.33V321.08H169.253V320.33V319.58H172.639V320.33ZM165.867 320.33V321.08H162.482V320.33V319.58H165.867V320.33ZM159.096 320.33V321.08H155.71V320.33V319.58H159.096V320.33ZM152.325 320.33V321.08H148.939V320.33V319.58H152.325V320.33ZM145.553 320.33V321.08H142.167V320.33V319.58H145.553V320.33ZM138.782 320.33V321.08H135.396V320.33V319.58H138.782V320.33ZM132.01 320.33V321.08H128.625V320.33V319.58H132.01V320.33ZM125.239 320.33V321.08H121.853V320.33V319.58H125.239V320.33ZM118.468 320.33V321.08H115.082V320.33V319.58H118.468V320.33ZM111.696 320.33V321.08H110.003V320.33V319.58H111.696V320.33Z"
+            fill="#0098D4"
+          /> */}
+          <path
+            d="M198.031 320.33L190.531 324.66V316L198.031 320.33Z"
+            fill="#0098D4"
+          />
+          <path
+            d="M110 320.33H190.531"
+            fill="none"
+            stroke="#0098D4"
+            strokeWidth="1.5"
+            strokeDasharray="6 6"
+            className="dash-move-blue"
+          />
+          {/* blue stoke path hirzontal movement  left  to right */}
+          <path
+            d="M198.031 4.33014L190.531 8.66027V0L198.031 4.33014Z"
+            fill="#0098D4"
+          />
+          <path
+            d="M110 4.33014H190.531"
+            fill="none"
+            stroke="#0098D4"
+            strokeWidth="1.5"
+            strokeDasharray="6 6"
+            className="dash-move-blue"
+          />
+          {/* blue stoke path vertical movement  top to bottom */}``
+          <path
+            d="M110 162.33V320.33"
+            fill="none"
+            stroke="#0098D4"
+            strokeWidth="1.5"
+            strokeDasharray="6 6"
+            className="dash-vertical-down"
+          />
+          {/* blue stoke path vertical movement bottom to top */}
+          <path
+            d="M110 4.33V162.33"
+            fill="none"
+            stroke="#0098D4"
+            strokeWidth="1.5"
+            strokeDasharray="6 6"
+            className="dash-vertical-up"
+          />
         </svg>
       </div>
     </div>

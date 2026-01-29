@@ -1,8 +1,9 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface IndustriesCarouselProps {
   children: React.ReactNode[];
@@ -20,12 +21,10 @@ export function IndustriesCarousel({ children }: IndustriesCarouselProps) {
         className="industries-swiper"
       >
         {children.map((child, index) => (
-          <SwiperSlide key={index}>
-            {child}
-          </SwiperSlide>
+          <SwiperSlide key={index}>{child}</SwiperSlide>
         ))}
       </Swiper>
-      
+
       <style>{`
         .industries-swiper {
           padding-bottom: 50px;

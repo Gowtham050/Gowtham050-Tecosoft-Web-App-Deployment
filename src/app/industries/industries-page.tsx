@@ -9,11 +9,11 @@ import { TecosoftDashboardSection } from "./tecosoft-dashboard";
 export default function Industries() {
   return (
     <div className="w-full" data-name="Industries">
-      {/* <HeroSection /> */}
+      <HeroSection />
       <Solutions />
-      {/* <IndustriesSection />
+      <IndustriesSection />
       <FeaturesSection />
-      <TecosoftDashboardSection /> */}
+      <TecosoftDashboardSection />
     </div>
   );
 }
