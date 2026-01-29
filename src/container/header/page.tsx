@@ -659,7 +659,7 @@ const Navbar = () => {
     { name: "Services", href: "#", hasDropdown: false },
     { name: "Company", href: "/company", hasDropdown: false },
     { name: "Why TecoSoft", href: "/why-tecosoft", hasDropdown: false },
-    { name: "Industries", href: "#" },
+    { name: "Industries", href: "/industries", hasDropdown: false },
   ];
 
   return (

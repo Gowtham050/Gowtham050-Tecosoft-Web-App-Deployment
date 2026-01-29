@@ -106,6 +106,14 @@ export const footerCardConfig = {
     description:
       "Begin with a pilot project or single site, then scale across all operations as value increases.",
   },
+  "/industries": {
+    title: "Bring Your Operations to a",
+    highlightText: "Single Pane of Glass",
+    title2: "",
+    buttonText: "Book a Demo",
+    buttonHref: "#contact",
+    description: "",
+  },
 };
 
 // Helper function to get config based on pathname
