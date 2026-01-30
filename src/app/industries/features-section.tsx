@@ -7,14 +7,20 @@ import { VerticalAutoScroll } from "@/components/VerticalAutoScroll";
 interface Props {
   title: string;
   description: string;
-  icon?: React.ReactNode;
+  icon?: any;
 }
 
 export function FeatureCard({ title, description, icon }: Props) {
   return (
     <div className="bg-white rounded-[10px] shadow-[0_0_16px_rgba(0,0,0,0.05)]">
       <div className="flex gap-[16px] p-[16px]">
-        <div className="w-[22px] h-[22px] shrink-0">{icon}</div>
+        <div className="w-[22px] h-[22px] shrink-0">
+          <img
+            src={icon}
+            alt={title}
+            className="w-full h-full object-contain"
+          />
+        </div>
 
         <div className="flex flex-col gap-[4px]">
           <p className="text-[17px] text-[#181818] font-medium leading-[24px]">

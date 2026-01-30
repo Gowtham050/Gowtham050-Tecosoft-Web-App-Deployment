@@ -25,7 +25,7 @@ export const INDUSTRIES_DATA = [
     title: "Healthcare",
     description:
       "Enable connected care experiences with unified patient data, workflow automation, and compliance-ready systems.",
-    image: "/assets/pages/industries/healthcare.png",
+    image: "/assets/pages/industries/healthcare`.png",
     useCases: [
       "Patient Flow Optimization",
       "Medical Asset Tracking",
@@ -83,115 +83,79 @@ export const INDUSTRIES_DATA = [
   },
 ];
 
-
-
-
-
-import svgPaths from "../../imports/svg-wzyskd72fo";
-
-
 export const FEATURES = [
   {
     id: 1,
     title: "Condition & Health Monitoring",
     description: "Track the real-time health and performance of assets.",
-    icon: (
-      <svg viewBox="0 0 18.33 16.5" className="w-[22px] h-[22px]">
-        <path d={svgPaths.pbf9d180} fill="url(#grad1)" />
-        <defs>
-          <linearGradient id="grad1">
-            <stop stopColor="#00B7FF" />
-            <stop offset="1" stopColor="#0EB05C" />
-          </linearGradient>
-        </defs>
-      </svg>
-    ),
+    icon: "/assets/pages/industries/features/healt.svg",
   },
   {
     id: 2,
     title: "Maintenance Planning & Reliability",
     description: "Schedule preventive maintenance to maximize uptime.",
-    icon: (
-      <svg viewBox="0 0 12 20" className="w-[22px] h-[22px]">
-        <path d={svgPaths.pd040580} fill="url(#grad2)" />
-        <defs>
-          <linearGradient id="grad2">
-            <stop stopColor="#00B7FF" />
-            <stop offset="1" stopColor="#0EB05C" />
-          </linearGradient>
-        </defs>
-      </svg>
-    ),
+    icon: "/assets/pages/industries/features/wrench-02.svg",
   },
   {
     id: 3,
     title: "Safety, Compliance & Audit",
     description:
       "Ensure operations meet safety standards and regulatory requirements.",
-    icon: (
-      <svg viewBox="0 0 22 22" className="w-[22px] h-[22px]">
-        <path d={svgPaths.p284f5fb0} fill="url(#grad3)" />
-        <defs>
-          <linearGradient id="grad3">
-            <stop stopColor="#00B7FF" />
-            <stop offset="1" stopColor="#0EB05C" />
-          </linearGradient>
-        </defs>
-      </svg>
-    ),
+    icon: "/assets/pages/industries/features/safety.svg",
   },
   {
     id: 4,
     title: "Remote & Virtual Operations",
     description: "Manage operations and monitor assets from anywhere.",
-    icon: null,
+    icon: "/assets/pages/industries/features/remote.svg",
   },
   {
     id: 5,
     title: "Production & Work Order Tracking",
     description: "Monitor progress and status of production and work orders.",
-    icon: null,
+    icon: "/assets/pages/industries/features/production.svg",
   },
   {
     id: 6,
     title: "Energy Oversight & Optimization",
     description: "Analyze and optimize energy consumption across processes.",
-    icon: null,
+    icon: "/assets/pages/industries/features/energy.svg",
   },
   {
     id: 7,
     title: "Throughput & Bottleneck Analysis",
     description: "Identify process constraints and improve efficiency.",
-    icon: null,
+    icon: "/assets/pages/industries/features/bottleneck.svg",
   },
   {
     id: 8,
     title: "Reports & Scheduled Insights",
     description: "Generate automated reports and actionable insights.",
-    icon: null,
+    icon: "/assets/pages/industries/features/reports.svg",
   },
   {
     id: 9,
     title: "Quality SPC & Traceability",
     description: "Maintain and trace quality standards in production.",
-    icon: null,
+    icon: "/assets/pages/industries/features/quality.svg",
   },
   {
     id: 10,
     title: "Inventory & Supply Chain Insights",
     description: "Optimize inventory levels and supply chain operations.",
-    icon: null,
+    icon: "/assets/pages/industries/features/inventory.svg",
   },
   {
     id: 11,
     title: "Forecasting & What-If Scenarios",
     description: "Simulate scenarios to predict outcomes and plan ahead.",
-    icon: null,
+    icon: "/assets/pages/industries/features/forecasting.svg",
   },
   {
     id: 12,
     title: "Integrations & Data Exchange",
-    description: "Connect systems and share data across platforms effortlessly.",
-    icon: null,
+    description:
+      "Connect systems and share data across platforms effortlessly.",
+    icon: "/assets/pages/industries/features/integration.svg",
   },
 ];

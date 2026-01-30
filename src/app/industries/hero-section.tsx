@@ -429,15 +429,15 @@ function HeroSection() {
       className="h-[692px] overflow-clip relative shrink-0 w-full"
       data-name="Hero section"
     >
-      <video
+      {/* <video
         autoPlay
         className="absolute max-w-none object-cover size-full"
         controlsList="nodownload"
         loop
         playsInline
-      >
-        <source src="/_videos/v1/fa7f3fe0c0f3d52cf04eddf3abe490191abc7e1b" />
-      </video>
+      > */}
+      {/* <source src="/_videos/v1/fa7f3fe0c0f3d52cf04eddf3abe490191abc7e1b" /> */}
+      {/* </video> */}
       <div className="absolute flex h-[692px] items-center justify-center left-0 top-0 w-[1512px]">
         <div className="flex-none rotate-[180deg] scale-y-[-100%]">
           <div
