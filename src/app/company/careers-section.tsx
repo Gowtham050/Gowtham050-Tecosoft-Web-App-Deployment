@@ -32,7 +32,7 @@ function ArrowIcon({
         <div
           className={clsx(
             "relative",
-            size === 20 ? "size-[20px]" : "size-[14px]"
+            size === 20 ? "size-[20px]" : "size-[14px]",
           )}
         >
           <svg
@@ -82,7 +82,7 @@ function Badge({ text, variant = "secondary", width }: BadgeProps) {
     <div
       className={clsx(
         `flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shrink-0 text-sm sm:text-base whitespace-nowrap ${width}`,
-        variantStyles[variant]
+        variantStyles[variant],
       )}
     >
       {text}
@@ -112,7 +112,7 @@ function ApplyButton({ onClick }: ApplyButtonProps) {
   return (
     <button
       onClick={onClick}
-      className="flex gap-1 items-center shrink-0 hover:opacity-90 transition-opacity"
+      className="flex gap-1 items-center shrink-0 hover:opacity-90 transition-opacity cursor-pointer"
       aria-label="Apply for job"
     >
       <p
@@ -153,9 +153,10 @@ type JobCardProps = {
   title: string;
   description: string;
   tags: string[];
+  onClick?: () => void;
 };
 
-function JobCard({ title, description, tags }: JobCardProps) {
+function JobCard({ title, description, tags, onClick }: JobCardProps) {
   return (
     <div className="bg-white rounded-xl p-4 sm:p-5 w-full hover:shadow-lg transition-shadow">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
@@ -173,7 +174,7 @@ function JobCard({ title, description, tags }: JobCardProps) {
           </div>
         </div>
         <div className="lg:ml-4 self-start">
-          <ApplyButton />
+          <ApplyButton onClick={onClick} />
         </div>
       </div>
     </div>
@@ -324,7 +325,11 @@ function SeeLessButton({ onClick }: SeeLessButtonProps) {
   );
 }
 
-export default function CareersSection() {
+export default function CareersSection({
+  setCareersOpen,
+}: {
+  setCareersOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const [activeCategory, setActiveCategory] = React.useState("View all");
   const [visibleJobs, setVisibleJobs] = React.useState(5);
 
@@ -396,6 +401,7 @@ export default function CareersSection() {
               title={job.title}
               description={job.description}
               tags={job.tags}
+              onClick={() => setCareersOpen(true)}
             />
           ))}
         </div>

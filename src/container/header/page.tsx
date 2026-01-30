@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, ArrowDown } from "lucide-react";
 import Image from "next/image";
+import BookDemoModal from "@/components/BookDemo";
 
 // Z-index layer constants for consistent stacking
 const Z_INDEX = {
@@ -29,9 +30,14 @@ interface NavItem {
 interface DesktopNavProps {
   navItems: NavItem[];
   isScrolled: boolean;
+  setIsPopUp: (value: boolean) => void;
 }
 
-const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
+const DesktopNav: React.FC<DesktopNavProps> = ({
+  navItems,
+  isScrolled,
+  setIsPopUp,
+}) => {
   const router = useRouter();
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -280,13 +286,13 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
         </ul>
 
         {/* CTA Button - Desktop */}
-        <a
-          href="#demo"
+        <div
+          onClick={() => setIsPopUp(true)}
           className="flex bg-[#0eb05c] text-white px-6 py-2 rounded-lg hover:bg-[#0d9d52] transition-colors font-semibold items-center gap-2"
         >
           Book a Demo
           <span>→</span>
-        </a>
+        </div>
       </nav>
     </header>
   );
@@ -296,9 +302,14 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
 interface MobileNavProps {
   navItems: NavItem[];
   isScrolled: boolean;
+  setIsPopUp: (value: boolean) => void;
 }
 
-const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
+const MobileNav: React.FC<MobileNavProps> = ({
+  navItems,
+  isScrolled,
+  setIsPopUp,
+}) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -537,14 +548,16 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
                 </li>
               ))}
               <li className="mt-5 mb-3">
-                <a
-                  href="#demo"
+                <div
                   className="bg-[#0eb05c] text-white px-6 py-3 rounded-lg hover:bg-[#0d9d52] transition-colors font-medium flex items-center justify-center gap-2"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsPopUp(true);
+                  }}
                 >
                   Book a Demo
                   <span>→</span>
-                </a>
+                </div>
               </li>
             </ul>
           </div>
@@ -559,6 +572,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
 const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPopUp, setIsPopUp] = useState(false);
 
   // Determine if header should be in scrolled state
   useEffect(() => {
@@ -665,10 +679,20 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <DesktopNav navItems={navItems} isScrolled={isScrolled} />
+      <DesktopNav
+        navItems={navItems}
+        isScrolled={isScrolled}
+        setIsPopUp={setIsPopUp}
+      />
 
       {/* Mobile Navigation */}
-      <MobileNav navItems={navItems} isScrolled={isScrolled} />
+      <MobileNav
+        navItems={navItems}
+        isScrolled={isScrolled}
+        setIsPopUp={setIsPopUp}
+      />
+
+      <BookDemoModal isOpen={isPopUp} onClose={() => setIsPopUp(false)} />
     </>
   );
 };

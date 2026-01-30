@@ -87,9 +87,9 @@ const ArrowButton = ({ direction }: { direction: "prev" | "next" }) => (
       <path
         d="M18.7031 11H3.30313M3.30313 11L10.5753 3.29995M3.30313 11L10.5753 18.7"
         stroke="#007AAA"
-        stroke-width="1.7"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   </div>
@@ -152,7 +152,7 @@ const IndustryCard = ({ data }: { data: any }) => (
 /* ------------------------------------------------------------------ */
 
 export default function IndustriesSection() {
-  const swiperRef = useRef<SwiperType>();
+  const swiperRef = useRef<SwiperType>(undefined);
 
   return (
     <section className="bg-white p-[60px] w-full">

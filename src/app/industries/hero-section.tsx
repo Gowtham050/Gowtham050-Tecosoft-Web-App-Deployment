@@ -5,6 +5,12 @@ import svgPaths from "../../imports/svg-wzyskd72fo";
 const imgLogo2 =
   "/assets/pages/industries/7237d837fb840eb1fdf3472a3a5d42c920a312a7.png";
 
+// Z-index constants - Banner should be below navbar (navbar uses 999-1001)
+const Z_INDEX = {
+  VIDEO_LAYER: 1, // Video background (bottom layer)
+  OVERLAY_LAYER: 2, // Dark overlay above video
+  CONTENT_LAYER: 10, // Banner content (below navbar)
+};
 // Hero Section Components
 function Group() {
   return (
@@ -406,8 +412,12 @@ function Frame39() {
 
 function Frame29() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[36px] items-center left-1/2 top-[calc(50%+40px)] translate-x-[-50%] translate-y-[-50%] w-[1200px]">
-      <p className="css-4hzbpn font-['Gilroy:Semibold',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[80px] text-center text-white w-[min-content]">
+    <div
+      className="absolute content-stretch flex flex-col gap-[36px] items-center left-1/2 top-[calc(50%+40px)] translate-x-[-50%] translate-y-[-50%] w-[1200px]"
+      data-name="banner-text"
+      style={{ zIndex: Z_INDEX.CONTENT_LAYER }}
+    >
+      <p className="css-4hzbpn font-semibold leading-[0] min-w-full not-italic relative shrink-0 text-[80px] text-center text-white w-[min-content]">
         <span className="leading-[94px]">{`From Factory Floors to City Blocks - `}</span>
         <span className="leading-[94px] text-[#00ff84]">
           Tecosoft Powers Real Operations
@@ -429,20 +439,22 @@ function HeroSection() {
       className="h-[692px] overflow-clip relative shrink-0 w-full"
       data-name="Hero section"
     >
-      {/* <video
+      <video
         autoPlay
         className="absolute max-w-none object-cover size-full"
         controlsList="nodownload"
         loop
         playsInline
-      > */}
-      {/* <source src="/_videos/v1/fa7f3fe0c0f3d52cf04eddf3abe490191abc7e1b" /> */}
-      {/* </video> */}
+      >
+        <source src="/assets/video/industry-banner-bg.mp4" type="video/mp4" />
+      </video>
       <div className="absolute flex h-[692px] items-center justify-center left-0 top-0 w-[1512px]">
         <div className="flex-none rotate-[180deg] scale-y-[-100%]">
           <div
             className="h-[692px] w-[1512px]"
             style={{
+              zIndex: Z_INDEX.OVERLAY_LAYER,
+
               backgroundImage:
                 "linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), linear-gradient(204.592deg, rgba(6, 86, 217, 0.3) 0%, rgba(55, 188, 255, 0.3) 100%)",
             }}

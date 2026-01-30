@@ -154,3 +154,17 @@ body {
 
   display: none !important;
 }
+
+
+
+.form-label {
+  @apply mb-1 block text-base font-medium text-gray-700;
+}
+
+.form-input {
+  @apply w-full rounded-md border border-gray-300 px-4 py-2 text-sm outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500;
+}
+
+.form-error {
+  @apply mt-1 text-xs text-red-500;
+}
