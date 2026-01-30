@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { X, Upload, ChevronDown } from "lucide-react";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
+import { useLenis } from "../../../libs/react-lenis";
 
 export interface JobData {
   id: number;
@@ -36,14 +37,32 @@ interface ApplicationFormValues {
 }
 
 const validationSchema = Yup.object({
-  firstName: Yup.string().required("First name is required"),
-  lastName: Yup.string().required("Last name is required"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
+  firstName: Yup.string()
+    .required("First name is required")
+    .max(20, "Maximum 20 characters allowed")
+    .matches(/^[A-Za-z\s]+$/, "Only letters are allowed"),
+  lastName: Yup.string()
+    .required("Last name is required")
+    .max(20, "Maximum 20 characters allowed")
+    .matches(/^[A-Za-z\s]+$/, "Only letters are allowed"),
+  email: Yup.string()
+    .required("Email is required")
+    .test("no-spaces", "Email cannot contain spaces", (value) => {
+      if (!value) return true;
+      return !/\s/.test(value);
+    })
+    .email("Invalid email format"),
   phone: Yup.string()
-    .matches(/^[0-9]+$/, "Phone number must be numeric")
-    .min(10, "Phone number must be at least 10 digits")
-    .required("Phone number is required"),
-  currentLocation: Yup.string().required("Current location is required"),
+    .required("Phone number is required")
+    .matches(/^[0-9]+$/, "Only numbers are allowed")
+    .min(10, "Minimum 10 digits required")
+    .max(15, "Maximum 15 digits allowed"),
+  currentLocation: Yup.string()
+    .required("Current location is required")
+    .test("no-leading-space", "Cannot start with a space", (value) => {
+      if (!value) return true;
+      return value[0] !== " ";
+    }),
   workExperience: Yup.string().required("Work experience is required"),
   linkedinPortfolio: Yup.string()
     .url("Please enter a valid URL")
@@ -78,15 +97,15 @@ const WORK_EXPERIENCE_OPTIONS = [
 
 const COUNTRY_CODES = [
   { code: "+91", country: "IN" },
-  { code: "+1", country: "US" },
-  { code: "+44", country: "UK" },
-  { code: "+61", country: "AU" },
-  { code: "+971", country: "UAE" },
+  // { code: "+1", country: "US" },
+  // { code: "+44", country: "UK" },
+  // { code: "+61", country: "AU" },
+  // { code: "+971", country: "UAE" },
 ];
 
 function Tag({ text }: { text: string }) {
   return (
-    <span className="rounded-full bg-[#ccf1ff] px-3 py-1 text-xs sm:text-sm font-medium text-[#005b80]">
+    <span className="rounded-full bg-[#ccf1ff] px-2 py-0.5 text-[10px] xs:px-3 xs:py-1 xs:text-xs sm:text-sm font-medium text-[#005b80]">
       {text}
     </span>
   );
@@ -102,28 +121,33 @@ function JobDetailsView({
   onClose: () => void;
 }) {
   return (
-    <div className="relative flex h-[90vh] w-full max-w-4xl flex-col rounded-2xl bg-white shadow-2xl mx-4 sm:mx-0">
+    <div
+      data-lenis-prevent
+      className="relative w-full rounded-xl sm:rounded-2xl bg-white shadow-2xl mx-auto"
+      style={{ maxHeight: "85vh", display: "flex", flexDirection: "column" }}
+    >
       {/* Header */}
-      <div className="sticky top-0 z-10 flex items-start justify-between border-b border-gray-200 bg-white px-4 sm:px-6 py-4 rounded-t-2xl">
-        <div className="flex-1 pr-4">
-          <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
+      <div className="flex-shrink-0 flex items-start justify-between border-b border-gray-200 bg-white px-3 py-3 xs:px-4 xs:py-4 sm:px-6 rounded-t-xl sm:rounded-t-2xl gap-2">
+        <div className="flex-1 min-w-0">
+          <h2 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 truncate">
             {job.title}
           </h2>
-          <div className="mt-2 flex flex-wrap gap-2">
+          <div className="mt-1.5 xs:mt-2 flex flex-wrap gap-1.5 xs:gap-2">
             {job.tags.map((tag, index) => (
               <Tag key={index} text={tag} />
             ))}
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 flex-shrink-0">
           <button
             onClick={onApply}
-            className="flex items-center gap-1 sm:gap-2 rounded-md bg-[#07af40] px-3 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-semibold text-white hover:bg-[#069935] transition-colors"
+            className="flex items-center gap-1 rounded-md bg-[#07af40] px-2 py-1.5 xs:px-3 xs:py-2 sm:px-5 sm:py-2.5 text-xs xs:text-sm sm:text-base font-semibold text-white hover:bg-[#069935] transition-colors"
           >
-            Apply Job
+            <span className="hidden xs:inline">Apply Job</span>
+            <span className="xs:hidden">Apply</span>
             <svg
-              className="h-4 w-4 sm:h-5 sm:w-5 -rotate-90"
+              className="h-3 w-3 xs:h-4 xs:w-4 sm:h-5 sm:w-5 -rotate-90"
               fill="none"
               viewBox="0 0 20 20"
               stroke="currentColor"
@@ -138,31 +162,37 @@ function JobDetailsView({
           </button>
           <button
             onClick={onClose}
-            className="rounded-lg border border-gray-200 p-2 hover:bg-gray-100 transition-colors"
+            className="rounded-lg border border-gray-200 p-1.5 xs:p-2 hover:bg-gray-100 transition-colors"
             aria-label="Close modal"
           >
-            <X className="h-5 w-5 text-gray-500" />
+            <X className="h-4 w-4 xs:h-5 xs:w-5 text-gray-500" />
           </button>
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-6 space-y-6 text-gray-700">
+      <div
+        data-lenis-prevent
+        className="px-3 py-4 xs:px-4 xs:py-5 sm:px-6 sm:py-6 space-y-4 xs:space-y-5 sm:space-y-6 text-gray-700"
+        style={{ overflowY: "auto", flex: 1, minHeight: 0 }}
+      >
         {/* Intro */}
         {job.intro && (
-          <p className="text-sm sm:text-base leading-relaxed">{job.intro}</p>
+          <p className="text-xs xs:text-sm sm:text-base leading-relaxed">
+            {job.intro}
+          </p>
         )}
 
         {/* What you'll do */}
         {job.whatYoullDo && job.whatYoullDo.length > 0 && (
           <section>
-            <h3 className="mb-3 text-base sm:text-lg font-semibold text-gray-900">
+            <h3 className="mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg font-semibold text-gray-900">
               What you'll do
             </h3>
-            <ul className="space-y-2 text-sm sm:text-base">
+            <ul className="space-y-1.5 xs:space-y-2 text-xs xs:text-sm sm:text-base">
               {job.whatYoullDo.map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-400 flex-shrink-0" />
+                  <span className="mt-1.5 xs:mt-2 h-1 w-1 xs:h-1.5 xs:w-1.5 rounded-full bg-gray-400 flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -173,13 +203,13 @@ function JobDetailsView({
         {/* What we're looking for */}
         {job.whatWereLookingFor && job.whatWereLookingFor.length > 0 && (
           <section>
-            <h3 className="mb-3 text-base sm:text-lg font-semibold text-gray-900">
+            <h3 className="mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg font-semibold text-gray-900">
               What we're looking for
             </h3>
-            <ul className="space-y-2 text-sm sm:text-base">
+            <ul className="space-y-1.5 xs:space-y-2 text-xs xs:text-sm sm:text-base">
               {job.whatWereLookingFor.map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-400 flex-shrink-0" />
+                  <span className="mt-1.5 xs:mt-2 h-1 w-1 xs:h-1.5 xs:w-1.5 rounded-full bg-gray-400 flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -190,13 +220,13 @@ function JobDetailsView({
         {/* Nice to have */}
         {job.niceToHave && job.niceToHave.length > 0 && (
           <section>
-            <h3 className="mb-3 text-base sm:text-lg font-semibold text-gray-900">
+            <h3 className="mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg font-semibold text-gray-900">
               Nice to have
             </h3>
-            <ul className="space-y-2 text-sm sm:text-base">
+            <ul className="space-y-1.5 xs:space-y-2 text-xs xs:text-sm sm:text-base">
               {job.niceToHave.map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-400 flex-shrink-0" />
+                  <span className="mt-1.5 xs:mt-2 h-1 w-1 xs:h-1.5 xs:w-1.5 rounded-full bg-gray-400 flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -210,7 +240,6 @@ function JobDetailsView({
 
 function ApplicationFormView({
   job,
-  onBack,
   onClose,
 }: {
   job: JobData;
@@ -234,10 +263,9 @@ function ApplicationFormView({
 
   const handleSubmit = (
     values: ApplicationFormValues,
-    { setSubmitting, resetForm }: FormikHelpers<ApplicationFormValues>
+    { setSubmitting, resetForm }: FormikHelpers<ApplicationFormValues>,
   ) => {
     console.log("Application submitted:", values);
-    // Here you would typically send the data to your backend
     setTimeout(() => {
       setSubmitting(false);
       resetForm();
@@ -248,36 +276,46 @@ function ApplicationFormView({
   };
 
   return (
-    <div className="relative flex h-[90vh] w-full max-w-4xl flex-col rounded-2xl bg-white shadow-2xl mx-4 sm:mx-0">
+    <div
+      data-lenis-prevent
+      className="relative w-full rounded-xl sm:rounded-2xl bg-white shadow-2xl mx-auto"
+      style={{ maxHeight: "85vh", display: "flex", flexDirection: "column" }}
+    >
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
+        validateOnChange={true}
+        validateOnBlur={true}
       >
         {({ setFieldValue, isSubmitting, errors, touched }) => (
-          <Form className="flex flex-col h-full">
+          <Form
+            data-lenis-prevent
+            className="flex flex-col"
+            style={{ maxHeight: "85vh", height: "100%" }}
+          >
             {/* Header */}
-            <div className="sticky top-0 z-10 flex items-start justify-between border-b border-gray-200 bg-white px-4 sm:px-6 py-4 rounded-t-2xl">
-              <div className="flex-1 pr-4">
-                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
+            <div className="flex-shrink-0 flex items-start justify-between border-b border-gray-200 bg-white px-3 py-3 xs:px-4 xs:py-4 sm:px-6 rounded-t-xl sm:rounded-t-2xl gap-2">
+              <div className="flex-1 min-w-0">
+                <h2 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 truncate">
                   {job.title}
                 </h2>
-                <div className="mt-2 flex flex-wrap gap-2">
+                <div className="mt-1.5 xs:mt-2 flex flex-wrap gap-1.5 xs:gap-2">
                   {job.tags.map((tag, index) => (
                     <Tag key={index} text={tag} />
                   ))}
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+              <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 flex-shrink-0">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center gap-1 sm:gap-2 rounded-md bg-[#07af40] px-3 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-semibold text-white hover:bg-[#069935] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-1 rounded-md bg-[#07af40] px-2 py-1.5 xs:px-3 xs:py-2 sm:px-5 sm:py-2.5 text-xs xs:text-sm sm:text-base font-semibold text-white hover:bg-[#069935] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? "Submitting..." : "Submit"}
+                  {isSubmitting ? "..." : "Submit"}
                   <svg
-                    className="h-4 w-4 sm:h-5 sm:w-5 -rotate-90"
+                    className="h-3 w-3 xs:h-4 xs:w-4 sm:h-5 sm:w-5 -rotate-90"
                     fill="none"
                     viewBox="0 0 20 20"
                     stroke="currentColor"
@@ -293,90 +331,108 @@ function ApplicationFormView({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="rounded-lg border border-gray-200 p-2 hover:bg-gray-100 transition-colors"
+                  className="rounded-lg border border-gray-200 p-1.5 xs:p-2 hover:bg-gray-100 transition-colors"
                   aria-label="Close modal"
                 >
-                  <X className="h-5 w-5 text-gray-500" />
+                  <X className="h-4 w-4 xs:h-5 xs:w-5 text-gray-500" />
                 </button>
               </div>
             </div>
 
             {/* Form Content */}
-            <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div
+              data-lenis-prevent
+              className="px-3 py-4 xs:px-4 xs:py-5 sm:px-6 sm:py-6"
+              style={{
+                overflowY: "auto",
+                flex: 1,
+                minHeight: 0,
+              }}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-5">
                 {/* First Name */}
-                <div>
-                  <label className="form-label">
+                <div className="min-h-[70px] xs:min-h-[76px]">
+                  <label className="block text-xs xs:text-sm font-medium text-gray-700 mb-1">
                     First name<span className="text-red-500">*</span>
                   </label>
                   <Field
                     name="firstName"
-                    className={`form-input ${
+                    maxLength={20}
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
                       errors.firstName && touched.firstName
-                        ? "border-red-500"
-                        : ""
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-300 focus:border-green-500"
                     }`}
                     placeholder="Enter your first name"
                   />
-                  <ErrorMessage
-                    name="firstName"
-                    component="p"
-                    className="form-error"
-                  />
+                  <div className="h-4 mt-0.5">
+                    <ErrorMessage
+                      name="firstName"
+                      component="p"
+                      className="text-[10px] xs:text-xs text-red-500"
+                    />
+                  </div>
                 </div>
 
                 {/* Last Name */}
-                <div>
-                  <label className="form-label">
+                <div className="min-h-[70px] xs:min-h-[76px]">
+                  <label className="block text-xs xs:text-sm font-medium text-gray-700 mb-1">
                     Last name<span className="text-red-500">*</span>
                   </label>
                   <Field
                     name="lastName"
-                    className={`form-input ${
+                    maxLength={20}
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
                       errors.lastName && touched.lastName
-                        ? "border-red-500"
-                        : ""
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-300 focus:border-green-500"
                     }`}
                     placeholder="Enter your last name"
                   />
-                  <ErrorMessage
-                    name="lastName"
-                    component="p"
-                    className="form-error"
-                  />
+                  <div className="h-4 mt-0.5">
+                    <ErrorMessage
+                      name="lastName"
+                      component="p"
+                      className="text-[10px] xs:text-xs text-red-500"
+                    />
+                  </div>
                 </div>
 
                 {/* Email */}
-                <div>
-                  <label className="form-label">
+                <div className="min-h-[70px] xs:min-h-[76px]">
+                  <label className="block text-xs xs:text-sm font-medium text-gray-700 mb-1">
                     Email address<span className="text-red-500">*</span>
                   </label>
                   <Field
                     name="email"
-                    type="email"
-                    className={`form-input ${
-                      errors.email && touched.email ? "border-red-500" : ""
+                    type="text"
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
+                      errors.email && touched.email
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-300 focus:border-green-500"
                     }`}
                     placeholder="Enter your email address"
                   />
-                  <ErrorMessage
-                    name="email"
-                    component="p"
-                    className="form-error"
-                  />
+                  <div className="h-4 mt-0.5">
+                    <ErrorMessage
+                      name="email"
+                      component="p"
+                      className="text-[10px] xs:text-xs text-red-500"
+                    />
+                  </div>
                 </div>
 
                 {/* Phone Number */}
-                <div>
-                  <label className="form-label">
+                <div className="min-h-[70px] xs:min-h-[76px]">
+                  <label className="block text-xs xs:text-sm font-medium text-gray-700 mb-1">
                     Phone number<span className="text-red-500">*</span>
                   </label>
                   <div className="flex">
-                    <div className="relative">
+                    <div className="relative flex-shrink-0">
                       <Field
                         as="select"
                         name="countryCode"
-                        className="h-full rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-2 sm:px-3 py-2 text-sm text-gray-600 focus:border-green-500 focus:outline-none appearance-none pr-6 sm:pr-8"
+                        className="h-full rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-1.5 xs:px-2 sm:px-3 py-2 text-xs xs:text-sm text-gray-600 focus:border-green-500 focus:outline-none appearance-none pr-5 xs:pr-6 sm:pr-8"
                       >
                         {COUNTRY_CODES.map((item) => (
                           <option key={item.code} value={item.code}>
@@ -384,57 +440,64 @@ function ApplicationFormView({
                           </option>
                         ))}
                       </Field>
-                      <ChevronDown className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+                      <ChevronDown className="absolute right-0.5 xs:right-1 sm:right-2 top-1/2 -translate-y-1/2 h-3 w-3 xs:h-4 xs:w-4 text-gray-400 pointer-events-none" />
                     </div>
                     <Field
                       name="phone"
-                      className={`form-input rounded-l-none flex-1 ${
-                        errors.phone && touched.phone ? "border-red-500" : ""
+                      maxLength={15}
+                      className={`w-full rounded-r-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
+                        errors.phone && touched.phone
+                          ? "border-red-500 focus:border-red-500"
+                          : "border-gray-300 focus:border-green-500"
                       }`}
-                      placeholder="Enter your phone number"
+                      placeholder="Phone number"
                     />
                   </div>
-                  <ErrorMessage
-                    name="phone"
-                    component="p"
-                    className="form-error"
-                  />
+                  <div className="h-4 mt-0.5">
+                    <ErrorMessage
+                      name="phone"
+                      component="p"
+                      className="text-[10px] xs:text-xs text-red-500"
+                    />
+                  </div>
                 </div>
 
                 {/* Current Location */}
-                <div>
-                  <label className="form-label">
+                <div className="min-h-[70px] xs:min-h-[76px]">
+                  <label className="block text-xs xs:text-sm font-medium text-gray-700 mb-1">
                     Current location<span className="text-red-500">*</span>
                   </label>
                   <Field
                     name="currentLocation"
-                    className={`form-input ${
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
                       errors.currentLocation && touched.currentLocation
-                        ? "border-red-500"
-                        : ""
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-300 focus:border-green-500"
                     }`}
                     placeholder="Enter your current location"
                   />
-                  <ErrorMessage
-                    name="currentLocation"
-                    component="p"
-                    className="form-error"
-                  />
+                  <div className="h-4 mt-0.5">
+                    <ErrorMessage
+                      name="currentLocation"
+                      component="p"
+                      className="text-[10px] xs:text-xs text-red-500"
+                    />
+                  </div>
                 </div>
 
                 {/* Work Experience */}
-                <div>
-                  <label className="form-label">
+                <div className="min-h-[70px] xs:min-h-[76px]">
+                  <label className="block text-xs xs:text-sm font-medium text-gray-700 mb-1">
                     Work Experience<span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <Field
                       as="select"
                       name="workExperience"
-                      className={`form-input appearance-none pr-10 ${
+                      className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 appearance-none pr-8 ${
                         errors.workExperience && touched.workExperience
-                          ? "border-red-500"
-                          : ""
+                          ? "border-red-500 focus:border-red-500"
+                          : "border-gray-300 focus:border-green-500"
                       }`}
                     >
                       <option value="">Select</option>
@@ -444,43 +507,47 @@ function ApplicationFormView({
                         </option>
                       ))}
                     </Field>
-                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
+                    <ChevronDown className="absolute right-2 xs:right-3 top-1/2 -translate-y-1/2 h-4 w-4 xs:h-5 xs:w-5 text-gray-400 pointer-events-none" />
                   </div>
-                  <ErrorMessage
-                    name="workExperience"
-                    component="p"
-                    className="form-error"
-                  />
+                  <div className="h-4 mt-0.5">
+                    <ErrorMessage
+                      name="workExperience"
+                      component="p"
+                      className="text-[10px] xs:text-xs text-red-500"
+                    />
+                  </div>
                 </div>
 
                 {/* LinkedIn/Portfolio */}
-                <div className="sm:col-span-2">
-                  <label className="form-label">
+                <div className="sm:col-span-2 min-h-[70px] xs:min-h-[76px]">
+                  <label className="block text-xs xs:text-sm font-medium text-gray-700 mb-1">
                     Linkedin/Portfolio<span className="text-red-500">*</span>
                   </label>
                   <Field
                     name="linkedinPortfolio"
-                    className={`form-input ${
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
                       errors.linkedinPortfolio && touched.linkedinPortfolio
-                        ? "border-red-500"
-                        : ""
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-300 focus:border-green-500"
                     }`}
-                    placeholder="Enter your portfolio link"
+                    placeholder="https://linkedin.com/in/yourprofile"
                   />
-                  <ErrorMessage
-                    name="linkedinPortfolio"
-                    component="p"
-                    className="form-error"
-                  />
+                  <div className="h-4 mt-0.5">
+                    <ErrorMessage
+                      name="linkedinPortfolio"
+                      component="p"
+                      className="text-[10px] xs:text-xs text-red-500"
+                    />
+                  </div>
                 </div>
 
                 {/* File Attachment */}
                 <div className="sm:col-span-2">
-                  <label className="form-label">
+                  <label className="block text-xs xs:text-sm font-medium text-gray-700 mb-1">
                     Attachment<span className="text-red-500">*</span>
                   </label>
                   <div
-                    className={`border-2 border-dashed rounded-lg p-6 text-center transition-colors ${
+                    className={`border-2 border-dashed rounded-lg p-3 xs:p-4 sm:p-6 text-center transition-colors ${
                       errors.attachment && touched.attachment
                         ? "border-red-300 bg-red-50"
                         : "border-gray-300 hover:border-gray-400"
@@ -499,26 +566,28 @@ function ApplicationFormView({
                         }
                       }}
                     />
-                    <p className="text-sm text-gray-500 mb-3">
+                    <p className="text-xs xs:text-sm text-gray-500 mb-2 xs:mb-3 truncate px-2">
                       {fileName || "No file chosen"}
                     </p>
                     <button
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
-                      className="inline-flex items-center gap-2 rounded-md border border-[#0098d4] px-4 py-2 text-sm font-medium text-[#0098d4] hover:bg-[#0098d4]/5 transition-colors"
+                      className="inline-flex items-center gap-1.5 xs:gap-2 rounded-md border border-[#0098d4] px-3 py-1.5 xs:px-4 xs:py-2 text-xs xs:text-sm font-medium text-[#0098d4] hover:bg-[#0098d4]/5 transition-colors"
                     >
                       Upload file
-                      <Upload className="h-4 w-4" />
+                      <Upload className="h-3 w-3 xs:h-4 xs:w-4" />
                     </button>
-                    <p className="mt-3 text-xs text-gray-400">
-                      File Format: PDF, DOCX, DOC | File Size: Max upto 5 MB
+                    <p className="mt-2 xs:mt-3 text-[10px] xs:text-xs text-gray-400">
+                      PDF, DOCX, DOC | Max 5 MB
                     </p>
                   </div>
-                  <ErrorMessage
-                    name="attachment"
-                    component="p"
-                    className="form-error"
-                  />
+                  <div className="h-4 mt-0.5">
+                    <ErrorMessage
+                      name="attachment"
+                      component="p"
+                      className="text-[10px] xs:text-xs text-red-500"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -531,6 +600,34 @@ function ApplicationFormView({
 
 export default function JobDetailsModal({ open, onClose, job }: Props) {
   const [showApplicationForm, setShowApplicationForm] = useState(false);
+  const lenis = useLenis();
+
+  // Lock body scroll and stop Lenis when modal is open
+  useEffect(() => {
+    if (open) {
+      if (lenis) {
+        lenis.stop();
+      }
+
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        if (lenis) {
+          lenis.start();
+        }
+
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        document.body.style.overflow = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [open, lenis]);
 
   // Default job data if none provided
   const defaultJob: JobData = {
@@ -579,7 +676,10 @@ export default function JobDetailsModal({ open, onClose, job }: Props) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[1100] flex items-center justify-center p-4">
+    <div
+      data-lenis-prevent
+      className="fixed inset-0 z-[1100] flex items-center justify-center p-2 xs:p-3 sm:p-4"
+    >
       {/* Overlay */}
       <div
         onClick={handleClose}
@@ -587,7 +687,7 @@ export default function JobDetailsModal({ open, onClose, job }: Props) {
       />
 
       {/* Modal Content */}
-      <div className="relative z-10 w-full max-w-4xl">
+      <div data-lenis-prevent className="relative z-10 w-full max-w-4xl">
         {showApplicationForm ? (
           <ApplicationFormView
             job={currentJob}
