@@ -288,7 +288,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
         {/* CTA Button - Desktop */}
         <div
           onClick={() => setIsPopUp(true)}
-          className="flex bg-[#0eb05c] text-white px-6 py-2 rounded-lg hover:bg-[#0d9d52] transition-colors font-semibold items-center gap-2"
+          className="flex bg-[#0eb05c] text-white px-6 py-2 rounded-lg hover:bg-[#0d9d52] transition-colors font-semibold items-center gap-2 cursor-pointer"
         >
           Book a Demo
           <span>→</span>
@@ -549,7 +549,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
               ))}
               <li className="mt-5 mb-3">
                 <div
-                  className="bg-[#0eb05c] text-white px-6 py-3 rounded-lg hover:bg-[#0d9d52] transition-colors font-medium flex items-center justify-center gap-2"
+                  className="bg-[#0eb05c] text-white px-6 py-3 rounded-lg hover:bg-[#0d9d52] transition-colors font-medium flex items-center justify-center gap-2 cursor-pointer"
                   onClick={() => {
                     setIsOpen(false);
                     setIsPopUp(true);

@@ -84,6 +84,27 @@ export const CAREER_JOBS = [
       "We're seeking a customer success manager to ensure client satisfaction.",
     tags: ["Remote", "Full time"],
     category: "Customer services",
+    intro:
+      "You'll be the primary point of contact for our customers, ensuring they get maximum value from our platforms. You'll build lasting relationships, drive adoption, and help customers achieve their business goals through our solutions.",
+    whatYoullDo: [
+      "Serve as the main point of contact for assigned customer accounts",
+      "Conduct regular check-ins and business reviews with customers",
+      "Identify opportunities for upselling and cross-selling",
+      "Collaborate with product and engineering teams to address customer feedback",
+      "Create and maintain customer success documentation and best practices",
+    ],
+    whatWereLookingFor: [
+      "3+ years of experience in customer success or account management",
+      "Strong understanding of SaaS business models",
+      "Excellent communication and relationship-building skills",
+      "Experience with CRM tools and customer success platforms",
+      "Ability to understand technical products and translate them for customers",
+    ],
+    niceToHave: [
+      "Experience in manufacturing or industrial technology sector",
+      "Knowledge of IoT, AI, or digital transformation solutions",
+      "Familiarity with data analytics platforms",
+    ],
   },
   {
     id: 2,
@@ -92,6 +113,27 @@ export const CAREER_JOBS = [
       "We're seeking a pre sales executive to ensure client satisfaction.",
     tags: ["Remote", "Full time"],
     category: "Operations",
+    intro:
+      "You'll work closely with sales teams to provide technical expertise during the sales process. You'll help prospects understand how our platforms can solve their business challenges through demonstrations, proposals, and technical consultations.",
+    whatYoullDo: [
+      "Deliver compelling product demonstrations to prospects",
+      "Create customized proposals and technical documentation",
+      "Work with sales team to qualify leads and understand requirements",
+      "Provide technical support during the sales cycle",
+      "Gather market intelligence and competitor insights",
+    ],
+    whatWereLookingFor: [
+      "2+ years of experience in pre-sales or technical sales",
+      "Strong presentation and communication skills",
+      "Ability to understand complex technical solutions",
+      "Experience with enterprise software sales cycles",
+      "Self-motivated with excellent time management",
+    ],
+    niceToHave: [
+      "Background in manufacturing or industrial automation",
+      "Experience with IoT or digital twin technologies",
+      "Knowledge of data analytics and visualization tools",
+    ],
   },
 
   // {

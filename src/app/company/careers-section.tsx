@@ -325,10 +325,24 @@ function SeeLessButton({ onClick }: SeeLessButtonProps) {
   );
 }
 
+interface CareerJob {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  category: string;
+  intro?: string;
+  whatYoullDo?: string[];
+  whatWereLookingFor?: string[];
+  niceToHave?: string[];
+}
+
 export default function CareersSection({
   setCareersOpen,
+  setSelectedJob,
 }: {
   setCareersOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedJob: React.Dispatch<React.SetStateAction<CareerJob | null>>;
 }) {
   const [activeCategory, setActiveCategory] = React.useState("View all");
   const [visibleJobs, setVisibleJobs] = React.useState(5);
@@ -401,7 +415,10 @@ export default function CareersSection({
               title={job.title}
               description={job.description}
               tags={job.tags}
-              onClick={() => setCareersOpen(true)}
+              onClick={() => {
+                setSelectedJob(job as CareerJob);
+                setCareersOpen(true);
+              }}
             />
           ))}
         </div>

@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 // ***************************** Import packages ***********************************************
 import React from "react";
 import Image from "next/image";
@@ -10,8 +10,6 @@ const Z_INDEX = {
   OVERLAY_LAYER: 2, // Dark overlay above video
   CONTENT_LAYER: 10, // Banner content (below navbar)
 };
-
-
 
 const BannerSection = () => {
   return (
@@ -77,7 +75,7 @@ const BannerSection = () => {
               {/* Book a Demo Link - Desktop */}
               <a
                 href="#demo"
-                className="hidden xl:flex items-center gap-2 text-white font-medium text-lg whitespace-nowrap hover:text-[#0eb05c] transition-colors cursor-pointer ml-auto pt-13 "
+                className="hidden xl:flex items-center gap-2 text-white font-medium text-lg whitespace-nowrap hover:text-[#0eb05c] transition-colors cursor-pointer ml-auto pt-13 cursor-pointer "
               >
                 Book a Demo
                 <span className="text-xl">
@@ -94,7 +92,7 @@ const BannerSection = () => {
             <div className="lg:hidden mb-12">
               <a
                 href="#demo"
-                className="inline-flex items-center gap-2 bg-[#0eb05c] text-white px-8 py-3 rounded-lg hover:bg-[#0d9d52] transition-colors font-medium text-lg"
+                className="inline-flex items-center gap-2 bg-[#0eb05c] text-white px-8 py-3 rounded-lg hover:bg-[#0d9d52] transition-colors font-medium text-lg cursor-pointer"
               >
                 Book a Demo
                 <span>
