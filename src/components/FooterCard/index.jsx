@@ -1,7 +1,7 @@
-
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
+import BookDemoButton from "../BookDemoButton";
 
 const FooterCard = ({
   title = "Next-Gen Industry is Here",
@@ -9,22 +9,10 @@ const FooterCard = ({
   title2 = "",
   description = "",
   buttonText = "Talk to an Expert",
-  buttonHref = "#",
   backgroundImage = "/assets/footer-stroke.png",
-  onButtonClick,
   className = "",
 }) => {
   const router = useRouter();
-
-  const handleClick = (e) => {
-    if (onButtonClick) {
-      e.preventDefault();
-      onButtonClick();
-    } else if (buttonHref && buttonHref !== "#") {
-      e.preventDefault();
-      router.push(buttonHref);
-    }
-  };
 
   return (
     <div
@@ -74,14 +62,11 @@ const FooterCard = ({
               </>
             )}
           </div>
-          <div className="w-full md:w-auto flex-shrink-0">
-            <button
-              onClick={handleClick}
-              className="w-full md:w-auto bg-gradient-to-r from-[#4ACEFF] to-[#13F495] text-[#222222] px-6 lg:px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-[#13F495]/30 transition-all flex items-center justify-center gap-2 whitespace-nowrap"
-            >
+          <div className="w-full md:w-auto flex-shrink-0 ">
+            <BookDemoButton className="w-full md:w-auto  cursor-pointer bg-gradient-to-r from-[#4ACEFF] to-[#13F495] text-[#222222] px-6 lg:px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-[#13F495]/30 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
               {buttonText}
               <span>→</span>
-            </button>
+            </BookDemoButton>{" "}
           </div>
         </div>
       </div>

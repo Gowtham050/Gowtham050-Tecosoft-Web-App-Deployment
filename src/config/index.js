@@ -17,7 +17,7 @@ const config = {
   },
   local: {
     url: "http://localhost:3000/",
-    apiUrl: "http://localhost:7001/dev/",
+    apiUrl: "http://localhost:8000/api/tecosoft-admin/",
     bucketName: "",
     AWS_REGION: "ap-southeast-1",
     COGNITO_REGION: "ap-southeast-1",

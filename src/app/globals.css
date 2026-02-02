@@ -169,3 +169,14 @@ body {
 .form-error {
   @apply mt-1 text-xs text-red-500;
 }
+
+
+/* Hide scrollbar but allow scroll */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

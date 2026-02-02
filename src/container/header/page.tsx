@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, ArrowDown } from "lucide-react";
 import Image from "next/image";
-import BookDemoModal from "@/components/BookDemo";
+import BookDemoButton from "@/components/BookDemoButton";
 
 // Z-index layer constants for consistent stacking
 const Z_INDEX = {
@@ -30,14 +30,9 @@ interface NavItem {
 interface DesktopNavProps {
   navItems: NavItem[];
   isScrolled: boolean;
-  setIsPopUp: (value: boolean) => void;
 }
 
-const DesktopNav: React.FC<DesktopNavProps> = ({
-  navItems,
-  isScrolled,
-  setIsPopUp,
-}) => {
+const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -286,13 +281,10 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
         </ul>
 
         {/* CTA Button - Desktop */}
-        <div
-          onClick={() => setIsPopUp(true)}
-          className="flex bg-[#0eb05c] text-white px-6 py-2 rounded-lg hover:bg-[#0d9d52] transition-colors font-semibold items-center gap-2 cursor-pointer"
-        >
+        <BookDemoButton className="flex bg-[#0eb05c] text-white px-6 py-2 rounded-lg hover:bg-[#0d9d52] transition-colors font-semibold items-center gap-2 cursor-pointer">
           Book a Demo
           <span>→</span>
-        </div>
+        </BookDemoButton>
       </nav>
     </header>
   );
@@ -302,14 +294,9 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
 interface MobileNavProps {
   navItems: NavItem[];
   isScrolled: boolean;
-  setIsPopUp: (value: boolean) => void;
 }
 
-const MobileNav: React.FC<MobileNavProps> = ({
-  navItems,
-  isScrolled,
-  setIsPopUp,
-}) => {
+const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -548,16 +535,15 @@ const MobileNav: React.FC<MobileNavProps> = ({
                 </li>
               ))}
               <li className="mt-5 mb-3">
-                <div
+                <BookDemoButton
                   className="bg-[#0eb05c] text-white px-6 py-3 rounded-lg hover:bg-[#0d9d52] transition-colors font-medium flex items-center justify-center gap-2 cursor-pointer"
                   onClick={() => {
                     setIsOpen(false);
-                    setIsPopUp(true);
                   }}
                 >
                   Book a Demo
                   <span>→</span>
-                </div>
+                </BookDemoButton>
               </li>
             </ul>
           </div>
@@ -679,20 +665,10 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <DesktopNav
-        navItems={navItems}
-        isScrolled={isScrolled}
-        setIsPopUp={setIsPopUp}
-      />
+      <DesktopNav navItems={navItems} isScrolled={isScrolled} />
 
       {/* Mobile Navigation */}
-      <MobileNav
-        navItems={navItems}
-        isScrolled={isScrolled}
-        setIsPopUp={setIsPopUp}
-      />
-
-      <BookDemoModal isOpen={isPopUp} onClose={() => setIsPopUp(false)} />
+      <MobileNav navItems={navItems} isScrolled={isScrolled} />
     </>
   );
 };

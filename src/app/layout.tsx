@@ -6,6 +6,13 @@ import HeaderSection from "@/container/header/page";
 import FooterSection from "@/container/footer/page";
 import ClientLayout from "@/app/ClientLayout";
 import ScrollWrapperSection from "@/components/scrollwrapper";
+import Providers from "./providers";
+import GlobalModals from "@/components/GobalModel";
+
+//toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // _app.tsx or layout.tsx
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -53,13 +60,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={gilroy.className}>
-        <ClientLayout>
-          <ScrollWrapperSection>
-            <HeaderSection />
-            {children}
-            <FooterSection />
-          </ScrollWrapperSection>
-        </ClientLayout>
+        <Providers>
+          <ClientLayout>
+            <ScrollWrapperSection>
+              <HeaderSection />
+              {children}
+              <FooterSection />
+              <GlobalModals />
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar
+              />
+            </ScrollWrapperSection>
+          </ClientLayout>
+        </Providers>
       </body>
     </html>
   );

@@ -35,7 +35,7 @@
     ".next/types/**/*.ts",
     "src/app/ai-enabled-services/smart-energy-management/analytics-features.backup",
     ".next/dev/types/**/*.ts"
-  ],
+, "src/api/list.js"  ],
   "exclude": [
     "node_modules"
   ]

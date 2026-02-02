@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import svgPaths from "../../imports/svg-uk9fn56ilf";
+import BookDemoButton from "@/components/BookDemoButton";
 
 const imgRectangle = "/assets/platform/eagle/bg-green.png";
 const img = "/assets/platform/eagle/banner-full.png";
@@ -218,36 +219,34 @@ function Frame3() {
       }}
       whileTap={{ scale: 0.95, transition: { duration: 0.15 } }}
     >
-      <p
-        className=" not-italic relative shrink-0 text-nowrap text-white whitespace-pre transition-all duration-300 ease-out
-          max-lg:text-[14px] max-lg:leading-[18px]
-          max-md:text-[13px] max-md:leading-[17px]
-          max-sm:text-[12px] max-sm:leading-[16px]
-          max-[375px]:text-[11.5px] max-[375px]:leading-[15px]
-          max-[320px]:text-[11px] max-[320px]:leading-[14px]"
-        style={{
-          fontSize: buttonFontSize,
-          lineHeight: `${buttonLineHeight}px`,
-        }}
-      >
-        Book a Demo
-      </p>
-      <div
-        className="flex h-[calc(1px*((var(--transform-inner-width)*1)+(var(--transform-inner-height)*0)))] items-center justify-center relative shrink-0 w-[calc(1px*((var(--transform-inner-height)*1)+(var(--transform-inner-width)*0)))]
-          max-sm:h-[12px] max-sm:w-[12px]
-          max-[375px]:h-[11px] max-[375px]:w-[11px]
-          max-[320px]:h-[10px] max-[320px]:w-[10px]"
-        style={
-          {
-            "--transform-inner-width": "14",
-            "--transform-inner-height": "14",
-          } as React.CSSProperties
-        }
-      >
-        <div className=" flex-none rotate-[270deg]">
-          <IconoirArrowDown5 />
+      <BookDemoButton className="flex items-center gap-2">
+        <p
+          className="not-italic relative shrink-0 text-nowrap text-white transition-all duration-300 ease-out
+      max-lg:text-[14px] max-lg:leading-[18px]
+      max-md:text-[13px] max-md:leading-[17px]
+      max-sm:text-[12px] max-sm:leading-[16px]"
+          style={{
+            fontSize: buttonFontSize,
+            lineHeight: `${buttonLineHeight}px`,
+          }}
+        >
+          Book a Demo
+        </p>
+
+        <div
+          className="flex items-center justify-center shrink-0"
+          style={
+            {
+              "--transform-inner-width": "14",
+              "--transform-inner-height": "14",
+            } as React.CSSProperties
+          }
+        >
+          <div className="rotate-[270deg]">
+            <IconoirArrowDown5 />
+          </div>
         </div>
-      </div>
+      </BookDemoButton>
     </motion.div>
   );
 }
@@ -480,63 +479,63 @@ function HeroSection({ onboardClick }: { onboardClick: () => void }) {
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledCenterX, scaledLeftEndX]
+      [scaledCenterX, scaledLeftEndX],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const leftProduct1Y = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledStartY, 30 * responsiveScale]
+      [scaledStartY, 30 * responsiveScale],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const leftProduct1Opacity = useSpring(
     useTransform(scrollYProgress, [opacityStart, opacityEnd], [0, 1]),
-    { stiffness: 120, damping: 35 }
+    { stiffness: 120, damping: 35 },
   );
 
   const leftProduct2X = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledCenterX, scaledLeftEndX]
+      [scaledCenterX, scaledLeftEndX],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const leftProduct2Y = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledStartY, 224 * responsiveScale]
+      [scaledStartY, 224 * responsiveScale],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const leftProduct2Opacity = useSpring(
     useTransform(scrollYProgress, [opacityStart, opacityEnd], [0, 1]),
-    { stiffness: 120, damping: 35 }
+    { stiffness: 120, damping: 35 },
   );
 
   const leftProduct3X = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledCenterX, scaledLeftEndX]
+      [scaledCenterX, scaledLeftEndX],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const leftProduct3Y = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledStartY, 426 * responsiveScale]
+      [scaledStartY, 426 * responsiveScale],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const leftProduct3Opacity = useSpring(
     useTransform(scrollYProgress, [opacityStart, opacityEnd], [0, 1]),
-    { stiffness: 120, damping: 35 }
+    { stiffness: 120, damping: 35 },
   );
 
   // Right side products - move from center to right (all at same time)
@@ -544,69 +543,69 @@ function HeroSection({ onboardClick }: { onboardClick: () => void }) {
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledCenterX, scaledRightEndX]
+      [scaledCenterX, scaledRightEndX],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const rightProduct1Y = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledStartY, 30 * responsiveScale]
+      [scaledStartY, 30 * responsiveScale],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const rightProduct1Opacity = useSpring(
     useTransform(scrollYProgress, [opacityStart, opacityEnd], [0, 1]),
-    { stiffness: 120, damping: 35 }
+    { stiffness: 120, damping: 35 },
   );
 
   const rightProduct2X = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledCenterX, scaledRightEndX]
+      [scaledCenterX, scaledRightEndX],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const rightProduct2Y = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledStartY, 228 * responsiveScale]
+      [scaledStartY, 228 * responsiveScale],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const rightProduct2Opacity = useSpring(
     useTransform(scrollYProgress, [opacityStart, opacityEnd], [0, 1]),
-    { stiffness: 120, damping: 35 }
+    { stiffness: 120, damping: 35 },
   );
 
   const rightProduct3X = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledCenterX, scaledRightEndX]
+      [scaledCenterX, scaledRightEndX],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const rightProduct3Y = useSpring(
     useTransform(
       scrollYProgress,
       [animationStart, animationEnd],
-      [scaledStartY, 426 * responsiveScale]
+      [scaledStartY, 426 * responsiveScale],
     ),
-    { stiffness: 120, damping: 35, mass: 0.6 }
+    { stiffness: 120, damping: 35, mass: 0.6 },
   );
   const rightProduct3Opacity = useSpring(
     useTransform(scrollYProgress, [opacityStart, opacityEnd], [0, 1]),
-    { stiffness: 120, damping: 35 }
+    { stiffness: 120, damping: 35 },
   );
 
   // Labels opacity only (positions are fixed but scaled)
   const labelOpacity = useSpring(
     useTransform(scrollYProgress, [labelOpacityStart, labelOpacityEnd], [0, 1]),
-    { stiffness: 120, damping: 35 }
+    { stiffness: 120, damping: 35 },
   );
 
   // Responsive label positions
@@ -632,7 +631,7 @@ function HeroSection({ onboardClick }: { onboardClick: () => void }) {
   // Center product - subtle scale effect
   const centerScale = useSpring(
     useTransform(scrollYProgress, [animationStart, animationEnd], [1.05, 0.95]),
-    { stiffness: 120, damping: 35 }
+    { stiffness: 120, damping: 35 },
   );
 
   return (

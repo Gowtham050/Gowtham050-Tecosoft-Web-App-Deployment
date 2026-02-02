@@ -5,6 +5,8 @@ import { X, Upload, ChevronDown } from "lucide-react";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { useLenis } from "../../../libs/react-lenis";
+import { createApplication } from "@/api/create";
+import { toast } from "react-toastify";
 
 export interface JobData {
   id: number;
@@ -123,11 +125,11 @@ function JobDetailsView({
   return (
     <div
       data-lenis-prevent
-      className="relative w-full rounded-xl sm:rounded-2xl bg-white shadow-2xl mx-auto"
+      className="relative w-full rounded-xl sm:rounded-2xl bg-white shadow-2xl mx-auto px-2 py-2 xs:px-3 xs:py-3 lg:px-5 lg:py-5"
       style={{ maxHeight: "85vh", display: "flex", flexDirection: "column" }}
     >
       {/* Header */}
-      <div className="flex-shrink-0 flex items-start justify-between border-b border-gray-200 bg-white px-3 py-3 xs:px-4 xs:py-4 sm:px-6 rounded-t-xl sm:rounded-t-2xl gap-2">
+      <div className="flex-shrink-0 flex items-start justify-between border-b border-gray-200 bg-white px-3 py-3 xs:px-4 xs:py-4 sm:px-6  rounded-t-xl sm:rounded-t-2xl gap-2">
         <div className="flex-1 min-w-0">
           <h2 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 truncate">
             {job.title}
@@ -147,16 +149,18 @@ function JobDetailsView({
             <span className="hidden xs:inline">Apply Job</span>
             <span className="xs:hidden">Apply</span>
             <svg
-              className="h-3 w-3 xs:h-4 xs:w-4 sm:h-5 sm:w-5 -rotate-90"
+              width="14"
+              height="13"
+              viewBox="0 0 14 13"
               fill="none"
-              viewBox="0 0 20 20"
-              stroke="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
+                d="M0.671875 6.34163L12.6719 6.34163M12.6719 6.34163L7.00521 0.674968M12.6719 6.34163L7.00521 12.0083"
+                stroke="white"
+                strokeWidth="1.35"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
               />
             </svg>
           </button>
@@ -173,7 +177,7 @@ function JobDetailsView({
       {/* Content */}
       <div
         data-lenis-prevent
-        className="px-3 py-4 xs:px-4 xs:py-5 sm:px-6 sm:py-6 space-y-4 xs:space-y-5 sm:space-y-6 text-gray-700"
+        className="px-3 py-4 xs:px-4 xs:py-5 sm:px-6 sm:py-6  space-y-4 xs:space-y-5 sm:space-y-6 text-gray-700 no-scrollbar"
         style={{ overflowY: "auto", flex: 1, minHeight: 0 }}
       >
         {/* Intro */}
@@ -261,24 +265,33 @@ function ApplicationFormView({
     attachment: null,
   };
 
-  const handleSubmit = (
+  const handleSubmit = async (
     values: ApplicationFormValues,
     { setSubmitting, resetForm }: FormikHelpers<ApplicationFormValues>,
   ) => {
-    console.log("Application submitted:", values);
-    setTimeout(() => {
-      setSubmitting(false);
-      resetForm();
-      setFileName(null);
-      alert("Application submitted successfully!");
-      onClose();
-    }, 1000);
+    // Handle form submission logic here
+    console.log("Form submitted:", values);
+    const formData = new FormData();
+    formData.append("first_name", values.firstName);
+    formData.append("last_name", values.lastName);
+    formData.append("email", values.email);
+    formData.append("phone", values.phone);
+    formData.append("country", values.countryCode);
+    formData.append("current_location", values.currentLocation);
+    formData.append("work_experience", values.workExperience);
+    formData.append("linkedin_portfolio", values.linkedinPortfolio);
+    formData.append("attachment", values.attachment ?? new Blob());
+
+    await createApplication(formData);
+    toast.success("Application submitted successfully");
+    setSubmitting(false);
+    resetForm();
   };
 
   return (
     <div
       data-lenis-prevent
-      className="relative w-full rounded-xl sm:rounded-2xl bg-white shadow-2xl mx-auto"
+      className="relative w-full rounded-xl sm:rounded-2xl bg-white shadow-2xl mx-auto px-2 py-2 xs:px-3 xs:py-3 lg:px-5 lg:py-5"
       style={{ maxHeight: "85vh", display: "flex", flexDirection: "column" }}
     >
       <Formik
@@ -295,7 +308,7 @@ function ApplicationFormView({
             style={{ maxHeight: "85vh", height: "100%" }}
           >
             {/* Header */}
-            <div className="flex-shrink-0 flex items-start justify-between border-b border-gray-200 bg-white px-3 py-3 xs:px-4 xs:py-4 sm:px-6 rounded-t-xl sm:rounded-t-2xl gap-2">
+            <div className="flex-shrink-0 flex items-start justify-between border-b border-gray-200 bg-white px-3 py-3 xs:px-4 xs:py-4 sm:px-6  rounded-t-xl sm:rounded-t-2xl gap-2">
               <div className="flex-1 min-w-0">
                 <h2 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 truncate">
                   {job.title}
@@ -342,7 +355,7 @@ function ApplicationFormView({
             {/* Form Content */}
             <div
               data-lenis-prevent
-              className="px-3 py-4 xs:px-4 xs:py-5 sm:px-6 sm:py-6"
+              className="px-3 py-4 xs:px-4 xs:py-5 sm:px-6 sm:py-6 no-scollbar"
               style={{
                 overflowY: "auto",
                 flex: 1,

@@ -5,6 +5,8 @@ import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { X, ChevronDown } from "lucide-react";
 import { useLenis } from "../../../libs/react-lenis";
+import { demoBooking } from "../../api/create";
+import { toast } from "react-toastify";
 
 interface Props {
   isOpen: boolean;
@@ -48,7 +50,7 @@ const validationSchema = Yup.object({
     (value) => {
       if (!value) return true;
       return value[0] !== " ";
-    }
+    },
   ),
 });
 
@@ -95,17 +97,26 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
     }
   }, [isOpen, lenis]);
 
-  const handleSubmit = (
+  const handleSubmit = async (
     values: FormValues,
-    { setSubmitting, resetForm }: FormikHelpers<FormValues>
+    { setSubmitting, resetForm }: FormikHelpers<FormValues>,
   ) => {
     console.log("Form submitted:", values);
-    setTimeout(() => {
-      setSubmitting(false);
-      resetForm();
-      alert("Demo request submitted successfully!");
-      onClose();
-    }, 1000);
+
+    const payload = {
+      first_name: values?.firstName,
+      last_name: values?.lastName,
+      email: values?.email,
+      phone: values?.phone,
+      country: values?.country,
+      message: values?.message,
+    };
+    // Simulate API call
+    await demoBooking(payload);
+    toast.success("Demo request submitted successfully!");
+    setSubmitting(false);
+    resetForm();
+    onClose();
   };
 
   if (!isOpen) return null;
@@ -124,7 +135,7 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
       {/* Modal */}
       <div
         data-lenis-prevent
-        className="relative z-50 w-full max-w-3xl rounded-xl sm:rounded-2xl bg-white shadow-xl"
+        className="relative z-50 w-full max-w-3xl rounded-xl sm:rounded-2xl bg-white shadow-xl  "
         style={{ maxHeight: "90vh", display: "flex", flexDirection: "column" }}
       >
         {/* Header */}
@@ -134,7 +145,7 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
           </h2>
           <button
             onClick={onClose}
-            className="rounded-lg p-1.5 xs:p-2 hover:bg-gray-100 transition-colors"
+            className="rounded-lg p-1.5 xs:p-2 hover:bg-gray-100 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="h-5 w-5 xs:h-6 xs:w-6 text-gray-400 hover:text-gray-600" />
@@ -144,7 +155,7 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
         {/* Form Content */}
         <div
           data-lenis-prevent
-          className="flex-1 overflow-y-auto px-4 py-4 xs:px-5 xs:py-5 sm:px-8 sm:py-6"
+          className="flex-1 overflow-y-auto px-4 py-4 xs:px-5 xs:py-5 sm:px-8 sm:py-6 no-scrollbar"
           style={{ minHeight: 0 }}
         >
           <Formik
@@ -330,17 +341,20 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
                     className="flex w-full items-center justify-center gap-2 rounded-md bg-green-500 py-2.5 xs:py-3 text-sm xs:text-base font-medium text-white hover:bg-green-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? "Submitting..." : "Book a Demo"}
+
                     <svg
-                      className="h-4 w-4 xs:h-5 xs:w-5 -rotate-90"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
                       fill="none"
-                      viewBox="0 0 20 20"
-                      stroke="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
+                        d="M1.75 6.99998L12.25 6.99998M12.25 6.99998L7.29167 2.04165M12.25 6.99998L7.29167 11.9583"
+                        stroke="white"
+                        strokeWidth="1.35"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
                       />
                     </svg>
                   </button>
