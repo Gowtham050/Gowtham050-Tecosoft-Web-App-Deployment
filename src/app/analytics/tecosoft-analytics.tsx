@@ -9,8 +9,6 @@ export default function TecosoftAnalytics() {
   const scrollTrigger = React.useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
-    console.log("scroll trigger called");
-    console.log("scrollTrigger.current:", scrollTrigger.current);
 
     if (scrollTrigger.current) {
       const headerHeight = document.querySelector("header")?.clientHeight || 0;
@@ -33,11 +31,11 @@ export default function TecosoftAnalytics() {
       className="content-stretch flex flex-col items-start relative size-full"
       data-name="Tecosoft Analytics"
     >
-      <HeroSection  handleScroll={handleScroll}/>
+      <HeroSection handleScroll={handleScroll} />
       <Features />
       <div ref={scrollTrigger} />
       <TechnologyCardsSlider />
-      
+
       <div className="min-[1023.5px]:h-[753px] w-full">
         <Benefits />
       </div>
