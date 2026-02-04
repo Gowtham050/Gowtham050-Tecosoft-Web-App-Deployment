@@ -168,9 +168,8 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                           item.name === "Industries" ? "hidden" : "visible",
                       }}
                       size={16}
-                      className={`transition-transform ${
-                        openDropdown === item.name ? "rotate-180" : ""
-                      }`}
+                      className={`transition-transform ${openDropdown === item.name ? "rotate-180" : ""
+                        }`}
                     />
                   </button>
                   {openDropdown === item.name && item.dropdownItems && (
@@ -189,21 +188,19 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                               onMouseLeave={handleNestedDropdownClose}
                             >
                               <div
-                                className={`w-full px-4 py-3 text-[15px] font-medium transition-colors hover:cursor-pointer flex items-center justify-between group ${
-                                  isActivePage(dropdownItem.href)
-                                    ? "text-[#0eb05c] hover:bg-[#0eb05c]/10"
-                                    : "text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c]"
-                                }`}
+                                className={`w-full px-4 py-3 text-[15px] font-medium transition-colors hover:cursor-pointer flex items-center justify-between group ${isActivePage(dropdownItem.href)
+                                  ? "text-[#0eb05c] hover:bg-[#0eb05c]/10"
+                                  : "text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c]"
+                                  }`}
                               >
                                 <span
                                   onClick={() =>
                                     handleDropdownItemClick(dropdownItem.href)
                                   }
-                                  className={`flex-1 hover:underline underline-offset-2 ${
-                                    isActivePage(dropdownItem.href)
-                                      ? "underline"
-                                      : ""
-                                  }`}
+                                  className={`flex-1 hover:underline underline-offset-2 ${isActivePage(dropdownItem.href)
+                                    ? "underline"
+                                    : ""
+                                    }`}
                                 >
                                   {dropdownItem.name}
                                 </span>
@@ -215,11 +212,10 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                                       dropdownItem.name,
                                     );
                                   }}
-                                  className={`transition-transform cursor-pointer ${
-                                    openNestedDropdown === dropdownItem.name
-                                      ? "-rotate-90"
-                                      : ""
-                                  }`}
+                                  className={`transition-transform cursor-pointer ${openNestedDropdown === dropdownItem.name
+                                    ? "-rotate-90"
+                                    : ""
+                                    }`}
                                 />
                               </div>
                               {openNestedDropdown === dropdownItem.name && (
@@ -236,11 +232,10 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                                             nestedItem.href,
                                           )
                                         }
-                                        className={`w-full text-left px-4 py-3 text-[14px] font-medium transition-colors hover:cursor-pointer hover:underline underline-offset-2 ${
-                                          isActivePage(nestedItem.href)
-                                            ? "underline text-[#0eb05c] hover:bg-[#0eb05c]/10"
-                                            : "text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c]"
-                                        }`}
+                                        className={`w-full text-left px-4 py-3 text-[14px] font-medium transition-colors hover:cursor-pointer hover:underline underline-offset-2 ${isActivePage(nestedItem.href)
+                                          ? "underline text-[#0eb05c] hover:bg-[#0eb05c]/10"
+                                          : "text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c]"
+                                          }`}
                                       >
                                         {nestedItem.name}
                                       </button>
@@ -254,11 +249,10 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled }) => {
                               onClick={() =>
                                 handleDropdownItemClick(dropdownItem.href)
                               }
-                              className={`w-full text-left px-4 py-3 text-[15px] font-medium transition-colors hover:cursor-pointer hover:underline underline-offset-2 ${
-                                isActivePage(dropdownItem.href)
-                                  ? "underline text-[#0eb05c] hover:bg-[#0eb05c]/10"
-                                  : "text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c]"
-                              }`}
+                              className={`w-full text-left px-4 py-3 text-[15px] font-medium transition-colors hover:cursor-pointer hover:underline underline-offset-2 ${isActivePage(dropdownItem.href)
+                                ? "underline text-[#0eb05c] hover:bg-[#0eb05c]/10"
+                                : "text-gray-700 hover:bg-[#0eb05c]/10 hover:text-[#0eb05c]"
+                                }`}
                             >
                               {dropdownItem.name}
                             </button>
@@ -374,9 +368,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
 
           {/* Hamburger Button */}
           <button
-            className={`p-2 rounded-lg transition-colors ${
-              isOpen ? "text-white hover:bg-white/10" : hamburgerColor
-            }`}
+            className={`p-2 rounded-lg transition-colors ${isOpen ? "text-white hover:bg-white/10" : hamburgerColor
+              }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -387,9 +380,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
 
       {/* Mobile Slide-in Section - Header + Menu Together */}
       <div
-        className={`lg:hidden fixed top-0 left-0 right-0 bg-[#1a4d8f] transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`lg:hidden fixed top-0 left-0 right-0 bg-[#1a4d8f] transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         style={{
           zIndex: Z_INDEX.MOBILE_MENU,
           height: "100vh",
@@ -441,9 +433,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
                               item.name === "Industries" ? "hidden" : "visible",
                           }}
                           size={18}
-                          className={`transition-transform ${
-                            expandedItem === item.name ? "rotate-180" : ""
-                          }`}
+                          className={`transition-transform ${expandedItem === item.name ? "rotate-180" : ""
+                            }`}
                         />
                       </button>
                       {expandedItem === item.name && item.dropdownItems && (
@@ -453,11 +444,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
                               {dropdownItem.insideDropdown ? (
                                 <div>
                                   <div
-                                    className={`text-lg font-normal py-1 hover:text-[#0eb05c] transition-colors w-full flex items-center justify-between ${
-                                      isActivePage(dropdownItem.href)
-                                        ? "text-[#0eb05c] underline underline-offset-2"
-                                        : "text-white/90"
-                                    }`}
+                                    className={`text-lg font-normal py-1 hover:text-[#0eb05c] transition-colors w-full flex items-center justify-between ${isActivePage(dropdownItem.href)
+                                      ? "text-[#0eb05c] underline underline-offset-2"
+                                      : "text-white/90"
+                                      }`}
                                   >
                                     <span
                                       onClick={() =>
@@ -472,11 +462,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
                                       onClick={() =>
                                         toggleNestedExpand(dropdownItem.name)
                                       }
-                                      className={`transition-transform cursor-pointer ${
-                                        expandedNestedItem === dropdownItem.name
-                                          ? "rotate-180"
-                                          : ""
-                                      }`}
+                                      className={`transition-transform cursor-pointer ${expandedNestedItem === dropdownItem.name
+                                        ? "rotate-180"
+                                        : ""
+                                        }`}
                                     />
                                   </div>
                                   {expandedNestedItem === dropdownItem.name && (
@@ -490,11 +479,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
                                                   nestedItem.href,
                                                 )
                                               }
-                                              className={`text-base font-light block py-1 hover:text-[#0eb05c] transition-colors ${
-                                                isActivePage(nestedItem.href)
-                                                  ? "text-[#0eb05c] underline underline-offset-2"
-                                                  : "text-white/80"
-                                              }`}
+                                              className={`text-base font-light block py-1 hover:text-[#0eb05c] transition-colors ${isActivePage(nestedItem.href)
+                                                ? "text-[#0eb05c] underline underline-offset-2"
+                                                : "text-white/80"
+                                                }`}
                                             >
                                               {nestedItem.name}
                                             </button>
@@ -509,11 +497,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ navItems, isScrolled }) => {
                                   onClick={() =>
                                     handleNavigation(dropdownItem.href)
                                   }
-                                  className={`text-lg font-normal block py-1 hover:text-[#0eb05c] transition-colors ${
-                                    isActivePage(dropdownItem.href)
-                                      ? "text-[#0eb05c] underline underline-offset-2"
-                                      : "text-white/90"
-                                  }`}
+                                  className={`text-lg font-normal block py-1 hover:text-[#0eb05c] transition-colors ${isActivePage(dropdownItem.href)
+                                    ? "text-[#0eb05c] underline underline-offset-2"
+                                    : "text-white/90"
+                                    }`}
                                 >
                                   {dropdownItem.name}
                                 </button>
@@ -577,6 +564,7 @@ const Navbar = () => {
       "/ai-enabled-solutions/smart-energy-management",
       "/digital-twin-solutions",
       "/why-tecosoft",
+      "/industries",
     ];
 
     const isHomePage = homePages.includes(sanitizedPathname);
