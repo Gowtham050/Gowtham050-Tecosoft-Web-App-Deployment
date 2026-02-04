@@ -13,7 +13,7 @@ export default function Industries() {
       <HeroSection />
       <Solutions />
       <IndustriesSection />
-      {/* <TecosoftDashboardSection /> */}
+      <TecosoftDashboardSection />
       {/* <FeaturesSection /> */}
     </div>
   );

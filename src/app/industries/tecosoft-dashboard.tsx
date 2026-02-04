@@ -2,13 +2,313 @@
 
 import svgPaths from "../../imports/svg-wzyskd72fo";
 
-function Frame46() {
+// =============================================================================
+// CONSTANTS
+// =============================================================================
+
+const COLORS = {
+  accentGreen: "#00FF84",
+  primaryBlue: "#0098d4",
+  borderGreen: "#07af40",
+  textDark: "#282828",
+  textMuted: "#777",
+  textLight: "#e4e4e4",
+  cardBg: "rgba(255,255,255,0.16)",
+  capabilitiesBg: "#ccf1ff",
+} as const;
+
+const TEXT_STYLES = {
+  gilroySemibold: "font-['Gilroy:Semibold',sans-serif]",
+  gilroyMedium: "font-['Gilroy:Medium',sans-serif]",
+  gilroyRegular: "font-['Gilroy:Regular',sans-serif]",
+} as const;
+
+const GRADIENT_BG =
+  "linear-gradient(225.824deg, rgb(0, 188, 239) 6.4454%, rgb(0, 35, 99) 95.133%)";
+
+// =============================================================================
+// TYPES
+// =============================================================================
+
+interface FeatureCardData {
+  id: string;
+  title: string;
+  icon: React.ReactNode;
+}
+
+// =============================================================================
+// ICONS - Consolidated reusable icon components
+// =============================================================================
+
+function LiveDataIcon() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-center not-italic relative shrink-0">
-      <p className="css-4hzbpn font-['Gilroy:Semibold',sans-serif] leading-[44px] relative shrink-0 text-[36px] text-center text-white w-[450px]">
+    <svg
+      className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9"
+      viewBox="0 0 32.25 30.75"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d={svgPaths.p3aacb00}
+        stroke={COLORS.accentGreen}
+        strokeWidth="2.25"
+      />
+      <path
+        d="M30.375 19.875L1.875 19.875"
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p90f1c00}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p1946e80}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+    </svg>
+  );
+}
+
+function AnomalyIcon() {
+  return (
+    <svg
+      className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9"
+      viewBox="0 0 30.75 30.75"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d={svgPaths.p32a155f0}
+        stroke={COLORS.accentGreen}
+        strokeWidth="2.25"
+      />
+      <path
+        d="M1.125 10.875H29.625"
+        stroke={COLORS.accentGreen}
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d="M7.87471 6.37501H7.88818"
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d="M13.8747 6.37501H13.8882"
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p26ab5e80}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p21207d60}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+    </svg>
+  );
+}
+
+function DrilldownIcon() {
+  return (
+    <svg
+      className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9"
+      viewBox="0 0 32.25 32.25"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d={svgPaths.p3be2400}
+        stroke={COLORS.accentGreen}
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p3ce27970}
+        stroke={COLORS.accentGreen}
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p8158500}
+        stroke={COLORS.accentGreen}
+        strokeWidth="2.25"
+      />
+      <path
+        d="M16.125 13.125L16.125 23.625"
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d="M12.375 10.875L7.875 15.375"
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d="M19.875 10.875L24.375 15.375"
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.pdce6280}
+        stroke={COLORS.accentGreen}
+        strokeWidth="2.25"
+      />
+    </svg>
+  );
+}
+
+function TrendIcon() {
+  return (
+    <svg
+      className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9"
+      viewBox="0 0 29.25 29.25"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d={svgPaths.p3b598200}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d="M7.125 2.625H8.625"
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d="M7.125 7.125H13.125"
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p3c099900}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+    </svg>
+  );
+}
+
+function LayoutIcon() {
+  return (
+    <svg
+      className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9"
+      viewBox="0 0 36 36"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d={svgPaths.p14b4eff0}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p3ce5eb00}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p3095e700}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+    </svg>
+  );
+}
+
+function MaintenanceIcon() {
+  return (
+    <svg
+      className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9"
+      viewBox="0 0 30.7502 30.7502"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d={svgPaths.p180de00}
+        stroke={COLORS.accentGreen}
+        strokeWidth="2.25"
+      />
+      <path
+        d={svgPaths.p1174f900}
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeWidth="2.25"
+      />
+      <path
+        d="M5.63844 25.1252H5.625"
+        stroke={COLORS.accentGreen}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.25"
+      />
+    </svg>
+  );
+}
+
+// =============================================================================
+// SECTION HEADER
+// =============================================================================
+
+function SectionHeader() {
+  return (
+    <div className="flex flex-col gap-3 sm:gap-4 items-center text-center px-4">
+      <h2
+        className={`
+          ${TEXT_STYLES.gilroySemibold} text-white
+          text-[24px] leading-[32px]
+          sm:text-[28px] sm:leading-[36px]
+          md:text-[32px] md:leading-[40px]
+          lg:text-[36px] lg:leading-[44px]
+          max-w-[450px]
+        `}
+      >
         What you see in Tecosoft Dashboards
-      </p>
-      <p className="css-ew64yg font-['Gilroy:Medium',sans-serif] leading-[23px] relative shrink-0 text-[#e4e4e4] text-[16px]">
+      </h2>
+      <p
+        className={`
+          ${TEXT_STYLES.gilroyMedium} text-[${COLORS.textLight}]
+          text-[14px] leading-[20px]
+          sm:text-[15px] sm:leading-[22px]
+          lg:text-[16px] lg:leading-[23px]
+          max-w-[600px]
+        `}
+      >
         Clear data, smart layouts, and actionable insights designed to help you
         understand, decide, and move faster.
       </p>
@@ -16,704 +316,231 @@ function Frame46() {
   );
 }
 
-function Elements5() {
-  return (
-    <div className="relative size-full" data-name="elements">
-      <div className="absolute inset-[-3.95%_-3.75%]">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 32.25 30.75"
-        >
-          <g>
-            <path
-              d={svgPaths.p3aacb00}
-              id="Vector"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M30.375 19.875L1.875 19.875"
-              id="Vector_2"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-            <g id="Vector_3">
-              <path
-                clipRule="evenodd"
-                d="M23.6116 24.375H23.625Z"
-                fill="var(--fill-0, #141B34)"
-                fillRule="evenodd"
-              />
-              <path
-                clipRule="evenodd"
-                d="M17.625 24.375H17.6384Z"
-                fill="var(--fill-0, #141B34)"
-                fillRule="evenodd"
-              />
-              <path
-                d={svgPaths.p90f1c00}
-                stroke="var(--stroke-0, #00FF84)"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2.25"
-              />
-            </g>
-            <path
-              d={svgPaths.p1946e80}
-              id="Vector_4"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
+// =============================================================================
+// FEATURE CARD
+// =============================================================================
 
-function Cardiogram() {
+function FeatureCard({ title, icon }: { title: string; icon: React.ReactNode }) {
   return (
     <div
-      className="overflow-clip relative shrink-0 size-[36px]"
-      data-name="cardiogram-01"
+      className="
+        flex flex-col gap-4 sm:gap-5 lg:gap-6
+        items-center sm:items-start
+        text-center sm:text-left
+        w-full
+      "
     >
-      <div className="absolute flex inset-[10.42%_8.33%] items-center justify-center">
-        <div className="flex-none h-[28.5px] rotate-[180deg] scale-y-[-100%] w-[30px]">
-          <Elements5 />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Frame59() {
-  return (
-    <div className="bg-[rgba(255,255,255,0.16)] content-stretch flex items-center p-[12px] relative rounded-[12px] shrink-0">
-      <Cardiogram />
-    </div>
-  );
-}
-
-function Frame40() {
-  return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[280px]">
-      <Frame59 />
-      <p className="css-4hzbpn font-['Gilroy:Medium',sans-serif] leading-[26px] min-w-full not-italic relative shrink-0 text-[20px] text-white w-[min-content]">{`Up-to-the-Minute KPIs & Live Data`}</p>
-    </div>
-  );
-}
-
-function Elements6() {
-  return (
-    <div className="absolute inset-[10.42%]" data-name="elements">
-      <div className="absolute inset-[-3.95%]">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 30.75 30.75"
-        >
-          <g>
-            <path
-              d={svgPaths.p32a155f0}
-              id="Vector"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M1.125 10.875H29.625"
-              id="Vector_2"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M7.87471 6.37501H7.88818"
-              id="Vector_3"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M13.8747 6.37501H13.8882"
-              id="Vector_4"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d={svgPaths.p26ab5e80}
-              id="Vector_5"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d={svgPaths.p21207d60}
-              id="Vector_6"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-function DashboardBrowsing() {
-  return (
-    <div
-      className="overflow-clip relative shrink-0 size-[36px]"
-      data-name="dashboard-browsing"
-    >
-      <Elements6 />
-    </div>
-  );
-}
-
-function Frame61() {
-  return (
-    <div className="bg-[rgba(255,255,255,0.16)] content-stretch flex items-center p-[12px] relative rounded-[12px] shrink-0">
-      <DashboardBrowsing />
-    </div>
-  );
-}
-
-function Frame41() {
-  return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[280px]">
-      <Frame61 />
-      <p className="css-4hzbpn font-['Gilroy:Medium',sans-serif] leading-[26px] min-w-full not-italic relative shrink-0 text-[20px] text-white w-[min-content]">{`Anomaly & Threshold Indicators`}</p>
-    </div>
-  );
-}
-
-function Elements7() {
-  return (
-    <div className="absolute inset-[8.33%]" data-name="elements">
-      <div className="absolute inset-[-3.75%]">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 32.25 32.25"
-        >
-          <g>
-            <path
-              d={svgPaths.p3be2400}
-              id="Vector"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeWidth="2.25"
-            />
-            <path
-              d={svgPaths.p3ce27970}
-              id="Vector_2"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeWidth="2.25"
-            />
-            <path
-              d={svgPaths.p8158500}
-              id="Vector_3"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M16.125 13.125L16.125 23.625"
-              id="Vector_4"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M12.375 10.875L7.875 15.375"
-              id="Vector_5"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M19.875 10.875L24.375 15.375"
-              id="Vector_6"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d={svgPaths.pdce6280}
-              id="Vector_7"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeWidth="2.25"
-            />
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-function WorkflowSquare() {
-  return (
-    <div
-      className="overflow-clip relative shrink-0 size-[36px]"
-      data-name="workflow-square-10"
-    >
-      <Elements7 />
-    </div>
-  );
-}
-
-function Frame64() {
-  return (
-    <div className="bg-[rgba(255,255,255,0.16)] content-stretch flex items-center p-[12px] relative rounded-[12px] shrink-0">
-      <WorkflowSquare />
-    </div>
-  );
-}
-
-function Frame42() {
-  return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[280px]">
-      <Frame64 />
-      <p className="css-4hzbpn font-['Gilroy:Medium',sans-serif] leading-[26px] min-w-full not-italic relative shrink-0 text-[20px] text-white w-[min-content]">
-        Multi-Level Drilldowns (Org → Line → Asset)
-      </p>
-    </div>
-  );
-}
-
-function Frame43() {
-  return (
-    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
-      <Frame40 />
-      <Frame41 />
-      <Frame42 />
-    </div>
-  );
-}
-
-function Elements8() {
-  return (
-    <div className="absolute inset-[12.5%]" data-name="elements">
-      <div className="absolute inset-[-4.17%]">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 29.25 29.25"
-        >
-          <g>
-            <path
-              d={svgPaths.p3b598200}
-              id="Vector"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M7.125 2.625H8.625"
-              id="Vector_2"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M7.125 7.125H13.125"
-              id="Vector_3"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d={svgPaths.p3c099900}
-              id="Vector_4"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-function AnalysisTextLink() {
-  return (
-    <div
-      className="overflow-clip relative shrink-0 size-[36px]"
-      data-name="analysis-text-link"
-    >
-      <Elements8 />
-    </div>
-  );
-}
-
-function Frame65() {
-  return (
-    <div className="bg-[rgba(255,255,255,0.16)] content-stretch flex items-center p-[12px] relative rounded-[12px] shrink-0">
-      <AnalysisTextLink />
-    </div>
-  );
-}
-
-function Frame45() {
-  return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[280px]">
-      <Frame65 />
-      <p className="css-4hzbpn font-['Gilroy:Medium',sans-serif] leading-[26px] min-w-full not-italic relative shrink-0 text-[20px] text-white w-[min-content]">{`Trend, Pareto, Heatmap & Timeline Views`}</p>
-    </div>
-  );
-}
-
-function VuesaxLinearLayer() {
-  return (
-    <div className="absolute contents inset-0" data-name="vuesax/linear/layer">
-      <svg
-        className="block size-full"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 36 36"
+      {/* Icon Container */}
+      <div
+        className={`
+          bg-[${COLORS.cardBg}]
+          flex items-center justify-center
+          p-2.5 sm:p-3
+          rounded-lg sm:rounded-xl
+        `}
       >
-        <g id="layer">
-          <path
-            d={svgPaths.p14b4eff0}
-            id="Vector"
-            stroke="var(--stroke-0, #00FF84)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2.25"
-          />
-          <path
-            d={svgPaths.p3ce5eb00}
-            id="Vector_2"
-            stroke="var(--stroke-0, #00FF84)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2.25"
-          />
-          <path
-            d={svgPaths.p3095e700}
-            id="Vector_3"
-            stroke="var(--stroke-0, #00FF84)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2.25"
-          />
-          <path
-            d={svgPaths.pc831270}
-            id="Vector_4"
-            opacity="0"
-            stroke="var(--stroke-0, #00FF84)"
-            strokeWidth="2.25"
-          />
-        </g>
-      </svg>
+        {icon}
+      </div>
+
+      {/* Title */}
+      <p
+        className={`
+          ${TEXT_STYLES.gilroyMedium} text-white
+          text-[16px] leading-[22px]
+          sm:text-[17px] sm:leading-[24px]
+          lg:text-[18px] lg:leading-[25px]
+          xl:text-[20px] xl:leading-[26px]
+        `}
+      >
+        {title}
+      </p>
     </div>
   );
 }
 
-function VuesaxLinearLayer1() {
+// =============================================================================
+// FEATURES GRID
+// =============================================================================
+
+function FeaturesGrid() {
+  const features: FeatureCardData[] = [
+    {
+      id: "live-data",
+      title: "Up-to-the-Minute KPIs & Live Data",
+      icon: <LiveDataIcon />,
+    },
+    {
+      id: "anomaly",
+      title: "Anomaly & Threshold Indicators",
+      icon: <AnomalyIcon />,
+    },
+    {
+      id: "drilldown",
+      title: "Multi-Level Drilldowns (Org → Line → Asset)",
+      icon: <DrilldownIcon />,
+    },
+    {
+      id: "trend",
+      title: "Trend, Pareto, Heatmap & Timeline Views",
+      icon: <TrendIcon />,
+    },
+    {
+      id: "layout",
+      title: "Personalized Layouts and Themes",
+      icon: <LayoutIcon />,
+    },
+    {
+      id: "maintenance",
+      title: "Maintenance, Quality & Energy Panels",
+      icon: <MaintenanceIcon />,
+    },
+  ];
+
   return (
     <div
-      className="relative shrink-0 size-[36px]"
-      data-name="vuesax/linear/layer"
+      className="
+        grid
+        grid-cols-2
+        sm:grid-cols-2
+        lg:grid-cols-3
+        gap-6 sm:gap-8 lg:gap-6 xl:gap-8
+        w-full
+      "
     >
-      <VuesaxLinearLayer />
+      {features.map((feature) => (
+        <FeatureCard key={feature.id} title={feature.title} icon={feature.icon} />
+      ))}
     </div>
   );
 }
 
-function Frame66() {
+// =============================================================================
+// CAPABILITY TAG
+// =============================================================================
+
+function CapabilityTag({ label }: { label: string }) {
   return (
-    <div className="bg-[rgba(255,255,255,0.16)] content-stretch flex items-center p-[12px] relative rounded-[12px] shrink-0">
-      <VuesaxLinearLayer1 />
-    </div>
+    <span
+      className={`
+        bg-white relative
+        flex items-center justify-center
+        px-2.5 py-1.5
+        sm:px-3 sm:py-1.5
+        rounded-full
+        border border-[${COLORS.borderGreen}]
+        ${TEXT_STYLES.gilroySemibold}
+        text-[${COLORS.primaryBlue}]
+        text-[12px]
+        sm:text-[13px]
+        lg:text-[13.5px]
+        whitespace-nowrap
+      `}
+    >
+      {label}
+    </span>
   );
 }
 
-function Frame54() {
-  return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[280px]">
-      <Frame66 />
-      <p className="css-4hzbpn font-['Gilroy:Medium',sans-serif] leading-[26px] min-w-full not-italic relative shrink-0 text-[20px] text-white w-[min-content]">
-        Personalized Layouts and Themes
-      </p>
-    </div>
-  );
-}
+// =============================================================================
+// CAPABILITIES CARD
+// =============================================================================
 
-function Elements9() {
+function CapabilitiesCard() {
+  const capabilities = [
+    "Dashboards",
+    "Integrations",
+    "Monitoring",
+    "Reports",
+    "AI Intelligence",
+    "Virtual Operations",
+    "Alerts",
+    "Cloud Ready",
+    "Data Control",
+  ];
+
   return (
-    <div className="absolute inset-[10.42%]" data-name="elements">
-      <div className="absolute inset-[-3.95%]">
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 30.7502 30.7502"
+    <div
+      className={`
+        bg-[${COLORS.capabilitiesBg}]
+        flex flex-col lg:flex-row
+        items-start lg:items-center
+        justify-between
+        gap-5 sm:gap-6 lg:gap-8
+        p-4 sm:p-5 lg:p-6
+        rounded-xl sm:rounded-2xl
+        w-full
+        max-w-[1400px]
+      `}
+    >
+      {/* Left: Title and Description */}
+      <div className="flex flex-col gap-1.5 sm:gap-2 flex-shrink-0 lg:max-w-[450px] xl:max-w-[500px]">
+        <h3
+          className={`
+            ${TEXT_STYLES.gilroySemibold}
+            text-[${COLORS.textDark}]
+            text-[16px] sm:text-[18px] lg:text-[20px]
+            leading-[22px] sm:leading-[24px]
+          `}
         >
-          <g>
-            <path
-              d={svgPaths.p180de00}
-              id="Vector"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeWidth="2.25"
-            />
-            <path
-              d={svgPaths.p1174f900}
-              id="Vector_2"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeWidth="2.25"
-            />
-            <path
-              d="M5.63844 25.1252H5.625"
-              id="Vector_3"
-              stroke="var(--stroke-0, #00FF84)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.25"
-            />
-          </g>
-        </svg>
+          Built-in Capabilities
+        </h3>
+        <p
+          className={`
+            ${TEXT_STYLES.gilroyRegular}
+            text-[${COLORS.textMuted}]
+            text-[13px] sm:text-[14px]
+            leading-[18px] sm:leading-[20px]
+          `}
+        >
+          EAGLE at the edge + Tecosoft Analytics in the cloud gives you
+          low-latency control with enterprise-scale intelligence.
+        </p>
+      </div>
+
+      {/* Right: Capability Tags */}
+      <div
+        className="
+          flex flex-wrap
+          gap-2 sm:gap-2.5
+          justify-start lg:justify-end
+          w-full lg:w-auto
+        "
+      >
+        {capabilities.map((capability) => (
+          <CapabilityTag key={capability} label={capability} />
+        ))}
       </div>
     </div>
   );
 }
 
-function Wrench() {
-  return (
-    <div className="overflow-clip relative size-[36px]" data-name="wrench-01">
-      <Elements9 />
-    </div>
-  );
-}
-
-function Frame67() {
-  return (
-    <div className="bg-[rgba(255,255,255,0.16)] content-stretch flex items-center p-[12px] relative rounded-[12px] shrink-0">
-      <div className="flex items-center justify-center relative shrink-0">
-        <div className="flex-none rotate-[180deg] scale-y-[-100%]">
-          <Wrench />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Frame58() {
-  return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[280px]">
-      <Frame67 />
-      <p className="css-4hzbpn font-['Gilroy:Medium',sans-serif] leading-[26px] min-w-full not-italic relative shrink-0 text-[20px] text-white w-[min-content]">{`Maintenance, Quality & Energy Panels`}</p>
-    </div>
-  );
-}
-
-function Frame44() {
-  return (
-    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
-      <Frame45 />
-      <Frame54 />
-      <Frame58 />
-    </div>
-  );
-}
-
-function Frame48() {
-  return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0 w-[500px]">
-      <p className="css-4hzbpn font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px] w-full">
-        Built-in Capabilities
-      </p>
-      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[20px] relative shrink-0 text-[#777] text-[14px] w-full">
-        EAGLE at the edge + Tecosoft Analytics in the cloud gives you
-        low-latency control with enterprise-scale intelligence.
-      </p>
-    </div>
-  );
-}
-
-function Frame22() {
-  return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border-[#07af40] border-[0.75px] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]">
-        Dashboards
-      </p>
-    </div>
-  );
-}
-
-function Frame51() {
-  return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border-[#07af40] border-[0.75px] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]">
-        Integrations
-      </p>
-    </div>
-  );
-}
-
-function Frame49() {
-  return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border-[#07af40] border-[0.75px] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]">
-        Monitoring
-      </p>
-    </div>
-  );
-}
-
-function Frame50() {
-  return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border-[#07af40] border-[0.75px] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]">
-        Reports
-      </p>
-    </div>
-  );
-}
-
-function Frame52() {
-  return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border-[#07af40] border-[0.75px] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]">
-        AI Intelligence
-      </p>
-    </div>
-  );
-}
-
-function Frame53() {
-  return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border-[#07af40] border-[0.75px] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]">
-        Virtual Operations
-      </p>
-    </div>
-  );
-}
-
-function Frame68() {
-  return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border-[#07af40] border-[0.75px] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]">
-        Alerts
-      </p>
-    </div>
-  );
-}
-
-function Frame55() {
-  return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border-[#07af40] border-[0.75px] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]">
-        Cloud Ready
-      </p>
-    </div>
-  );
-}
-
-function Frame56() {
-  return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border-[#07af40] border-[0.75px] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]">
-        Data Control
-      </p>
-    </div>
-  );
-}
-
-function Frame57() {
-  return (
-    <div className="content-start flex flex-wrap gap-[8px] items-start justify-end relative shrink-0 w-[510px]">
-      <Frame22 />
-      <Frame51 />
-      <Frame49 />
-      <Frame50 />
-      <Frame52 />
-      <Frame53 />
-      <Frame68 />
-      <Frame55 />
-      <Frame56 />
-    </div>
-  );
-}
-
-function Frame47() {
-  return (
-    <div className="bg-[#ccf1ff] content-stretch flex items-center justify-between overflow-clip p-[20px] relative rounded-[16px] shrink-0 w-[1312px]">
-      <Frame48 />
-      <Frame57 />
-    </div>
-  );
-}
+// =============================================================================
+// MAIN SECTION
+// =============================================================================
 
 export function TecosoftDashboardSection() {
   return (
-    <div
-      className="content-stretch flex flex-col gap-[60px] items-center overflow-clip px-[100px] py-[60px] relative shrink-0 w-[1512px]"
-      data-name="Tecosoft dashboard"
-      style={{
-        backgroundImage:
-          "linear-gradient(225.824deg, rgb(0, 188, 239) 6.4454%, rgb(0, 35, 99) 95.133%)",
-      }}
+    <section
+      className="
+        w-full overflow-hidden
+        px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20
+        py-10 sm:py-12 md:py-14 lg:py-16
+      "
+      style={{ backgroundImage: GRADIENT_BG }}
+      aria-label="Tecosoft Dashboard Features"
     >
-      <Frame46 />
-      <Frame43 />
-      <Frame44 />
-      <Frame47 />
-    </div>
+      {/* Container with max-width for large screens */}
+      <div
+        className="
+          max-w-[1600px] mx-auto
+          flex flex-col items-center
+          gap-8 sm:gap-10 md:gap-12 lg:gap-14
+        "
+      >
+        <SectionHeader />
+        <FeaturesGrid />
+        <CapabilitiesCard />
+      </div>
+    </section>
   );
 }
