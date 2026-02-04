@@ -3,85 +3,128 @@ export const INDUSTRIES_DATA = [
     id: 1,
     title: "Manufacturing",
     description:
-      "Digitize operations from shopfloor to leadership using connected assets, role-ready dashboards, and AI-driven decisions.",
+      "Digitize operations from shopfloor to leadership with connected assets, role-ready dashboards, and AI-driven decisions.",
     image: "/assets/pages/industries/manufacturing.png",
     useCases: [
       "Real-Time Production Tracking",
-      "Tool Life & Calibration",
       "Digital Work Instructions",
-      "Maintenance Planning & CMMS Sync",
       "SPC & Quality Traceability",
+      "Tool Life & Calibration",
+      "Maintenance Planning & CMMS Sync",
       "Predictive Maintenance",
+      "Connected Factory Twin"
     ],
     outcomes: [
-      "OEE",
-      "Unplanned Downtime",
-      "On-Time Delivery",
-      "Scrap & Rework",
+      "↑ OEE",
+      "↓ Unplanned Downtime",
+      "↑ On-Time Delivery",
+      "↓ Scrap & Rework",
     ],
   },
+
   {
     id: 2,
-    title: "Healthcare",
+    title: "Energy & Utilities",
     description:
-      "Enable connected care experiences with unified patient data, workflow automation, and compliance-ready systems.",
-    image: "/assets/pages/industries/healthcare`.png",
+      "AI-enabled energy intelligence to reduce consumption, avoid demand peaks, and optimize cost-performance sustainably.",
+    image: "/assets/pages/industries/manufacturing.png",
     useCases: [
-      "Patient Flow Optimization",
-      "Medical Asset Tracking",
-      "Digital Health Records",
-      "Compliance Automation",
-      "Remote Monitoring",
+      "Energy Optimization",
+      "Load Forecasting & Peak Avoidance",
+      "Power Quality Monitoring",
+      "Asset Health Monitoring",
+      "Energy Twin"
     ],
     outcomes: [
-      "Care Quality",
-      "Operational Efficiency",
-      "Patient Satisfaction",
+      "↓ kWh/Unit",
+      "↓ kVA Peaks",
+      "↓ kVA Peaksy",
+      "↑ kVA Peaks"
     ],
   },
   {
     id: 3,
-    title: "Retail",
+    title: "Oil & Gas",
     description:
-      "Deliver omnichannel retail experiences with real-time inventory visibility and customer insights.",
-    image: "/assets/pages/industries/retail.png",
+      "High-reliability condition monitoring and twins for rotating equipment, pipelines, and critical infrastructure.",
+    image: "/assets/pages/industries/manufacturing.png",
     useCases: [
-      "Inventory Optimization",
-      "Demand Forecasting",
-      "Customer Analytics",
-      "POS Integration",
+      "Rotating Equipment Health",
+      "Pipeline Integrity & Leak Alerts",
+      "Safety & Compliance View",
+      "Operations Twin",
     ],
-    outcomes: ["Sales Growth", "Inventory Turnover", "Customer Retention"],
+    outcomes: [
+      "↑ Asset Uptime",
+      "↓ Leak Risk",
+      "↑ Throughput Stability",
+      "↑ Safety"
+    ],
   },
+
   {
     id: 4,
-    title: "Logistics",
+    title: "Healthcare",
     description:
-      "Optimize supply chain operations with live tracking, predictive analytics, and intelligent routing.",
-    image: "/assets/pages/industries/logistics.png",
+      "Operational twins for biomedical assets and facilities to improve availability, compliance, and patient experience.",
+    image: "/assets/pages/industries/manufacturing.png",
     useCases: [
-      "Fleet Tracking",
-      "Route Optimization",
-      "Warehouse Automation",
-      "Delivery SLA Monitoring",
+      " Biomedical Asset Uptime",
+      "Facility & Utility Monitoring",
+      "Compliance & Audit Trails",
+      "Care-Path Flow Twin"
     ],
-    outcomes: ["Delivery Time", "Fuel Efficiency", "Cost Reduction"],
+    outcomes: [
+      "↑ Equipment Uptime",
+      "↓ TAT",
+      "↑ Compliance",
+      "↑ Patient Flow"
+    ],
   },
   {
     id: 5,
-    title: "Energy & Utilities",
+    title: "Logistics & Warehousing",
     description:
-      "Monitor and manage distributed energy assets with real-time insights and predictive intelligence.",
-    image: "/assets/pages/industries/energy.png",
+      "Smart operations across hubs, fleets, and storage with real-time visibility, bottleneck detection, and AI scheduling.",
+    image: "/assets/pages/industries/manufacturing.png",
     useCases: [
-      "Asset Monitoring",
-      "Predictive Maintenance",
-      "Grid Optimization",
-      "Energy Forecasting",
+      "Dock & Yard Visibility",
+      "Slotting & Space Utilization",
+      "ETA & Dispatch Control Tower",
+      "Operations Twin",
     ],
-    outcomes: ["Uptime", "Energy Efficiency", "Operational Safety"],
+    outcomes: [
+      "↑ OTIF",
+      "↓ Dwell Time",
+      "↑ Slot Utilization",
+      "↓ Handling Cost"
+    ],
   },
+  {
+    id: 6,
+    title: "Smart Cities",
+    description:
+      "City-scale twins for energy, water, traffic, and public assets — one pane of glass for resilient urban operations.",
+    image: "/assets/pages/industries/manufacturing.png",
+    useCases: [
+      "Utility Grids View",
+      "Traffic & Mobility Insights",
+      "Public Asset Monitoring",
+      "City Operations Twin",
+    ],
+    outcomes: [
+      "↑ Service Uptime",
+      "↓ Outages",
+      "↑ Resource Efficiency",
+      "↑ Citizen Experience"
+    ],
+  },
+
 ];
+
+
+
+
 
 export const FEATURES = [
   {

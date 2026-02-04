@@ -7,53 +7,7 @@ import type { Swiper as SwiperType } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
-
-/* ------------------------------------------------------------------ */
-/* DATA */
-/* ------------------------------------------------------------------ */
-
-const INDUSTRIES_DATA = [
-  {
-    id: 1,
-    title: "Manufacturing",
-    description:
-      "Digitize operations from shopfloor to leadership using connected assets, role-ready dashboards, and AI-driven decisions.",
-    image: "/assets/pages/industries/manufacturing.png",
-    useCases: [
-      "Real-Time Production Tracking",
-      "Tool Life & Calibration",
-      "Digital Work Instructions",
-      "Maintenance Planning & CMMS Sync",
-      "SPC & Quality Traceability",
-      "Predictive Maintenance",
-    ],
-    outcomes: [
-      "OEE",
-      "Unplanned Downtime",
-      "On-Time Delivery",
-      "Scrap & Rework",
-    ],
-  },
-  {
-    id: 2,
-    title: "Healthcare",
-    description:
-      "Enable connected care experiences with unified patient data, workflow automation, and compliance-ready systems.",
-    image: "/assets/pages/industries/manufacturing.png",
-    useCases: [
-      "Patient Flow Optimization",
-      "Medical Asset Tracking",
-      "Digital Health Records",
-      "Compliance Automation",
-      "Remote Monitoring",
-    ],
-    outcomes: [
-      "Care Quality",
-      "Operational Efficiency",
-      "Patient Satisfaction",
-    ],
-  },
-];
+import { INDUSTRIES_DATA } from "@/constants/industries";
 
 /* ------------------------------------------------------------------ */
 /* ICONS */
@@ -75,14 +29,13 @@ const TickIcon = () => (
 );
 
 const ArrowButton = ({ direction }: { direction: "prev" | "next" }) => (
-  <div className="bg-white border border-[#d2d2d2] rounded-[8px] p-[12px] cursor-pointer flex items-center justify-center hover:bg-[#f0f0f0] h-[44px] w-[44px]  ">
+  <div className="bg-white border border-[#d2d2d2] rounded-lg p-3 cursor-pointer flex items-center justify-center hover:bg-[#f0f0f0] h-[44px] w-[44px]">
     <svg
       width="22"
       height="22"
       viewBox="0 0 22 22"
-      className={`transition-transform ${
-        direction === "prev" ? "" : "rotate-180"
-      }`}
+      className={`transition-transform ${direction === "prev" ? "" : "rotate-180"
+        }`}
     >
       <path
         d="M18.7031 11H3.30313M3.30313 11L10.5753 3.29995M3.30313 11L10.5753 18.7"
@@ -98,49 +51,73 @@ const ArrowButton = ({ direction }: { direction: "prev" | "next" }) => (
 /* ------------------------------------------------------------------ */
 /* CARD */
 /* ------------------------------------------------------------------ */
-
 const IndustryCard = ({ data }: { data: any }) => (
-  <div className="flex gap-[40px] items-center">
-    <div className="h-[446px] w-[676px] rounded-[16px] overflow-hidden">
+  <div className="flex flex-col lg:flex-row gap-10 items-stretch">
+    {/* IMAGE */}
+    <div className="w-full  h-[400px] lg:h-[441px] lg:w-1/2 rounded-2xl overflow-hidden">
+
       <img
         src={data.image}
         alt={data.title}
-        className="h-full w-full object-cover"
+        className="w-full h-full object-cover"
       />
     </div>
 
-    <div className="flex flex-col gap-[32px] w-[676px]">
-      <div>
-        <h3 className="text-[28px] font-semibold text-[#005b80]">
-          {data.title}
-        </h3>
-        <p className="text-[#8e8e8e] text-[16px] mt-2">{data.description}</p>
-      </div>
+    {/* CONTENT */}
+    <div className="w-full lg:w-1/2 flex flex-col justify-between h-full">
+      {/* TOP CONTENT */}
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-[30px] font-semibold text-[#007aaa]">
+            {data.title}
+          </h3>
+          <p className="text-[#9a9a9a] text-[16px] leading-[28px] mt-3 max-w-[640px]">
+            {data.description}
+          </p>
+        </div>
 
-      <div className="bg-[#f8f8f8] p-[16px] rounded-[12px]">
-        <p className="text-[#0098d4] font-semibold mb-4">Use cases:</p>
+        {/* USE CASES */}
+        <div className="bg-[#F8F8F8] rounded-2xl p-6 shadow-sm">
+          <p className="text-[#0098d4] font-semibold mb-6 text-[18px]">
+            Use cases:
+          </p>
 
-        <div className="grid grid-cols-2 gap-[16px]">
-          {data.useCases.map((item: string) => (
-            <div key={item} className="flex gap-[12px] items-center">
-              <TickIcon />
-              <span className="text-[#282828] text-[16px]">{item}</span>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-10">
+            {data.useCases.map((item: string) => (
+              <div key={item} className="flex items-center gap-4">
+                <TickIcon />
+                <span className="text-[#2b2b2b] text-[16px]">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div>
-        <p className="font-medium text-[17px] mb-3">Expected Outcomes:</p>
-        <div className="flex flex-wrap gap-[10px]">
-          {data.outcomes.map((outcome: string) => (
-            <span
-              key={outcome}
-              className="bg-[#ccf1ff] text-[#007aaa] px-[14px] py-[6px] rounded-full text-[14px]"
-            >
-              {outcome}
-            </span>
-          ))}
+      {/* BOTTOM OUTCOMES (ALIGNED WITH IMAGE END) */}
+      <div className="pt-8">
+        <div className="flex flex-wrap gap-3">
+          {data.outcomes.map((outcome: string) => {
+            const isUp = outcome.includes("↑");
+            const isDown = outcome.includes("↓");
+
+            return (
+              <span
+                key={outcome}
+                className={`px-4 py-2 rounded-full text-[15px] font-medium
+                  ${isUp
+                    ? "bg-[#e8f8f1] text-[#0EB05C]"
+                    : isDown
+                      ? "bg-[#fdeaea] text-[#d92d20]"
+                      : "bg-[#e6f6ff] text-[#007aaa]"
+                  }
+                `}
+              >
+                {outcome}
+              </span>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -152,23 +129,24 @@ const IndustryCard = ({ data }: { data: any }) => (
 /* ------------------------------------------------------------------ */
 
 export default function IndustriesSection() {
-  const swiperRef = useRef<SwiperType>(undefined);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <section className="bg-white p-[60px] w-full">
-      {/* Header + Custom Navigation */}
-      <div className="flex justify-between items-start mb-[50px]">
+    <section className="bg-white w-full px-4 sm:px-8 lg:px-[60px] py-12 lg:py-[60px]">
+      {/* HEADER */}
+      <div className="flex flex-col lg:flex-row justify-between gap-6 mb-10">
         <div>
-          <h2 className="text-[36px] font-semibold text-[#181818]">
+          <h2 className="text-[24px] sm:text-[28px] lg:text-[36px] font-semibold text-[#181818]">
             Industries & Use Cases
           </h2>
-          <p className="text-[#8e8e8e] mt-2 max-w-[700px]">
+          <p className="text-[#8e8e8e] mt-2 max-w-[700px] text-[14px] sm:text-[15px]">
             Browse our comprehensive list of industries to explore tailored use
             cases and discover outcomes we've delivered.
           </p>
         </div>
 
-        <div className="flex gap-[16px] pt-12">
+        {/* NAVIGATION (DESKTOP ONLY) */}
+        <div className="hidden lg:flex gap-4 items-center">
           <div onClick={() => swiperRef.current?.slidePrev()}>
             <ArrowButton direction="prev" />
           </div>
@@ -178,7 +156,7 @@ export default function IndustriesSection() {
         </div>
       </div>
 
-      {/* Swiper (Pagination DISABLED) */}
+      {/* SWIPER */}
       <Swiper
         modules={[Navigation]}
         slidesPerView={1}
