@@ -9,168 +9,403 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { INDUSTRIES_DATA } from "@/constants/industries";
 
-/* ------------------------------------------------------------------ */
-/* ICONS */
-/* ------------------------------------------------------------------ */
+// =============================================================================
+// TYPES
+// =============================================================================
 
-const TickIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20">
-    <defs>
-      <linearGradient id="tickGradient" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#00B7FF" />
-        <stop offset="100%" stopColor="#0EB05C" />
-      </linearGradient>
-    </defs>
-    <path
-      fill="url(#tickGradient)"
-      d="M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm-1.2 14.2L4.6 10l1.4-1.4 2.8 2.8 5.6-5.6L15.8 7l-7 7.2z"
-    />
-  </svg>
-);
+interface IndustryData {
+  id: string | number;
+  title: string;
+  description: string;
+  image: string;
+  useCases: string[];
+  outcomes: string[];
+}
 
-const ArrowButton = ({ direction }: { direction: "prev" | "next" }) => (
-  <div className="bg-white border border-[#d2d2d2] rounded-lg p-3 cursor-pointer flex items-center justify-center hover:bg-[#f0f0f0] h-[44px] w-[44px]">
+interface ArrowButtonProps {
+  direction: "prev" | "next";
+  onClick: () => void;
+  size?: "sm" | "md";
+}
+
+// =============================================================================
+// COLORS
+// =============================================================================
+
+const COLORS = {
+  primary: "#007aaa",
+  primaryLight: "#0098d4",
+  textDark: "#181818",
+  textMuted: "#8e8e8e",
+  textGray: "#9a9a9a",
+  textBody: "#2b2b2b",
+  border: "#d2d2d2",
+  bgGray: "#F8F8F8",
+  success: "#0EB05C",
+  successBg: "#e8f8f1",
+  error: "#d92d20",
+  errorBg: "#fdeaea",
+  infoBg: "#e6f6ff",
+} as const;
+
+// =============================================================================
+// ICONS
+// =============================================================================
+
+function TickIcon() {
+  return (
     <svg
-      width="22"
-      height="22"
-      viewBox="0 0 22 22"
-      className={`transition-transform ${direction === "prev" ? "" : "rotate-180"
-        }`}
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      className="shrink-0"
+      aria-hidden="true"
     >
+      <defs>
+        <linearGradient id="tickGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#00B7FF" />
+          <stop offset="100%" stopColor={COLORS.success} />
+        </linearGradient>
+      </defs>
       <path
-        d="M18.7031 11H3.30313M3.30313 11L10.5753 3.29995M3.30313 11L10.5753 18.7"
-        stroke="#007AAA"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill="url(#tickGradient)"
+        d="M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm-1.2 14.2L4.6 10l1.4-1.4 2.8 2.8 5.6-5.6L15.8 7l-7 7.2z"
       />
     </svg>
-  </div>
-);
+  );
+}
 
-/* ------------------------------------------------------------------ */
-/* CARD */
-/* ------------------------------------------------------------------ */
-const IndustryCard = ({ data }: { data: any }) => (
-  <div className="flex flex-col lg:flex-row gap-10 items-stretch">
-    {/* IMAGE */}
-    <div className="w-full  h-[400px] lg:h-[441px] lg:w-1/2 rounded-2xl overflow-hidden">
+function ArrowButton({ direction, onClick, size = "md" }: ArrowButtonProps) {
+  const sizeClasses = size === "sm" ? "h-9 w-9 p-2" : "h-11 w-11 p-3";
+  const iconSize = size === "sm" ? 18 : 22;
 
+  return (
+    <button
+      onClick={onClick}
+      className={`
+        bg-white border border-[${COLORS.border}] rounded-lg cursor-pointer
+        flex items-center justify-center
+        hover:bg-gray-50 active:bg-gray-100
+        transition-colors duration-150
+        ${sizeClasses}
+      `}
+      aria-label={direction === "prev" ? "Previous slide" : "Next slide"}
+    >
+      <svg
+        width={iconSize}
+        height={iconSize}
+        viewBox="0 0 22 22"
+        className={direction === "next" ? "rotate-180" : ""}
+        aria-hidden="true"
+      >
+        <path
+          d="M18.7031 11H3.30313M3.30313 11L10.5753 3.29995M3.30313 11L10.5753 18.7"
+          stroke={COLORS.primary}
+          strokeWidth="1.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </svg>
+    </button>
+  );
+}
+
+// =============================================================================
+// CARD COMPONENTS
+// =============================================================================
+
+function CardImage({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div
+      className="
+        w-full
+        h-[240px]
+        sm:h-[300px]
+        md:h-[360px]
+        lg:h-[400px]
+        xl:h-[441px]
+        2xl:h-[480px]
+        lg:w-1/2
+        rounded-xl
+        sm:rounded-2xl
+        overflow-hidden
+        shrink-0
+      "
+    >
       <img
-        src={data.image}
-        alt={data.title}
+        src={src}
+        alt={alt}
         className="w-full h-full object-cover"
+        loading="lazy"
       />
     </div>
+  );
+}
 
-    {/* CONTENT */}
-    <div className="w-full lg:w-1/2 flex flex-col justify-between h-full">
-      {/* TOP CONTENT */}
-      <div className="space-y-6">
-        <div>
-          <h3 className="text-[30px] font-semibold text-[#007aaa]">
-            {data.title}
-          </h3>
-          <p className="text-[#9a9a9a] text-[16px] leading-[28px] mt-3 max-w-[640px]">
-            {data.description}
-          </p>
-        </div>
+function CardTitle({ title }: { title: string }) {
+  return (
+    <h3
+      className={`
+        text-[${COLORS.primary}] font-semibold
+        text-[20px]
+        sm:text-[24px]
+        md:text-[26px]
+        lg:text-[28px]
+        xl:text-[30px]
+      `}
+    >
+      {title}
+    </h3>
+  );
+}
 
-        {/* USE CASES */}
-        <div className="bg-[#F8F8F8] rounded-2xl p-6 shadow-sm">
-          <p className="text-[#0098d4] font-semibold mb-6 text-[18px]">
-            Use cases:
-          </p>
+function CardDescription({ text }: { text: string }) {
+  return (
+    <p
+      className={`
+        text-[${COLORS.textGray}]
+        mt-2 sm:mt-3
+        max-w-[640px]
+        text-[14px] leading-[22px]
+        sm:text-[15px] sm:leading-[24px]
+        lg:text-[16px] lg:leading-[28px]
+      `}
+    >
+      {text}
+    </p>
+  );
+}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-10">
-            {data.useCases.map((item: string) => (
-              <div key={item} className="flex items-center gap-4">
-                <TickIcon />
-                <span className="text-[#2b2b2b] text-[16px]">
-                  {item}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+function UseCaseItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start sm:items-center gap-3 sm:gap-4">
+      <div className="mt-0.5 sm:mt-0">
+        <TickIcon />
       </div>
+      <span
+        className={`
+          text-[${COLORS.textBody}]
+          text-[14px]
+          sm:text-[15px]
+          lg:text-[16px]
+        `}
+      >
+        {text}
+      </span>
+    </div>
+  );
+}
 
-      {/* BOTTOM OUTCOMES (ALIGNED WITH IMAGE END) */}
-      <div className="pt-8">
-        <div className="flex flex-wrap gap-3">
-          {data.outcomes.map((outcome: string) => {
-            const isUp = outcome.includes("↑");
-            const isDown = outcome.includes("↓");
+function UseCasesBox({ useCases }: { useCases: string[] }) {
+  return (
+    <div
+      className={`
+        bg-[${COLORS.bgGray}]
+        rounded-xl sm:rounded-2xl
+        p-4 sm:p-5 lg:p-6
+        shadow-sm
+      `}
+    >
+      <p
+        className={`
+          text-[${COLORS.primaryLight}] font-semibold
+          mb-4 sm:mb-5 lg:mb-6
+          text-[16px] sm:text-[17px] lg:text-[18px]
+        `}
+      >
+        Use cases:
+      </p>
 
-            return (
-              <span
-                key={outcome}
-                className={`px-4 py-2 rounded-full text-[15px] font-medium
-                  ${isUp
-                    ? "bg-[#e8f8f1] text-[#0EB05C]"
-                    : isDown
-                      ? "bg-[#fdeaea] text-[#d92d20]"
-                      : "bg-[#e6f6ff] text-[#007aaa]"
-                  }
-                `}
-              >
-                {outcome}
-              </span>
-            );
-          })}
-        </div>
+      <div
+        className="
+          grid
+          grid-cols-1
+          sm:grid-cols-2
+          gap-y-4 gap-x-6
+          sm:gap-y-5 sm:gap-x-8
+          lg:gap-y-6 lg:gap-x-10
+        "
+      >
+        {useCases.map((item) => (
+          <UseCaseItem key={item} text={item} />
+        ))}
       </div>
     </div>
-  </div>
-);
+  );
+}
 
-/* ------------------------------------------------------------------ */
-/* SECTION */
-/* ------------------------------------------------------------------ */
+function OutcomeBadge({ outcome }: { outcome: string }) {
+  const isUp = outcome.includes("↑");
+  const isDown = outcome.includes("↓");
+
+  let colorClasses = `bg-[${COLORS.infoBg}] text-[${COLORS.primary}]`;
+  if (isUp) {
+    colorClasses = `bg-[${COLORS.successBg}] text-[${COLORS.success}]`;
+  } else if (isDown) {
+    colorClasses = `bg-[${COLORS.errorBg}] text-[${COLORS.error}]`;
+  }
+
+  return (
+    <span
+      className={`
+        ${colorClasses}
+        px-3 py-1.5
+        sm:px-4 sm:py-2
+        rounded-full
+        text-[13px]
+        sm:text-[14px]
+        lg:text-[15px]
+        font-medium
+        whitespace-nowrap
+      `}
+    >
+      {outcome}
+    </span>
+  );
+}
+
+function OutcomesList({ outcomes }: { outcomes: string[] }) {
+  return (
+    <div className="pt-5 sm:pt-6 lg:pt-8">
+      <div className="flex flex-wrap gap-2 sm:gap-3">
+        {outcomes.map((outcome) => (
+          <OutcomeBadge key={outcome} outcome={outcome} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function IndustryCard({ data }: { data: IndustryData }) {
+  return (
+    <div
+      className="
+        flex flex-col lg:flex-row
+        gap-5 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12
+        items-stretch
+      "
+    >
+      {/* Image Section */}
+      <CardImage src={data.image} alt={data.title} />
+
+      {/* Content Section */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-between">
+        {/* Top Content */}
+        <div className="space-y-4 sm:space-y-5 lg:space-y-6">
+          <div>
+            <CardTitle title={data.title} />
+            <CardDescription text={data.description} />
+          </div>
+          <UseCasesBox useCases={data.useCases} />
+        </div>
+
+        {/* Bottom Outcomes */}
+        <OutcomesList outcomes={data.outcomes} />
+      </div>
+    </div>
+  );
+}
+
+// =============================================================================
+// SECTION HEADER
+// =============================================================================
+
+interface SectionHeaderProps {
+  onPrev: () => void;
+  onNext: () => void;
+}
+
+function SectionHeader({ onPrev, onNext }: SectionHeaderProps) {
+  return (
+    <div
+      className="
+        flex flex-col sm:flex-row
+        justify-between items-start sm:items-center
+        gap-4 sm:gap-6
+        mb-6 sm:mb-8 lg:mb-10
+      "
+    >
+      {/* Title and Description */}
+      <div className="flex-1">
+        <h2
+          className={`
+            text-[${COLORS.textDark}] font-semibold
+            text-[22px]
+            sm:text-[26px]
+            md:text-[30px]
+            lg:text-[34px]
+            xl:text-[36px]
+          `}
+        >
+          Industries & Use Cases
+        </h2>
+        <p
+          className={`
+            text-[${COLORS.textMuted}]
+            mt-1.5 sm:mt-2
+            max-w-[700px]
+            text-[13px]
+            sm:text-[14px]
+            lg:text-[15px]
+          `}
+        >
+          Browse our comprehensive list of industries to explore tailored use
+          cases and discover outcomes we've delivered.
+        </p>
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="flex gap-3 sm:gap-4 items-center shrink-0">
+        <ArrowButton direction="prev" onClick={onPrev} size="sm" />
+        <ArrowButton direction="next" onClick={onNext} size="sm" />
+      </div>
+    </div>
+  );
+}
+
+// =============================================================================
+// MAIN SECTION
+// =============================================================================
 
 export default function IndustriesSection() {
   const swiperRef = useRef<SwiperType | null>(null);
 
+  const handlePrev = () => swiperRef.current?.slidePrev();
+  const handleNext = () => swiperRef.current?.slideNext();
+
   return (
-    <section className="bg-white w-full px-4 sm:px-8 lg:px-[60px] py-12 lg:py-[60px]">
-      {/* HEADER */}
-      <div className="flex flex-col lg:flex-row justify-between gap-6 mb-10">
-        <div>
-          <h2 className="text-[24px] sm:text-[28px] lg:text-[36px] font-semibold text-[#181818]">
-            Industries & Use Cases
-          </h2>
-          <p className="text-[#8e8e8e] mt-2 max-w-[700px] text-[14px] sm:text-[15px]">
-            Browse our comprehensive list of industries to explore tailored use
-            cases and discover outcomes we've delivered.
-          </p>
-        </div>
+    <section
+      className="
+        bg-white w-full
+        px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20
+        py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16
+      "
+    >
+      {/* Container with max-width for large screens */}
+      <div className="max-w-[1600px] mx-auto">
+        <SectionHeader onPrev={handlePrev} onNext={handleNext} />
 
-        {/* NAVIGATION (DESKTOP ONLY) */}
-        <div className="hidden lg:flex gap-4 items-center">
-          <div onClick={() => swiperRef.current?.slidePrev()}>
-            <ArrowButton direction="prev" />
-          </div>
-          <div onClick={() => swiperRef.current?.slideNext()}>
-            <ArrowButton direction="next" />
-          </div>
-        </div>
+        {/* Swiper Carousel */}
+        <Swiper
+          modules={[Navigation]}
+          slidesPerView={1}
+          spaceBetween={24}
+          onBeforeInit={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          breakpoints={{
+            640: { spaceBetween: 30 },
+            1024: { spaceBetween: 40 },
+          }}
+        >
+          {INDUSTRIES_DATA.map((item) => (
+            <SwiperSlide key={item.id}>
+              <IndustryCard data={item as IndustryData} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-
-      {/* SWIPER */}
-      <Swiper
-        modules={[Navigation]}
-        slidesPerView={1}
-        spaceBetween={30}
-        onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
-        }}
-      >
-        {INDUSTRIES_DATA.map((item) => (
-          <SwiperSlide key={item.id}>
-            <IndustryCard data={item} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
     </section>
   );
 }
