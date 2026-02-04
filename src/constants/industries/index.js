@@ -4,7 +4,7 @@ export const INDUSTRIES_DATA = [
     title: "Manufacturing",
     description:
       "Digitize operations from shopfloor to leadership with connected assets, role-ready dashboards, and AI-driven decisions.",
-    image: "/assets/pages/industries/manufacturing.png",
+    image: "/assets/pages/industries/industry/manufacturing.png",
     useCases: [
       "Real-Time Production Tracking",
       "Digital Work Instructions",
@@ -27,7 +27,7 @@ export const INDUSTRIES_DATA = [
     title: "Energy & Utilities",
     description:
       "AI-enabled energy intelligence to reduce consumption, avoid demand peaks, and optimize cost-performance sustainably.",
-    image: "/assets/pages/industries/manufacturing.png",
+    image: "/assets/pages/industries/industry/energy.jpg",
     useCases: [
       "Energy Optimization",
       "Load Forecasting & Peak Avoidance",
@@ -47,7 +47,7 @@ export const INDUSTRIES_DATA = [
     title: "Oil & Gas",
     description:
       "High-reliability condition monitoring and twins for rotating equipment, pipelines, and critical infrastructure.",
-    image: "/assets/pages/industries/manufacturing.png",
+    image: "/assets/pages/industries/industry/oil-gas.jpg",
     useCases: [
       "Rotating Equipment Health",
       "Pipeline Integrity & Leak Alerts",
@@ -67,7 +67,7 @@ export const INDUSTRIES_DATA = [
     title: "Healthcare",
     description:
       "Operational twins for biomedical assets and facilities to improve availability, compliance, and patient experience.",
-    image: "/assets/pages/industries/manufacturing.png",
+    image: "/assets/pages/industries/industry/health.jpg",
     useCases: [
       " Biomedical Asset Uptime",
       "Facility & Utility Monitoring",
@@ -86,7 +86,7 @@ export const INDUSTRIES_DATA = [
     title: "Logistics & Warehousing",
     description:
       "Smart operations across hubs, fleets, and storage with real-time visibility, bottleneck detection, and AI scheduling.",
-    image: "/assets/pages/industries/manufacturing.png",
+    image: "/assets/pages/industries/industry/logistics.jpg",
     useCases: [
       "Dock & Yard Visibility",
       "Slotting & Space Utilization",
@@ -105,7 +105,7 @@ export const INDUSTRIES_DATA = [
     title: "Smart Cities",
     description:
       "City-scale twins for energy, water, traffic, and public assets — one pane of glass for resilient urban operations.",
-    image: "/assets/pages/industries/manufacturing.png",
+    image: "/assets/pages/industries/industry/smart-city.jpg",
     useCases: [
       "Utility Grids View",
       "Traffic & Mobility Insights",

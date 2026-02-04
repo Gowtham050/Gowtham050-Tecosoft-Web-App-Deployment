@@ -1,6 +1,6 @@
 "use client";
 
-import { FeaturesSection } from "./features-section";
+import FeaturesSection from "./features-section";
 import HeroSection from "./hero-section";
 import IndustriesSection from "./industries-section";
 // import { IndustriesSection } from "./industries-section";
@@ -14,7 +14,7 @@ export default function Industries() {
       <Solutions />
       <IndustriesSection />
       <TecosoftDashboardSection />
-      {/* <FeaturesSection /> */}
+      <FeaturesSection />
     </div>
   );
 }

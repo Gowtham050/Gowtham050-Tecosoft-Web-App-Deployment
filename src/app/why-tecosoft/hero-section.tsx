@@ -1,4 +1,5 @@
 "use client";
+
 import svgPaths from "../../imports/svg-9v3kh9sdih";
 import { motion, type Variants } from "framer-motion";
 import React from "react";
@@ -7,14 +8,12 @@ import React from "react";
 // CONSTANTS & CONFIGURATION
 // =============================================================================
 
-/** Asset paths */
 const ASSETS = {
   logo: "/assets/pages/why-tecosoft/7237d837fb840eb1fdf3472a3a5d42c920a312a7.png",
   heroBackground:
     "/assets/pages/why-tecosoft/e54110e1697ad6aa53311cf3395acde3b0aeda4d.png",
 } as const;
 
-/** Hero content configuration */
 const HERO_CONTENT = {
   tagline: "Where Operations Meet Intelligence",
   headline: {
@@ -26,7 +25,14 @@ const HERO_CONTENT = {
   ctaText: "Give demo",
 } as const;
 
-/** Shared floating card animation */
+const COLORS = {
+  accentGreen: "#00ff84",
+  primaryGreen: "#07af40",
+  primaryBlue: "#0098d4",
+  textDark: "#282828",
+} as const;
+
+// Animation config for floating cards
 const floatingCardAnimation: Variants = {
   animate: {
     x: [0, -1.2, 1.2, -1.2, 1.2, 0],
@@ -39,16 +45,6 @@ const floatingCardTransition = {
   repeat: Infinity,
 } as const;
 
-/** Style constants */
-const STYLES = {
-  fontGilroySemibold: "font-['Gilroy:Semibold',sans-serif]",
-  fontGilroyMedium: "font-['Gilroy:Medium',sans-serif]",
-  floatingCardBase:
-    "absolute bg-white content-stretch flex gap-[8px] items-center justify-center p-[12px] rounded-[8px]",
-  floatingCardText:
-    "css-ew64yg font-['Gilroy:Medium',sans-serif] leading-[18px] not-italic relative shrink-0 text-[#282828] text-[17px]",
-} as const;
-
 // =============================================================================
 // TYPES
 // =============================================================================
@@ -56,7 +52,11 @@ const STYLES = {
 interface FloatingCardData {
   id: string;
   label: string;
-  position: { left: string; top: string };
+  position: {
+    // Percentage-based positions for responsiveness
+    left: string;
+    top: string;
+  };
   icon: React.ComponentType;
 }
 
@@ -70,27 +70,28 @@ interface GradientIconProps {
     y1: string;
     y2: string;
   };
+  fillRule?: "evenodd";
 }
 
 // =============================================================================
-// REUSABLE ICON COMPONENTS
+// ICON COMPONENTS
 // =============================================================================
 
-/** Reusable gradient icon component for SVG icons with linear gradients */
 function GradientIcon({
   svgPath,
   gradientId,
   viewBox = "0 0 20 20",
   gradientConfig,
   fillRule,
-}: GradientIconProps & { fillRule?: "evenodd" }) {
+}: GradientIconProps) {
   return (
-    <div className="relative shrink-0 size-[20px]">
+    <div className="relative shrink-0 w-4 h-4 sm:w-5 sm:h-5">
       <svg
         className="block size-full"
         fill="none"
         preserveAspectRatio="none"
         viewBox={viewBox}
+        aria-hidden="true"
       >
         <path
           d={svgPath}
@@ -115,19 +116,19 @@ function GradientIcon({
   );
 }
 
-/** Arrow icon component */
 function ArrowIcon() {
   return (
-    <div className="relative size-[14px]">
+    <div className="relative size-3.5">
       <svg
         className="block size-full"
         fill="none"
         preserveAspectRatio="none"
         viewBox="0 0 14 14"
+        aria-hidden="true"
       >
         <path
           d={svgPaths.p1feb4d00}
-          stroke="var(--stroke-0, white)"
+          stroke="white"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="1.35"
@@ -137,7 +138,6 @@ function ArrowIcon() {
   );
 }
 
-/** Location icon */
 function LocationIcon() {
   return (
     <GradientIcon
@@ -153,7 +153,6 @@ function LocationIcon() {
   );
 }
 
-/** Operations icon */
 function OperationsIcon() {
   return (
     <GradientIcon
@@ -165,7 +164,6 @@ function OperationsIcon() {
   );
 }
 
-/** Tick/Check icon */
 function TickIcon() {
   return (
     <GradientIcon
@@ -176,16 +174,16 @@ function TickIcon() {
   );
 }
 
-/** Scale icon */
 function ScaleIcon() {
   return (
-    <div className="overflow-clip relative shrink-0 size-[20px]">
+    <div className="overflow-clip relative shrink-0 w-4 h-4 sm:w-5 sm:h-5">
       <div className="absolute inset-[10%_10%_0.78%_10%]">
         <svg
           className="block size-full"
           fill="none"
           preserveAspectRatio="none"
           viewBox="0 0 16 17.845"
+          aria-hidden="true"
         >
           <path d={svgPaths.pab1b780} fill="url(#gradient_scale)" />
           <defs>
@@ -208,69 +206,80 @@ function ScaleIcon() {
 }
 
 // =============================================================================
-// FLOATING CARDS DATA
+// FLOATING CARDS DATA - Using percentage-based positioning
 // =============================================================================
 
 const FLOATING_CARDS_DATA: FloatingCardData[] = [
   {
     id: "one-place",
     label: "One place.",
-    position: { left: "338px", top: "41px" },
+    position: { left: "65%", top: "8%" },
     icon: LocationIcon,
   },
   {
     id: "unified-operations",
     label: "Unified operations.",
-    position: { left: "13px", top: "357px" },
+    position: { left: "0%", top: "75%" },
     icon: OperationsIcon,
   },
   {
     id: "ready-today",
     label: "Ready today.",
-    position: { left: "332px", top: "282px" },
+    position: { left: "62%", top: "60%" },
     icon: TickIcon,
   },
   {
     id: "built-to-scale",
     label: "Built to scale.",
-    position: { left: "26px", top: "95px" },
+    position: { left: "2%", top: "18%" },
     icon: ScaleIcon,
   },
 ];
 
 // =============================================================================
-// HERO SECTION COMPONENTS
+// HERO CONTENT COMPONENTS
 // =============================================================================
 
-/** Tagline badge component */
 function TaglineBadge() {
   return (
-    <div className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[60px] shrink-0">
-      <div
-        aria-hidden="true"
-        className="absolute border border-[#07af40] border-solid inset-0 pointer-events-none rounded-[60px]"
-      />
-      <p
-        className={`css-ew64yg font-semibold leading-[18px] not-italic relative shrink-0 text-[#0098d4] text-[13.5px]`}
+    <div
+      className={`
+        bg-white relative inline-flex items-center justify-center
+        px-2.5 py-1 sm:px-3 sm:py-1.5
+        rounded-full
+        border border-[${COLORS.primaryGreen}]
+      `}
+    >
+      <span
+        className={`
+          font-semibold text-[${COLORS.primaryBlue}]
+          text-[11px] sm:text-[12px] lg:text-[13.5px]
+          leading-tight
+        `}
       >
         {HERO_CONTENT.tagline}
-      </p>
+      </span>
     </div>
   );
 }
 
-/** Hero headline component */
 function HeroHeadline() {
   return (
-    <div className="content-stretch flex flex-col gap-6 md:gap-8 lg:gap-[38px] items-start relative shrink-0 w-full">
+    <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8 items-center w-full">
       <TaglineBadge />
       <h1
-        className={`css-4hzbpn font-semibold leading-[0] min-w-full not-italic relative shrink-0 text-4xl md:text-5xl lg:text-6xl xl:text-[80px] text-white w-[min-content]`}
+        className="
+          font-semibold text-white
+          text-[28px] leading-[36px]
+          sm:text-[36px] sm:leading-[44px]
+          md:text-[44px] md:leading-[52px]
+          lg:text-[56px] lg:leading-[66px]
+          xl:text-[68px] xl:leading-[80px]
+          2xl:text-[80px] 2xl:leading-[94px]
+        "
       >
-        <span className="leading-tight md:leading-snug lg:leading-[70px] xl:leading-[94px]">
-          {HERO_CONTENT.headline.main}
-        </span>
-        <span className="leading-tight md:leading-snug lg:leading-[70px] xl:leading-[94px] text-[#00ff84]">
+        <span>{HERO_CONTENT.headline.main}</span>
+        <span className={`text-[${COLORS.accentGreen}]`}>
           {HERO_CONTENT.headline.highlight}
         </span>
       </h1>
@@ -278,36 +287,42 @@ function HeroHeadline() {
   );
 }
 
-/** Demo CTA button */
-function DemoButton() {
+function HeroDescription() {
   return (
-    <button className="bg-[#07af40] content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0 border-none cursor-pointer max-w-[180px]">
-      <span
-        className={`css-ew64yg font-semibold leading-[20px] not-italic relative shrink-0 text-[15px] text-white`}
-      >
-        {HERO_CONTENT.ctaText}
-      </span>
-      <div className="flex items-center justify-center relative shrink-0 size-[14px]">
-        <div className="flex-none rotate-[-90deg]">
-          <ArrowIcon />
-        </div>
-      </div>
-    </button>
+    <p
+      className="
+        font-medium text-white
+        text-[14px] leading-[22px]
+        sm:text-[16px] sm:leading-[24px]
+        md:text-[18px] md:leading-[26px]
+        lg:text-[20px] lg:leading-[28px]
+        xl:text-[21px] xl:leading-[29px]
+        max-w-[650px]
+      "
+    >
+      {HERO_CONTENT.description}
+    </p>
   );
 }
 
-/** Hero content section with headline, description, and CTA */
-function HeroContent() {
+function DemoButton() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-6 md:gap-9 items-start left-4 md:left-8 lg:left-[10%] xl:left-[calc(50%-375px)] top-24 md:top-32 lg:top-[172px] w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[700px] xl:w-[750px] max-w-[750px]">
-      <HeroHeadline />
-      <p
-        className={`css-4hzbpn font-medium leading-6 md:leading-7 lg:leading-[29px] min-w-full not-italic relative shrink-0 text-base md:text-lg lg:text-[21px] text-white w-[min-content]`}
-      >
-        {HERO_CONTENT.description}
-      </p>
-      <DemoButton />
-    </div>
+    <button
+      className={`
+        bg-[${COLORS.primaryGreen}]
+        flex items-center justify-center gap-2
+        px-3.5 py-2.5 sm:px-4 sm:py-3
+        border-none cursor-pointer
+        hover:opacity-90 transition-opacity
+      `}
+    >
+      <span className="font-semibold text-white text-[14px] sm:text-[15px]">
+        {HERO_CONTENT.ctaText}
+      </span>
+      <div className="rotate-[-90deg]">
+        <ArrowIcon />
+      </div>
+    </button>
   );
 }
 
@@ -315,11 +330,30 @@ function HeroContent() {
 // LOGO & DECORATIVE COMPONENTS
 // =============================================================================
 
-/** Floating logo in glass container */
 function LogoContainer() {
   return (
-    <div className="absolute backdrop-blur-[2px] bg-[rgba(255,255,255,0.9)] content-stretch flex items-center justify-center left-[162px] overflow-clip px-[40px] py-[30px] rounded-[200px] shadow-[0px_0px_36px_5px_rgba(255,255,255,0.16)] size-[160px] top-[145px]">
-      <div className="h-[120px] relative shrink-0 w-[100px]">
+    <div
+      className="
+        absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+        backdrop-blur-[2px] bg-[rgba(255,255,255,0.9)]
+        flex items-center justify-center
+        rounded-full overflow-clip
+        shadow-[0px_0px_36px_5px_rgba(255,255,255,0.16)]
+        w-[100px] h-[100px]
+        sm:w-[120px] sm:h-[120px]
+        lg:w-[140px] lg:h-[140px]
+        xl:w-[160px] xl:h-[160px]
+      "
+    >
+      <div
+        className="
+          relative
+          w-[60px] h-[72px]
+          sm:w-[70px] sm:h-[84px]
+          lg:w-[85px] lg:h-[102px]
+          xl:w-[100px] xl:h-[120px]
+        "
+      >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <img
             alt="Tecosoft Logo"
@@ -328,22 +362,30 @@ function LogoContainer() {
           />
         </div>
       </div>
-      <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_3px_3px_20px_0px_rgba(5,128,173,0.36)]" />
+      <div className="absolute inset-0 pointer-events-none rounded-full shadow-[inset_3px_3px_20px_0px_rgba(5,128,173,0.36)]" />
     </div>
   );
 }
 
-/** Decorative gradient circles */
 function GradientCircles() {
   return (
     <>
       {/* Outer circle */}
-      <div className="absolute left-[42px] size-[400px] top-[25px]">
+      <div
+        className="
+          absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+          w-[260px] h-[260px]
+          sm:w-[300px] sm:h-[300px]
+          lg:w-[360px] lg:h-[360px]
+          xl:w-[400px] xl:h-[400px]
+        "
+      >
         <svg
           className="block size-full"
           fill="none"
           preserveAspectRatio="none"
           viewBox="0 0 400 400"
+          aria-hidden="true"
         >
           <path
             d={svgPaths.p32ded680}
@@ -365,13 +407,23 @@ function GradientCircles() {
           </defs>
         </svg>
       </div>
+
       {/* Inner circle */}
-      <div className="absolute left-[132px] size-[220px] top-[115px]">
+      <div
+        className="
+          absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+          w-[140px] h-[140px]
+          sm:w-[165px] sm:h-[165px]
+          lg:w-[195px] lg:h-[195px]
+          xl:w-[220px] xl:h-[220px]
+        "
+      >
         <svg
           className="block size-full"
           fill="none"
           preserveAspectRatio="none"
           viewBox="0 0 220 220"
+          aria-hidden="true"
         >
           <circle
             cx="110"
@@ -399,31 +451,20 @@ function GradientCircles() {
   );
 }
 
-/** Logo section with decorative elements */
-function LogoSection() {
-  return (
-    <div className="absolute contents left-[42px] top-[25px]">
-      <GradientCircles />
-      <LogoContainer />
-    </div>
-  );
-}
-
 // =============================================================================
 // FLOATING CARDS
 // =============================================================================
 
-/** Reusable floating card component */
 function FloatingCard({ data }: { data: FloatingCardData }) {
   const IconComponent = data.icon;
-  const [isLargeScreen, setIsLargeScreen] = React.useState(false);
+  const [shouldAnimate, setShouldAnimate] = React.useState(false);
 
   React.useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
-    setIsLargeScreen(mediaQuery.matches);
+    setShouldAnimate(mediaQuery.matches);
 
     const handleChange = (e: MediaQueryListEvent) => {
-      setIsLargeScreen(e.matches);
+      setShouldAnimate(e.matches);
     };
 
     mediaQuery.addEventListener("change", handleChange);
@@ -432,24 +473,49 @@ function FloatingCard({ data }: { data: FloatingCardData }) {
 
   return (
     <motion.div
-      className={STYLES.floatingCardBase}
+      className="
+        absolute bg-white
+        flex items-center gap-1.5 sm:gap-2
+        px-2 py-1.5
+        sm:px-2.5 sm:py-2
+        lg:px-3 lg:py-2.5
+        rounded-md sm:rounded-lg
+        shadow-md
+      "
       style={{ left: data.position.left, top: data.position.top }}
-      data-name={data.id}
       variants={floatingCardAnimation}
-      animate={isLargeScreen ? "animate" : undefined}
+      animate={shouldAnimate ? "animate" : undefined}
       transition={floatingCardTransition}
     >
       <IconComponent />
-      <p className={STYLES.floatingCardText}>{data.label}</p>
+      <span
+        className={`
+          font-medium text-[${COLORS.textDark}]
+          text-[12px]
+          sm:text-[14px]
+          lg:text-[16px]
+          xl:text-[17px]
+          whitespace-nowrap
+        `}
+      >
+        {data.label}
+      </span>
     </motion.div>
   );
 }
 
-/** Container for all floating cards and decorative elements */
-function FloatingCardsSection() {
+function FloatingCardsContainer() {
   return (
-    <div className="absolute h-[450px] right-4 lg:right-8 xl:right-[10%] 2xl:left-[937px] top-[160px] w-[500px] hidden xl:block">
-      <LogoSection />
+    <div
+      className="
+        relative
+        w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[450px] xl:max-w-[500px]
+        h-[320px] sm:h-[380px] lg:h-[450px] xl:h-[500px]
+        mx-auto
+      "
+    >
+      <GradientCircles />
+      <LogoContainer />
       {FLOATING_CARDS_DATA.map((cardData) => (
         <FloatingCard key={cardData.id} data={cardData} />
       ))}
@@ -461,33 +527,28 @@ function FloatingCardsSection() {
 // BACKGROUND COMPONENTS
 // =============================================================================
 
-/** Hero background image */
 function HeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <img
         alt=""
-        className="absolute h-[140%] left-0 max-w-none top-[-0.03%] w-full"
+        className="absolute h-[140%] left-0 max-w-none top-[-0.03%] w-full object-cover"
         src={ASSETS.heroBackground}
       />
     </div>
   );
 }
 
-/** Gradient overlay */
 function GradientOverlay() {
   return (
-    <div className="absolute flex h-full items-center justify-center left-0 top-0 w-full">
-      <div className="flex-none rotate-[180deg] scale-y-[-100%] w-full h-full">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), linear-gradient(204.592deg, rgba(6, 86, 217, 0.3) 0%, rgba(55, 188, 255, 0.3) 100%)",
-          }}
-        />
-      </div>
-    </div>
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage:
+          "linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), linear-gradient(204.592deg, rgba(6, 86, 217, 0.3) 0%, rgba(55, 188, 255, 0.3) 100%)",
+      }}
+      aria-hidden="true"
+    />
   );
 }
 
@@ -498,32 +559,59 @@ function GradientOverlay() {
 export function HeroSection() {
   return (
     <section
-      className="min-h-[600px] md:min-h-[650px] lg:min-h-[700px] xl:h-[692px] overflow-visible relative shrink-0 w-full pt-8 lg:pt-0"
+      className="
+        relative w-full overflow-hidden
+        min-h-[580px]
+        sm:min-h-[630px]
+        md:min-h-[680px]
+        lg:min-h-[720px]
+        xl:min-h-[750px]
+      "
       aria-label="Hero section"
     >
       <HeroBackground />
       <GradientOverlay />
 
-      {/* Grid container for content */}
-      <div className="relative h-full w-full max-w-[1576px] mx-auto px-4 md:px-8 lg:px-16  ">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 h-full items-center py-12 md:py-16 lg:py-20 ">
-          {/* Left column - Content */}
-          <div className="flex flex-col gap-6 md:gap-9 z-10">
+      {/* Content Container */}
+      <div
+        className="
+          relative z-10 w-full h-full
+          max-w-[1600px] mx-auto
+          px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20
+          py-16 sm:py-20 md:py-24 lg:py-28
+        "
+      >
+        <div
+          className="
+            grid grid-cols-1 lg:grid-cols-2
+            gap-10 sm:gap-12 lg:gap-8 xl:gap-12
+            items-center
+            h-full  pt-4
+          "
+        >
+          {/* Left Column - Text Content */}
+          <div
+            className="
+              flex flex-col
+              gap-5 sm:gap-6 lg:gap-8
+              order-1 lg:order-1
+              text-center lg:text-left
+              items-center lg:items-start
+            "
+          >
             <HeroHeadline />
-            <p
-              className={`css-4hzbpn font-medium leading-6 md:leading-7 lg:leading-[29px] not-italic text-base md:text-lg lg:text-[21px] text-white max-w-[750px]`}
-            >
-              {HERO_CONTENT.description}
-            </p>
+            <HeroDescription />
             <DemoButton />
           </div>
 
-          {/* Right column - Floating Cards Section */}
-          <div className="relative h-[450px] lg:h-[550px] w-full max-w-[500px] mx-auto xl:mx-0 xl:ml-auto overflow-visible mt-5 xl:mt-20 ">
-            <LogoSection />
-            {FLOATING_CARDS_DATA.map((cardData) => (
-              <FloatingCard key={cardData.id} data={cardData} />
-            ))}
+          {/* Right Column - Floating Cards */}
+          <div
+            className="
+              order-2 lg:order-2
+              flex items-center justify-center
+            "
+          >
+            <FloatingCardsContainer />
           </div>
         </div>
       </div>

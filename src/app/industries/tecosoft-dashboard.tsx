@@ -465,7 +465,7 @@ function CapabilitiesCard() {
         flex flex-col lg:flex-row
         items-start lg:items-center
         justify-between
-        gap-5 sm:gap-6 lg:gap-8
+        gap-5 sm:gap-6 lg:gap-8 xl:gap-14
         p-4 sm:p-5 lg:p-6
         rounded-xl sm:rounded-2xl
         w-full
@@ -473,7 +473,7 @@ function CapabilitiesCard() {
       `}
     >
       {/* Left: Title and Description */}
-      <div className="flex flex-col gap-1.5 sm:gap-2 flex-shrink-0 lg:max-w-[450px] xl:max-w-[500px]">
+      <div className="flex flex-col gap-1.5 sm:gap-2 flex-shrink-0 lg:max-w-[450px] xl:max-w-[550px]">
         <h3
           className={`
             ${TEXT_STYLES.gilroySemibold}

@@ -7,6 +7,7 @@ import { X, ChevronDown } from "lucide-react";
 import { useLenis } from "../../../libs/react-lenis";
 import { demoBooking } from "../../api/create";
 import { toast } from "react-toastify";
+import { allowOnlyLetters, allowOnlyNumbers, preventLeadingSpace, preventSpaces } from "@/utills/form-validation";
 
 interface Props {
   isOpen: boolean;
@@ -182,12 +183,13 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
                   <Field
                     name="firstName"
                     maxLength={20}
-                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                      errors.firstName && touched.firstName
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-gray-300 focus:border-green-500"
-                    }`}
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.firstName && touched.firstName
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300 focus:border-green-500"
+                      }`}
                     placeholder="Enter your first name"
+                    onKeyPress={allowOnlyLetters}
+                    onKeyDown={preventLeadingSpace}
                   />
                   <div className="h-4 mt-0.5">
                     <ErrorMessage
@@ -206,11 +208,12 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
                   <Field
                     name="lastName"
                     maxLength={20}
-                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                      errors.lastName && touched.lastName
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-gray-300 focus:border-green-500"
-                    }`}
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.lastName && touched.lastName
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300 focus:border-green-500"
+                      }`}
+                    onKeyPress={allowOnlyLetters}
+                    onKeyDown={preventLeadingSpace}
                     placeholder="Enter your last name"
                   />
                   <div className="h-4 mt-0.5">
@@ -230,11 +233,12 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
                   <Field
                     name="email"
                     type="text"
-                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                      errors.email && touched.email
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-gray-300 focus:border-green-500"
-                    }`}
+                    onKeyDown={preventSpaces}
+
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.email && touched.email
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300 focus:border-green-500"
+                      }`}
                     placeholder="Enter your email address"
                   />
                   <div className="h-4 mt-0.5">
@@ -258,11 +262,12 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
                     <Field
                       name="phone"
                       maxLength={15}
-                      className={`w-full rounded-r-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                        errors.phone && touched.phone
-                          ? "border-red-500 focus:border-red-500"
-                          : "border-gray-300 focus:border-green-500"
-                      }`}
+                      onKeyPress={allowOnlyNumbers}
+
+                      className={`w-full rounded-r-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.phone && touched.phone
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-300 focus:border-green-500"
+                        }`}
                       placeholder="Phone number"
                     />
                   </div>
@@ -284,11 +289,10 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
                     <Field
                       as="select"
                       name="country"
-                      className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 appearance-none pr-8 ${
-                        errors.country && touched.country
-                          ? "border-red-500 focus:border-red-500"
-                          : "border-gray-300 focus:border-green-500"
-                      }`}
+                      className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 appearance-none pr-8 ${errors.country && touched.country
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-300 focus:border-green-500"
+                        }`}
                     >
                       <option value="">Select Country</option>
                       {COUNTRIES.map((country) => (
@@ -317,11 +321,15 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
                     as="textarea"
                     name="message"
                     rows={3}
-                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 resize-none ${
-                      errors.message && touched.message
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-gray-300 focus:border-green-500"
-                    }`}
+                    onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+                      if (e.key === " " && (e.currentTarget.selectionStart ?? 0) === 0) {
+                        e.preventDefault();
+                      }
+                    }}
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 resize-none ${errors.message && touched.message
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300 focus:border-green-500"
+                      }`}
                     placeholder="Enter your message (optional)"
                   />
                   <div className="h-4 mt-0.5">

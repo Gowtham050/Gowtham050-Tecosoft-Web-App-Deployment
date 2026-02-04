@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { useLenis } from "../../../libs/react-lenis";
 import { createApplication } from "@/api/create";
 import { toast } from "react-toastify";
+import { allowOnlyLetters, allowOnlyNumbers, preventLeadingSpace, preventSpaces } from "@/utills/form-validation";
 
 export interface JobData {
   id: number;
@@ -324,20 +325,23 @@ function ApplicationFormView({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center gap-1 rounded-md bg-[#07af40] px-2 py-1.5 xs:px-3 xs:py-2 sm:px-5 sm:py-2.5 text-xs xs:text-sm sm:text-base font-semibold text-white hover:bg-[#069935] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-1 rounded-md bg-[#07af40] px-2 py-1.5 xs:px-3 xs:py-2 sm:px-5 sm:py-2 text-xs xs:text-sm sm:text-base font-semibold text-white hover:bg-[#069935] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "..." : "Submit"}
                   <svg
-                    className="h-3 w-3 xs:h-4 xs:w-4 sm:h-5 sm:w-5 -rotate-90"
+                    width="14"
+                    height="13"
+                    viewBox="0 0 14 13"
+                    className="ml-1"
                     fill="none"
-                    viewBox="0 0 20 20"
-                    stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
+                      d="M0.671875 6.34163L12.6719 6.34163M12.6719 6.34163L7.00521 0.674968M12.6719 6.34163L7.00521 12.0083"
+                      stroke="white"
+                      strokeWidth="1.35"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
                     />
                   </svg>
                 </button>
@@ -371,11 +375,12 @@ function ApplicationFormView({
                   <Field
                     name="firstName"
                     maxLength={20}
-                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                      errors.firstName && touched.firstName
+                    onKeyPress={allowOnlyLetters}
+                    onKeyDown={preventLeadingSpace}
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.firstName && touched.firstName
                         ? "border-red-500 focus:border-red-500"
                         : "border-gray-300 focus:border-green-500"
-                    }`}
+                      }`}
                     placeholder="Enter your first name"
                   />
                   <div className="h-4 mt-0.5">
@@ -395,11 +400,12 @@ function ApplicationFormView({
                   <Field
                     name="lastName"
                     maxLength={20}
-                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                      errors.lastName && touched.lastName
+                    onKeyPress={allowOnlyLetters}
+                    onKeyDown={preventLeadingSpace}
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.lastName && touched.lastName
                         ? "border-red-500 focus:border-red-500"
                         : "border-gray-300 focus:border-green-500"
-                    }`}
+                      }`}
                     placeholder="Enter your last name"
                   />
                   <div className="h-4 mt-0.5">
@@ -419,11 +425,11 @@ function ApplicationFormView({
                   <Field
                     name="email"
                     type="text"
-                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                      errors.email && touched.email
+                    onKeyDown={preventSpaces}
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.email && touched.email
                         ? "border-red-500 focus:border-red-500"
                         : "border-gray-300 focus:border-green-500"
-                    }`}
+                      }`}
                     placeholder="Enter your email address"
                   />
                   <div className="h-4 mt-0.5">
@@ -458,11 +464,11 @@ function ApplicationFormView({
                     <Field
                       name="phone"
                       maxLength={15}
-                      className={`w-full rounded-r-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                        errors.phone && touched.phone
+                      onKeyPress={allowOnlyNumbers}
+                      className={`w-full rounded-r-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.phone && touched.phone
                           ? "border-red-500 focus:border-red-500"
                           : "border-gray-300 focus:border-green-500"
-                      }`}
+                        }`}
                       placeholder="Phone number"
                     />
                   </div>
@@ -482,11 +488,10 @@ function ApplicationFormView({
                   </label>
                   <Field
                     name="currentLocation"
-                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                      errors.currentLocation && touched.currentLocation
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.currentLocation && touched.currentLocation
                         ? "border-red-500 focus:border-red-500"
                         : "border-gray-300 focus:border-green-500"
-                    }`}
+                      }`}
                     placeholder="Enter your current location"
                   />
                   <div className="h-4 mt-0.5">
@@ -507,11 +512,10 @@ function ApplicationFormView({
                     <Field
                       as="select"
                       name="workExperience"
-                      className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 appearance-none pr-8 ${
-                        errors.workExperience && touched.workExperience
+                      className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 appearance-none pr-8 ${errors.workExperience && touched.workExperience
                           ? "border-red-500 focus:border-red-500"
                           : "border-gray-300 focus:border-green-500"
-                      }`}
+                        }`}
                     >
                       <option value="">Select</option>
                       {WORK_EXPERIENCE_OPTIONS.map((option) => (
@@ -538,11 +542,10 @@ function ApplicationFormView({
                   </label>
                   <Field
                     name="linkedinPortfolio"
-                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${
-                      errors.linkedinPortfolio && touched.linkedinPortfolio
+                    className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.linkedinPortfolio && touched.linkedinPortfolio
                         ? "border-red-500 focus:border-red-500"
                         : "border-gray-300 focus:border-green-500"
-                    }`}
+                      }`}
                     placeholder="https://linkedin.com/in/yourprofile"
                   />
                   <div className="h-4 mt-0.5">
@@ -560,11 +563,10 @@ function ApplicationFormView({
                     Attachment<span className="text-red-500">*</span>
                   </label>
                   <div
-                    className={`border-2 border-dashed rounded-lg p-3 xs:p-4 sm:p-6 text-center transition-colors ${
-                      errors.attachment && touched.attachment
+                    className={`border-2 border-dashed rounded-lg p-3 xs:p-4 sm:p-6 text-center transition-colors ${errors.attachment && touched.attachment
                         ? "border-red-300 bg-red-50"
                         : "border-gray-300 hover:border-gray-400"
-                    }`}
+                      }`}
                   >
                     <input
                       ref={fileInputRef}
