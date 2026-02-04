@@ -11,10 +11,10 @@ export default function Industries() {
   return (
     <div className="w-full" data-name="Industries">
       <HeroSection />
-      <Solutions />
+      {/* <Solutions />
       <IndustriesSection />
       <TecosoftDashboardSection />
-      <FeaturesSection />
+      <FeaturesSection /> */}
     </div>
   );
 }
