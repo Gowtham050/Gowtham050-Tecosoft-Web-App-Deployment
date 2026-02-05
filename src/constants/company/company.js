@@ -49,7 +49,7 @@ export const TEAM_MEMBERS = [
   {
     id: 5,
     // name: "VISHWANATH RAMANAKOPPA",
-    name: "Vikramsingh Ramanakoppa",
+    name: "Vishwanath Ramanakoppa",
     role: "Director – Product Devlivery",
     // image: "/assets/pages/company/team/vikramsingh.png",
     description:
