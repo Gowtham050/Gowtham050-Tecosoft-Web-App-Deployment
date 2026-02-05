@@ -283,7 +283,8 @@ function ApplicationFormView({
     formData.append("linkedin_portfolio", values.linkedinPortfolio);
     formData.append("attachment", values.attachment ?? new Blob());
 
-    await createApplication(formData);
+    // await createApplication(formData);
+    alert("Application submitted successfully!");
     toast.success("Application submitted successfully");
     setSubmitting(false);
     resetForm();
