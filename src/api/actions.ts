@@ -42,9 +42,18 @@ const getListByApi = (requestUrl: any, params: any) => {
     getParams += `&limit=${params.pageLimit}`;
   }
 
-  if (params && params.next && params.next !== undefined) {
-    getParams += `&next=${params.next}`;
+  if (params && params.skip && params.skip !== undefined) {
+    getParams += `&skip=${params.skip}`;
   }
+
+  if (params && params.page && params.page !== undefined) {
+    getParams += `&page=${params.page}`;
+  }
+
+  if (params && params.status && params.status !== undefined) {
+    getParams += `&status=${params.status}`;
+  }
+
 
   return fetch(`${hostConfig.API_URL}${requestUrl}${getParams}`, {
     method: "GET",

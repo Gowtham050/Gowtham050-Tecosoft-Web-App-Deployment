@@ -114,13 +114,29 @@ export const footerCardConfig = {
     buttonHref: "#contact",
     description: "",
   },
+  "/blogs": {
+    title: "Bring Your Operations to a",
+    highlightText: "Single Pane of Glass",
+    buttonText: "Book a Demo",
+    buttonHref: "#contact",
+    description:
+      "",
+  },
 };
-
-// Helper function to get config based on pathname
 export const getFooterCardConfig = (pathname) => {
-  // Sanitize pathname to remove trailing slashes (except for root "/")
   const sanitize = (url) => url.replace(/\/$/, "") || "/";
   const sanitizedPathname = sanitize(pathname);
 
-  return footerCardConfig[sanitizedPathname] || footerCardConfig.default;
+  // Exact match first
+  if (footerCardConfig[sanitizedPathname]) {
+    return footerCardConfig[sanitizedPathname];
+  }
+
+  // Handle dynamic blog slugs
+  if (sanitizedPathname.startsWith("/blogs/")) {
+    return footerCardConfig["/blogs"];
+  }
+
+  // Default fallback
+  return footerCardConfig.default;
 };

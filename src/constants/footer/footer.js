@@ -37,8 +37,8 @@ export const FooterLinks = {
   resources: {
     title: "Resources",
     links: [
-      { name: "Blog", href: "/resources/blog" },
-      { name: "White Papers", href: "/resources/whitepapers" },
+      { name: "Blogs", href: "/blogs" },
+      { name: "White Papers", href: "/whitepapers" },
     ],
   },
   legal: {
