@@ -8,3 +8,8 @@ export const getBlogLatest = (params) => {
 export const getBlogAll = (params) => {
   return getListByApi(URL_CONSTANTS.blogs, params);
 }
+
+
+export const getBlogDetails = (slug) => {
+  return getListByApi("blogs/slug/" + slug, {});
+}

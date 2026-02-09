@@ -185,7 +185,7 @@ function UseCaseItem({ text }: { text: string }) {
       </div>
       <span
         className={`
-          text-[${COLORS.textBody}]
+          text-[#282828]
           text-[14px]
           sm:text-[15px]
           lg:text-[16px]
@@ -239,31 +239,40 @@ function OutcomeBadge({ outcome }: { outcome: string }) {
   const isUp = outcome.includes("↑");
   const isDown = outcome.includes("↓");
 
-  let colorClasses = `bg-[${COLORS.infoBg}] text-[${COLORS.primary}]`;
-  if (isUp) {
-    colorClasses = `bg-[${COLORS.successBg}] text-[${COLORS.success}]`;
-  } else if (isDown) {
-    colorClasses = `bg-[${COLORS.errorBg}] text-[${COLORS.error}]`;
-  }
+  const arrow = isUp ? "↑" : isDown ? "↓" : "";
+  const text = outcome.replace("↑", "").replace("↓", "").trim();
 
   return (
     <span
-      className={`
-        ${colorClasses}
+      className="
+        bg-teal-100
         px-3 py-1.5
         sm:px-4 sm:py-2
         rounded-full
-        text-[13px]
-        sm:text-[14px]
-        lg:text-[15px]
+        text-[14px]
+        sm:text-[16px]
         font-medium
         whitespace-nowrap
-      `}
+        flex items-center gap-2
+      "
     >
-      {outcome}
+      <span
+        className={`
+          font-normal text-[16px]
+          ${isUp ? "text-green-600" : ""}
+          ${isDown ? "text-red-600" : ""}
+        `}
+      >
+        {arrow}
+      </span>
+
+      <span className="text-[#007AAA]">
+        {text}
+      </span>
     </span>
   );
 }
+
 
 function OutcomesList({ outcomes }: { outcomes: string[] }) {
   return (

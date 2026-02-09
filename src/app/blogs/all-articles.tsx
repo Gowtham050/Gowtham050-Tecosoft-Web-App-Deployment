@@ -1,6 +1,7 @@
 "use client";
 
 import { getBlogAll } from "@/api/list";
+import ArticleCard from "@/components/Blogs/ArticalCards";
 import { useState, useEffect, useCallback, useRef } from "react";
 
 const INITIAL_LIMIT = 6;
@@ -42,69 +43,6 @@ function ArrowDownIcon() {
   );
 }
 
-/* =========================================================
-   ARTICLE CARD
-========================================================= */
-
-function ArticleCard({
-  image,
-  title,
-  description,
-  author,
-  avatar,
-  readTime,
-}: {
-  image: string;
-  title: string;
-  description: string;
-  author: string;
-  avatar: string;
-  readTime: string;
-}) {
-  return (
-    <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition h-full flex flex-col">
-      {/* Image */}
-      <div className="relative h-[200px] w-full rounded-xl overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="p-5 flex flex-col gap-4 flex-1">
-        <div className="flex flex-col gap-2">
-          <h3 className="text-[20px] font-semibold text-[#282828] leading-[26px]">
-            {title}
-          </h3>
-
-          <p className="text-[14px] text-[#777] leading-[20px] line-clamp-2">
-            {description}
-          </p>
-        </div>
-
-        {/* Footer */}
-        <div className="flex items-center justify-between mt-auto">
-          <div className="flex items-center gap-2">
-            <img
-              src={avatar}
-              alt={author}
-              className="w-6 h-6 rounded-full object-cover"
-            />
-            <span className="text-[15px] text-[#282828] font-medium">
-              {author}
-            </span>
-          </div>
-
-          <span className="text-[15px] text-[#0098d4] font-medium">
-            {readTime} mins read
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* =========================================================
    BLOG INTERFACE
@@ -135,9 +73,12 @@ export default function AllArticles() {
 
   // Fetch blogs function
   const fetchBlogs = useCallback(async (searchTerm: string, skip: number, isLoadMore: boolean = false) => {
+
     if (isLoadMore) {
+      //likely a load more action, set loading more state
       setLoadingMore(true);
     } else {
+      //initial load or new search, reset hasMore and set loading state
       setLoading(true);
     }
 
@@ -151,8 +92,9 @@ export default function AllArticles() {
       const response = await getBlogAll(params);
 
       if (response && response.detail.data) {
+
         const newBlogs = response.detail.data || [];
-        const total = response.detail.totalCount || 0;
+        const total = response.detail.total_count || 0;
 
         if (isLoadMore) {
           setBlogs((prev) => [...prev, ...newBlogs]);
@@ -161,6 +103,7 @@ export default function AllArticles() {
         }
 
         setTotalCount(total);
+        console.log("Total Blogs:", skip, newBlogs.length, total);
         setHasMore(skip + newBlogs.length < total);
       }
     } catch (error) {
@@ -198,6 +141,7 @@ export default function AllArticles() {
 
   // Handle load more
   const handleLoadMore = () => {
+
     if (!loadingMore && hasMore) {
       fetchBlogs(search, blogs.length, true);
     }
@@ -239,17 +183,23 @@ export default function AllArticles() {
           {/* Articles Grid */}
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
             {blogs.length > 0 ? (
-              blogs.map((blog: any) => (
-                <div key={blog.id}>
+              blogs.map((blog: any, index: number) => (
+
+                <div key={index}>
                   <ArticleCard
-                    image={blog.cover_image_url || "/assets/pages/blogs/banner.png"}
+                    image={blog.cover_image_url}
                     title={blog.title}
                     description={blog.summary}
-                    author={blog.author_name || "Author"}
-                    avatar={blog.authorImage || "/assets/pages/blogs/banner.png"}
-                    readTime={blog.read_time || "5 "}
+                    author={blog.author_name}
+                    avatar={blog.author_image}
+                    readTime={blog.read_time}
+                    onClick={() => {
+                      window.location.href = `/blogs/${blog?.slug}`
+                    }}
                   />
                 </div>
+
+
               ))
             ) : (
               <div className="col-span-full text-center py-10">
@@ -259,12 +209,12 @@ export default function AllArticles() {
           </div>
 
           {/* Load More */}
-          {hasMore && blogs.length > 0 && (
+          {hasMore && totalCount > 0 && (
             <div className="flex justify-center mt-14">
               <button
                 onClick={handleLoadMore}
                 disabled={loadingMore}
-                className="bg-[#07af40] flex items-center gap-2 px-6 py-3 text-white rounded-md hover:opacity-90 transition disabled:opacity-50"
+                className="bg-[#07af40] flex items-center gap-2 px-6 py-3 text-white rounded-md hover:opacity-90 transition disabled:opacity-50 cursor-pointer"
               >
                 {loadingMore ? (
                   <>

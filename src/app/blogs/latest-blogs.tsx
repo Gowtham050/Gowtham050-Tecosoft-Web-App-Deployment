@@ -19,9 +19,14 @@ export default function LatestBlogs() {
 
   const fetchLatestBlogs = async () => {
     try {
-      await getBlogLatest({ pageLimit: 5 }).then((data : any) => {
+      await getBlogLatest({ pageLimit: 5 }).then((data: any) => {
         console.log("Latest Blogs Data:", data);
-        setLatestBlogs(data.detail.data || []);
+        const blogListData = data.detail.data || [];
+
+        blogListData.sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+        console.log("Sorted Latest Blogs:", blogListData);
+
+        setLatestBlogs(blogListData);
       });
 
     }
@@ -47,7 +52,9 @@ export default function LatestBlogs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* Left Featured Blog */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8 cursor-pointer" onClick={() => {
+            window.location.href = `/blogs/${latestBlogs[0]?.slug}`;
+          }}>
             <div className="relative rounded-2xl overflow-hidden group">
 
               {/* Image */}
@@ -61,15 +68,13 @@ export default function LatestBlogs() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent " />
 
               {/* Content */}
-              {/* Content */}
               <div className="absolute bottom-0 w-full p-6 sm:p-8 text-white
-                bg-black/30 backdrop-blur-[5px]">
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold leading-tight mb-3">
-                  How IIoT Is Redefining Smart Factories in 2026
+                bg-black/30 backdrop-blur-[8px]">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold leading-tight mb-3 line-clamp-1">
+                  {latestBlogs[0]?.title}
                 </h3>
-                <p className="text-sm sm:text-base text-white/85 max-w-[600px]">
-                  Explore what Industrial IoT really means in the modern plant,
-                  the data flows it unlocks, and how connected machines beat isolated ones.
+                <p className="text-sm sm:text-base text-white/85 max-w-[600px] line-clamp-2">
+                  {latestBlogs[0]?.summary}
                 </p>
               </div>
 
@@ -83,23 +88,27 @@ export default function LatestBlogs() {
             </h4>
 
             <div className="flex flex-col divide-y divide-gray-200">
-              {latestBlogs.map((data: any, index: number) => (
+              {latestBlogs?.slice(1, 5).map((data: any, index: number) => (
                 <div
-                  key={index}
+                  key={data?.id || index}
                   className="flex items-center gap-4 py-5 group cursor-pointer"
+                  onClick={() => {
+                    window.location.href = `/blogs/${data?.slug}`;
+                  }}
                 >
                   <img
                     src={data?.cover_image_url}
-                    alt=""
+                    alt={data?.title}
                     className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover shrink-0"
                   />
 
-                  <p className="text-sm sm:text-base lg:text-lg font-semibold text-[#4f4f4f] group-hover:text-[#0098d4] transition truncate">
+                  <p className="text-sm sm:text-base lg:text-lg font-semibold text-[#4f4f4f] group-hover:text-[#0098d4] transition line-clamp-2 ">
                     {data?.title}
                   </p>
                 </div>
               ))}
             </div>
+
           </div>
 
         </div>

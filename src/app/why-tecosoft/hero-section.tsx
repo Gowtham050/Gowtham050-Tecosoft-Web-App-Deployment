@@ -1,5 +1,6 @@
 "use client";
 
+import BookDemoButton from "@/components/BookDemoButton";
 import svgPaths from "../../imports/svg-9v3kh9sdih";
 import { motion, type Variants } from "framer-motion";
 import React from "react";
@@ -248,6 +249,7 @@ function TaglineBadge() {
         px-2.5 py-1 sm:px-3 sm:py-1.5
         rounded-full
         border border-[${COLORS.primaryGreen}]
+        max-w-fit
       `}
     >
       <span
@@ -255,6 +257,8 @@ function TaglineBadge() {
           font-semibold text-[${COLORS.primaryBlue}]
           text-[11px] sm:text-[12px] lg:text-[13.5px]
           leading-tight
+          
+
         `}
       >
         {HERO_CONTENT.tagline}
@@ -265,9 +269,10 @@ function TaglineBadge() {
 
 function HeroHeadline() {
   return (
-    <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8 items-center w-full">
-      <TaglineBadge />
-      <h1
+    <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8 " >
+      <div className="flex justify-center lg:justify-start w-full">
+        <TaglineBadge />
+      </div>      <h1
         className="
           font-semibold text-white
           text-[28px] leading-[36px]
@@ -276,6 +281,7 @@ function HeroHeadline() {
           lg:text-[56px] lg:leading-[66px]
           xl:text-[68px] xl:leading-[80px]
           2xl:text-[80px] 2xl:leading-[94px]
+
         "
       >
         <span>{HERO_CONTENT.headline.main}</span>
@@ -297,7 +303,7 @@ function HeroDescription() {
         md:text-[18px] md:leading-[26px]
         lg:text-[20px] lg:leading-[28px]
         xl:text-[21px] xl:leading-[29px]
-        max-w-[650px]
+        max-w-[95%]
       "
     >
       {HERO_CONTENT.description}
@@ -307,7 +313,7 @@ function HeroDescription() {
 
 function DemoButton() {
   return (
-    <button
+    <BookDemoButton
       className={`
         bg-[${COLORS.primaryGreen}]
         flex items-center justify-center gap-2
@@ -322,7 +328,7 @@ function DemoButton() {
       <div className="rotate-[-90deg]">
         <ArrowIcon />
       </div>
-    </button>
+    </BookDemoButton>
   );
 }
 
@@ -490,12 +496,13 @@ function FloatingCard({ data }: { data: FloatingCardData }) {
       <IconComponent />
       <span
         className={`
-          font-medium text-[${COLORS.textDark}]
-          text-[12px]
-          sm:text-[14px]
-          lg:text-[16px]
-          xl:text-[17px]
+          font-medium text-[#282828]
+          text-[14px]
+          sm:text-[15px]
+          lg:text-[17px]
+          xl:text-[18px]
           whitespace-nowrap
+          leading-[18px]
         `}
       >
         {data.label}
@@ -562,10 +569,10 @@ export function HeroSection() {
       className="
         relative w-full overflow-hidden
         min-h-[580px]
-        sm:min-h-[630px]
-        md:min-h-[680px]
-        lg:min-h-[720px]
-        xl:min-h-[750px]
+        sm:min-h-[600px]
+        md:min-h-[630px]
+        lg:min-h-[650px]
+        xl:min-h-[680px]
       "
       aria-label="Hero section"
     >
@@ -578,15 +585,15 @@ export function HeroSection() {
           relative z-10 w-full h-full
           max-w-[1600px] mx-auto
           px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20
-          py-16 sm:py-20 md:py-24 lg:py-28
+          py-14 sm:py-16 md:py-18 lg:py-20 xl:py-24
         "
       >
         <div
           className="
-            grid grid-cols-1 lg:grid-cols-2
+            grid grid-cols-1 lg:grid-cols-[60fr_40fr]
             gap-10 sm:gap-12 lg:gap-8 xl:gap-12
             items-center
-            h-full  pt-4
+            h-full  pt-10
           "
         >
           {/* Left Column - Text Content */}

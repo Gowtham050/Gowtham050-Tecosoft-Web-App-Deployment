@@ -71,7 +71,7 @@ function FeatureCard({ title, desc }: { title: string; desc: string }) {
 
 function BannerContent() {
   return (
-    <div className="flex flex-col gap-[36px] w-full xl:w-[750px]">
+    <div className="flex flex-col gap-[36px] w-full">
       <h2 className="text-[36px] leading-[44px] font-semibold text-[#282828] max-w-[550px]">
         More Than a Vendor –{" "}
         <span className="text-[#07af40]">Your Digital Ops Partner</span>
@@ -98,7 +98,7 @@ function BannerContent() {
 
 function FeaturePanel() {
   return (
-    <div className="hidden xl:block absolute left-[962px] top-[50px] w-[450px] bg-[#007aaa] rounded-tl-[24px] rounded-tr-[24px]">
+    <div className="relative w-full bg-[#007aaa] rounded-tl-[24px] rounded-tr-[24px]">
       <div className="p-[12px]">
         <div className="bg-white rounded-tl-[15px] rounded-tr-[15px] p-[16px] flex flex-col gap-[16px]">
           {FEATURES.map((f) => (
@@ -126,18 +126,21 @@ export function Banner() {
       <div
         className="
           relative mx-auto
-          flex flex-col xl:flex-row
-          gap-[40px] xl:gap-[150px]
+          grid grid-cols-1 xl:grid-cols-[60fr_40fr]
+          gap-[40px] xl:gap-[80px]
+          items-start
           px-6 sm:px-10 md:px-16 xl:px-[100px]
-          py-[40px] xl:py-[60px]
+          pt-[40px] xl:pt-[60px]
           max-w-[1576px]
         "
       >
         <BannerContent />
-        <FeaturePanel />
 
-        {/* Desktop fade */}
-        <div className="hidden xl:block absolute bottom-0 left-[962px] w-[450px] h-[60px] bg-gradient-to-b from-transparent to-white" />
+        <div className="relative">
+          <FeaturePanel />
+          {/* Bottom fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-[90px] bg-gradient-to-b from-transparent to-white pointer-events-none" />
+        </div>
       </div>
     </section>
   );

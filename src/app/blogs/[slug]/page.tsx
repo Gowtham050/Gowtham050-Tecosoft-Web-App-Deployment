@@ -1,20 +1,17 @@
 import BlogDetailsContent from "./blog-details";
 
-interface Props {
-    params: {
-        slug: string;
-    };
-}
 
-export default function BlogDetail({ params }: Props) {
 
-    //   if (!blog) {
-    //     return notFound();
-    //   }
 
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ slug: string }>
+}) {
+    const { slug } = await params
     return (
         <div className="pt-20">
-            <BlogDetailsContent params={params} />
+            <BlogDetailsContent slug={slug} />
         </div>
     );
 }

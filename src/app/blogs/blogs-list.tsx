@@ -9,7 +9,7 @@ import LatestBlogs from "./latest-blogs";
 
 const BlogsList = () => {
   return (
-    <div>
+    <div className="pt-16">
       <HeroSection />
       <LatestBlogs />
       <AllArticles />
