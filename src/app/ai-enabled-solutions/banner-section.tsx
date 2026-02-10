@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { BANNER_SECTION } from "@/constants/ai-enabled-service/ai-enable-service";
+import BookDemoButton from "@/components/BookDemoButton";
 
 function ArrowIcon() {
   return (
@@ -28,7 +29,7 @@ function ArrowIcon() {
 
 function RequestDemoButton() {
   return (
-    <button
+    <BookDemoButton
       className="bg-[#07af40] hover:bg-[#06a038] transition-colors duration-200 flex gap-2 items-center justify-center px-4 py-2.5 rounded shadow-lg hover:shadow-xl"
       aria-label="Request Demo"
     >
@@ -38,7 +39,7 @@ function RequestDemoButton() {
       <div className="flex items-center justify-center size-[14px] -rotate-90">
         <ArrowIcon />
       </div>
-    </button>
+    </BookDemoButton>
   );
 }
 

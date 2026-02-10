@@ -122,13 +122,20 @@ const FooterSection = () => {
                     <ul className="space-y-2.5">
                       {section.links.map((link, linkIndex) => (
                         <li key={linkIndex}>
-                          <a
-                            href={link.href}
-                            className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
-                          >
-                            {link.name}
-                          </a>
+                          {link.name === "Book a Demo" ? (
+                            <BookDemoButton className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base">
+                              {link.name}
+                            </BookDemoButton>
+                          ) : (
+                            <a
+                              href={link.href}
+                              className="text-[#4ACEFF] hover:text-white transition-colors text-sm md:text-base"
+                            >
+                              {link.name}
+                            </a>
+                          )}
                         </li>
+
                       ))}
                     </ul>
                   </div>

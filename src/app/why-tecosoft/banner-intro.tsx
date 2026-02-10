@@ -1,5 +1,7 @@
 "use client";
 
+import BookDemoButton from "@/components/BookDemoButton";
+
 // =============================================================================
 // CONSTANTS
 // =============================================================================
@@ -44,8 +46,7 @@ function ArrowRightIcon() {
 
 function CTAButton() {
   return (
-    <button
-      type="button"
+    <BookDemoButton
       className="
         bg-[#07af40]
         flex items-center gap-2
@@ -61,7 +62,7 @@ function CTAButton() {
       <span className="rotate-[-90deg]">
         <ArrowRightIcon />
       </span>
-    </button>
+    </BookDemoButton>
   );
 }
 

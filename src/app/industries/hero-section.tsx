@@ -76,9 +76,9 @@ function ArrowIcon({ size = 14, direction = "down" }: ArrowIconProps) {
 // BUTTON
 // =============================================================================
 
-function CTAButton({ label, variant, showArrow = true }: ButtonProps) {
+function CTAButton({ label, variant, showArrow = true, onClick }: ButtonProps & { onClick?: () => void }) {
   const base =
-    "flex items-center justify-center gap-2 px-4 py-3 relative text-white";
+    "flex items-center justify-center gap-2 px-4 py-3 relative text-white cursor-pointer";
   const variantClass =
     variant === "primary"
       ? `bg-[${COLORS.PRIMARY_GREEN}]`
@@ -87,6 +87,7 @@ function CTAButton({ label, variant, showArrow = true }: ButtonProps) {
   return (
     <div
       className={`${base} ${variantClass} w-full sm:w-auto`}
+      onClick={onClick}
       role="button"
     >
       <span className={`${TEXT_STYLES.gilroySemibold} text-[15px]`}>
@@ -152,11 +153,11 @@ function HeroSubtitle() {
 // CTA GROUP
 // =============================================================================
 
-function HeroCTAButtons() {
+function HeroCTAButtons({ onboardClick }: { onboardClick: () => void }) {
   return (
     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
-      <CTAButton label="Explore Industries" variant="primary" />
-      <CTAButton label="Why Tecosoft" variant="outline" />
+      <CTAButton label="Explore Industries" variant="primary" onClick={onboardClick} />
+      <CTAButton label="Why Tecosoft" variant="outline" onClick={() => window.location.href = "/why-tecosoft/"} />
     </div>
   );
 }
@@ -165,7 +166,7 @@ function HeroCTAButtons() {
 // CONTENT WRAPPER
 // =============================================================================
 
-function HeroContent() {
+function HeroContent({ onboardClick }: { onboardClick: () => void }) {
   return (
     <div
       className="
@@ -179,7 +180,7 @@ function HeroContent() {
     >
       <HeroHeadline />
       <HeroSubtitle />
-      <HeroCTAButtons />
+      <HeroCTAButtons onboardClick={onboardClick} />
     </div>
   );
 }
@@ -221,7 +222,7 @@ function GradientOverlay() {
 // HERO SECTION
 // =============================================================================
 
-export default function HeroSection() {
+export default function HeroSection({ onboardClick }: { onboardClick: () => void }) {
   return (
     <section
       className="
@@ -236,7 +237,7 @@ export default function HeroSection() {
     >
       <VideoBackground />
       <GradientOverlay />
-      <HeroContent />
+      <HeroContent onboardClick={onboardClick} />
     </section>
   );
 }

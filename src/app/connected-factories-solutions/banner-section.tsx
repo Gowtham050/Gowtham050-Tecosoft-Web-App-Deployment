@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import svgPaths from "../../imports/svg-0dlgmqgi5c";
 import { FactoryDiagram } from "@/components/FactoryDiagram/FactoryDiagram";
+import BookDemoButton from "@/components/BookDemoButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,7 +65,7 @@ function IconoirArrowDown5() {
 
 function Frame2() {
   return (
-    <div
+    <BookDemoButton
       className="bg-[#07af40] box-border content-stretch flex gap-[6px] sm:gap-[7px] md:gap-[8px] items-center justify-center 
       px-[10px] py-[7px]
       min-[375px]:px-[11px] min-[375px]:py-[7.5px]
@@ -97,7 +98,7 @@ function Frame2() {
           <IconoirArrowDown5 />
         </div>
       </div>
-    </div>
+    </BookDemoButton>
   );
 }
 

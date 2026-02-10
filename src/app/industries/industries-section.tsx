@@ -123,9 +123,8 @@ function CardImage({ src, alt }: { src: string; alt: string }) {
         h-[240px]
         sm:h-[300px]
         md:h-[360px]
-        lg:h-[400px]
-        xl:h-[441px]
-        2xl:h-[480px]
+        lg:h-[480px]
+        
         lg:w-1/2
         rounded-xl
         sm:rounded-2xl
@@ -151,8 +150,6 @@ function CardTitle({ title }: { title: string }) {
         text-[20px]
         sm:text-[24px]
         md:text-[26px]
-        lg:text-[28px]
-        xl:text-[30px]
       `}
     >
       {title}
@@ -169,7 +166,7 @@ function CardDescription({ text }: { text: string }) {
         max-w-[640px]
         text-[14px] leading-[22px]
         sm:text-[15px] sm:leading-[24px]
-        lg:text-[16px] lg:leading-[28px]
+        lg:text-[16px] 
       `}
     >
       {text}
@@ -203,15 +200,15 @@ function UseCasesBox({ useCases }: { useCases: string[] }) {
       className={`
         bg-[${COLORS.bgGray}]
         rounded-xl sm:rounded-2xl
-        p-4 sm:p-5 lg:p-6
+        p-3 sm:p-4
         shadow-sm
       `}
     >
       <p
         className={`
           text-[${COLORS.primaryLight}] font-semibold
-          mb-4 sm:mb-5 lg:mb-6
-          text-[16px] sm:text-[17px] lg:text-[18px]
+          mb-3  lg:mb-4
+          text-[16px]
         `}
       >
         Use cases:
@@ -222,9 +219,9 @@ function UseCasesBox({ useCases }: { useCases: string[] }) {
           grid
           grid-cols-1
           sm:grid-cols-2
-          gap-y-4 gap-x-6
-          sm:gap-y-5 sm:gap-x-8
-          lg:gap-y-6 lg:gap-x-10
+          gap-y-2 gap-x-3
+          sm:gap-y-4 sm:gap-x-6
+          lg:gap-y-4 lg:gap-x-8
         "
       >
         {useCases.map((item) => (
@@ -246,19 +243,17 @@ function OutcomeBadge({ outcome }: { outcome: string }) {
     <span
       className="
         bg-teal-100
-        px-3 py-1.5
-        sm:px-4 sm:py-2
+        px-1 py-1
+        sm:px-2 sm:py-1
         rounded-full
         text-[14px]
-        sm:text-[16px]
+        sm:text-[15px]
         font-medium
-        whitespace-nowrap
-        flex items-center gap-2
       "
     >
       <span
         className={`
-          font-normal text-[16px]
+          font-normal text-[16px] 
           ${isUp ? "text-green-600" : ""}
           ${isDown ? "text-red-600" : ""}
         `}
@@ -266,7 +261,7 @@ function OutcomeBadge({ outcome }: { outcome: string }) {
         {arrow}
       </span>
 
-      <span className="text-[#007AAA]">
+      <span className="text-[#007AAA] ml-1">
         {text}
       </span>
     </span>
@@ -276,8 +271,19 @@ function OutcomeBadge({ outcome }: { outcome: string }) {
 
 function OutcomesList({ outcomes }: { outcomes: string[] }) {
   return (
-    <div className="pt-5 sm:pt-6 lg:pt-8">
+    <div className="pt-5 sm:pt-6 ">
       <div className="flex flex-wrap gap-2 sm:gap-3">
+
+        <div className="w-full xl:mb-3">
+          <p
+            className={`
+            text-[${COLORS.textDark}] font-semibold
+            text-[16px] sm:text-[17px] lg:text-[18px]
+          `}
+          >
+            Expected Outcomes:
+          </p>
+        </div>
         {outcomes.map((outcome) => (
           <OutcomeBadge key={outcome} outcome={outcome} />
         ))}
@@ -291,7 +297,7 @@ function IndustryCard({ data }: { data: IndustryData }) {
     <div
       className="
         flex flex-col lg:flex-row
-        gap-5 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12
+        gap-5 sm:gap-6 md:gap-6 lg:gap-7 xl:gap-10
         items-stretch
       "
     >
@@ -301,7 +307,7 @@ function IndustryCard({ data }: { data: IndustryData }) {
       {/* Content Section */}
       <div className="w-full lg:w-1/2 flex flex-col justify-between">
         {/* Top Content */}
-        <div className="space-y-4 sm:space-y-5 lg:space-y-6">
+        <div className="space-y-3 lg:space-y-4 xl:space-y-6">
           <div>
             <CardTitle title={data.title} />
             <CardDescription text={data.description} />
@@ -377,7 +383,7 @@ function SectionHeader({ onPrev, onNext }: SectionHeaderProps) {
 // MAIN SECTION
 // =============================================================================
 
-export default function IndustriesSection() {
+export default function IndustriesSection({ moveToNextSection }: { moveToNextSection: any }) {
   const swiperRef = useRef<SwiperType | null>(null);
 
   const handlePrev = () => swiperRef.current?.slidePrev();
@@ -390,6 +396,8 @@ export default function IndustriesSection() {
         px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20
         py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16
       "
+      aria-label="Industries and use cases"
+      ref={moveToNextSection}
     >
       {/* Container with max-width for large screens */}
       <div className="max-w-[1600px] mx-auto">

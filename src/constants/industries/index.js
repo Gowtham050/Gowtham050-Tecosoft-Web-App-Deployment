@@ -12,7 +12,7 @@ export const INDUSTRIES_DATA = [
       "Tool Life & Calibration",
       "Maintenance Planning & CMMS Sync",
       "Predictive Maintenance",
-      "Connected Factory Twin"
+      // "Connected Factory Twin"
     ],
     outcomes: [
       "↑ OEE",

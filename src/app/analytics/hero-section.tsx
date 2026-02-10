@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 import svgPaths from "../../imports/svg-xkva4n8i2f";
+import BookDemoButton from "@/components/BookDemoButton";
 
 const imgRectangle =
   "/assets/platform/analytics/ce7eda35d16cd944d375e0f181ad39674cb881d2.png";
@@ -38,7 +39,7 @@ function IconoirArrowDown5() {
 
 function Frame3() {
   return (
-    <div className="bg-[#07af40] box-border content-stretch flex gap-[8px] max-[767px]:gap-[6px] items-center justify-center px-[14px] max-[767px]:px-[12px] py-[10px] max-[767px]:py-[8px] relative shrink-0">
+    <BookDemoButton className="bg-[#07af40] box-border content-stretch flex gap-[8px] max-[767px]:gap-[6px] items-center justify-center px-[14px] max-[767px]:px-[12px] py-[10px] max-[767px]:py-[8px] relative shrink-0">
       <p className="font-semibold leading-[20px] max-[767px]:leading-[18px] not-italic relative shrink-0 text-[15px] max-[767px]:text-[13px] text-nowrap text-white whitespace-pre">
         Book a Demo
       </p>
@@ -55,7 +56,7 @@ function Frame3() {
           <IconoirArrowDown5 />
         </div>
       </div>
-    </div>
+    </BookDemoButton>
   );
 }
 

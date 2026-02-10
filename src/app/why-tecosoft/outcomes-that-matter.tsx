@@ -2,6 +2,7 @@
 
 import React from "react";
 import svgPaths from "@/imports/svg-9v3kh9sdih";
+import BookDemoButton from "@/components/BookDemoButton";
 
 // =============================================================================
 // SVG PATH CONSTANTS (Simple inline paths)
@@ -87,9 +88,9 @@ function CTAButton({
   const isPrimary = variant === "primary";
 
   return (
-    <button
+    <BookDemoButton
       className={`${isPrimary ? "bg-[#07af40] text-white" : "bg-white text-[#07af40]"} content-stretch flex gap-[8px] items-center justify-center px-[14px] py-[10px] relative shrink-0 w-full sm:w-[172px] cursor-pointer hover:opacity-90 transition-opacity`}
-      type="button"
+    // type="button"
     >
       <span className="font-semibold leading-[20px] not-italic relative shrink-0 text-[15px]">
         {text}
@@ -107,7 +108,7 @@ function CTAButton({
           <ArrowIcon color={isPrimary ? "white" : "#07AF40"} />
         </div>
       </div>
-    </button>
+    </BookDemoButton>
   );
 }
 
@@ -472,16 +473,18 @@ function OutcomeCardsRow() {
 /** Outcomes That Matter section */
 export function OutcomesThatMatter() {
   return (
-    <section
-      className="content-stretch flex flex-col gap-[40px] sm:gap-[50px] items-center overflow-clip px-[20px] sm:px-[40px] lg:px-[100px] py-[40px] sm:py-[60px] relative shrink-0 w-full max-w-[1567px] mx-auto"
-      aria-label="Outcomes that matter"
-      style={{
-        backgroundImage:
-          "linear-gradient(219.604deg, rgb(0, 188, 239) 6.4454%, rgb(0, 35, 99) 95.133%)",
-      }}
-    >
-      <HeroSection />
-      <OutcomeCardsRow />
-    </section>
+    <div style={{
+      backgroundImage:
+        "linear-gradient(219.604deg, rgb(0, 188, 239) 6.4454%, rgb(0, 35, 99) 95.133%)",
+    }}>
+      <section
+        className="content-stretch flex flex-col gap-[40px] sm:gap-[50px] items-center overflow-clip px-[20px] sm:px-[40px] lg:px-[100px] py-[40px] sm:py-[60px] relative shrink-0 w-full max-w-[1567px] mx-auto"
+        aria-label="Outcomes that matter"
+
+      >
+        <HeroSection  />
+        <OutcomeCardsRow />
+      </section>
+    </div>
   );
 }

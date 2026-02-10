@@ -8,7 +8,7 @@ import React from "react";
 
 const ASSETS = {
   heroImage:
-    "/assets/pages/why-tecosoft/cc632dcc9f8af8f81593fdb0a0db918fe56ac65a.png",
+    "/assets/pages/why-tecosoft/banner.png",
 } as const;
 
 const SECTION_CONTENT = {

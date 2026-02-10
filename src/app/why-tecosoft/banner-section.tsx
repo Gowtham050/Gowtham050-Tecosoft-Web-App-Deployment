@@ -98,20 +98,22 @@ function BannerContent() {
 
 function FeaturePanel() {
   return (
-    <div className="relative w-full bg-[#007aaa] rounded-tl-[24px] rounded-tr-[24px]">
-      <div className="p-[12px]">
-        <div className="bg-white rounded-tl-[15px] rounded-tr-[15px] p-[16px] flex flex-col gap-[16px]">
-          {FEATURES.map((f) => (
-            <FeatureCard key={f.title} {...f} />
-          ))}
+    <div>
+      <div className="relative  bg-[#007aaa] rounded-tl-[24px] rounded-tr-[24px]  max-w-[450px]">
+        <div className="p-[12px]">
+          <div className="bg-white rounded-tl-[15px] rounded-tr-[15px] p-[16px] flex flex-col gap-[16px]">
+            {FEATURES.map((f) => (
+              <FeatureCard key={f.title} {...f} />
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div
-        aria-hidden
-        className="absolute inset-0 rounded-tl-[24px] rounded-tr-[24px] border border-[#ccf1ff]
+        <div
+          aria-hidden
+          className="absolute inset-0 rounded-tl-[24px] rounded-tr-[24px] border border-[#ccf1ff]
           shadow-[-8px_8px_20px_rgba(0,0,0,0.08),8px_8px_20px_rgba(0,0,0,0.08)]"
-      />
+        />
+      </div>
     </div>
   );
 }
