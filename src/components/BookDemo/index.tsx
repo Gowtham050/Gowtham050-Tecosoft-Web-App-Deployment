@@ -104,17 +104,17 @@ export default function BookDemoModal({ isOpen, onClose }: Props) {
   ) => {
     console.log("Form submitted:", values);
 
-    // const payload = {
-    //   first_name: values?.firstName,
-    //   last_name: values?.lastName,
-    //   email: values?.email,
-    //   phone: values?.phone,
-    //   country: values?.country,
-    //   message: values?.message,
-    // };
+    const payload = {
+      first_name: values?.firstName,
+      last_name: values?.lastName,
+      email: values?.email,
+      phone: values?.phone,
+      country: values?.country,
+      message: values?.message,
+    };
     // // Simulate API call
-    // await demoBooking(payload);
-    alert(JSON.stringify(values));
+    await demoBooking(payload);
+    // alert(JSON.stringify(values));
     toast.success("Demo request submitted successfully!");
     setSubmitting(false);
     resetForm();

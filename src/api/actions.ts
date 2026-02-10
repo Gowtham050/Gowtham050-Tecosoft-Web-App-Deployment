@@ -54,6 +54,10 @@ const getListByApi = (requestUrl: any, params: any) => {
     getParams += `&status=${params.status}`;
   }
 
+  if (params && params.type && params.type !== undefined) {
+    getParams += `&type=${params.type}`;
+  }
+
 
   return fetch(`${hostConfig.API_URL}${requestUrl}${getParams}`, {
     method: "GET",

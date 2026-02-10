@@ -13,3 +13,12 @@ export const getBlogAll = (params) => {
 export const getBlogDetails = (slug) => {
   return getListByApi("blogs/slug/" + slug, {});
 }
+
+
+export const getWhitePapersAll = (params) => {
+  return getListByApi(URL_CONSTANTS.whitePapers, params);
+}
+
+export const getWhitePaperDetails = (slug) => {
+  return getListByApi("whitepapers/" + slug, {});
+}

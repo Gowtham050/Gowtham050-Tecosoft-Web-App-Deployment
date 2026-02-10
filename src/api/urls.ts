@@ -2,7 +2,7 @@ const URL_CONSTANTS = {
   bookDemo: "book-demo",
   applications: "applicants",
   blogs: "blogs",
-  whitePapers: "white-papers",
+  whitePapers: "whitepapers",
   blogLatest: "blogs/latest/list",
 };
 

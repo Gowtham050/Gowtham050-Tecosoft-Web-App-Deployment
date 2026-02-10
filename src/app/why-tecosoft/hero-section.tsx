@@ -35,14 +35,17 @@ const COLORS = {
 
 // Animation config for floating cards
 const floatingCardAnimation: Variants = {
+
   animate: {
-    x: [0, -1.2, 1.2, -1.2, 1.2, 0],
-    y: [0, -1.2, 1.2, -1.2, 1.2, 0],
+    // x: [0, -1.2, 1.2, -1.2, 1.2, 0],
+    // y: [0, -1.2, 1.2, -1.2, 1.2, 0],
+    y: [0, -10, 0],
+
   },
 };
 
 const floatingCardTransition = {
-  duration: 0.9,
+  duration: 4,
   repeat: Infinity,
 } as const;
 

@@ -10,7 +10,7 @@ function SectionHeader() {
     <div className="max-w-[520px] flex flex-col gap-4">
       <h2
         className="
-          font-['Gilroy:Semibold',sans-serif]
+           font-semibold
           text-[24px] leading-[32px]
           sm:text-[28px] sm:leading-[36px]
           md:text-[32px] md:leading-[40px]
@@ -177,7 +177,7 @@ function SolutionCard({ title, description, icon }: CardProps) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <h3 className="font-['Gilroy:Semibold',sans-serif] text-[18px] sm:text-[20px] text-[#282828]">
+        <h3 className=" font-semibold text-[18px] sm:text-[20px] text-[#282828]">
           {title}
         </h3>
         <p className="text-[#777] text-[14px] leading-[21px]">

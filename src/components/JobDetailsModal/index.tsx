@@ -283,11 +283,12 @@ function ApplicationFormView({
     formData.append("linkedin_portfolio", values.linkedinPortfolio);
     formData.append("attachment", values.attachment ?? new Blob());
 
-    // await createApplication(formData);
-    alert("Application submitted successfully!");
+    await createApplication(formData);
     toast.success("Application submitted successfully");
     setSubmitting(false);
     resetForm();
+    onClose();
+
   };
 
   return (
@@ -306,8 +307,8 @@ function ApplicationFormView({
         {({ setFieldValue, isSubmitting, errors, touched }) => (
           <Form
             data-lenis-prevent
-            className="flex flex-col"
-            style={{ maxHeight: "85vh", height: "100%" }}
+            className="flex flex-col overflow-hidden"
+            style={{ maxHeight: "85vh" }}
           >
             {/* Header */}
             <div className="flex-shrink-0 flex items-start justify-between border-b border-gray-200 bg-white px-3 py-3 xs:px-4 xs:py-4 sm:px-6  rounded-t-xl sm:rounded-t-2xl gap-2">
@@ -360,14 +361,14 @@ function ApplicationFormView({
             {/* Form Content */}
             <div
               data-lenis-prevent
-              className="px-3 py-4 xs:px-4 xs:py-5 sm:px-6 sm:py-6 no-scollbar"
+              className="px-3 py-4 xs:px-4 xs:py-5 sm:px-6 sm:py-6 no-scrollbar  "
               style={{
                 overflowY: "auto",
                 flex: 1,
                 minHeight: 0,
               }}
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-5  ">
                 {/* First Name */}
                 <div className="min-h-[70px] xs:min-h-[76px]">
                   <label className="block text-xs xs:text-sm font-medium text-gray-700 mb-1">
@@ -379,8 +380,8 @@ function ApplicationFormView({
                     onKeyPress={allowOnlyLetters}
                     onKeyDown={preventLeadingSpace}
                     className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.firstName && touched.firstName
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-gray-300 focus:border-green-500"
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300 focus:border-green-500"
                       }`}
                     placeholder="Enter your first name"
                   />
@@ -404,8 +405,8 @@ function ApplicationFormView({
                     onKeyPress={allowOnlyLetters}
                     onKeyDown={preventLeadingSpace}
                     className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.lastName && touched.lastName
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-gray-300 focus:border-green-500"
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300 focus:border-green-500"
                       }`}
                     placeholder="Enter your last name"
                   />
@@ -428,8 +429,8 @@ function ApplicationFormView({
                     type="text"
                     onKeyDown={preventSpaces}
                     className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.email && touched.email
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-gray-300 focus:border-green-500"
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300 focus:border-green-500"
                       }`}
                     placeholder="Enter your email address"
                   />
@@ -467,8 +468,8 @@ function ApplicationFormView({
                       maxLength={15}
                       onKeyPress={allowOnlyNumbers}
                       className={`w-full rounded-r-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.phone && touched.phone
-                          ? "border-red-500 focus:border-red-500"
-                          : "border-gray-300 focus:border-green-500"
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-300 focus:border-green-500"
                         }`}
                       placeholder="Phone number"
                     />
@@ -490,8 +491,8 @@ function ApplicationFormView({
                   <Field
                     name="currentLocation"
                     className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.currentLocation && touched.currentLocation
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-gray-300 focus:border-green-500"
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300 focus:border-green-500"
                       }`}
                     placeholder="Enter your current location"
                   />
@@ -514,8 +515,8 @@ function ApplicationFormView({
                       as="select"
                       name="workExperience"
                       className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 appearance-none pr-8 ${errors.workExperience && touched.workExperience
-                          ? "border-red-500 focus:border-red-500"
-                          : "border-gray-300 focus:border-green-500"
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-300 focus:border-green-500"
                         }`}
                     >
                       <option value="">Select</option>
@@ -544,8 +545,8 @@ function ApplicationFormView({
                   <Field
                     name="linkedinPortfolio"
                     className={`w-full rounded-md border px-3 py-2 text-xs xs:text-sm outline-none focus:ring-1 focus:ring-green-500 ${errors.linkedinPortfolio && touched.linkedinPortfolio
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-gray-300 focus:border-green-500"
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300 focus:border-green-500"
                       }`}
                     placeholder="https://linkedin.com/in/yourprofile"
                   />
@@ -565,8 +566,8 @@ function ApplicationFormView({
                   </label>
                   <div
                     className={`border-2 border-dashed rounded-lg p-3 xs:p-4 sm:p-6 text-center transition-colors ${errors.attachment && touched.attachment
-                        ? "border-red-300 bg-red-50"
-                        : "border-gray-300 hover:border-gray-400"
+                      ? "border-red-300 bg-red-50"
+                      : "border-gray-300 hover:border-gray-400"
                       }`}
                   >
                     <input

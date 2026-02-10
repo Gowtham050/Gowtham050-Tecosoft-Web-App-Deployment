@@ -18,9 +18,9 @@ const COLORS = {
 } as const;
 
 const TEXT_STYLES = {
-  gilroySemibold: "font-['Gilroy:Semibold',sans-serif]",
-  gilroyMedium: "font-['Gilroy:Medium',sans-serif]",
-  gilroyRegular: "font-['Gilroy:Regular',sans-serif]",
+  gilroySemibold: " font-semibold",
+  gilroyMedium: " font-medium",
+  gilroyRegular: " font-normal",
 } as const;
 
 const GRADIENT_BG =

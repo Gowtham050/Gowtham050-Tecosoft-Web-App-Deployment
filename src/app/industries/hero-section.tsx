@@ -22,8 +22,8 @@ const COLORS = {
 
 /** Common text styles */
 const TEXT_STYLES = {
-  gilroySemibold: "font-['Gilroy:Semibold',sans-serif]",
-  gilroyMedium: "font-['Gilroy:Medium',sans-serif]",
+  gilroySemibold: " font-semibold",
+  gilroyMedium: " font-medium",
 } as const;
 
 // =============================================================================

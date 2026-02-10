@@ -144,10 +144,10 @@ function CardContent1() {
   const card = OUTCOMES_DATA.cards[0];
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center not-italic relative shrink-0 w-full">
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
+      <p className="css-ew64yg  font-semibold leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
         {card.title}
       </p>
-      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
+      <p className="css-4hzbpn  font-normal leading-[22px] relative shrink-0 text-[#777] text-[16px] text-center">
         {card.description}
       </p>
     </div>
@@ -229,10 +229,10 @@ function CardContent2() {
   const card = OUTCOMES_DATA.cards[1];
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center not-italic relative shrink-0 w-full">
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
+      <p className="css-ew64yg  font-semibold leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
         {card.title}
       </p>
-      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
+      <p className="css-4hzbpn  font-normal leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
         {card.description}
       </p>
     </div>
@@ -328,10 +328,10 @@ function CardContent3() {
   const card = OUTCOMES_DATA.cards[2];
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center not-italic relative shrink-0 w-full">
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
+      <p className="css-ew64yg  font-semibold leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
         {card.title}
       </p>
-      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
+      <p className="css-4hzbpn  font-normal leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
         {card.description}
       </p>
     </div>
@@ -403,10 +403,10 @@ function CardContent4() {
   const card = OUTCOMES_DATA.cards[3];
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center not-italic relative shrink-0 w-full">
-      <p className="css-ew64yg font-['Gilroy:Semibold',sans-serif] leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
+      <p className="css-ew64yg  font-semibold leading-[24px] relative shrink-0 text-[#282828] text-[20px] text-center">
         {card.title}
       </p>
-      <p className="css-4hzbpn font-['Gilroy:Regular',sans-serif] leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
+      <p className="css-4hzbpn  font-normal leading-[22px] relative shrink-0 text-[#777] text-[15px] text-center">
         {card.description}
       </p>
     </div>
